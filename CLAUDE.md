@@ -6,7 +6,8 @@ HTML. SEO/GEO is the entire point of this app. Full reference:
 
 ## Tech Stack
 - Astro 4, `output: 'static'`, `trailingSlash: 'never'` — zero client JS
-  (single exception: the 404 page's locale-aware redirect script)
+  (two exceptions: the 404 page's locale-aware redirect script, and the GA4
+  gtag.js snippet in BaseLayout — prod builds only)
 - Served today by nginx in Docker; **hosting will likely move to Vercel /
   Cloudflare Pages / GitHub Pages**
 

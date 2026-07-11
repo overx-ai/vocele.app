@@ -60,6 +60,20 @@ const allStructuredData = [...websiteSchema, ...structuredData];
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  {import.meta.env.PROD && (
+    <>
+      {/* Google Analytics (GA4). Prod builds only; excluded from `astro dev`. */}
+      <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-0ZQBJJGWPG"></script>
+      <script is:inline>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-0ZQBJJGWPG');
+      </script>
+    </>
+  )}
+
   <title>{fullTitle}</title>
   <meta name="description" content={description} />
   {noindex
