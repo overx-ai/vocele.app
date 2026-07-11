@@ -1,0 +1,116 @@
+---
+// Shared SEO shell for every page. All content below is rendered to plain, static
+// HTML at build time — there is no client-side rendering step a crawler has to wait
+// for, no hydration mismatch risk, nothing behind JavaScript.
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { hasTranslation, enPath as buildEnPath, esPath as buildEsPath } from '../site-pages';
+import '../styles/global.css';
+
+export interface Props {
+  title: string;
+  description: string;
+  lang?: 'en' | 'es';
+  /** Path segment shared by the en/es equivalents, e.g. "" for home, "pricing", "faq". Used to build hreflang + canonical. */
+  slug?: string;
+  ogImage?: string;
+  structuredData?: object[];
+  noindex?: boolean;
+}
+
+const {
+  title,
+  description,
+  lang = 'en',
+  slug = '',
+  ogImage = '/og-image.jpg',
+  structuredData = [],
+  noindex = false,
+} = Astro.props;
+
+const site = Astro.site?.toString().replace(/\/$/, '') ?? 'https://vocele.app';
+const enPath = buildEnPath(slug);
+const esPath = buildEsPath(slug);
+const currentPath = lang === 'es' ? esPath : enPath;
+const canonicalURL = `${site}${currentPath}`;
+const fullTitle = title.includes('Vocele') ? title : `${title} | Vocele`;
+
+// noindex pages (404) get no canonical/hreflang. Single-locale pages (privacy,
+// terms) get a canonical but no hreflang — its /es twin doesn't exist.
+const indexable = !noindex;
+const translated = indexable && hasTranslation(slug);
+
+// WebSite schema (Google site-name) on the home pages only, per Google guidance.
+// No page defines its own WebSite entry today — keep it that way.
+const websiteSchema =
+  slug === '' && indexable
+    ? [{
+        '@context': 'https://schema.org',
+        '@type': 'WebSite',
+        name: 'Vocele',
+        url: `${site}/`,
+        inLanguage: lang === 'es' ? 'es-MX' : 'en-US',
+      }]
+    : [];
+const allStructuredData = [...websiteSchema, ...structuredData];
+---
+
+<!DOCTYPE html>
+<html lang={lang === 'es' ? 'es-MX' : 'en-US'}>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{fullTitle}</title>
+  <meta name="description" content={description} />
+  {noindex
+    ? <meta name="robots" content="noindex, nofollow" />
+    : <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />}
+
+  {indexable && <link rel="canonical" href={canonicalURL} />}
+  {translated && (
+    <>
+      <link rel="alternate" hreflang="en-US" href={`${site}${enPath}`} />
+      <link rel="alternate" hreflang="es-MX" href={`${site}${esPath}`} />
+      <link rel="alternate" hreflang="x-default" href={`${site}${enPath}`} />
+    </>
+  )}
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Vocele" />
+  <meta property="og:title" content={fullTitle} />
+  <meta property="og:description" content={description} />
+  <meta property="og:url" content={canonicalURL} />
+  <meta property="og:image" content={`${site}${ogImage}`} />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="675" />
+  <meta property="og:image:alt" content="Vocele — AI Language Coach" />
+  <meta property="og:locale" content={lang === 'es' ? 'es_MX' : 'en_US'} />
+  {translated && <meta property="og:locale:alternate" content={lang === 'es' ? 'en_US' : 'es_MX'} />}
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={fullTitle} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={`${site}${ogImage}`} />
+
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <meta name="theme-color" content="#F04582" />
+  <meta name="color-scheme" content="light" />
+  <!-- Outfit display face — self-hosted latin subset, one same-origin request. -->
+  <link rel="preload" href="/fonts/outfit-latin.woff2" as="font" type="font/woff2" crossorigin />
+
+  {allStructuredData.map((entry) => (
+    <script type="application/ld+json" set:html={JSON.stringify(entry)} />
+  ))}
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+  <Header lang={lang} slug={slug} translated={translated} />
+  <main id="main">
+    <slot />
+  </main>
+  <Footer lang={lang} />
+</body>
+</html>

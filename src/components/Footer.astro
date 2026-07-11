@@ -1,0 +1,78 @@
+---
+export interface Props { lang?: 'en' | 'es' }
+const { lang = 'en' } = Astro.props;
+const base = lang === 'es' ? '/es' : '';
+const t = lang === 'es'
+  ? { pricing: 'Precios', faq: 'Preguntas', blog: 'Artículos', privacy: 'Privacidad', terms: 'Términos' }
+  : { pricing: 'Pricing', faq: 'FAQ', blog: 'Blog', privacy: 'Privacy', terms: 'Terms' };
+
+const links = [
+  { href: `${base}/pricing`, label: t.pricing },
+  { href: `${base}/faq`, label: t.faq },
+  { href: `${base}/blog`, label: t.blog },
+  { href: '/privacy', label: t.privacy },   // EN-only legal pages
+  { href: '/terms', label: t.terms },
+];
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="container row">
+    <span class="brand">Vocele <span class="by">by <a href="https://overx.ai">overX.ai</a></span></span>
+    <nav aria-label="Footer">
+      <ul>
+        {links.map((l) => (
+          <li><a href={l.href}>{l.label}</a></li>
+        ))}
+      </ul>
+    </nav>
+    <p class="copy">&copy; {year} overX.ai — Vocele</p>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background: var(--color-ink);
+    color: var(--color-ink-soft);
+    border-top: 1px solid rgba(84, 84, 88, 0.6);
+    padding: var(--space-xl) 0;
+  }
+  .row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-lg);
+    flex-wrap: wrap;
+  }
+  .brand {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 1.0625rem;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: #f5f5f7;
+  }
+  .by { font-weight: 500; font-size: 0.8125rem; text-transform: none; color: var(--color-ink-soft); }
+  .by a { color: var(--color-ink-soft); text-decoration: none; }
+  .by a:hover { color: #f5f5f7; }
+  nav ul {
+    display: flex;
+    gap: var(--space-lg);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    flex-wrap: wrap;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 0.8125rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  nav a { text-decoration: none; color: var(--color-ink-soft); }
+  nav a:hover { color: #f5f5f7; }
+  .copy { margin: 0; font-size: 0.8125rem; }
+
+  @media (max-width: 640px) {
+    .row { flex-direction: column; align-items: flex-start; gap: var(--space-md); }
+  }
+</style>

@@ -1,0 +1,58 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const notFound = [
+  { text: 'Page not found', color: '#f04582' },
+  { text: 'Página no encontrada', color: '#21c7eb' },
+  { text: 'Page introuvable', color: '#f78f38' },
+  { text: 'Seite nicht gefunden', color: '#635ccf' },
+  { text: 'Pagina non trovata', color: '#1aa88c' },
+  { text: 'Página não encontrada', color: '#2163eb' },
+  { text: 'ページが見つかりません', color: '#f24552' },
+];
+---
+<BaseLayout title="Page Not Found" description="This page doesn't exist." slug="404" noindex={true}>
+  <section class="not-found">
+    <div class="container">
+      <h1 class="big"><span class="clip">404</span></h1>
+      <p class="line-en">We couldn't find that page — taking you home.</p>
+      <p class="line-es">No encontramos esa página — te llevamos al inicio.</p>
+      <p class="links">
+        <a href="/" class="pill pill-ink">Back to Vocele <span aria-hidden="true">→</span></a>
+        <a href="/es" class="pill pill-ghost">Ir al inicio <span aria-hidden="true">→</span></a>
+      </p>
+    </div>
+
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker-track">
+        {[...notFound, ...notFound].map((n) => (
+          <><span class="tick-item">{n.text}</span><span class="tick-sep" style={`color:${n.color}`}>✦</span></>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Provider-portable "no dead ends": every static host (nginx, Vercel,
+       Cloudflare Pages, GitHub Pages) serves this page for unknown URLs with a
+       real 404 status — the right signal for crawlers — while humans get
+       auto-redirected to the locale-appropriate home. The only client JS on
+       the site, and it only runs on the 404 page. -->
+  <script is:inline>
+    setTimeout(function () {
+      location.replace(/^\/es(\/|$)/.test(location.pathname) ? '/es' : '/');
+    }, 2500);
+  </script>
+</BaseLayout>
+
+<style>
+  .not-found { padding: 90px 0 0; text-align: center; overflow: hidden; }
+  .big { font-size: clamp(6rem, 22vw, 16.25rem); line-height: 0.9; letter-spacing: -0.05em; margin: 0 0 8px; text-transform: none; }
+  .line-en { font-family: var(--font-display); font-weight: 800; font-size: clamp(1.375rem, 3vw, 1.875rem); letter-spacing: -0.02em; text-transform: uppercase; margin: 0 0 6px; color: var(--color-ink); }
+  .line-es { font-size: 1.0625rem; color: var(--color-text-secondary); margin: 0 0 38px; }
+  .links { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; padding-bottom: 84px; margin: 0; }
+
+  .ticker { border-top: var(--border-bold); border-bottom: var(--border-bold); padding: 14px 0; overflow: hidden; }
+  .ticker-track { display: flex; width: max-content; align-items: center; white-space: nowrap; font-family: var(--font-display); font-weight: 700; font-size: 1.1875rem; letter-spacing: 0.02em; text-transform: uppercase; animation: marquee 24s linear infinite; }
+  .tick-item { padding: 0 18px; }
+  .tick-sep { font-weight: 700; }
+</style>

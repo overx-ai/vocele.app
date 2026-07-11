@@ -1,0 +1,41 @@
+---
+// Native <details>/<summary> — fully functional accordion with zero JavaScript,
+// and crawlers/AI answer engines read the full Q&A text directly in the HTML
+// (nothing hidden behind a client-side toggle that only fires on click).
+export interface Props { question: string; answer: string; num?: string }
+const { question, answer, num } = Astro.props;
+---
+<details class="faq-item">
+  <summary>
+    <span class="faq-num">{num}</span>
+    <span class="faq-q">{question}</span>
+    <span class="faq-plus" aria-hidden="true">+</span>
+  </summary>
+  <p class="faq-a" set:html={answer} />
+</details>
+
+<style>
+  .faq-item { border-bottom: var(--border-bold); }
+  summary {
+    display: grid;
+    grid-template-columns: 90px 1fr 40px;
+    gap: 28px;
+    align-items: center;
+    padding: 30px 8px;
+    cursor: pointer;
+    list-style: none;
+  }
+  summary::-webkit-details-marker { display: none; }
+  .faq-num { font-family: var(--font-display); font-weight: 800; font-size: 1.0625rem; color: var(--color-text-secondary); }
+  .faq-q { font-family: var(--font-display); font-weight: 800; font-size: 1.625rem; line-height: 1.15; letter-spacing: -0.02em; text-transform: uppercase; }
+  .faq-plus { font-family: var(--font-display); font-weight: 700; font-size: 1.875rem; color: var(--grad-talk-to); text-align: center; transition: transform 0.2s ease; display: inline-block; }
+  details[open] .faq-plus { transform: rotate(45deg); }
+  .faq-a { margin: 0; padding: 0 8px 30px 118px; font-size: 1.0625rem; line-height: 1.7; color: var(--color-text-muted); max-width: 76ch; }
+
+  @media (max-width: 640px) {
+    summary { grid-template-columns: 1fr 32px; gap: var(--space-md); padding: 24px 4px; }
+    .faq-num { display: none; }
+    .faq-q { font-size: 1.25rem; }
+    .faq-a { padding: 0 4px 24px; }
+  }
+</style>

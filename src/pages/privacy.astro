@@ -1,0 +1,39 @@
+---
+import LegalLayout from '../layouts/LegalLayout.astro';
+---
+<LegalLayout
+  title="Privacy Policy"
+  description="Vocele privacy policy: what data we collect, how anonymous accounts work, and how to request deletion."
+  slug="privacy"
+  heading="Privacy policy"
+  updated="July 2026"
+  draftNotice="<strong>Draft notice:</strong> this page is a starting template generated from the app's actual technical data practices. It is not legal advice and has not been reviewed by a lawyer. Have counsel review before this goes live on the App Store, particularly the sections on data retention, children's privacy, and any state-specific disclosures (e.g. CCPA/CPRA for California residents)."
+>
+  <h2>What we collect</h2>
+  <p>Vocele is built around an anonymous account model. When you first open the app, we generate a random identifier stored securely in your device's Keychain — we do not require your name, email, or phone number to use Vocele.</p>
+  <ul>
+    <li><strong>Anonymous identifier</strong> — a random ID that lets our servers sync your progress across sessions, without being tied to your real-world identity.</li>
+    <li><strong>Learning data</strong> — the languages you're learning, your vocabulary progress, conversation history with your AI coach, pronunciation scores, and streaks.</li>
+    <li><strong>Voice audio</strong> — spoken input you provide during conversation and accent-practice exercises is processed to generate pronunciation feedback and may be cached briefly to enable fast playback.</li>
+    <li><strong>Purchase data</strong> — subscription status is managed through Apple's App Store and our payments processor; we do not receive or store your payment card details.</li>
+    <li><strong>Basic usage &amp; diagnostics</strong> — crash reports and performance metrics to keep the app reliable.</li>
+  </ul>
+
+  <h2>How we use it</h2>
+  <p>We use your data to operate and improve Vocele: personalizing lessons and conversation difficulty, generating pronunciation feedback, tracking your progress, and diagnosing technical issues. We do not sell your personal data.</p>
+
+  <h2>Third parties</h2>
+  <p>We use third-party infrastructure to provide core features, including cloud speech-recognition and text-to-speech providers, and a subscription-management provider. These providers process data only as needed to deliver the feature and under their own data-processing agreements with us.</p>
+
+  <h2>Data retention &amp; deletion</h2>
+  <p>Because accounts are anonymous, resetting your device identity (for example, reinstalling the app) will disconnect you from your existing learning data. You can request deletion of your account data by contacting us at the email below.</p>
+
+  <h2>Children's privacy</h2>
+  <p>Vocele is not directed at children under 13, and we do not knowingly collect data from children under 13.</p>
+
+  <h2>Your rights</h2>
+  <p>Depending on where you live, you may have rights to access, correct, or delete your personal data. Contact us to exercise these rights.</p>
+
+  <h2>Contact</h2>
+  <p>Questions about this policy: <a href="mailto:privacy@vocele.app">privacy@vocele.app</a></p>
+</LegalLayout>

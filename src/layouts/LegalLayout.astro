@@ -1,0 +1,71 @@
+---
+// Shared shell for the legal pages (Privacy, Terms). Bold Poster look: masthead
+// with LEGAL eyebrow, a draft-notice callout (2px rule + hard offset shadow), and
+// numbered sections — the <h2>s in the slot get auto-numbered top-ruled headings
+// via a CSS counter, so each page only authors <h2> + copy. EN-only pages
+// (translated:false → self-canonical, no hreflang).
+import BaseLayout from './BaseLayout.astro';
+
+export interface Props {
+  title: string;
+  description: string;
+  slug: string;
+  heading: string;
+  updated: string;
+  /** HTML for the draft-notice callout body (may include <strong>). */
+  draftNotice: string;
+}
+const { title, description, slug, heading, updated, draftNotice } = Astro.props;
+---
+<BaseLayout title={title} description={description} slug={slug}>
+  <section class="legal-masthead">
+    <div class="container">
+      <span class="eyebrow">Legal</span>
+      <h1 class="legal-title">{heading}</h1>
+      <p class="updated">Last updated: {updated}</p>
+    </div>
+  </section>
+
+  <article class="legal-body">
+    <div class="draft-notice"><p set:html={draftNotice} /></div>
+    <div class="legal-prose">
+      <slot />
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .legal-masthead { padding: 72px 0 48px; border-bottom: var(--border-bold); }
+  .legal-title { font-size: clamp(2.5rem, 6vw, 4.75rem); line-height: 0.98; margin: 0 0 20px; }
+  .updated { font-family: var(--font-display); font-weight: 600; font-size: 0.84375rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-text-secondary); margin: 0; }
+
+  .legal-body { max-width: var(--max-width-prose); margin: 0 auto; padding: 64px var(--space-lg) 90px; }
+
+  .draft-notice { border: var(--border-bold); box-shadow: 8px 8px 0 var(--grad-grammar-from); padding: 22px 26px; margin-bottom: 48px; }
+  .draft-notice p { margin: 0; font-size: 0.96875rem; line-height: 1.65; color: var(--color-text-muted); }
+  .draft-notice :global(strong) { font-family: var(--font-display); color: var(--color-ink); letter-spacing: 0.06em; text-transform: uppercase; }
+
+  .legal-prose { counter-reset: sec; }
+  .legal-prose :global(h2) {
+    counter-increment: sec;
+    font-family: var(--font-display); font-weight: 800; font-size: 1.75rem; line-height: 1.1;
+    letter-spacing: -0.02em; text-transform: uppercase;
+    border-top: var(--border-bold); padding-top: 26px; margin: 0 0 20px;
+  }
+  .legal-prose :global(h2:not(:first-child)) { margin-top: 40px; }
+  .legal-prose :global(h2)::before {
+    content: counter(sec, decimal-leading-zero) "  ";
+    color: var(--grad-talk-to); font-size: 0.9375rem;
+  }
+  .legal-prose :global(p) { font-size: 1.03125rem; line-height: 1.7; color: var(--color-text-muted); margin: 0 0 18px; }
+  .legal-prose :global(strong) { color: var(--color-ink); }
+  .legal-prose :global(a) { color: var(--grad-talk-to); text-decoration: none; border-bottom: 2px solid var(--grad-talk-to); }
+  .legal-prose :global(ul) { list-style: none; padding: 0; margin: 0 0 40px; display: flex; flex-direction: column; gap: 13px; }
+  .legal-prose :global(ul li) { position: relative; padding-left: 26px; font-size: 1.03125rem; line-height: 1.7; color: var(--color-text-muted); }
+  .legal-prose :global(ul li)::before { content: "→"; position: absolute; left: 0; color: var(--grad-talk-to); font-family: var(--font-display); font-weight: 800; }
+
+  @media (max-width: 640px) {
+    .legal-masthead { padding: 56px 0 40px; }
+    .legal-body { padding: 44px var(--space-lg) 72px; }
+  }
+</style>

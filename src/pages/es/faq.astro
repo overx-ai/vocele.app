@@ -1,0 +1,88 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import FaqItem from '../../components/FaqItem.astro';
+
+const faqs = [
+  {
+    q: '¿Vocele solo sirve para aprender inglés?',
+    a: 'No. Vocele enseña siete idiomas hoy — español, inglés, francés, alemán, italiano, portugués y japonés — y puedes aprender cualquiera sin importar qué idioma ya hables. El inglés es nuestro curso más popular, pero no es el único.',
+  },
+  {
+    q: '¿En qué se diferencia Vocele de Duolingo?',
+    a: 'Duolingo está construido alrededor de ejercicios de emparejar y juegos. Vocele está construido alrededor de <strong>hablar</strong> — práctica de conversación real con un coach de IA que corrige tus frases reales en tiempo real, califica tu pronunciación palabra por palabra, y arma lecturas y vocabulario alrededor de situaciones que de verdad vas a enfrentar, como una entrevista de trabajo o una cita con el doctor.',
+  },
+  {
+    q: '¿Quiénes son Luna y Lorenzo?',
+    a: 'Luna y Lorenzo son tus dos coaches de IA dentro de la app. Luna se enfoca en conversación cálida y libre. Lorenzo se enfoca en estructura — gramática, vocabulario y corrección precisa. Puedes hablar con cualquiera de los dos según lo que necesites ese día.',
+  },
+  {
+    q: '¿Necesito tener un nivel previo para empezar?',
+    a: 'No. Vocele adapta la dificultad de la conversación, el nivel de lectura y el vocabulario a donde sea que estés empezando, ya sea principiante total o alguien que ya conversa y busca pulir su acento.',
+  },
+  {
+    q: '¿Cuál es la diferencia entre los tres planes?',
+    a: 'Core te da entrenamiento de vocabulario ilimitado y práctica de conversación diaria. Fluency agrega conversaciones ilimitadas con IA, entrenamiento de acento con puntaje de pronunciación, y lecturas personalizadas. Meta agrega simulaciones semanales de alto nivel (entrevistas, negociaciones) y un plan de 90 días construido alrededor de una meta real que tú eliges. Ve la <a href="/es/pricing">página de precios</a> para más detalles.',
+  },
+  {
+    q: '¿Puedo cancelar cuando quiera?',
+    a: 'Sí. Todos los planes se facturan mensualmente (o anualmente con descuento) a través del App Store y puedes cancelarlos cuando quieras desde la configuración de tu dispositivo.',
+  },
+  {
+    q: '¿Vocele funciona sin internet?',
+    a: 'Vocele necesita conexión a internet para la práctica de conversación con IA y la calificación de pronunciación, ya que funcionan con modelos de voz en la nube. El repaso de vocabulario y el contenido ya descargado pueden funcionar con una conexión limitada.',
+  },
+  {
+    q: '¿En qué dispositivos funciona Vocele?',
+    a: 'Vocele está disponible actualmente para iPhone, con iOS 17 o más reciente.',
+  },
+];
+
+const structuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a.replace(/<[^>]+>/g, '') },
+    })),
+  },
+];
+---
+<BaseLayout
+  title="Preguntas Frecuentes"
+  description="Respuestas a preguntas comunes sobre Vocele: qué idiomas enseña, en qué se diferencia de Duolingo, precios de los planes, y cómo funcionan los coaches de IA Luna y Lorenzo."
+  lang="es"
+  slug="faq"
+  structuredData={structuredData}
+>
+  <section class="masthead">
+    <div class="container">
+      <span class="eyebrow">Preguntas</span>
+      <h1 class="mast-title">Preguntas, <span class="clip">respondidas.</span></h1>
+    </div>
+  </section>
+
+  <section class="faq-list">
+    <div class="container">
+      {faqs.map((f, i) => <FaqItem question={f.q} answer={f.a} num={String(i + 1).padStart(2, '0')} />)}
+    </div>
+  </section>
+
+  <section class="faq-cta">
+    <div class="container cta-inner">
+      <h2>¿Aún con dudas? Habla con tu coach <span class="clip-talk">en persona.</span></h2>
+      <a href="/es" class="pill pill-light">Conoce Vocele <span aria-hidden="true">↗</span></a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .masthead { padding: 84px 0 56px; border-bottom: var(--border-bold); }
+  .mast-title { font-size: clamp(2.75rem, 7vw, 5.25rem); line-height: 0.98; margin: 0; }
+  .faq-list { padding: 0 0 90px; }
+  .faq-cta { background: var(--color-ink); color: #f5f5f7; padding: 84px 0; }
+  .cta-inner { display: flex; align-items: center; justify-content: space-between; gap: 40px; flex-wrap: wrap; }
+  .cta-inner h2 { font-size: clamp(2rem, 3.5vw, 2.875rem); line-height: 1.02; margin: 0; max-width: 22ch; color: #f5f5f7; }
+  @media (max-width: 640px) { .faq-cta { padding: 64px 0; } }
+</style>

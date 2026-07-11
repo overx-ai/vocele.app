@@ -1,0 +1,100 @@
+---
+export interface Props {
+  name: string;
+  price: string;
+  period: string;
+  tagline: string;
+  features: string[];
+  /** core = outlined, fluency = pink featured, meta = black. */
+  variant?: 'core' | 'fluency' | 'meta';
+  badge?: string;
+  cta: string;
+  /** #download only exists on the home pages — ES pages pass "/es#download". */
+  ctaHref?: string;
+}
+const { name, price, period, tagline, features, variant = 'core', badge, cta, ctaHref = '/#download' } = Astro.props;
+---
+<div class:list={['tier', variant]}>
+  {badge && <span class="tier-badge">{badge}</span>}
+  <h2 class="tier-name">{name}</h2>
+  <p class="tier-tag">{tagline}</p>
+  <p class="tier-price"><span class="amount">{price}</span><span class="per">{period}</span></p>
+  <ul class="tier-feats">
+    {features.map((f) => (
+      <li><span class="arw" aria-hidden="true">→</span><span set:html={f} /></li>
+    ))}
+  </ul>
+  <a href={ctaHref} class="tier-cta">{cta}</a>
+</div>
+
+<style>
+  .tier {
+    padding: 56px clamp(24px, 3vw, 44px);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+  .tier.core, .tier.fluency { border-right: var(--border-bold); }
+  .tier.fluency { background: linear-gradient(160deg, var(--grad-talk-from), var(--grad-talk-to)); color: #fff; }
+  .tier.meta { background: var(--color-ink); color: #f5f5f7; }
+
+  .tier-badge {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    background: var(--color-ink);
+    color: #fff;
+    padding: 6px 14px;
+    border-radius: var(--radius-pill);
+  }
+
+  .tier-name { font-size: 2.125rem; letter-spacing: -0.02em; margin: 0 0 6px; }
+  .tier.meta .tier-name {
+    background: linear-gradient(100deg, var(--grad-learn-from), var(--color-accent-neon));
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .tier-tag { font-size: 0.9375rem; margin: 0 0 26px; }
+  .tier.core .tier-tag { color: var(--color-text-secondary); }
+  .tier.fluency .tier-tag { opacity: 0.92; }
+  .tier.meta .tier-tag { color: var(--color-ink-soft); }
+
+  .tier-price { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; margin: 0 0 30px; }
+  .amount { font-family: var(--font-display); font-weight: 800; font-size: clamp(2.5rem, 4.2vw, 3.875rem); line-height: 1; letter-spacing: -0.03em; }
+  .per { font-size: 0.9375rem; opacity: 0.8; }
+
+  .tier-feats { list-style: none; margin: 0 0 34px; padding: 0; display: flex; flex-direction: column; gap: 13px; flex: 1; }
+  .tier-feats li { display: flex; gap: 12px; font-size: 0.96875rem; line-height: 1.5; }
+  .arw { font-family: var(--font-display); font-weight: 800; }
+  .tier.core .arw { color: var(--grad-talk-to); }
+  .tier.fluency .arw { color: #fff; }
+  .tier.meta .arw { color: var(--grad-learn-from); }
+
+  .tier-cta {
+    display: block;
+    text-align: center;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 0.9375rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 14px 24px;
+    border-radius: var(--radius-pill);
+    text-decoration: none;
+    transition: background 0.15s ease, color 0.15s ease, transform 0.15s ease;
+  }
+  .tier.core .tier-cta { border: var(--border-bold); color: var(--color-ink); }
+  .tier.core .tier-cta:hover { background: var(--color-ink); color: #fff; }
+  .tier.fluency .tier-cta { background: #fff; color: var(--grad-talk-to); }
+  .tier.fluency .tier-cta:hover { transform: translateY(-2px); color: var(--grad-talk-to); }
+  .tier.meta .tier-cta { background: #fff; color: var(--color-ink); }
+  .tier.meta .tier-cta:hover { transform: translateY(-2px); color: var(--color-ink); }
+
+  @media (max-width: 820px) {
+    .tier.core, .tier.fluency { border-right: none; border-bottom: var(--border-bold); }
+  }
+</style>

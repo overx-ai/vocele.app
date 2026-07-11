@@ -1,0 +1,87 @@
+---
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+
+const faq = [
+  {
+    q: 'How much does a private English tutor cost in the US?',
+    a: 'Typical rates on platforms like Preply and italki run $25–40 per hour for a qualified tutor. At two lessons a week that is roughly $200–320 per month — the standard price of consistent human speaking practice.',
+  },
+  {
+    q: 'Can an AI speaking coach replace a human tutor?',
+    a: 'For daily speaking practice, correction, and accent work — largely yes, and at a fraction of the cost. For exam-strategy judgment, cultural mentorship, and external accountability, a human still has the edge. Many learners get the best results using AI for daily reps and an occasional human session for direction.',
+  },
+  {
+    q: 'Is speaking to an AI awkward?',
+    a: 'It is the opposite for most learners: the absence of a human audience removes the fear of embarrassment, which is the main reason adults avoid speaking practice. You can repeat the same sentence fifteen times, at 11pm, and the coach never gets impatient.',
+  },
+  {
+    q: 'What does an AI speaking coach cost?',
+    a: 'Vocele plans run $14.99–$49.99 per month depending on depth (daily conversation practice on Core; unlimited conversations plus per-word accent scoring on Fluency; weekly high-stakes simulations and a 90-day roadmap on Meta). Even the top tier is under a quarter of the monthly cost of a twice-a-week human tutor.',
+  },
+];
+---
+<ArticleLayout slug="blog/ai-speaking-coach-vs-human-tutor" faq={faq}>
+  <p>
+    A private English tutor, twice a week, costs <strong>$200–320 a month</strong>
+    ($25–40/hour on Preply or italki). An AI speaking coach costs
+    <strong>$15–50 a month</strong> and is available every day. The honest question
+    isn't which one is "better" in the abstract — it's which one solves
+    <em>your</em> actual bottleneck. This comparison lays out what each does well,
+    where each fails, and how to decide without wasting six months.
+  </p>
+
+  <h2>The real bottleneck: repetitions, not knowledge</h2>
+  <p>
+    Most adults who "can't speak English" don't have a knowledge problem. They have
+    years of vocabulary and grammar sitting passive in their heads — what they lack
+    is <strong>spoken repetitions</strong>: hundreds of hours of producing sentences
+    out loud, getting corrected, and trying again. A twice-a-week tutor gives you
+    maybe 60–90 minutes of actual speaking time per week (half of every lesson is
+    the tutor talking). That's the arithmetic that keeps people intermediate forever.
+  </p>
+
+  <h2>Head-to-head comparison</h2>
+  <table>
+    <thead><tr><th></th><th>Human tutor (2x/week)</th><th>AI speaking coach</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Monthly cost</strong></td><td>$200–320</td><td>$14.99–$49.99</td></tr>
+      <tr><td><strong>Your speaking time</strong></td><td>~60–90 min/week, scheduled</td><td>Unlimited, any hour, no scheduling</td></tr>
+      <tr><td><strong>Correction quality</strong></td><td>Good, but polite — many errors let slide to keep flow</td><td>Every sentence corrected, error highlighted in your own words</td></tr>
+      <tr><td><strong>Pronunciation feedback</strong></td><td>Impressionistic ("say that again")</td><td>Objective per-word scoring, tracked over time</td></tr>
+      <tr><td><strong>Embarrassment factor</strong></td><td>Real — most adults self-censor with an audience</td><td>Zero. Repeat anything 15 times, nobody is watching</td></tr>
+      <tr><td><strong>Accountability</strong></td><td>Strong — a person expects you</td><td>Streaks and progress reports; weaker for some personalities</td></tr>
+      <tr><td><strong>Cultural nuance & mentorship</strong></td><td>Excellent</td><td>Limited — an AI coach explains usage, but hasn't lived it</td></tr>
+      <tr><td><strong>Consistency</strong></td><td>Depends on tutor availability, cancellations</td><td>Identical quality at 6am and midnight</td></tr>
+    </tbody>
+  </table>
+
+  <h2>When a human tutor is worth $300 a month</h2>
+  <ul>
+    <li><strong>You need external accountability</strong> and a calendar appointment is the only thing that makes you show up.</li>
+    <li><strong>You're navigating high-stakes judgment calls</strong> — negotiating an offer, editing a personal statement — where lived cultural experience matters.</li>
+    <li><strong>You're at a very advanced level</strong> polishing subtleties an AI may not flag as errors at all.</li>
+  </ul>
+
+  <h2>When an AI coach is the rational choice</h2>
+  <ul>
+    <li><strong>You need volume.</strong> Daily practice beats weekly lessons for fluency — it's not close. Motor skills consolidate with frequency.</li>
+    <li><strong>Fear is your real blocker.</strong> If you freeze when people listen, practicing <em>with</em> people is the hardest possible starting point. Judgment-free reps first, humans second.</li>
+    <li><strong>Your budget has a ceiling.</strong> $300/month is a car payment. If that's not sustainable for the 6–18 months fluency actually takes, consistency will die with your budget.</li>
+    <li><strong>You want measurable pronunciation progress</strong> — per-word <a href="/blog/ai-accent-training">accent scoring</a> is something no human ear provides objectively.</li>
+  </ul>
+
+  <h2>The hybrid most people should actually run</h2>
+  <p>
+    This isn't a religious war. The highest-ROI setup we see: an AI coach for the
+    daily work — conversation reps, corrections, accent drills, vocabulary for your
+    real-life scenarios — plus an occasional human session (monthly, not
+    twice-weekly) for direction and morale. Total cost: $50–90/month instead of
+    $300, with <em>more</em> weekly speaking time, not less.
+  </p>
+  <p>
+    Vocele is built to be that daily coach: real conversation practice with Luna and
+    Lorenzo, every mistake highlighted in the sentence you actually said, and accent
+    scoring that shows the trend line. Plans start at $14.99/month — the full tier
+    breakdown is on the <a href="/pricing">pricing page</a>.
+  </p>
+</ArticleLayout>

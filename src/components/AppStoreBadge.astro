@@ -1,0 +1,41 @@
+---
+// Placeholder App Store badge built as inline SVG so it needs zero external image
+// request (fast + always renders). Swap for Apple's official black/white SVG badge
+// asset before launch — https://developer.apple.com/app-store/marketing/guidelines/
+export interface Props {
+  lang?: 'en' | 'es';
+  /** 'dark' = ink pill on light sections; 'light' = white pill on black sections. */
+  variant?: 'dark' | 'light';
+}
+const { lang = 'en', variant = 'dark' } = Astro.props;
+const line1 = lang === 'es' ? 'Disponible en' : 'Download on the';
+const line2 = 'App Store';
+---
+<a href="#" class:list={['appstore-badge', variant]} aria-label={`${line1} ${line2}`}>
+  <svg width="20" height="24" viewBox="0 0 20 24" fill="currentColor" aria-hidden="true">
+    <path d="M16.5 12.6c0-2.6 2.1-3.9 2.2-3.9-1.2-1.7-3-1.9-3.7-2-1.6-.2-3 .9-3.8.9-.8 0-2-.9-3.3-.9-1.7 0-3.2 1-4.1 2.5-1.7 3-.4 7.5 1.3 10 .8 1.2 1.8 2.5 3 2.5 1.2 0 1.7-.8 3.2-.8s1.9.8 3.2.8c1.3 0 2.2-1.2 3-2.4.9-1.4 1.3-2.7 1.3-2.8-.1 0-2.3-.9-2.3-3.9zM13.9 4.4c.7-.8 1.1-2 1-3.1-1 0-2.2.7-2.9 1.5-.6.7-1.1 1.9-1 3 1.1.1 2.2-.6 2.9-1.4z"/>
+  </svg>
+  <span class="lines">
+    <span class="line1">{line1}</span>
+    <span class="line2">{line2}</span>
+  </span>
+</a>
+
+<style>
+  .appstore-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    padding: 14px 26px;
+    border-radius: var(--radius-pill);
+    transition: background 0.15s ease, transform 0.15s ease, color 0.15s ease;
+  }
+  .dark { background: var(--color-ink); color: #fff; }
+  .dark:hover { background: var(--grad-talk-to); color: #fff; }
+  .light { background: #fff; color: var(--color-ink); }
+  .light:hover { transform: translateY(-2px); color: var(--color-ink); }
+  .lines { display: flex; flex-direction: column; line-height: 1.1; }
+  .line1 { font-size: 0.6875rem; }
+  .line2 { font-family: var(--font-display); font-weight: 700; font-size: 1.0625rem; }
+</style>

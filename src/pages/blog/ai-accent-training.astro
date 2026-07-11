@@ -1,0 +1,114 @@
+---
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+
+const faq = [
+  {
+    q: 'Can you actually reduce an accent as an adult?',
+    a: 'Yes. An accent is a set of motor habits, not a fixed trait. Adults reduce accents every day with targeted practice — the key is per-sound feedback, because you cannot reliably hear your own errors. What most adults never lose is a slight trace of their first language, and that is fine: the goal is being understood effortlessly, not passing as a native speaker.',
+  },
+  {
+    q: 'How long does accent training take to show results?',
+    a: 'With daily 10–15 minute sessions and per-word scoring, most learners hear a measurable difference in 3–6 weeks on their trained sounds. Whole-accent change is gradual and takes months, but individual high-impact sounds (like the English "th" or the ship/sheep vowel) improve fast once you get accurate feedback on them.',
+  },
+  {
+    q: 'Is an AI accent training app better than an accent coach?',
+    a: 'They do different jobs. A human accent coach is excellent for diagnosis and motivation but costs $60–120 per session and sees you once a week. AI pronunciation scoring gives you unlimited, judgment-free repetitions with objective per-word feedback every day. The repetitions are what change your muscle memory.',
+  },
+  {
+    q: 'Which English sounds should Spanish speakers fix first?',
+    a: 'The highest-impact fixes are usually the short "i" (ship vs. sheep), the two "th" sounds, the added "e" before s-clusters ("eh-school" for school), and final consonant endings like -ed. Fixing these four patterns removes most of the friction listeners notice.',
+  },
+];
+---
+<ArticleLayout slug="blog/ai-accent-training" faq={faq}>
+  <p>
+    You can't hear your own accent. That's not a motivational line — it's the core
+    mechanical problem of accent training. Your brain learned decades ago to filter
+    speech through the sound system of your first language, so when you say
+    <em>"sheep"</em> and a listener hears <em>"ship"</em>, both sounded identical
+    <strong>to you</strong>. No amount of listening harder fixes that. What fixes it
+    is an external measurement — something that hears each word you say and tells
+    you, objectively, which sounds landed and which didn't. That's exactly what AI
+    accent training does, and it's why it works where "just practice more" fails.
+  </p>
+
+  <h2>What accent training actually is (and isn't)</h2>
+  <p>
+    Accent training is motor learning. The sounds of a language are physical
+    movements — tongue position, lip rounding, vowel length, where a syllable gets
+    stress. If English has a movement your first language doesn't use, you've never
+    built the muscle memory for it, so your mouth substitutes the nearest sound it
+    knows. That substitution <em>is</em> your accent.
+  </p>
+  <p>
+    Two things follow from this. First, an accent is trainable at any age, the same
+    way a golf swing or a piano passage is trainable. Second, training requires a
+    feedback loop: attempt → measurement → correction → repeat. Practice without
+    measurement just rehearses the error.
+  </p>
+
+  <h2>Why per-word scoring changes everything</h2>
+  <p>
+    Traditional feedback on pronunciation is vague: a teacher says "hmm, say that
+    again," a friend politely says "your English is great." Neither tells you that
+    your vowel in <em>"focus"</em> was fine but your final consonant dropped.
+  </p>
+  <p>
+    Modern speech models score pronunciation <strong>per word</strong> against the
+    expected phonemes. In Vocele's accent practice, you speak a sentence and every
+    word comes back with its own score, so a sentence like <em>"I've been working
+    in marketing for five years"</em> shows you precisely that <em>"working"</em>
+    and <em>"years"</em> are dragging your intelligibility down — and the rest of the
+    sentence is already fine. That granularity does three things:
+  </p>
+  <ul>
+    <li><strong>It ends guessing.</strong> You always know the next thing to fix.</li>
+    <li><strong>It prevents wasted effort.</strong> You stop drilling sounds you already produce well.</li>
+    <li><strong>It makes progress visible.</strong> The same word, scored week over week, is a trend line — not a feeling.</li>
+  </ul>
+
+  <h2>Fix the highest-impact sounds first</h2>
+  <p>
+    Not all errors cost you equally. A slightly off "r" rarely causes
+    misunderstanding; a short-i/long-e swap creates a different word entirely.
+    A sane accent-training plan orders work by impact:
+  </p>
+  <table>
+    <thead><tr><th>Priority</th><th>Pattern</th><th>Why it matters</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Vowel contrasts that change words (ship/sheep, full/fool)</td><td>Misunderstandings, not just "an accent"</td></tr>
+      <tr><td>2</td><td>Final consonants and -ed endings</td><td>Grammar becomes inaudible ("I work here" vs. "I worked here")</td></tr>
+      <tr><td>3</td><td>Word stress (PREsent vs. preSENT)</td><td>Wrong stress breaks recognition even with perfect sounds</td></tr>
+      <tr><td>4</td><td>Signature sounds (English "th", French "u", Japanese "r")</td><td>Noticeable but rarely blocking — polish, not foundation</td></tr>
+    </tbody>
+  </table>
+  <p>
+    Per-word scoring builds this priority list for you automatically: the words that
+    keep scoring low across different sentences point directly at your personal
+    top-priority sounds.
+  </p>
+
+  <h2>A weekly routine that actually moves the needle</h2>
+  <ul>
+    <li><strong>Daily, 10–15 minutes:</strong> one accent-practice session on your current target sound. Short and daily beats long and weekly — motor learning consolidates with sleep.</li>
+    <li><strong>Say it in sentences, not in isolation.</strong> You don't speak in isolated words; train the sound inside real phrases you'll actually use.</li>
+    <li><strong>Re-test old sounds weekly.</strong> A sound isn't "done" until it survives inside fast, unplanned speech — real conversation practice is the final exam.</li>
+    <li><strong>Track the score, not the vibe.</strong> Confidence follows evidence. A rising per-word score on a sound you used to miss is the most motivating thing in language learning.</li>
+  </ul>
+
+  <h2>Where this fits in a complete practice loop</h2>
+  <p>
+    Accent work is one third of speaking well. The other two are having something to
+    say (vocabulary for your real situations) and saying it in correct sentences
+    (live correction while you talk). That's why Vocele pairs accent training with
+    <a href="/blog/ai-speaking-coach-vs-human-tutor">AI conversation coaching</a> —
+    you drill the sounds in accent practice, then stress-test them in a real
+    conversation with a coach that corrects your actual sentences. If you're
+    preparing for a scored exam, the same loop maps directly onto
+    <a href="/blog/ielts-toefl-speaking-practice-ai">IELTS and TOEFL speaking practice</a>.
+  </p>
+  <p>
+    Plans that include accent coaching with per-word pronunciation scoring start at
+    $29.99/month — see <a href="/pricing">pricing</a> for the full breakdown.
+  </p>
+</ArticleLayout>
