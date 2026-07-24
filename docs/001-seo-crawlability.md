@@ -135,6 +135,9 @@ Whichever provider wins: re-run the crawl script
 (`scratchpad/crawl_404.py` pattern) + the trailing-slash curls against the real
 deployment before pointing DNS.
 
+> **Resolved: Vercel won (2026-07-11).** The live host/DNS/GSC/analytics setup is
+> documented in [002 - Deployment & Analytics](002-deployment.md).
+
 ## Verification
 
 ```bash

@@ -48,4 +48,5 @@ HTML. SEO/GEO is the entire point of this app. Full reference:
 - Verify after changes: `npm run build`, then the greps in docs/001
   § Verification; full link check: run the crawl_404.py pattern (scratchpad)
   against `docker run -p 8899:80` with nginx.conf + dist mounted.
-- Deploy: NOT wired into CI/infra yet — see README "To wire into CI/CD".
+- Deploy: `git push origin master` → Vercel auto-builds (no separate step, no CI
+  config). Host/DNS/GSC/GA4 setup in [docs/002-deployment.md](docs/002-deployment.md).
