@@ -43,17 +43,20 @@ const ctaHref = lang === 'es' ? '/es#download' : '/#download';
 <header class="site-header">
   <div class="container bar">
     <a href={home} class="logo" aria-label="Vocele home">
-      <svg width="30" height="30" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
-        <defs>
-          <linearGradient id="logoGrad" x1="0" y1="0" x2="28" y2="28" gradientUnits="userSpaceOnUse">
-            <stop stop-color="#F57D9E"/>
-            <stop offset="1" stop-color="#F04582"/>
-          </linearGradient>
-        </defs>
-        <rect width="28" height="28" rx="9" fill="url(#logoGrad)"/>
-        <path d="M8 9.5c0 5 3 8.5 6 8.5s6-3.5 6-8.5" stroke="white" stroke-width="2" stroke-linecap="round"/>
-        <circle cx="14" cy="8.5" r="1.6" fill="white"/>
-      </svg>
+      <!--
+        The real app icon, not a drawing of one. This was an inline pink-gradient SVG (a rounded
+        square with a smile arc) that predated the icon and matched nothing the learner installs.
+        The shipping icon is a photoreal iridescent chrome blob on a near-black field, so there is
+        no honest SVG of it — same reason favicon.svg was retired in BaseLayout.
+
+        96px for a 30px slot: covers 3× displays exactly (30 × 3 = 90) at 18 KB, where reusing
+        icon-192.png would ship 53 KB on every page for the same 30 pixels.
+
+        `border-radius` is the iOS mask, 22.4% of the side — what the icon actually looks like on a
+        home screen. The old mark used 32%, which was the site's own shape language rather than the
+        product's.
+      -->
+      <img src="/logo-96.png" width="30" height="30" alt="" class="logo-mark" />
       <span>Vocele</span>
     </a>
 
@@ -88,6 +91,12 @@ const ctaHref = lang === 'es' ? '/es#download' : '/#download';
     justify-content: space-between;
     gap: var(--space-md);
     height: 68px;
+  }
+  .logo-mark {
+    display: block;
+    /* 22.4% — the iOS icon mask, so the nav mark reads as the thing you install. */
+    border-radius: 22.4%;
+    flex: none;
   }
   .logo {
     display: flex;

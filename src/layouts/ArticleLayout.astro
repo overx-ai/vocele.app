@@ -87,7 +87,8 @@ const dateLabel = new Date(post.datePublished + 'T00:00:00Z').toLocaleDateString
       <h1 class="art-title">{post.title}</h1>
       <p class="byline">
         <span class="byline-brand">
-          <svg width="20" height="20" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="28" height="28" rx="9" fill="#1c1c1e"/><path d="M8 9.5c0 5 3 8.5 6 8.5s6-3.5 6-8.5" stroke="white" stroke-width="2" stroke-linecap="round"/><circle cx="14" cy="8.5" r="1.6" fill="white"/></svg>
+          <!-- The byline's copy of the header mark — same asset, same iOS mask. See Header.astro. -->
+          <img src="/logo-96.png" width="20" height="20" alt="" class="byline-mark" />
           Vocele
         </span>
         <span class="sep" aria-hidden="true">·</span>
@@ -137,7 +138,8 @@ const dateLabel = new Date(post.datePublished + 'T00:00:00Z').toLocaleDateString
   .art-title { font-size: clamp(2.25rem, 5vw, 3.875rem); line-height: 1.0; letter-spacing: -0.035em; margin: 0 0 28px; max-width: 22ch; }
   .byline { display: flex; align-items: center; gap: 14px; font-family: var(--font-display); font-weight: 600; font-size: 0.84375rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--color-text-secondary); margin: 0; }
   .byline-brand { display: inline-flex; align-items: center; gap: 8px; }
-  .byline-brand svg { display: inline-block; }
+  /* 22.4% is the iOS icon mask — see Header.astro's `.logo-mark`. */
+  .byline-mark { display: block; border-radius: 22.4%; flex: none; }
 
   /* ---- Article body (centered prose column) ---- */
   .art-body { max-width: var(--max-width-prose); margin: 0 auto; padding: 64px var(--space-lg) 40px; }
