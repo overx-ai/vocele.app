@@ -1,31 +1,11 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import AppStoreBadge from '../../components/AppStoreBadge.astro';
+import { ORG, SOFTWARE_APP } from '../../site';
 
 const structuredData = [
-  {
-    '@context': 'https://schema.org',
-    '@type': 'Organization',
-    name: 'Vocele',
-    // Same org entity as the EN home — one canonical URL across locales.
-    url: 'https://vocele.app',
-    logo: 'https://vocele.app/icon-512.png',
-    sameAs: ['https://overx.ai'],
-  },
-  {
-    '@context': 'https://schema.org',
-    '@type': 'SoftwareApplication',
-    name: 'Vocele',
-    applicationCategory: 'EducationalApplication',
-    operatingSystem: 'iOS',
-    description:
-      'App de coaching de idiomas con IA que enseña inglés, español, francés, alemán, italiano, portugués y japonés mediante práctica de conversación real, corrección instantánea y entrenamiento de acento.',
-    offers: [
-      { '@type': 'Offer', name: 'Core', price: '14.99', priceCurrency: 'USD', priceSpecification: { '@type': 'UnitPriceSpecification', billingDuration: 'P1M' } },
-      { '@type': 'Offer', name: 'Fluency', price: '29.99', priceCurrency: 'USD', priceSpecification: { '@type': 'UnitPriceSpecification', billingDuration: 'P1M' } },
-      { '@type': 'Offer', name: 'Meta', price: '49.99', priceCurrency: 'USD', priceSpecification: { '@type': 'UnitPriceSpecification', billingDuration: 'P1M' } },
-    ],
-  },
+  { '@context': 'https://schema.org', ...ORG },
+  { '@context': 'https://schema.org', ...SOFTWARE_APP, description: 'App de coaching de idiomas con IA que enseña inglés, español, francés, alemán, italiano, portugués y japonés mediante práctica de conversación real, corrección instantánea y entrenamiento de acento.' },
 ];
 
 const scenarios = [

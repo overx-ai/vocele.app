@@ -1,8 +1,10 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import PricingCard from '../../components/PricingCard.astro';
+import { SOFTWARE_APP } from '../../site';
 
 const structuredData = [
+  { '@context': 'https://schema.org', ...SOFTWARE_APP },
   {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',

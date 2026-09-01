@@ -1,0 +1,64 @@
+/* Shared long-form styles: ArticleLayout + VsLayout. Inlined at build. */
+  /* ---- Masthead ---- */
+  .art-masthead { padding: 72px 0 48px; border-bottom: var(--border-bold); }
+  .crumbs { display: flex; align-items: center; gap: 10px; margin-bottom: 26px; font-family: var(--font-display); font-weight: 700; font-size: 0.8125rem; letter-spacing: 0.1em; text-transform: uppercase; flex-wrap: wrap; }
+  .crumbs a { text-decoration: none; color: var(--color-text-secondary); }
+  .crumbs a:hover { color: var(--grad-talk-to); }
+  .crumbs .sep { color: var(--color-text-secondary); }
+  .crumb-cat { color: #fff; padding: 5px 12px; border-radius: var(--radius-pill); font-size: 0.75rem; }
+  .art-title { font-size: clamp(2.25rem, 5vw, 3.875rem); line-height: 1.0; letter-spacing: -0.035em; margin: 0 0 28px; max-width: 22ch; }
+  .byline { display: flex; align-items: center; gap: 14px; font-family: var(--font-display); font-weight: 600; font-size: 0.84375rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--color-text-secondary); margin: 0; }
+  .byline-brand { display: inline-flex; align-items: center; gap: 8px; }
+  /* 22.4% is the iOS icon mask — see Header.astro's `.logo-mark`. */
+  .byline-mark { display: block; border-radius: 22.4%; flex: none; }
+
+  /* ---- Article body (centered prose column) ---- */
+  .art-body { max-width: var(--max-width-prose); margin: 0 auto; padding: 64px var(--space-lg) 40px; }
+  .prose { counter-reset: h2; }
+  .prose p { font-size: 1.0625rem; line-height: 1.7; color: var(--color-text-muted); margin: 0 0 18px; }
+  .prose p:first-child { font-size: 1.3125rem; line-height: 1.65; color: var(--color-text); margin-bottom: 22px; }
+  .prose strong { color: var(--color-ink); }
+  .prose em { font-style: italic; }
+  .prose a { color: var(--grad-talk-to); text-decoration: none; border-bottom: 2px solid var(--grad-talk-to); }
+
+  .prose h2 {
+    counter-increment: h2;
+    font-family: var(--font-display); font-weight: 800; font-size: 1.875rem; line-height: 1.1;
+    letter-spacing: -0.02em; text-transform: uppercase;
+    border-top: var(--border-bold); padding-top: 26px; margin: 44px 0 20px;
+  }
+  .prose h2::before {
+    content: counter(h2, decimal-leading-zero) "  ";
+    color: var(--prose-accent, var(--grad-talk-to));
+    font-size: 0.9375rem;
+  }
+
+  .prose ul { list-style: none; padding: 0; margin: 0 0 18px; display: flex; flex-direction: column; gap: 14px; }
+  .prose ul li { position: relative; padding-left: 28px; font-size: 1.0625rem; line-height: 1.7; color: var(--color-text-muted); }
+  .prose ul li::before { content: "→"; position: absolute; left: 0; color: var(--prose-accent, var(--grad-talk-to)); font-family: var(--font-display); font-weight: 800; }
+
+  .prose table { border-collapse: collapse; width: 100%; margin: 0 0 24px; font-size: 0.96875rem; }
+  .prose th, .prose td { border: var(--border-bold); padding: 12px 16px; text-align: left; }
+  .prose th { background: var(--color-ink); color: #fff; font-family: var(--font-display); font-weight: 700; font-size: 0.8125rem; letter-spacing: 0.08em; text-transform: uppercase; }
+
+  .prose figure { margin: 0 0 28px; border: var(--border-bold); box-shadow: 8px 8px 0 var(--prose-accent, var(--grad-talk-to)); padding: 26px 28px; }
+  .prose figcaption { font-family: var(--font-display); font-weight: 800; font-size: 0.75rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--prose-accent, var(--grad-talk-to)); margin-bottom: 14px; }
+
+  /* ---- In-article FAQ ---- */
+  .article-faq { margin-top: var(--space-2xl); }
+  .article-faq h2 { font-family: var(--font-display); font-weight: 800; font-size: 2.125rem; line-height: 1.05; letter-spacing: -0.02em; text-transform: uppercase; border-top: var(--border-bold); padding-top: 30px; margin: 0 0 8px; }
+  .article-faq details { border-bottom: var(--border-bold); padding: 20px 0; }
+  .article-faq summary { font-family: var(--font-display); font-weight: 700; font-size: 1.125rem; cursor: pointer; }
+  .article-faq p { color: var(--color-text-muted); margin-top: 14px; line-height: 1.7; }
+
+  /* ---- CTA ---- */
+  .art-cta { background: var(--color-ink); color: #f5f5f7; padding: 84px 0; }
+  .cta-inner { max-width: var(--max-width-prose); margin: 0 auto; text-align: center; }
+  .cta-inner h2 { font-size: clamp(2rem, 3.5vw, 2.875rem); line-height: 1.02; margin: 0 0 16px; color: #f5f5f7; }
+  .cta-inner p { color: var(--color-ink-soft); font-size: 1.0625rem; margin: 0 0 30px; }
+
+  @media (max-width: 640px) {
+    .art-masthead { padding: 56px 0 40px; }
+    .art-body { padding: 44px var(--space-lg) 32px; }
+    .art-cta { padding: 64px 0; }
+  }

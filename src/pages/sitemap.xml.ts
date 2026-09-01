@@ -14,16 +14,18 @@ export const GET: APIRoute = ({ site }) => {
       `    <xhtml:link rel="alternate" hreflang="x-default" href="${origin}${enPath(slug)}" />`,
     ].join('\n');
 
+  const lastmod = (page: { lastmod?: string }) => (page.lastmod ? `\n    <lastmod>${page.lastmod}</lastmod>` : '');
+
   const urls = SITE_PAGES.flatMap((page) => {
     if (!page.translated) {
       // Single-locale page: list it where it actually lives (ES-only articles
       // sit under /es/ — enPath would 404).
       const path = page.locale === 'es' ? esPath(page.slug) : enPath(page.slug);
-      return [`  <url>\n    <loc>${origin}${path}</loc>\n  </url>`];
+      return [`  <url>\n    <loc>${origin}${path}</loc>${lastmod(page)}\n  </url>`];
     }
     // en + es entries share the identical alternate set (reciprocity).
     return [enPath(page.slug), esPath(page.slug)].map(
-      (path) => `  <url>\n    <loc>${origin}${path}</loc>\n${alternates(page.slug)}\n  </url>`,
+      (path) => `  <url>\n    <loc>${origin}${path}</loc>${lastmod(page)}\n${alternates(page.slug)}\n  </url>`,
     );
   });
 

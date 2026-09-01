@@ -1,0 +1,81 @@
+---
+// Thin wrapper for /vs/<competitor> pages. Reads meta from vs-pages.ts and emits
+// BreadcrumbList + FAQPage only — no BlogPosting, and never AggregateRating or
+// Review (we have no third-party ratings to back one).
+import BaseLayout from './BaseLayout.astro';
+import { vsBySlug } from '../vs-pages';
+import '../styles/article.css';
+
+export interface Props {
+  slug: string;
+}
+
+const { slug } = Astro.props;
+const page = vsBySlug(slug);
+const site = Astro.site?.toString().replace(/\/$/, '') ?? 'https://vocele.app';
+const canonicalURL = `${site}/vs/${slug}`;
+
+const structuredData: object[] = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${site}/` },
+      { '@type': 'ListItem', position: 2, name: `Vocele vs ${page.competitor}`, item: canonicalURL },
+    ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: page.faq.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a.replace(/<[^>]+>/g, '') },
+    })),
+  },
+];
+
+const fmt = (iso: string) =>
+  new Date(iso + 'T00:00:00Z').toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' });
+const shown = page.dateModified ?? page.datePublished;
+---
+<BaseLayout title={page.title} description={page.description} slug={`vs/${slug}`} structuredData={structuredData}>
+  <section class="art-masthead">
+    <div class="container">
+      <nav class="crumbs" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        <span class="sep" aria-hidden="true">→</span>
+        <span class="crumb-cat" style="background: var(--gradient-talk)">Compare</span>
+      </nav>
+      <h1 class="art-title">{page.title}</h1>
+      <p class="byline">
+        <span class="byline-brand"><img src="/logo-96.png" width="20" height="20" alt="" class="byline-mark" />Vocele</span>
+        <span class="sep" aria-hidden="true">·</span>
+        <span>{page.dateModified ? 'Updated' : 'Published'} <time datetime={shown}>{fmt(shown)}</time></span>
+      </p>
+    </div>
+  </section>
+
+  <article class="art-body" style="--prose-accent:#f04582">
+    <div class="prose">
+      <slot />
+    </div>
+    <section class="article-faq">
+      <h2>Frequently asked questions</h2>
+      {page.faq.map((f) => (
+        <details>
+          <summary>{f.q}</summary>
+          <p set:html={f.a} />
+        </details>
+      ))}
+    </section>
+  </article>
+
+  <section class="art-cta">
+    <div class="container cta-inner">
+      <h2>Practice today with your <span class="clip-talk">AI coach.</span></h2>
+      <p>Vocele corrects your spoken sentences in real time and trains your accent, word by word.</p>
+      <a href="/" class="pill pill-light">Meet Vocele <span aria-hidden="true">↗</span></a>
+    </div>
+  </section>
+</BaseLayout>

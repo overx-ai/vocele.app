@@ -6,6 +6,8 @@
 // Add a route here when you add a page. `slug: ''` is the home page.
 
 import { BLOG_POSTS } from './blog-posts';
+import { VS_PAGES } from './vs-pages';
+import { PAGES_LASTMOD } from './site';
 
 export interface SitePage {
   slug: string;
@@ -14,19 +16,23 @@ export interface SitePage {
    *  Defaults to 'en'. ES-only pages (Spanish blog articles) set 'es' so the
    *  sitemap lists them under /es/. */
   locale?: 'en' | 'es';
+  /** ISO date for sitemap <lastmod>. */
+  lastmod?: string;
 }
 
 export const SITE_PAGES: SitePage[] = [
-  { slug: '', translated: true },
-  { slug: 'pricing', translated: true },
-  { slug: 'faq', translated: true },
-  { slug: 'privacy', translated: false },
-  { slug: 'terms', translated: false },
-  { slug: 'blog', translated: true }, // the two index pages ARE locale twins
+  { slug: '', translated: true, lastmod: PAGES_LASTMOD },
+  { slug: 'pricing', translated: true, lastmod: PAGES_LASTMOD },
+  { slug: 'faq', translated: true, lastmod: PAGES_LASTMOD },
+  { slug: 'privacy', translated: false, lastmod: PAGES_LASTMOD },
+  { slug: 'terms', translated: false, lastmod: PAGES_LASTMOD },
+  { slug: 'blog', translated: true, lastmod: PAGES_LASTMOD }, // the two index pages ARE locale twins
   // Articles are original per locale (never translations): self-canonical, no
   // hreflang twin. Registered once in blog-posts.ts, appended here so the
   // sitemap can't miss them.
-  ...BLOG_POSTS.map((p) => ({ slug: p.slug, translated: false, locale: p.locale })),
+  ...BLOG_POSTS.map((p) => ({ slug: p.slug, translated: false, locale: p.locale, lastmod: p.dateModified ?? p.datePublished })),
+  // Comparison pages are EN-only (translated:false → self-canonical, no hreflang).
+  ...VS_PAGES.map((v) => ({ slug: `vs/${v.slug}`, translated: false, locale: 'en' as const, lastmod: v.dateModified ?? v.datePublished })),
 ];
 
 export const enPath = (slug: string) => (slug ? `/${slug}` : '/');

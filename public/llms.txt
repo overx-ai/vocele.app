@@ -5,9 +5,8 @@
 > real-time conversation practice, instant sentence-level correction, and
 > per-word accent/pronunciation scoring. Two named AI coaches, Luna and Lorenzo,
 > guide learners through conversation and structured grammar/vocabulary practice
-> respectively. Vocele is made by overX.ai and is positioned as a premium
-> alternative to gamified apps like Duolingo, priced well below private human
-> tutoring ($200-320/month for 2x-weekly lessons).
+> respectively. Vocele is made by overX.ai and is positioned as a daily
+> alternative to private human tutoring ($200-320/month for 2x-weekly lessons).
 
 ## Product
 
@@ -15,7 +14,7 @@
 - [Pricing](https://vocele.app/pricing): three subscription tiers — Core ($14.99/mo),
   Fluency ($29.99/mo), and Meta ($49.99/mo) — with feature breakdown
 - [FAQ](https://vocele.app/faq): common questions on languages taught, how Vocele
-  differs from Duolingo, the AI coaches, and billing
+  compares to a private tutor, the AI coaches, and billing
 
 ## Spanish (es-MX)
 
@@ -34,6 +33,11 @@ Español:
 - [Cómo hablar inglés con confianza](https://vocele.app/es/blog/como-hablar-ingles-con-confianza): guía para perder el miedo a hablar
 - [¿Clases de inglés o una app con IA?](https://vocele.app/es/blog/clases-de-ingles-o-app-con-ia): comparación real de costos y resultados
 - [Errores de pronunciación en inglés](https://vocele.app/es/blog/errores-de-pronunciacion-en-ingles): los 6 patrones que delatan a hispanohablantes
+
+## Comparisons (English)
+
+- [Vocele vs Praktika](https://vocele.app/vs/praktika): honest feature and pricing comparison
+- [Vocele vs Fluently](https://vocele.app/vs/fluently): honest feature and pricing comparison
 
 ## Legal
 

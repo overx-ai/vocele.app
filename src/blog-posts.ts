@@ -24,6 +24,7 @@ export interface BlogPost {
   title: string;
   description: string;
   datePublished: string; // ISO date
+  dateModified?: string; // ISO date; set on a real content refresh
   /** Short label for index cards / breadcrumbs. */
   cardTitle: string;
   /** Category pill label + accent key. */
