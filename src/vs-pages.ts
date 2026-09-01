@@ -19,10 +19,10 @@ export const VS_PAGES: VsPage[] = [
     slug: 'praktika',
     competitor: 'Praktika',
     title: "Praktika Alternative? Vocele vs Praktika, Compared Honestly",
-    description: "Praktika alternative, compared: Praktika has 12 languages, avatars and ~$8/mo. Vocele has per-word accent scores and corrections inside your own sentence.",
+    description: "Praktika alternative, compared: Praktika has 12 languages, avatars and ~$8/mo. Vocele has spaced-repetition vocabulary, stories, per-word accent scores and in-sentence fixes.",
     datePublished: '2026-09-02',
     faq: [
-      { q: "Is Praktika better than Vocele?", a: "For breadth, yes: more languages, a bigger lesson library, avatars and a lower price. Vocele is better if you want per-word pronunciation tracking over time and corrections shown inside your own sentences. They solve different problems." },
+      { q: "Is Praktika better than Vocele?", a: "Praktika has more languages, animated avatars and a lower price. Vocele has the learning system around the conversation: spaced-repetition vocabulary, stories answered aloud, grammar in your own language, per-word pronunciation tracked over time and corrections inside your own sentences. Different strengths." },
       { q: "How much does Praktika cost in 2026?", a: "Praktika's site quotes around $8 a month on the annual plan. The App Store lists $9.99 for one month, $49.99 for three months and $119.99 to $139.99 for a year. Reviewers report only the 3-month and annual plans are offered inside the app. Prices vary by country." },
       { q: "Does Vocele have avatars like Praktika?", a: "No. Vocele's coaches are voices with names, without animated faces. If a face helps you talk, Praktika is the better fit." },
       { q: "Which languages does each app teach?", a: "Praktika: English, Spanish, Japanese, Korean, French, German, Italian, Portuguese (European and Brazilian), Russian, Chinese and Arabic. Vocele: Spanish, English, French, German, Italian, Portuguese and Japanese." },
