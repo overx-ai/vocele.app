@@ -7,6 +7,7 @@ each page is self-canonical with no hreflang twin.
 
 ## Quick Links
 - [Strategy](000-strategy.md)
+- [Multi-Language SEO Plan](007-multilang-seo-plan.md) — en/es + pt-BR/ru rollout, clusters, keyword backlog
 - [Posts Pipeline](000-posts.md)
 - [Changelog](000-changelog.md)
 
@@ -22,10 +23,15 @@ each page is self-canonical with no hreflang twin.
 ├── 005-clases-de-ingles-o-app-con-ia.md
 └── 006-errores-de-pronunciacion-en-ingles.md
 
-Theme counterparts across locales (NOT translations): 001↔006, 002↔005.
+### Planned locales (see 007 §4–5)
+pt-BR (cornerstones: P-301 A, P-303 B, P-306 C) · ru (P-401 A, P-403 B, P-406 C)
+— gated per 007 §10; ru additionally gated on app ru native-language support.
+
+Theme counterparts across locales (NOT translations): 001↔006, 002↔005;
+full counterpart map in 007 §5.
 
 ## Orphans
 - none
 
 ---
-*Last updated: 2026-07-10*
+*Last updated: 2026-08-05*
