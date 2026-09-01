@@ -7,13 +7,13 @@ Status: idea → ready → writing → published → pruned
 
 | Keyword | Cluster | Intent | Volume (est.) | Competition note | Status | Notes |
 |---------|---------|--------|---------------|------------------|--------|-------|
-| praktika alternative / vocele vs praktika | E | comparison | low-med | ASO `praktika` 49/74, `praktika ai` 9/23; Praktika doesn't defend its brand SERP; languatalk + practiceme rank with review/vs pages | ready | V-004 → /vs/praktika |
-| fluently ai alternative / vocele vs fluently | E | comparison | low | ASO `fluently ai` 9/17; Fluently is English-only, B1+ professionals | ready | → /vs/fluently |
+| praktika alternative / vocele vs praktika | E | comparison | low-med | ASO `praktika` 49/74, `praktika ai` 9/23; Praktika doesn't defend its brand SERP; languatalk + practiceme rank with review/vs pages | published | V-004 → /vs/praktika |
+| fluently ai alternative / vocele vs fluently | E | comparison | low | ASO `fluently ai` 9/17; Fluently is English-only, B1+ professionals | published | → /vs/fluently |
 | talkpal alternative | E | comparison | low-med | ASO `talkpal` 42/66 | idea | V-005 |
 | elsa speak alternative | E | comparison | med | ASO `elsa speak` 56/87; pronunciation overlap | idea | V-002 |
 | speak app alternative | E | comparison | low | ASO `speak` 63/80 (generic word, noisy) | idea | V-003 |
 | boldvoice alternative | E | comparison | low | accent-only app; our angle: full conversation loop | idea | V-001 |
-| why can I understand english but not speak it | A | troubleshooting | med | forum/Quora answers + generic listicles rank; no product-backed answer with a quotable block | ready | P-101 cornerstone |
+| why can I understand english but not speak it | A | troubleshooting | med | forum/Quora answers + generic listicles rank; no product-backed answer with a quotable block | published | P-101 → /blog/understand-english-but-cant-speak |
 | entiendo inglés pero no puedo hablarlo | A (es) | troubleshooting | med | ES SERP owned by listicles/immigrant media | idea | P-201 |
 | best ai language tutor app 2026 | E | list | med | every competitor + talkio/enverson/lingrow have one; all self-serving | idea | P-105 roundup |
 | how much does an english tutor cost 2026 | C | buying-guide | med | Praktika's best-performing format (cost posts) | idea | uses $200–320/mo anchor |

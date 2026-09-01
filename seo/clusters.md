@@ -3,7 +3,7 @@
 Same five-cluster shape per locale (EN live, ES live, pt-BR / ru planned — see blog/007). Content is original per locale, never translated. Cannibalization checks run within a locale only. Full backlog IDs (P-1xx en, P-2xx es, P-3xx pt, P-4xx ru, V-00x vs) live in blog/007-multilang-seo-plan.md §5–6.
 
 ## Cluster A — "I understand but can't speak" (confidence cornerstone, GEO magnet)
-- Pillar (en): why can I understand English but not speak it — planned (P-101)
+- Pillar (en): Why you understand English but can't speak it — /blog/understand-english-but-cant-speak
 - Pillar (es): Cómo hablar inglés con confianza — /es/blog/como-hablar-ingles-con-confianza
 - Supporting:
   - entiendo inglés pero no puedo hablarlo — planned (P-201) — es

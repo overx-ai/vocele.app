@@ -33,6 +33,9 @@ app ru native-language support.
 | P-004 | Cómo hablar inglés con confianza | 2026-07-10 | /es/blog/como-hablar-ingles-con-confianza | live 2026-08-05; GSC baseline pending |
 | P-005 | ¿Clases de inglés o una app con IA? | 2026-07-10 | /es/blog/clases-de-ingles-o-app-con-ia | live 2026-08-05; GSC baseline pending |
 | P-006 | Errores de pronunciación en inglés que delatan a hispanohablantes | 2026-07-10 | /es/blog/errores-de-pronunciacion-en-ingles | live 2026-08-05; GSC baseline pending |
+| P-101 | Why You Understand English But Can't Speak It | 2026-09-02 | /blog/understand-english-but-cant-speak | live 2026-09-02; judge 87/100; ledger in seo/published.md |
+| V-004 | Vocele vs Praktika | 2026-09-02 | /vs/praktika | live 2026-09-02; judge 86/100 |
+| V-006 | Vocele vs Fluently | 2026-09-02 | /vs/fluently | live 2026-09-02; judge 87/100 |
 
 ## Ideas Backlog
 

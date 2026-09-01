@@ -33,6 +33,15 @@ export interface BlogPost {
 
 export const BLOG_POSTS: BlogPost[] = [
   {
+    slug: 'blog/understand-english-but-cant-speak',
+    locale: 'en',
+    title: "Why You Understand English But Can't Speak It (And What Fixes It)",
+    cardTitle: 'Understand English but can\'t speak it?',
+    description: "You understand English but freeze when you speak. Here's what happens in the three seconds before you go quiet, why more listening won't fix it, and what does.",
+    datePublished: '2026-09-02',
+    category: { label: 'Confidence', gradient: 'talk' },
+  },
+  {
     slug: 'blog/ai-accent-training',
     locale: 'en',
     title: 'AI Accent Training: How Per-Word Pronunciation Scoring Actually Works',

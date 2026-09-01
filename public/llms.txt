@@ -25,6 +25,7 @@
 ## Articles (original per locale — the Spanish articles are not translations)
 
 English:
+- [Why you understand English but can't speak it](https://vocele.app/blog/understand-english-but-cant-speak): the three-second freeze, why more input won't fix it, five fixes
 - [AI accent training, explained](https://vocele.app/blog/ai-accent-training): how per-word pronunciation scoring works, which sounds to fix first
 - [AI speaking coach vs. human tutor](https://vocele.app/blog/ai-speaking-coach-vs-human-tutor): honest cost/outcome comparison ($200-320/mo tutor anchor)
 - [IELTS & TOEFL speaking practice with AI](https://vocele.app/blog/ielts-toefl-speaking-practice-ai): exam-format breakdown + 4-week plan

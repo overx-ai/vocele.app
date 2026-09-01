@@ -13,4 +13,4 @@
 - Blog layer created: original-per-locale articles, each self-canonical
   (no hreflang twins); registered via `src/blog-posts.ts` → manifest → sitemap.
 ### Performance
-- Site not deployed yet — no traffic data until vocele.app goes live.
+- Site live on Vercel since 2026-08-05; GSC baseline pending (no `site:vocele.app` results as of 2026-09-02 — request indexing).

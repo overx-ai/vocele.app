@@ -1,0 +1,71 @@
+---
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+
+const faq = [
+  { q: "Is it normal to understand English but not speak it?", a: "Yes. It's the usual state for adult learners, especially anyone who learned mostly by reading and listening. Recognition always outruns production; the gap is expected rather than a sign you learned wrong." },
+  { q: "How do I go from understanding English to speaking it?", a: "Shift your time from input to output. Speak short answers daily, get corrected on the exact words you got wrong, rehearse the specific conversations you're avoiding, and track one measurable thing, like pronunciation scores on the same words each week." },
+  { q: "How long does it take to start speaking fluently?", a: "It depends on how much you produce each day rather than how many months you're enrolled. There's no honest fixed timeline, and anyone promising one is selling something." },
+  { q: "Why do I freeze when speaking English?", a: "You translate, then audit the sentence for mistakes, then feel the silence. Each step adds delay, and the shame of the pause uses the working memory you needed for the words. Practising where mistakes cost nothing retrains the reflex." },
+  { q: "Should I stop translating in my head?", a: "Yes, gradually. Translation is why your sentences come out in your language's word order. It fades with volume of output; trying to suppress it directly rarely works." },
+  { q: "Does an app work better than a tutor for this?", a: "For the volume of daily reps, an AI coach is cheaper and available at 11pm. For accountability and nuance, a human tutor wins. Using both is reasonable." },
+];
+---
+<ArticleLayout slug="blog/understand-english-but-cant-speak" faq={faq}>
+  <p>You understand English but can't speak it because listening and speaking are different skills. Listening asks you to recognise words. Speaking asks you to find them, order them, pronounce them and manage your fear, within about three seconds. More input won't close that gap. Short, daily spoken practice where every mistake gets corrected and nobody watches you fail will.</p>
+
+  <p>This is the problem I built Vocele around, so I'll tell you what's happening in your head during those three seconds, where the standard advice falls short, and what closes it.</p>
+
+  <h2>Why the word is there and still won't come out</h2>
+
+  <p>Most explainers frame this as passive versus active vocabulary: you recognise far more words than you can produce. That's true, and it's incomplete. Many of the words you "can't produce" are words you'd say fine in a quiet room with no one listening. The word is there. What fails is retrieving it under time pressure, with a face waiting.</p>
+
+  <p>Think about what your brain does when someone asks "So, what do you do?" You pick a structure, find "I work as," decide between "an" and "a," retrieve your job title, pronounce it, and read their face for whether they understood. Listening never asks for any of that. It asks "did you get it?" and you did.</p>
+
+  <h2>The three-second freeze</h2>
+
+  <p>Call it three seconds between the question and your silence. Three things happen in that gap, in order.</p>
+
+  <p><strong>First, you translate.</strong> The answer forms in your language and you start converting it. Conversion is slow, and it produces sentences with your language's word order wearing English words.</p>
+
+  <p><strong>Second, you audit.</strong> Before the sentence comes out, you check it for mistakes. The audit takes longer than the sentence would.</p>
+
+  <p><strong>Third, you feel the pause.</strong> The other person's face changes. The shame of the silence arrives, and shame eats the working memory you needed for the words. So you say "sorry, my English" and abandon the sentence.</p>
+
+  <p>When I wrote down who Vocele is for, I described the core pain as shame rather than grammar. The learner who freezes in the team meeting. The parent whose ten-year-old translates for them at the pharmacy. Those people have the vocabulary. What they lack is a place where the three seconds cost nothing.</p>
+
+  <h2>Why more listening won't fix it</h2>
+
+  <p>Podcasts, series, YouTube, reading the news in English: they all feel like studying, and they all build recognition. If ninety percent of your English time is input, you're becoming an expert receiver while staying a beginner producer. Nobody has listened their way out of a speaking problem.</p>
+
+  <p>The other standard advice is "just speak more," which usually means a language partner or a tutor. It's correct and it's expensive. A private tutor twice a week is $200 to $320 a month, and two hours of speaking a week is still very little output. I've compared <a href="/blog/ai-speaking-coach-vs-human-tutor">what a tutor does better and worse than an AI coach</a> elsewhere. The short version: a tutor is great for accountability and poor at the volume of reps this problem needs.</p>
+
+  <h2>What closes the gap</h2>
+
+  <h3>1. Daily output, ten minutes, no audience</h3>
+
+  <p>The unit that matters is how many times a week you produce a sentence under mild pressure and get it fixed. Ten minutes a day of spoken answers beats a two-hour class on Saturday, because the freeze is a reflex, and reflexes retrain through frequency.</p>
+
+  <h3>2. Get corrected where you went wrong</h3>
+
+  <p>When you say "I have five years experience in marketing" and someone replies with a corrected paragraph, you learn the right sentence and nothing about where yours broke. In Vocele I chose to highlight the wrong words inside the bubble you just spoke and put the fix beneath: "I've been working in marketing for five years." That was a deliberate call over a separate correction card, because "where" is what sticks.</p>
+
+  <h3>3. Rehearse the actual conversation</h3>
+
+  <p>Generic speaking practice builds generic confidence. If the conversation you're dreading is a job interview, rehearse the interview. If it's the parent-teacher conference, rehearse that, including the part where the teacher says something you don't catch and you have to ask them to repeat it. The freeze is specific. The rehearsal should be too.</p>
+
+  <h3>4. Say it wrong first</h3>
+
+  <p>This one is a habit change. Say the sentence, hear it come out wrong, then fix it. Adults hate doing this, and the way to make it bearable is to do it somewhere the mistake has no cost. That's why a coach with a corrections-only mode matters: it fixes the sentence without a lecture.</p>
+
+  <h3>5. Measure something</h3>
+
+  <p>Freezing feels permanent because you only notice it when it happens. So measure. Count spoken sentences per day. Score your pronunciation on the same ten words every week and watch the chart. I've argued before that a single score is a verdict and a trend is a coach; the <a href="/blog/ai-accent-training">accent training explainer</a> goes into how per-word scoring works. The number matters less than the proof, to yourself, that the gap is closing.</p>
+
+  <h2>How Vocele is built for this</h2>
+
+  <p>Vocele is an AI language coach for iPhone that has you speaking from the first session. You talk to Luna or Lorenzo by voice, in three modes: full scaffolding when you need help building the sentence, corrections-only when you just want to be fixed, and immersive when you want no interruptions. Mistakes are highlighted inside your own sentence. Pronunciation is scored word by word and tracked over weeks. Tomorrow's plan is built from today's errors and the interests you picked.</p>
+
+  <p>Two design rules matter here. Reminders are plain and local, with no guilt copy. And when we drew the line between free and paid, the rule I set was that the feature that stops you panicking must never be the one behind the paywall. Vocele teaches Spanish, English, French, German, Italian, Portuguese and Japanese, and the interface runs in English, Spanish, Portuguese, Russian and Polish, so grammar is explained in the language you already think in. Vocele isn't on the App Store yet; <a href="/pricing">the plans and the 3-day trial</a> are on the pricing page.</p>
+
+  <p>If you read Spanish, the same problem is covered from the other side in <a href="/es/blog/como-hablar-ingles-con-confianza">Cómo hablar inglés con confianza</a>. If your deadline is an exam, the <a href="/blog/ielts-toefl-speaking-practice-ai">IELTS and TOEFL speaking guide</a> applies the same method to the test format.</p>
+</ArticleLayout>

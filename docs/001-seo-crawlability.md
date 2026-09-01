@@ -156,5 +156,9 @@ docker rm -f t
 ```
 ```
 
-Deploy/CI wiring is **not done** — see the README's "To wire into CI/CD" section.
-Until then vocele.app isn't live, so none of the above is crawlable yet.
+Live on Vercel since 2026-07-11 (see docs/002-deployment.md); `git push origin master`
+deploys. Sitemap emits `<lastmod>` per URL (src/site.ts `PAGES_LASTMOD` for
+marketing pages, `datePublished`/`dateModified` for articles). Site constants
+(App Store URL, Organization/SoftwareApplication/author JSON-LD) live in
+`src/site.ts`; `/vs/<slug>` comparison pages register in `src/vs-pages.ts`.
+SEO content pipeline config lives in `seo/` (see `/seo` skill).
