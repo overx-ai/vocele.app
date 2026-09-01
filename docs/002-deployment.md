@@ -45,6 +45,13 @@ Nameservers on **Namecheap BasicDNS**, then:
 In **Vercel → Settings → Domains**, add both `vocele.app` and `www`, set apex as
 primary so `www` 301s to it (matches the apex-canonical HTML).
 
+> **Open as of 2026-09-02:** production currently has this backwards. `https://vocele.app/*`
+> 308-redirects to `https://www.vocele.app/*`, while every canonical, hreflang and sitemap
+> URL says the apex. Google is being told the canonical is a redirect, which is the likely
+> reason `site:vocele.app` returns nothing a month after launch. Fix in Vercel → Settings →
+> Domains: make `vocele.app` the primary domain (www → redirect to apex). Then request
+> re-indexing in GSC.
+
 ## Google Search Console
 
 - **Domain property** for `vocele.app` (covers apex + www + http/https in one),
