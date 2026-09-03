@@ -1,0 +1,13 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["26SAAF256Q.ai.overx.hello"],
+        "components": [
+          { "/": "/invite", "comment": "the friend-invite deep link (ios spec 036/200)" },
+          { "/": "/invite/*", "comment": "any future sub-path of the invite loop" }
+        ]
+      }
+    ]
+  }
+}

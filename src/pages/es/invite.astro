@@ -1,0 +1,78 @@
+---
+// The inbound half of the friend-invite loop (ios spec 200 T4).
+//
+// ⚠️ This page exists for the recipient WITHOUT the app. One with it never sees it: the AASA at
+// /.well-known/apple-app-site-association claims /invite, so iOS opens the app instead and this
+// HTML is never fetched. That is why there is no "open in app" button — by the time the page
+// renders, the OS has already decided the app is not installed.
+//
+// ⚠️ `uid` is NEVER read, rendered or forwarded. It is another learner's anonymous id; echoing it
+// into the DOM would publish one person's identifier on a page anyone can open, and the app's own
+// telemetry deliberately has no field for it either (see InviteOpenedEvent).
+//
+// ⚠️ **There is deliberately NO `?uid=` branch, and the first draft had one.** This site is
+// statically prerendered (`astro build` → plain HTML, no SSR adapter), so `Astro.url.searchParams`
+// is evaluated at BUILD time and is always empty — `const invited = searchParams.has('uid')`
+// compiles to `false` forever, and the "someone invited you" copy could never reach a real
+// visitor. A branch that cannot fire is worse than none: it reads as handled. One headline
+// instead, which is also the honest one — this page is only ever reached FROM an invite link.
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import AppStoreBadge from '../../components/AppStoreBadge.astro';
+---
+<BaseLayout
+  title="Te invitaron a Vocele"
+  description="Alguien te invitó a practicar un idioma juntos en Vocele."
+  lang="es"
+  slug="invite"
+  noindex={true}
+>
+  <section class="invite">
+    <p class="eyebrow">Un amigo te invitó</p>
+    <h1>Alguien te invitó a practicar juntos en Vocele</h1>
+    <p class="lede">
+      Instala la app y podrás enviarle una solicitud de amistad: ambos ven las rachas de
+      práctica y los audios de la semana del otro, y nada más.
+    </p>
+    <AppStoreBadge lang="es" variant="dark" />
+    <p class="fineprint">
+      Empezar es gratis. Nadie se agrega automáticamente: tú envías la solicitud y la
+      otra persona decide si la acepta.
+    </p>
+  </section>
+</BaseLayout>
+
+<style>
+  .invite {
+    max-width: 40rem;
+    margin: 0 auto;
+    padding: clamp(3rem, 10vw, 7rem) 1.25rem;
+    text-align: center;
+  }
+  .eyebrow {
+    font-size: 0.8125rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-muted, #6b7280);
+    margin: 0 0 0.75rem;
+  }
+  h1 {
+    font-family: var(--font-display);
+    font-size: clamp(1.75rem, 5vw, 2.75rem);
+    line-height: 1.15;
+    text-wrap: balance;
+    margin: 0 0 1rem;
+  }
+  .lede {
+    font-size: 1.0625rem;
+    line-height: 1.6;
+    color: var(--color-muted, #4b5563);
+    margin: 0 auto 2rem;
+    max-width: 34rem;
+  }
+  .fineprint {
+    font-size: 0.875rem;
+    color: var(--color-muted, #6b7280);
+    margin: 1.5rem auto 0;
+    max-width: 30rem;
+  }
+</style>
