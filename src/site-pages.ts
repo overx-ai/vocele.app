@@ -30,6 +30,9 @@ export const SITE_PAGES: SitePage[] = [
   // Articles are original per locale (never translations): self-canonical, no
   // hreflang twin. Registered once in blog-posts.ts, appended here so the
   // sitemap can't miss them.
+  // NOT listed: /invite (+ /es/invite). They are noindex, reached only from an
+  // invite link, and this manifest is the *indexable* route list — adding them
+  // would put a noindex page in the sitemap. See src/pages/invite.astro.
   ...BLOG_POSTS.map((p) => ({ slug: p.slug, translated: false, locale: p.locale, lastmod: p.dateModified ?? p.datePublished })),
   // Comparison pages are EN-only (translated:false → self-canonical, no hreflang).
   ...VS_PAGES.map((v) => ({ slug: `vs/${v.slug}`, translated: false, locale: 'en' as const, lastmod: v.dateModified ?? v.datePublished })),
