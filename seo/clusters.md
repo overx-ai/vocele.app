@@ -47,7 +47,29 @@ Same five-cluster shape per locale (EN live, ES live, pt-BR / ru planned — see
   - Vocele vs ELSA Speak — planned (V-002)
   - Vocele vs Speak — planned (V-003)
   - Vocele vs BoldVoice — planned (V-001)
-- Guardrail: never against Duolingo. Angle vs accent-only apps (BoldVoice/ELSA): we add the full conversation loop. Vs conversation apps (Praktika/Speak/TalkPal/Fluently): we add per-word accent depth + 7 languages.
+  - Vocele vs Anki (for language learners) — planned (V-006) — the vocabulary axis
+- Guardrail: never against Duolingo. Three axes, three different angles:
+  - accent-only apps (BoldVoice/ELSA) — we add the full conversation loop
+  - conversation apps (Praktika/Speak/TalkPal/Fluently) — we add per-word accent depth + 7 languages
+  - vocabulary/SRS apps (WRD/Anki/Quizlet/Memrise) — the words come from your own conversation and
+    get spoken back, not obtained as a deck. Never argue scheduler quality. See product.md
+    § Positioning against vocabulary / spaced-repetition apps.
+- Notes from review: —
+
+## Cluster F — Vocabulary that survives (added 2026-09-12)
+The retention audience: people already using a flashcard app, or people who "learn" words and lose
+them. Distinct from A (confidence), B (pronunciation) and C (the money decision) — the pain here is
+forgetting, and the competitors are WRD/Anki/Quizlet rather than tutors or conversation apps.
+- Pillar (en): why you forget the words you study — planned (P-130)
+- Pillar (es): planned (P-230)
+- Supporting:
+  - anki for language learning: what it's good at and what it isn't — planned (P-131) — en
+  - how many words do you need to be conversational — planned (P-132) — en
+  - the words you save from your own conversations — planned (P-133) — en
+  - /vs/anki — planned (V-006) — sits in E, links here
+- ASO reality (2026-09-12): on the App Store this whole category is one head term — `anki` 67 pop /
+  63 diff (US), 61/48 (MX). Everything else tested sits at the popularity floor of 5. So this
+  cluster is a web-SEO and GEO play, not an ASO keyword play.
 - Notes from review: —
 
 ## Orphans (published pages with no cluster — assign or prune)

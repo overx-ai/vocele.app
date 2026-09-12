@@ -44,6 +44,21 @@ English, Spanish, Portuguese, Russian, Polish. Grammar explanations and word mea
 - Local practice reminders.
 - Sign in with Apple or email; account + all data deletable from Settings.
 
+## Positioning against vocabulary / spaced-repetition apps (WRD, Anki, Quizlet, Memrise)
+Added 2026-09-12 on the owner's note: these are competitors for the same "learn words" intent, not
+a separate market. They are a real comparison set, unlike Duolingo.
+
+The wedge is **where the words come from and where they go**, never algorithm quality:
+- Their words arrive as a deck you obtain (pre-made, shared, or hand-built). Ours arrive from your
+  own conversation — long-press a word in chat, a coach chip, or a correction you chose to save.
+- Their review ends at recall on a card. Ours re-surfaces the word in six modes (flashcards,
+  matching, typing, listening, picture, cloze) and then in a spoken turn with the coach, which is
+  the only place a word gets tested under time pressure out loud.
+- Concede plainly: Anki's scheduler is more configurable, its deck ecosystem is enormous, it is free
+  and cross-platform, and it handles any subject. We are iPhone-only and language-only.
+- ⚠️ Verify at write time before asserting any competitor's limits (whether Anki ships speech
+  recognition, what WRD's review modes are). These change and the fence does not cover third parties.
+
 ## Features that DO NOT exist (the hallucination fence)
 Never mention these as available, planned, or "may support":
 - Android or web app
@@ -59,7 +74,8 @@ Never mention these as available, planned, or "may support":
 - User counts, ratings, testimonials, "X million learners" (pre-launch: none exist)
 
 ## Things we never claim
-- Comparisons against Duolingo (name never appears). The comparison set is human tutors and other AI conversation apps.
+- Comparisons against Duolingo (name never appears). The comparison set is human tutors, other AI conversation apps, and vocabulary/SRS apps (see below).
+- Against a flashcard app, never claim we have the better algorithm, the bigger deck library, or desktop/sync parity. We do not, and Anki's scheduler is its whole reputation.
 - Guaranteed fluency, timelines ("fluent in 90 days"), CEFR level jumps as promises
 - "Best app" without a stated criterion
 - Competitor pricing/features from memory — web-search at write time and cite
