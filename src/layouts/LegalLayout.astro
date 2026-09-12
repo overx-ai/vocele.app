@@ -2,8 +2,12 @@
 // Shared shell for the legal pages (Privacy, Terms). Bold Poster look: masthead
 // with LEGAL eyebrow, a draft-notice callout (2px rule + hard offset shadow), and
 // numbered sections — the <h2>s in the slot get auto-numbered top-ruled headings
-// via a CSS counter, so each page only authors <h2> + copy. EN-only pages
-// (translated:false → self-canonical, no hreflang).
+// via a CSS counter, so each page only authors <h2> + copy.
+//
+// `lang` is forwarded to BaseLayout and MUST be passed by any /es page using this shell:
+// without it the page renders <html lang="en-US">, an EN canonical and an EN footer. Privacy
+// and Terms are EN-only (translated:false → self-canonical, no hreflang), so the omission was
+// invisible until /es/fair-use existed.
 import BaseLayout from './BaseLayout.astro';
 
 export interface Props {
@@ -14,10 +18,12 @@ export interface Props {
   updated: string;
   /** HTML for the draft-notice callout body (may include <strong>). */
   draftNotice: string;
+  /** Locale of THIS page. Drives <html lang>, canonical, hreflang and the footer. */
+  lang?: 'en' | 'es';
 }
-const { title, description, slug, heading, updated, draftNotice } = Astro.props;
+const { title, description, slug, heading, updated, draftNotice, lang = 'en' } = Astro.props;
 ---
-<BaseLayout title={title} description={description} slug={slug}>
+<BaseLayout title={title} description={description} slug={slug} lang={lang}>
   <section class="legal-masthead">
     <div class="container">
       <span class="eyebrow">Legal</span>

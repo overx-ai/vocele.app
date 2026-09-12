@@ -13,6 +13,9 @@
 - [Home](https://vocele.app/): overview, core features, and coaches
 - [Pricing](https://vocele.app/pricing): three subscription tiers — Core ($14.99/mo),
   Fluency ($29.99/mo), and Meta ($49.99/mo) — with feature breakdown
+- [Usage & Fair Use](https://vocele.app/fair-use): the conversation-minute, pronunciation,
+  vocabulary and PDF-import allowance of every plan, including the free one. Vocele states the
+  number and never sells anything as "unlimited".
 - [FAQ](https://vocele.app/faq): common questions on languages taught, how Vocele
   compares to a private tutor, the AI coaches, and billing
 
@@ -20,6 +23,7 @@
 
 - [Inicio](https://vocele.app/es): página principal en español, enfocada en aprender inglés
 - [Precios](https://vocele.app/es/pricing)
+- [Uso y uso justo](https://vocele.app/es/fair-use): las cantidades incluidas en cada plan
 - [Preguntas Frecuentes](https://vocele.app/es/faq)
 
 ## Articles (original per locale — the Spanish articles are not translations)

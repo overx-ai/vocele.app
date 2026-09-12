@@ -1,32 +1,126 @@
 ---
 import LegalLayout from '../layouts/LegalLayout.astro';
 ---
+{/*
+  Rewritten 2026-09-12 from ios-claude-hello/docs/024-usage-claims-and-the-legal-pack.md.
+
+  Three things here are load-bearing:
+
+  1. The word "unlimited" appears nowhere and must not. Vocele hard-stops at the plan allowance,
+     and a suspension for volume fails the first condition of the ASA/FTC test for a lawful
+     "unlimited" claim. Competitor Fluently wrote "there are no daily or monthly limits" INSIDE
+     its Terms of Use — an FAQ pasted into a contract is an operative term, and the more specific
+     one. Do not import that shape here.
+  2. Section 5 is Speak's express "create usage limits" reservation. It is the only clause in the
+     category that gives a provider the contractual right to meter what it markets.
+  3. Section 6's automation test is a rate limit written as a contractual term. It is what lets us
+     act against a script without reclassifying a heavy human as an abuser, which the ASA
+     expressly forbids ("exceeding a particular usage level ... will not in itself render a user
+     illegitimate").
+
+  NO PRICES ON THIS PAGE. Prices are per-territory and move; the in-app paywall is the only
+  authoritative price surface (Three-Surface Check).
+
+  TODO(owner) before this is treated as final: a geographic postal address (§1 — GDPR Art. 13 and
+  the EU Consumer Rights Directive both require one), and a lawyer's read of §16 and §18.
+  ⚠️ §4's allowance figures live on /fair-use and are mapped by price from 1B-bots docs/034 §6.2.
+  They are NOT yet confirmed against RevenueCat — see the comment in fair-use.astro.
+*/}
 <LegalLayout
   title="Terms of Service"
-  description="Vocele terms of service covering subscriptions, acceptable use, and billing."
+  description="Vocele terms of service: your plan and what it includes, acceptable use, AI-generated content, billing and cancellation."
   slug="terms"
   heading="Terms of service"
-  updated="July 2026"
-  draftNotice="<strong>Draft notice:</strong> this page is a starting template, not legal advice. Have counsel review before launch — especially the subscription/auto-renewal disclosures, which must match exactly across this page, your App Store Connect listing, and the in-app paywall (see the &quot;Three-Surface Check&quot; in the project's App Store submission checklist)."
+  updated="September 2026"
+  draftNotice="<strong>Please read section 4</strong> — it says how much conversation practice each plan includes — and <strong>section 5</strong>, which says what happens when you reach it. We do not describe any plan as unlimited, because none of them is: every plan includes a stated amount of AI conversation, and we would rather print the number."
 >
-  <h2>Subscriptions</h2>
-  <p>Vocele offers auto-renewing subscriptions (Core, Fluency, and Meta tiers) billed monthly or annually through the Apple App Store. Your subscription renews automatically unless cancelled at least 24 hours before the end of the current period. You can manage or cancel your subscription in your device's App Store account settings.</p>
+  <h2>Who you are contracting with</h2>
+  <p>Vocele is operated by <strong>Yauheni Malashchytski, trading as OverX AI</strong> (&ldquo;we&rdquo;, &ldquo;us&rdquo;), an individual trader. You can reach us at <a href="mailto:support@vocele.app">support@vocele.app</a>.</p>
 
-  <h2>Free trial</h2>
-  <p>Where offered, free trial terms will be disclosed at the point of purchase. Unless cancelled before the trial ends, your paid subscription will begin automatically.</p>
+  <h2>Accepting these terms</h2>
+  <p>These terms apply to the Vocele app and this website. By creating an account or using Vocele you accept them. If you do not accept them, do not use Vocele. If you are using Vocele on behalf of someone else, you confirm you are allowed to accept these terms for them.</p>
+
+  <h2>Who can use Vocele</h2>
+  <p>You must be at least 13 years old. In the European Economic Area and the United Kingdom you must be at least 16, unless the law of your country sets a lower age for consenting to online services, in which case that age applies. If you are under 18, you may use Vocele only with the involvement of a parent or guardian, who accepts these terms with you. We may close an account if we learn it belongs to someone below these ages.</p>
+
+  <h2>Plans and what each one includes</h2>
+  <p>Spoken conversation with the AI coach and pronunciation scoring are <strong>metered</strong>: each paid plan includes a stated number of conversation minutes and pronunciation checks. The exact numbers for your plan are shown on the purchase screen in the app, before you pay, and are listed on our <a href="/fair-use">Usage &amp; Fair Use</a> page. They are part of these terms.</p>
+  <p>Everything else — word sets, stories, reviews, grammar, your vocabulary and your progress — is included in your plan and does not consume conversation minutes. Any storage limit on saved vocabulary is stated in the same places.</p>
+  <p>A monthly plan&rsquo;s allowance arrives when you subscribe and at each renewal. A weekly plan spreads the same monthly amounts across a cycle, weighted towards the first week; an annual plan grants its twelve months together. Unused minutes carry over and are not swept, but the balance you may hold at once is capped: two months&rsquo; worth on a monthly or weekly plan, and on an annual plan the twelve months you bought.</p>
+
+  <h2>Reaching your limit, and our right to set limits</h2>
+  <p>When you have used the conversation minutes included in your plan, the exercise you are in the middle of finishes — we do not cut you off mid-sentence — and new spoken exercises pause until your next instalment arrives. The app tells you when that is. Everything unmetered stays available. You can move to a larger plan at any time; you are never required to, and nothing is charged automatically because you ran out.</p>
+  <p>We may change, suspend or discontinue any part of the service, and <strong>we may set or change usage limits for the service</strong>, including the allowances described above. If we reduce an allowance included in a plan you have already paid for, we will tell you at least 30 days beforehand and the change will not take effect until your next renewal, so you can cancel first. We will not reduce it during a period you have already paid for.</p>
+  <p>We may also apply short-term technical limits — queuing or rate-limiting requests — where that is necessary to keep the service working for everyone or to protect it from abuse.</p>
 
   <h2>Acceptable use</h2>
-  <p>Vocele is provided for personal, non-commercial language learning. You agree not to misuse the service, attempt to disrupt it, or use it to generate content that violates applicable law.</p>
+  <p>Vocele is licensed to you for your own personal, non-commercial language learning. You agree not to:</p>
+  <ul>
+    <li>share your account or sign-in credentials with anyone else, let anyone else use your subscription, or make Vocele&rsquo;s functionality available to more than one person;</li>
+    <li>resell, sublicense, rent or transfer your account or your access to Vocele;</li>
+    <li>access the service by automated means, or send more requests to our servers than a person could reasonably produce in the same period using the app as it is designed to be used;</li>
+    <li>scrape, harvest or systematically extract our content, or use it to build or train a competing product or a machine-learning model;</li>
+    <li>reverse-engineer, decompile or attempt to derive the source code of the app, except to the extent the law does not allow us to prevent it;</li>
+    <li>interfere with the service, probe or test its security, or place an unreasonable or disproportionately large load on our infrastructure;</li>
+    <li>use Vocele to create or transmit unlawful, abusive, harassing, hateful or sexually exploitative content, or content that infringes someone else&rsquo;s rights;</li>
+    <li>attempt to make the AI coach produce content these terms prohibit, or misrepresent its output as coming from a person.</li>
+  </ul>
+  <p>These are the things that make use of Vocele illegitimate. Practising a lot is not one of them: heavy ordinary personal use, within your allowance, is exactly what your plan is for, and it will never on its own cause us to limit or close your account.</p>
 
   <h2>AI-generated content</h2>
-  <p>Conversations, corrections, and feedback are generated by AI models and may occasionally be inaccurate. Vocele is a learning tool, not a substitute for professional translation, legal, medical, or immigration advice.</p>
+  <p>Conversations, corrections, translations, pronunciation feedback, level estimates, stories and exercises are produced by artificial-intelligence models. Because of how those models work, the output <strong>may be inaccurate, incomplete or unsuitable for your purpose</strong>, may contain confidently stated errors, and may be similar or identical to output another learner receives. We give no warranty as to its accuracy or fitness, and your reliance on it is at your own risk.</p>
+  <p>Vocele is a learning tool. It is not a certified assessment, and any level or score it shows you is an estimate for your own practice — not an academic credential, diploma, qualification or proof of proficiency for any employer, school or authority. It is not a substitute for professional translation or for legal, medical, financial, educational or immigration advice. Do not rely on it where accuracy matters.</p>
 
-  <h2>Disclaimer of warranties</h2>
-  <p>Vocele is provided "as is" without warranties of any kind, to the maximum extent permitted by law.</p>
+  <h2>Your content</h2>
+  <p>What you write and say in Vocele remains yours. You grant us a worldwide, non-exclusive, royalty-free licence to host, store, transmit, transcribe, translate, analyse and display it, and to pass it to the service providers listed in our <a href="/privacy">Privacy Policy</a>, strictly to operate Vocele for you and keep it secure. The licence lasts as long as we hold the content and ends when you delete it or your account. We do not publish it, sell it, or use it to advertise to you, and <strong>we do not use it to train foundation models</strong> — ours or anyone else&rsquo;s.</p>
+  <p>You confirm you have the right to submit what you submit, and that it does not infringe anyone else&rsquo;s rights.</p>
 
-  <h2>Changes</h2>
-  <p>We may update these terms from time to time. Continued use of Vocele after changes take effect constitutes acceptance of the updated terms.</p>
+  <h2>Our content</h2>
+  <p>Vocele, its software, lessons, stories, word sets, audio, artwork and branding are ours or our licensors&rsquo;, and are protected by copyright and other laws. We grant you a personal, revocable, non-transferable, non-sublicensable licence to use the app on devices you own or control, for the purposes these terms allow, and nothing more.</p>
+
+  <h2>Price, billing and renewal</h2>
+  <p>Paid plans are sold as auto-renewing subscriptions through Apple&rsquo;s App Store. The price, the billing period and what the plan includes are shown to you on the purchase screen before you pay, in your local currency including any applicable tax.</p>
+  <p>Your subscription <strong>renews automatically</strong> at the end of each period at the then-current price, and Apple charges your Apple Account, until you cancel. Apple takes the renewal within 24 hours before the period ends. All billing for in-app purchases is handled by Apple under Apple&rsquo;s terms, not by us.</p>
+  <p>If we change the price of a plan you are subscribed to, Apple will ask you to confirm the new price before it takes effect; if you do not confirm, the subscription does not renew.</p>
+
+  <h2>Free trials and introductory offers</h2>
+  <p>Where we offer a free trial or an introductory price, its length and what follows it are shown on the purchase screen. <strong>Unless you cancel at least 24 hours before the trial ends, it converts to a paid subscription and Apple charges you at the price shown.</strong> Trials are limited to one per person and per Apple Account, and we may change or withdraw an offer at any time before you accept it.</p>
+
+  <h2>Cancelling</h2>
+  <p>You can cancel at any time in your Apple Account subscription settings, up to 24 hours before the next renewal. Cancelling stops future renewals; your plan keeps working until the end of the period you have already paid for. Deleting the app does not cancel a subscription.</p>
+  <p>You can delete your account, and everything in it, in the app under Settings &rarr; Account &rarr; Delete account. Deleting your account does not cancel your Apple subscription — cancel that separately.</p>
+
+  <h2>Refunds, and your right to change your mind</h2>
+  <p>Purchases made through the App Store are refunded by <strong>Apple</strong>, under Apple&rsquo;s policy and at Apple&rsquo;s discretion. We cannot issue or refuse a refund for an in-app purchase. Request one at <a href="https://reportaproblem.apple.com">reportaproblem.apple.com</a>. Except where the law requires otherwise, fees already paid are not refundable, and cancelling does not refund the current period.</p>
+  <p><strong>If you are a consumer in the European Economic Area or the United Kingdom</strong>, you have a statutory right to withdraw from your subscription within 14 days of entering into it, without giving a reason. Because we make Vocele available to you immediately, you are asked to consent to immediate performance and to acknowledge that you lose the right of withdrawal once the service has been fully performed; where it has been only partly performed, you may still withdraw and pay a proportionate amount for what you used. To withdraw, tell us at <a href="mailto:support@vocele.app">support@vocele.app</a> before the 14 days are up — sending the message in time is enough. We will reimburse you without undue delay and within 14 days of being told, by the same means you paid, at no cost to you. Where the purchase was made through the App Store, the reimbursement is made through Apple.</p>
+  <p>This section does not affect any other right you have under the consumer law of your country, including a remedy where the service is not as described.</p>
+
+  <h2>Suspension and termination</h2>
+  <p>We may suspend or close your account if you materially breach these terms, if we are required to by law, or to protect the service or other people from harm. Except where the breach is serious or urgent, or where telling you first would defeat the purpose, we will give you notice and a chance to put it right. If we close your account for a reason that is not your breach, we will refund the unused part of any period you have paid for, through Apple.</p>
+  <p>You may stop using Vocele at any time. The sections on AI-generated content, your content, our content, disclaimers and liability, and law and disputes survive.</p>
+
+  <h2>Availability</h2>
+  <p>We aim to keep Vocele available, but we do not promise it will be uninterrupted or error-free. It depends on third-party infrastructure, including the AI providers listed in the Privacy Policy, which can fail or change. We may perform maintenance, and we may change or remove features. Where a change is material and to your disadvantage, we will give you reasonable notice.</p>
+
+  <h2>Disclaimers and liability</h2>
+  <p>To the maximum extent the law allows, Vocele is provided &ldquo;as is&rdquo; and &ldquo;as available&rdquo;, without warranties of any kind, express or implied, including any implied warranty of merchantability, fitness for a particular purpose or non-infringement. We do not warrant that using Vocele will produce any particular level of language proficiency.</p>
+  <p>To the maximum extent the law allows, we are not liable for indirect, incidental, special or consequential loss, or for loss of profit, data, goodwill or opportunity. Our total liability to you for all claims arising in any 12-month period is limited to the greater of the amount you paid us for Vocele in the 12 months before the claim arose, or 50&nbsp;EUR.</p>
+  <p><strong>Nothing in these terms limits or excludes our liability for death or personal injury caused by our negligence, for fraud or fraudulent misrepresentation, or for anything else that cannot be limited or excluded under the law that applies to you.</strong> If you are a consumer, you keep every right your national law gives you, and the two paragraphs above apply only so far as that law permits.</p>
+
+  <h2>Changes to these terms</h2>
+  <p>We may update these terms. If a change is material and to your disadvantage, we will tell you in the app or by email at least 30 days before it takes effect, and you may cancel before then. Other changes take effect when we publish them, and the date at the top changes. Your continued use after a change takes effect means you accept it.</p>
+
+  <h2>Law and disputes</h2>
+  <p>These terms are governed by the law of Georgia, and the courts of Tbilisi, Georgia have jurisdiction.</p>
+  <p><strong>If you are a consumer, this does not deprive you of the protection of the mandatory law of the country where you live, and you may bring proceedings in the courts of that country.</strong> Consumers in the European Economic Area and the United Kingdom keep every mandatory right their national law gives them, whatever this section says.</p>
+  <p>Before going to court, please write to us at <a href="mailto:support@vocele.app">support@vocele.app</a> — most things are faster to fix that way.</p>
+
+  <h2>Apple</h2>
+  <p>These terms are between you and us, not Apple. Apple is not responsible for Vocele or its content, and has no obligation to provide support or to handle any claim about it. Your licence to use the app is limited to Apple-branded products you own or control, as permitted by the App Store Usage Rules. If the app fails to conform to any applicable warranty, you may tell Apple, and Apple may refund the purchase price; beyond that, Apple has no other warranty obligation. Apple and its subsidiaries are third-party beneficiaries of these terms and may enforce them against you.</p>
+
+  <h2>General</h2>
+  <p>If a provision is found unenforceable, the rest stays in force. Our not enforcing a term is not a waiver of it. You may not transfer your rights under these terms; we may transfer ours to a successor of the business, and your rights are not reduced by that. These terms and the <a href="/privacy">Privacy Policy</a> are the whole agreement between us about Vocele.</p>
 
   <h2>Contact</h2>
-  <p>Questions about these terms: <a href="mailto:support@vocele.app">support@vocele.app</a></p>
+  <p><a href="mailto:support@vocele.app">support@vocele.app</a></p>
 </LegalLayout>

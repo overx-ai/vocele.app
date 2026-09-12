@@ -24,6 +24,10 @@ export const SITE_PAGES: SitePage[] = [
   { slug: '', translated: true, lastmod: PAGES_LASTMOD },
   { slug: 'pricing', translated: true, lastmod: PAGES_LASTMOD },
   { slug: 'faq', translated: true, lastmod: PAGES_LASTMOD },
+  // Fair-use IS translated (unlike privacy/terms): it is a purchase-decision disclosure and
+  // /es/pricing links to it. An English-only cap disclosure on a Spanish pricing page does not
+  // clear UCPD Art. 7. See src/pages/fair-use.astro.
+  { slug: 'fair-use', translated: true, lastmod: PAGES_LASTMOD },
   { slug: 'privacy', translated: false, lastmod: PAGES_LASTMOD },
   { slug: 'terms', translated: false, lastmod: PAGES_LASTMOD },
   { slug: 'blog', translated: true, lastmod: PAGES_LASTMOD }, // the two index pages ARE locale twins

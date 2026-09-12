@@ -1,39 +1,120 @@
 ---
 import LegalLayout from '../layouts/LegalLayout.astro';
 ---
+{/*
+  Rewritten 2026-09-12 from ios-claude-hello/docs/024-usage-claims-and-the-legal-pack.md.
+
+  ⚠️ WHAT THIS REPLACED, AND WHY IT MATTERED. The previous version opened "Vocele is built around
+  an anonymous account model ... we do not require your name, email, or phone number." That was
+  false: sign-in is REQUIRED, there is no anonymous identity, `anonymousId` is the JWT `sub` and is
+  nil when signed out, and the app requests the Sign in with Apple `.email` scope. The claim was
+  traced to a wrong line in the app repo's CLAUDE.md and corrected there by
+  ios-claude-hello/docs/specs/071-privacy-truth-alignment.md — but that fix landed in the app
+  repo's own website/ copy, and never reached THIS repo, which is the one App Store Connect's
+  privacy URL actually points at. A reviewer opens this page next to the sign-in screen.
+
+  ⚠️ This page and Template/PrivacyInfo.xcprivacy in ios-claude-hello are ONE decision in two
+  repos. The bullet list under "What we collect" is the manifest's declared types, in the
+  manifest's own vocabulary, and the App Store shows the same list on the product page. Change
+  one, change both. The app repo runs a precheck that compares them; it cannot see this file, so
+  the coupling here is manual and this comment is the only thing holding it.
+
+  ⚠️ NSPrivacyTracking is false and stays false. Apple Search Ads attribution via AdServices is
+  first-party attribution, not cross-app tracking, and no third-party attribution SDK ships. If
+  that changes it is not a copy edit: new manifest, new App Store labels, an ATT prompt, and a
+  rewrite of "What we do not do".
+
+  TODO(owner) before this is final — all three are legal requirements, not polish:
+    · a geographic postal address (GDPR Art. 13(1)(a));
+    · an EU representative under GDPR Art. 27, named with an address;
+    · a UK representative under UK GDPR Art. 27, named with an address.
+  A controller established outside the EU/UK offering a service to people there must appoint both
+  in writing and publish them here.
+*/}
 <LegalLayout
   title="Privacy Policy"
-  description="Vocele privacy policy: what data we collect, how anonymous accounts work, and how to request deletion."
+  description="Vocele privacy policy: exactly what data the app collects, why, who processes it, how long we keep it, and how to delete it."
   slug="privacy"
   heading="Privacy policy"
-  updated="July 2026"
-  draftNotice="<strong>Draft notice:</strong> this page is a starting template generated from the app's actual technical data practices. It is not legal advice and has not been reviewed by a lawyer. Have counsel review before this goes live on the App Store, particularly the sections on data retention, children's privacy, and any state-specific disclosures (e.g. CCPA/CPRA for California residents)."
+  updated="September 2026"
+  draftNotice="<strong>The short version:</strong> we collect what the app needs to teach you and nothing else. We do not track you across other companies&rsquo; apps or websites, we show no advertising, we use no advertising identifier, we do not sell or share your personal data, and we do not use what you write or say to train AI models."
 >
+  <h2>Who is responsible</h2>
+  <p>The controller of your personal data is <strong>Yauheni Malashchytski, trading as OverX AI</strong>. Contact: <a href="mailto:privacy@vocele.app">privacy@vocele.app</a>.</p>
+
   <h2>What we collect</h2>
-  <p>Vocele is built around an anonymous account model. When you first open the app, we generate a random identifier stored securely in your device's Keychain — we do not require your name, email, or phone number to use Vocele.</p>
+  <p>These are exactly the data types declared in the app&rsquo;s privacy manifest, which is what the App Store shows on Vocele&rsquo;s product page. All of them are linked to your account and none is used for tracking. All but two are used only to make the app work; the exceptions are noted where they apply.</p>
   <ul>
-    <li><strong>Anonymous identifier</strong> — a random ID that lets our servers sync your progress across sessions, without being tied to your real-world identity.</li>
-    <li><strong>Learning data</strong> — the languages you're learning, your vocabulary progress, conversation history with your AI coach, pronunciation scores, and streaks.</li>
-    <li><strong>Voice audio</strong> — spoken input you provide during conversation and accent-practice exercises is processed to generate pronunciation feedback and may be cached briefly to enable fast playback.</li>
-    <li><strong>Purchase data</strong> — subscription status is managed through Apple's App Store and our payments processor; we do not receive or store your payment card details.</li>
-    <li><strong>Basic usage &amp; diagnostics</strong> — crash reports and performance metrics to keep the app reliable.</li>
+    <li><strong>User ID</strong> — the account identifier issued by our sign-in service when you sign in. It is what our servers use to store your learning data: the languages you are learning, your vocabulary and review schedule, conversation history with your AI coach, pronunciation scores, streaks and achievements. It is not your real-world identity.</li>
+    <li><strong>Email address</strong> — the address you sign in with. If you register with an email address and password, we receive that address; if you use Sign in with Apple we request your email, and if you choose Apple&rsquo;s Hide My Email we only ever see the relay address Apple generates. We use it to identify your account and to contact you about the service. We do not send marketing email.</li>
+    <li><strong>Purchase history</strong> — if you buy a subscription, we receive from Apple, through our subscription provider, the fact of the purchase, which plan it is, when it renews or lapses, and whether it was refunded. This is how the app knows what you are entitled to and how much of your allowance is left. <strong>We never see your card, your bank details or your billing address</strong> — Apple handles payment and does not give us those.</li>
+    <li><strong>Audio data</strong> — recordings of you speaking, made only while you are doing a spoken exercise: talking to your AI coach, answering a story question aloud, or practising pronunciation. They are sent to our servers, and to the speech-recognition and pronunciation-scoring providers listed below, so that what you said can be transcribed and scored. We never listen outside an exercise you started.</li>
+    <li><strong>Usage data</strong> — how much of your allowance you have used and what used it, which features and screens you open, and where you first heard about Vocele. The first is how metering works; the rest we use to understand which parts of the app help people learn and which channels bring people in. <strong>This is the one category we also use for analytics rather than only to run the app.</strong></li>
+    <li><strong>Crash data</strong> — when iOS reports that Vocele crashed or froze, it hands us a diagnostic report containing the code paths involved. It contains no content you typed or said.</li>
+    <li><strong>Performance data</strong> — launch times, hang and freeze durations, screen and request timings, and the app-exit statistics iOS reports, so we can find and fix what is slow.</li>
+    <li><strong>Your setup answers</strong> — what you tell us when you first set the app up: your age range, how you would like the coach to address you, how long you have studied before, what you want to use the language for and by when, what has got in the way, which skills you want to work on, how you like to be corrected, the situations you want to practise, and whether and when you want a daily reminder. We use them to shape your daily plan and how the coach talks to you. You can skip any of these questions.</li>
+    <li><strong>What you write and say</strong> — messages to your AI coach, answers you type or speak, a conversation topic or a learning goal you name, and a word or sentence you ask us to translate. We store them so your history is there next time and so the coach can correct you. We do not publish them or use them to advertise to you.</li>
   </ul>
 
-  <h2>How we use it</h2>
-  <p>We use your data to operate and improve Vocele: personalizing lessons and conversation difficulty, generating pronunciation feedback, tracking your progress, and diagnosing technical issues. We do not sell your personal data.</p>
+  <h2>Advertising attribution, and what it is not</h2>
+  <p>If you found Vocele through an ad in the App Store, Apple gives the app a short-lived token that we exchange with Apple for a campaign-level report — which campaign, ad group and keyword brought you, and nothing about you. This is Apple&rsquo;s own attribution mechanism. It uses no advertising identifier, it does not follow you into other apps or websites, and it does not let anyone build a profile of you. That is why Vocele shows no App Tracking Transparency prompt: under Apple&rsquo;s definition, <strong>Vocele does not track you</strong>, and the app&rsquo;s privacy manifest declares exactly that.</p>
 
-  <h2>Third parties</h2>
-  <p>We use third-party infrastructure to provide core features, including cloud speech-recognition and text-to-speech providers, and a subscription-management provider. These providers process data only as needed to deliver the feature and under their own data-processing agreements with us.</p>
+  <h2>This website</h2>
+  <p>vocele.app uses analytics to see aggregate page views and referrers. If we run advertising campaigns we may also place a measurement pixel on the site; where that is the case, in the EEA and the UK it loads only after you agree to it, and you can change your mind at any time. The app itself contains no advertising code of any kind.</p>
 
-  <h2>Data retention &amp; deletion</h2>
-  <p>Because accounts are anonymous, resetting your device identity (for example, reinstalling the app) will disconnect you from your existing learning data. You can request deletion of your account data by contacting us at the email below.</p>
+  <h2>What we do not do</h2>
+  <p>Sign in with Apple asks Apple for your name so the app can show whose account you are signed in to; it is stored only on your device and never sent to our servers. We do not collect your phone number, your address, your contacts, your photos, your location, or health or fitness data. A display name you type in Settings stays on your device. We do not sell your personal data, and we do not share it for cross-context behavioural advertising — under the California Consumer Privacy Act, we have not sold or shared personal information in the preceding twelve months. <strong>We do not use your conversations, recordings or writing to train AI models</strong>, and our providers are contractually barred from doing so with it.</p>
 
-  <h2>Children's privacy</h2>
-  <p>Vocele is not directed at children under 13, and we do not knowingly collect data from children under 13.</p>
+  <h2>Why we are allowed to</h2>
+  <p>If you are in the EEA or the UK, we rely on:</p>
+  <ul>
+    <li><strong>Performance of our contract with you</strong> — running your account, teaching you, transcribing and scoring what you say, keeping your progress in sync, metering your allowance and honouring your subscription.</li>
+    <li><strong>Our legitimate interests</strong> — keeping the service secure and working, diagnosing crashes and slowness, preventing abuse, and understanding at an aggregate level which features help people learn. We have weighed these against your interests, and you can object at any time.</li>
+    <li><strong>Your consent</strong> — for the microphone, for notifications, for the optional setup questions, and for any website measurement pixel. You can withdraw it at any time, without affecting what we did before you did.</li>
+    <li><strong>Our legal obligations</strong> — tax and accounting records for purchases, and responding to lawful requests.</li>
+  </ul>
+
+  <h2>Who processes it for us</h2>
+  <p>Each of these receives only what its part of the service needs, processes it on our instructions under a data-processing agreement, and may not use it for its own purposes, including model training.</p>
+  <ul>
+    <li><strong>Hosting and storage</strong> — our servers run on rented infrastructure in Germany; audio and generated speech are stored with an object-storage provider; the website with a static hosting provider.</li>
+    <li><strong>AI providers</strong> — large language models for conversation, corrections and translation; speech-to-text for transcription; text-to-speech for spoken replies; and a pronunciation-assessment service.</li>
+    <li><strong>AI observability</strong> — we record the prompts and responses of AI requests so we can debug and improve quality. <strong>These records contain what you wrote or said.</strong> They are held by our observability provider on our instructions, kept for a limited period, and used for no other purpose.</li>
+    <li><strong>Subscriptions</strong> — our subscription provider receives your account identifier and the purchase events Apple reports, so entitlements work across your devices. Payment itself is Apple&rsquo;s, under Apple&rsquo;s privacy policy.</li>
+    <li><strong>Email and notifications</strong> — a transactional email provider for account email, and Apple&rsquo;s push service for notifications you have turned on.</li>
+  </ul>
+  <p>The app also uses Apple&rsquo;s speech recognition for some answers. It runs on your device where your device supports it; where it does not, iOS sends that recording to Apple, which handles it under Apple&rsquo;s privacy policy rather than ours. We will name any provider on request, and we do not share your data with advertisers or data brokers.</p>
+
+  <h2>Where your data goes</h2>
+  <p>Our servers are in Germany. Some providers above are in the United States or process data there. Where personal data leaves the EEA or the UK, we rely on the European Commission&rsquo;s Standard Contractual Clauses (and the UK Addendum), together with technical measures such as encryption in transit and at rest. You can ask us for a copy of those safeguards.</p>
+
+  <h2>How long we keep it</h2>
+  <ul>
+    <li><strong>Your account and learning data</strong> — while your account exists.</li>
+    <li><strong>Recordings</strong> — kept only as long as needed to transcribe, score and show you the result, and in any case no longer than 30 days; the transcript and the score stay with your progress.</li>
+    <li><strong>AI observability records</strong> — 30 days.</li>
+    <li><strong>Crash and performance data</strong> — up to 12 months, in aggregate.</li>
+    <li><strong>Purchase records</strong> — as long as tax and accounting law requires, separately from your learning data.</li>
+    <li><strong>After you delete your account</strong> — removed from live systems immediately, and from encrypted backups within 30 days.</li>
+  </ul>
+
+  <h2>Deleting your account</h2>
+  <p>You can delete your account from inside the app at any time — Settings, then Account, then &ldquo;Delete account&rdquo;. That erases the app&rsquo;s data on your device and deletes your account and its learning data on our servers, including stored recordings. It cannot be undone. Deleting your account does not cancel an Apple subscription — cancel that in your Apple Account settings.</p>
+  <p>If you have never signed in, we hold no learning data about you on our servers: your progress lives only on your device, and deleting the app removes it.</p>
+
+  <h2>Security</h2>
+  <p>Data is encrypted in transit and at rest, access to production systems is limited and authenticated, and our logs are built so that what you write or say never appears in them. No system is perfectly secure; if a breach affects your personal data and is likely to put you at risk, we will tell you and the relevant authority as the law requires.</p>
+
+  <h2>Children</h2>
+  <p>Vocele is not directed at children under 13, and in the EEA and the UK not to anyone under 16 unless local law sets a lower age. We do not knowingly collect data from them. If you believe a child has provided us with personal data, contact us and we will delete it.</p>
 
   <h2>Your rights</h2>
-  <p>Depending on where you live, you may have rights to access, correct, or delete your personal data. Contact us to exercise these rights.</p>
+  <p>Depending on where you live, you have the right to access your personal data, to correct it, to delete it, to receive a portable copy, to object to or restrict certain processing, and to withdraw consent. Deleting your account in the app satisfies a deletion request immediately; for anything else, write to us and we will answer within 30 days. We will not treat you differently for exercising a right.</p>
+  <p>If you are in the EEA or the UK you may also complain to your national data protection authority; if you are in Georgia, to the Personal Data Protection Service. We would rather you came to us first.</p>
+
+  <h2>Changes</h2>
+  <p>If we change what we collect, we update this page and the app&rsquo;s privacy manifest in the same release, and the date at the top changes with it. If a change is material we will tell you in the app before it takes effect.</p>
 
   <h2>Contact</h2>
-  <p>Questions about this policy: <a href="mailto:privacy@vocele.app">privacy@vocele.app</a></p>
+  <p>Questions, or to exercise a right: <a href="mailto:privacy@vocele.app">privacy@vocele.app</a></p>
 </LegalLayout>

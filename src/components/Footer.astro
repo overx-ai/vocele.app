@@ -4,8 +4,8 @@ export interface Props { lang?: 'en' | 'es' }
 const { lang = 'en' } = Astro.props;
 const base = lang === 'es' ? '/es' : '';
 const t = lang === 'es'
-  ? { pricing: 'Precios', faq: 'Preguntas', blog: 'Artículos', privacy: 'Privacidad', terms: 'Términos' }
-  : { pricing: 'Pricing', faq: 'FAQ', blog: 'Blog', privacy: 'Privacy', terms: 'Terms' };
+  ? { pricing: 'Precios', faq: 'Preguntas', blog: 'Artículos', fairUse: 'Uso justo', privacy: 'Privacidad', terms: 'Términos' }
+  : { pricing: 'Pricing', faq: 'FAQ', blog: 'Blog', fairUse: 'Fair use', privacy: 'Privacy', terms: 'Terms' };
 
 const links = [
   { href: `${base}/pricing`, label: t.pricing },
@@ -13,6 +13,8 @@ const links = [
   { href: `${base}/blog`, label: t.blog },
   // EN-only comparison pages (src/vs-pages.ts); ES has no twins yet.
   ...VS_PAGES.map((v) => ({ href: `/vs/${v.slug}`, label: `vs ${v.competitor}` })),
+  // Fair use has an /es twin (it is a purchase-decision disclosure); privacy/terms are EN-only.
+  { href: `${base}/fair-use`, label: t.fairUse },
   { href: '/privacy', label: t.privacy },   // EN-only legal pages
   { href: '/terms', label: t.terms },
 ];

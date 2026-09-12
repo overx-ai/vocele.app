@@ -11,7 +11,9 @@ An AI language coach for iPhone that makes you speak from day one: voice convers
 - Web: no (marketing site only)
 
 ## Pricing (USD, App Store)
-- Free tier: 3 completed stories lifetime, 1 full duel lifetime, one free level test; dictionary lookup.
+- Free tier: word sets, stories (listening only), reviews and grammar with no metering; 100 saved words; a one-time 5 minutes of AI conversation and 2 minutes of pronunciation practice; PDF preview only.
+- Metered on every plan: spoken conversation and pronunciation scoring. Per month — Core 300 talk / 90 pronunciation minutes, Fluency 600 / 180, Meta 1,200 / 360. Vocabulary caps 2,500 / 10,000 / 30,000; PDF imports 2 / 5 / 20.
+- Never write "unlimited" (or "ilimitado") as a claim about any plan. Allowances are the contract; the live source is learn-words `services/minute_wallets.py` PLAN_MINUTES and `services/entitlements.py` TIER_LIMITS. Full disclosure page: /fair-use (+ /es/fair-use).
 - Core — $14.99/mo ($107.88/yr, $5.99/wk)
 - Fluency — $29.99/mo ($215.88/yr)
 - Meta — $49.99/mo ($359.88/yr)
