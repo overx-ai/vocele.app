@@ -140,6 +140,10 @@ deployment before pointing DNS.
 
 ## Verification
 
+`npm run check` runs all of it: `astro check` (strict) then `tests/site.test.js`,
+which builds and asserts each invariant below against `dist/`. The greps are kept
+here as the definition of what the tests check, not as a manual routine.
+
 ```bash
 npm run build
 # one canonical per page (0 on 404); hreflang only on translated pages

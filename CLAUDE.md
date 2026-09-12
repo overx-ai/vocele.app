@@ -45,8 +45,12 @@ HTML. SEO/GEO is the entire point of this app. Full reference:
   against Duolingo.
 
 ## Workflows
-- Verify after changes: `npm run build`, then the greps in docs/001
-  § Verification; full link check: run the crawl_404.py pattern (scratchpad)
-  against `docker run -p 8899:80` with nginx.conf + dist mounted.
+- Verify after changes: `npm run check` — `astro check` under a strict tsconfig,
+  then `tests/site.test.js`, which builds and asserts the SEO invariants that used
+  to be manual greps (sitemap/build parity, canonical, hreflang, trailing-slash
+  links, JSON-LD, the AASA, the content fence, plan prices). Adding a page without
+  registering it in `src/site-pages.ts` fails the first test.
+- Full link check: run the crawl_404.py pattern (scratchpad) against
+  `docker run -p 8899:80` with nginx.conf + dist mounted.
 - Deploy: `git push origin master` → Vercel auto-builds (no separate step, no CI
   config). Host/DNS/GSC/GA4 setup in [docs/002-deployment.md](docs/002-deployment.md).

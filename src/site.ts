@@ -32,7 +32,7 @@ export const SOFTWARE_APP = {
   applicationCategory: 'EducationalApplication',
   operatingSystem: 'iOS',
   author: ORG,
-  ...(APP_STORE_URL && { installUrl: APP_STORE_URL, downloadUrl: APP_STORE_URL }),
+  ...(APP_STORE_URL ? { installUrl: APP_STORE_URL, downloadUrl: APP_STORE_URL } : {}),
   offers: [
     ['Core', '14.99'],
     ['Fluency', '29.99'],
