@@ -44,7 +44,13 @@ Read the first sentence of every paragraph in a row. If they sound like one voic
 ## Vocele-specific (guardrails, not style)
 - **duolingo** — never name it, never compare against it. The comparison set is human tutors ($200–320/mo).
 - **90-day guarantee / 90-day roadmap / money-back** — no product mechanism exists (spec 020 blocked).
-- **"learn Russian" / "learn Polish" / "learn Arabic"** — interface locales only; learnable languages are exactly es en fr de it pt ja.
+- **"learn Arabic"** — interface locale only, and unlike the others it has no content shelf and no
+  bundled UI locale (RTL is unshipped). Learnable languages are es en fr de it pt ja **ru pl**.
+  ⚠️ **This line used to ban "learn Russian" and "learn Polish" too, and it outlived its reason
+  by months.** Both became learnable on 2026-09-21: each carries 100 stories spanning A1–C2, 30
+  word sets, 50 grammar rules and a complete assessment bank. The ban was correct when written
+  (spec 091, no content) and nothing re-read it when the content landed. Corrected in place
+  rather than deleted, so the reversal is visible.
 - **role-play scenario library / "140 scenarios"** — Vocele has open conversation + interests, not a curated scenario pack.
 - **user counts, ratings, testimonials** — none exist pre-launch. No "thousands of learners".
 - **offline** — only the phrase dictionary is offline-first; everything else needs an account + connection.
