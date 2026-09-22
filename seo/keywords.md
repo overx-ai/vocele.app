@@ -9,7 +9,7 @@ Status: idea → ready → writing → published → pruned
 |---------|---------|--------|---------------|------------------|--------|-------|
 | praktika alternative / vocele vs praktika | E | comparison | low-med | ASO `praktika` 49/74, `praktika ai` 9/23; Praktika doesn't defend its brand SERP; languatalk + practiceme rank with review/vs pages | published | V-004 → /vs/praktika |
 | fluently ai alternative / vocele vs fluently | E | comparison | low | ASO `fluently ai` 9/17; Fluently is English-only, B1+ professionals | published | → /vs/fluently |
-| talkpal alternative | E | comparison | low-med | ASO `talkpal` 42/66 | idea | V-005 |
+| talkpal alternative | E | comparison | low-med | ASO `talkpal` 42/66; SERP = directories + app-owned alt pages (~2.4k words) | published | V-005 → /vs/talkpal |
 | elsa speak alternative | E | comparison | med | ASO `elsa speak` 56/87; pronunciation overlap | idea | V-002 |
 | speak app alternative | E | comparison | low | ASO `speak` 63/80 (generic word, noisy) | idea | V-003 |
 | boldvoice alternative | E | comparison | low | accent-only app; our angle: full conversation loop | idea | V-001 |

@@ -45,6 +45,21 @@ export const VS_PAGES: VsPage[] = [
       { q: "Is Vocele on Android?", a: "No. Vocele is iPhone only (iOS 17+). Fluently runs on iOS and Android." },
     ],
   },
+  {
+    slug: 'talkpal',
+    competitor: 'TalkPal',
+    title: "TalkPal Alternative? Vocele vs TalkPal, Compared Honestly",
+    description: "TalkPal alternative, compared: TalkPal has 130+ languages and roleplays. Vocele has spaced-repetition words, per-sound accent history and in-sentence fixes.",
+    datePublished: '2026-09-23',
+    faq: [
+      { q: "Is TalkPal worth paying for?", a: "If you want many conversation modes and a language most apps don't cover, yes. LanguaTalk rated it 3 out of 5, citing shallow content at higher levels, no spaced repetition and pronunciation feedback without actionable guidance. Try the 14-day trial before paying." },
+      { q: "How much does TalkPal cost in 2026?", a: "The US App Store lists Premium at $19.99 for one month, $49.99 for three months and $119.99 for a year, with a 14-day free trial. Reviewers have seen $59.88 to $89.99 a year on promotional or regional pricing. Prices vary by country." },
+      { q: "Is TalkPal free?", a: "Partly. The free plan allows 10 minutes of practice a day. Vocele's free tier includes word sets, stories, reviews and grammar without metering, but only a one-time 5 minutes of conversation." },
+      { q: "Does TalkPal have pronunciation scoring?", a: "Yes, color-coded per word. Vocele also scores each word, then names the sound behind the score, suggests phrase drills and charts that sound over weeks." },
+      { q: "Which languages does Vocele teach?", a: "Spanish, English, French, German, Italian, Portuguese and Japanese. TalkPal lists more than 130." },
+      { q: "Is Vocele on Android or the web?", a: "No. Vocele is iPhone only (iOS 17 or later). TalkPal runs on iOS, Android and the web." },
+    ],
+  },
 ];
 
 export const vsBySlug = (slug: string): VsPage => {

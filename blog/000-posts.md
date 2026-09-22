@@ -20,7 +20,7 @@ app ru native-language support.
 | P-104..106, P-204..206 | remaining en/es deepen items | see 007 §5 | backlog | — | med | — |
 | P-107..120, P-207..218, P-309..318, P-409..418 | Year-1 extended backlog (occupational D, sound-series B, comparison E, data reports) | see 007 §6 | backlog | — | Q2–Q4 per 007 §11 | phase-1 clusters |
 | P-409 | Английский для дальнобойщиков (FMCSA) | D | backlog | английский для дальнобойщиков | **high** (Q2) | /ru launch |
-| V-001..005 | /vs/ pages: BoldVoice, ELSA, Speak, Praktika, TalkPal | E | backlog | near-zero KD (Semrush) | **high** (phase 1) | — |
+| V-001..005 | /vs/ pages: BoldVoice, ELSA, Speak, Praktika, TalkPal | E | in progress (praktika, talkpal live) | near-zero KD (Semrush) | **high** (phase 1) | — |
 | P-121/122, P-219/220, P-319..322 | Semrush-validated additions (accent-reduction, pronunciation-checker, cómo pronunciar, perder sotaque, curso-ingles-ia…) | B/A/E | backlog | see 007 §6 | high–med | per-locale launch |
 
 ## Published
