@@ -95,7 +95,7 @@ const modified = post.dateModified && post.dateModified !== post.datePublished ?
         <span class="byline-brand">
           <!-- The byline's copy of the header mark — same asset, same iOS mask. See Header.astro. -->
           <img src="/logo-96.png" width="20" height="20" alt="" class="byline-mark" />
-          {AUTHOR.name}, {lang === 'es' ? 'fundador de' : 'founder of'} <a href={AUTHOR.url} rel="author">overX.ai</a>
+          {AUTHOR.name}, {lang === 'es' ? 'fundador de' : 'founder of'} <a href={lang === 'es' ? '/es' : '/'} rel="author">Vocele</a>
         </span>
         <span class="sep" aria-hidden="true">·</span>
         <time datetime={post.datePublished}>{dateLabel}</time>

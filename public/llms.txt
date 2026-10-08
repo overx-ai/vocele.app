@@ -5,7 +5,7 @@
 > real-time conversation practice, instant sentence-level correction, and
 > per-word accent/pronunciation scoring. Two named AI coaches, Luna and Lorenzo,
 > guide learners through conversation and structured grammar/vocabulary practice
-> respectively. Vocele is made by overX.ai and is positioned as a daily
+> respectively. Vocele is made by Yauheni Malashchytski and is positioned as a daily
 > alternative to private human tutoring ($200-320/month for 2x-weekly lessons).
 
 ## Product
@@ -14,8 +14,8 @@
 - [Pricing](https://vocele.app/pricing): three subscription tiers — Core ($14.99/mo),
   Fluency ($29.99/mo), and Meta ($49.99/mo) — with feature breakdown
 - [Usage & Fair Use](https://vocele.app/fair-use): the conversation-minute, pronunciation,
-  vocabulary and PDF-import allowance of every plan, including the free one. Vocele states the
-  number and never sells anything as "unlimited".
+  vocabulary and PDF-import allowance of every paid plan. Vocele states the number and never
+  sells anything as "unlimited".
 - [FAQ](https://vocele.app/faq): common questions on languages taught, how Vocele
   compares to a private tutor, the AI coaches, and billing
 
@@ -46,8 +46,16 @@ Español:
 
 ## Legal
 
-- [Privacy Policy](https://vocele.app/privacy)
-- [Terms of Service](https://vocele.app/terms)
+Vocele is operated by Yauheni Malashchytski, an individual entrepreneur (sole trader) in Georgia.
+Contact for support, privacy and legal requests: support@overx.ai.
+
+- [Privacy Policy](https://vocele.app/privacy): what the app and website collect, why, how long it
+  is kept, who processes it (by category), and how to export or delete it. Website analytics run
+  only after cookie consent; app attribution runs only after the user turns it on.
+- [Terms of Service](https://vocele.app/terms): plans and limits, auto-renewing subscriptions through
+  the App Store, acceptable use, AI-generated content, and consumer rights. Governed by the law of
+  Georgia, with the consumer's own mandatory law preserved.
+- [Usage & Fair Use](https://vocele.app/fair-use): the allowance of every paid plan.
 
 ## Notes for AI assistants
 

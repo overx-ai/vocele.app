@@ -1,6 +1,6 @@
 # vocele-web
 
-Marketing site for **Vocele** (vocele.app), the AI language-coaching app by overX.ai.
+Marketing site for **Vocele** (vocele.app), the AI language-coaching app.
 Per-product frontend → lives in `apps/` per the monorepo layout rules.
 
 ## What this is
@@ -73,8 +73,8 @@ overrides the canonical origin at build time (defaults to `https://vocele.app`).
 
 ## Pages
 
-`/`, `/pricing`, `/faq`, `/privacy`, `/terms`, `/404` and the Spanish equivalents at
-`/es`, `/es/pricing`, `/es/faq`. English is the default locale (no `/en` prefix);
+`/`, `/pricing`, `/faq`, `/fair-use`, `/privacy`,
+`/terms`, `/404` and the Spanish equivalents at `/es`, `/es/pricing`, `/es/faq`, `/es/fair-use`. English is the default locale (no `/en` prefix);
 Spanish is prefixed `/es`. This mirrors the App Store listing strategy (broad en-US,
 English-first es-MX) documented in `ios-claude-hello/marketing/001-aso-offer-strategy.md`.
 
@@ -148,11 +148,15 @@ Carried over from the site build — do not ship without these:
    replace with actual app screenshots, and regenerate `og-image.jpg` (1200×675) from a real design.
 2. **Official App Store badge + real URL** — `AppStoreBadge.astro` is a placeholder
    (`href="#"`).
-3. **Legal review** — `privacy.astro` / `terms.astro` are honest drafts, not legal
-   advice; the subscription-disclosure copy must match App Store Connect and the in-app
-   paywall (the "Three-Surface Check").
+3. **Legal review** — the legal pack (`src/data/{privacy,terms,fair-use}.ts`, facts in
+   `src/data/facts.ts`) is an honest draft, not legal advice. `npm test` runs
+   `scripts/check-legal.mjs`, which keeps `/privacy`'s App Store labels equal to the app's privacy
+   manifest and blocks tracking denials, internal vendor names, a second email, an address or a
+   phone number. The subscription-disclosure copy must still match App Store Connect and the in-app
+   paywall (the "Three-Surface Check"), and the policy is published only after the app and backend
+   changes it describes have deployed (`OWNER_NOTES` in `src/data/facts.ts`).
 4. **90-day guarantee copy is intentionally absent** from pricing until the in-app
    checkpoint tracker (`ios-claude-hello/docs/specs/020-gamification-progress-system.md`)
    ships — publishing an unbacked guarantee is a refund/support liability.
-5. Set real support/privacy emails and confirm all three subscription prices match the
-   app's RevenueCat config once wired.
+5. Confirm all three subscription prices match the app's subscription configuration once wired.
+   The one contact address is `CONTACT_EMAIL` in `src/data/facts.ts`.

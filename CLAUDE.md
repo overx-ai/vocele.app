@@ -6,8 +6,9 @@ HTML. SEO/GEO is the entire point of this app. Full reference:
 
 ## Tech Stack
 - Astro 4, `output: 'static'`, `trailingSlash: 'never'` — zero client JS
-  (two exceptions: the 404 page's locale-aware redirect script, and the GA4
-  gtag.js snippet in BaseLayout — prod builds only)
+  (two exceptions: the 404 page's locale-aware redirect script, and the cookie
+  consent module `src/scripts/consent.ts`, which loads GA4 only after Accept —
+  Consent Mode v2, Global Privacy Control = Reject, prod builds only)
 - Served today by nginx in Docker; **hosting will likely move to Vercel /
   Cloudflare Pages / GitHub Pages**
 
@@ -39,6 +40,21 @@ HTML. SEO/GEO is the entire point of this app. Full reference:
   `/pricing/`, which fights canonicalization and loops.
 - `og:image:width/height` in BaseLayout are hardcoded to match
   `public/og-image.jpg` (1200×675) — change both together.
+- **Legal pages are data, not markup.** `/privacy`, `/terms` and `/fair-use` (+ `/es/fair-use`) render from
+  `src/data/{privacy,terms,fair-use}.ts`; every identity, retention and date fact lives in `src/data/facts.ts`.
+  Sections have stable ids and "Section N" links come from their order (`src/data/sections.ts`), so never
+  type a section number by hand. `scripts/check-legal.mjs` (in `npm test`) fails the build on: App Store
+  labels that differ from the pin in `scripts/fixtures/`, a pin that differs from the app's `PrivacyInfo.xcprivacy`
+  (sibling repo), any "we do not track / never share" claim, a banned internal name (AI vendors,
+  infra, hosting) on ANY page, "OverX" outside the contact email, a second email, an address or phone
+  pattern, a missing section or clause, or a recipient category missing from `/privacy`.
+  A missing sibling manifest fails: `LEGAL_SIBLING=<path>` points at it, `LEGAL_SIBLING=skip` skips only that comparison.
+- **Owner rules for the legal pack (2026-10-08):** the operator is the person (Yauheni Malashchytski), never a
+  company or trading name, on every page, footer, JSON-LD and llms.txt; one email (`support@overx.ai`); no
+  street address or phone; and no implementation detail on any public page: name data, purpose, retention,
+  recipient category and rights, never vendors, models, hosts or pipelines. Apple, Google, AppsFlyer and
+  Google Analytics are the only third parties named. From this version on, a replaced policy stays at
+  `/privacy/<yyyy-mm>` (noindex, not in the sitemap), and it falls under every check like any other page.
 - Content guardrails (from ios-claude-hello ASO doc): never publish the 90-day
   guarantee; only 7 learnable languages (es en fr de it pt ja — never ru/pl/ar);
   prices $14.99/$29.99/$49.99; sell against human tutors ($200–320/mo), never
@@ -54,3 +70,12 @@ HTML. SEO/GEO is the entire point of this app. Full reference:
   `docker run -p 8899:80` with nginx.conf + dist mounted.
 - Deploy: `git push origin master` → Vercel auto-builds (no separate step, no CI
   config). Host/DNS/GSC/GA4 setup in [docs/002-deployment.md](docs/002-deployment.md).
+
+## Code comments
+
+- **A comment is written only when it is essential to understanding intricate logic** — a non-obvious
+  algorithm, a workaround and why the obvious way fails, an invariant the code cannot state. If the
+  code already says it, the comment is noise and gets deleted.
+- **No boilerplate docstrings.** Nothing on getters, setters, DTOs, config, plumbing, or anything the
+  signature already says. Never a comment "just in case".
+- Comments rot; code does not. A wrong comment is worse than none.

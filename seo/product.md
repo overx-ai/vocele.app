@@ -11,7 +11,7 @@ An AI language coach for iPhone that makes you speak from day one: voice convers
 - Web: no (marketing site only)
 
 ## Pricing (USD, App Store)
-- Free tier: word sets, stories (listening only), reviews and grammar with no metering; 100 saved words; a one-time 5 minutes of AI conversation and 2 minutes of pronunciation practice; PDF preview only.
+- Free tier: no recurring talk or pronunciation minutes beyond the onboarding conversation, a 200-word vocabulary cap (GitOps-tunable) and limited stories (owner, 2026-10-08). Never quote free-tier numbers on a page: say "Free accounts can try the app with limited access; what's included is shown in the app."
 - Metered on every plan: spoken conversation and pronunciation scoring. Per month — Core 300 talk / 90 pronunciation minutes, Fluency 600 / 180, Meta 1,200 / 360. Vocabulary caps 2,500 / 10,000 / 30,000; PDF imports 2 / 5 / 20.
 - Never write "unlimited" (or "ilimitado") as a claim about any plan. Allowances are the contract; the live source is learn-words `services/minute_wallets.py` PLAN_MINUTES and `services/entitlements.py` TIER_LIMITS. Full disclosure page: /fair-use (+ /es/fair-use).
 - Core — $14.99/mo ($107.88/yr, $5.99/wk)
@@ -42,7 +42,7 @@ English, Spanish, Portuguese, Russian, Polish. Grammar explanations and word mea
 - Interests picker (personalises topics); memory screen ("the app knows me").
 - Multiple target languages per learner, each with its own level.
 - Local practice reminders.
-- Sign in with Apple or email; account + all data deletable from Settings.
+- Sign in with Apple or Google (no email/password, no guest account); account + all data deletable from Settings.
 
 ## Positioning against vocabulary / spaced-repetition apps (WRD, Anki, Quizlet, Memrise)
 Added 2026-09-12 on the owner's note: these are competitors for the same "learn words" intent, not
@@ -82,6 +82,6 @@ Never mention these as available, planned, or "may support":
 - Anything about medical, legal (USCIS/FMCSA), or immigration outcomes as advice — informational only, with a disclaimer
 
 ## Author
-- Name: Jack Ma
-- Bio line: Founder of overX.ai, building Vocele. Writes from the product's own data and design decisions.
-- URL: https://overx.ai
+- Name: Yauheni Malashchytski (owner, 2026-10-08: the person's name, never a company or trading name; never "Jack Ma", "overX.ai" or "OverX AI" on any page)
+- Bio line: Founder of Vocele. Writes from the product's own data and design decisions.
+- URL: https://vocele.app

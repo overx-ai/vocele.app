@@ -15,7 +15,9 @@ Vercel won.
 - Repo: `git@github.com:hustlestar/vocele.app.git`, branch **`master`**.
 - **Deploy = `git push origin master`.** Vercel's GitHub app auto-builds every
   push; PRs get preview URLs. No separate deploy step, no GitHub Actions.
-- Vercel auto-detects Astro: build `astro build`, output `dist/`. **No adapter**
+- Build is `vercel.json`'s `buildCommand`: `npm run build` then the legal gate
+  (`scripts/check-legal.mjs`, `LEGAL_SIBLING=skip` because the app repo is not on Vercel, so the
+  pinned manifest stands in). A policy that fails the gate never deploys. Output `dist/`. **No adapter**
   (`output: 'static'`), **no env vars** — `PUBLIC_SITE_URL` in `astro.config.mjs`
   defaults to `https://vocele.app`, so prod canonicals are correct unset.
 

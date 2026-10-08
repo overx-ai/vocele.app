@@ -8,7 +8,8 @@
     "build": "astro build",
     "preview": "astro preview --host 0.0.0.0",
     "lint": "astro check",
-    "test": "astro build && node --test tests/",
+    "test": "astro build && node --test tests/ && node scripts/check-legal.mjs",
+    "check:legal": "node scripts/check-legal.mjs",
     "check": "npm run lint && npm test"
   },
   "dependencies": {

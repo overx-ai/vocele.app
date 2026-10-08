@@ -8,6 +8,7 @@
 import { BLOG_POSTS } from './blog-posts';
 import { VS_PAGES } from './vs-pages';
 import { PAGES_LASTMOD } from './site';
+import { LEGAL_DATES } from './data/facts';
 
 export interface SitePage {
   slug: string;
@@ -23,17 +24,19 @@ export interface SitePage {
 export const SITE_PAGES: SitePage[] = [
   { slug: '', translated: true, lastmod: PAGES_LASTMOD },
   { slug: 'pricing', translated: true, lastmod: PAGES_LASTMOD },
-  { slug: 'faq', translated: true, lastmod: PAGES_LASTMOD },
+  { slug: 'faq', translated: true, lastmod: '2026-10-08' },
   // Fair-use IS translated (unlike privacy/terms): it is a purchase-decision disclosure and
   // /es/pricing links to it. An English-only cap disclosure on a Spanish pricing page does not
   // clear UCPD Art. 7. See src/pages/fair-use.astro.
-  { slug: 'fair-use', translated: true, lastmod: PAGES_LASTMOD },
-  { slug: 'privacy', translated: false, lastmod: PAGES_LASTMOD },
-  { slug: 'terms', translated: false, lastmod: PAGES_LASTMOD },
+  { slug: 'fair-use', translated: true, lastmod: LEGAL_DATES['fair-use'].updated },
+  { slug: 'privacy', translated: false, lastmod: LEGAL_DATES.privacy.updated },
+  { slug: 'terms', translated: false, lastmod: LEGAL_DATES.terms.updated },
   { slug: 'blog', translated: true, lastmod: PAGES_LASTMOD }, // the two index pages ARE locale twins
   // Articles are original per locale (never translations): self-canonical, no
   // hreflang twin. Registered once in blog-posts.ts, appended here so the
   // sitemap can't miss them.
+  // NOT listed: /privacy/<yyyy-mm>. A policy replaced from 2026-10-08 on is kept there (the promise in
+  // /privacy#changes), noindex, so it never ranks in place of the current one.
   // NOT listed: /invite (+ /es/invite). They are noindex, reached only from an
   // invite link, and this manifest is the *indexable* route list — adding them
   // would put a noindex page in the sitemap. See src/pages/invite.astro.

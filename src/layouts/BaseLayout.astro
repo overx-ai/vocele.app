@@ -4,6 +4,7 @@
 // for, no hydration mismatch risk, nothing behind JavaScript.
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import ConsentBanner from '../components/ConsentBanner.astro';
 import { hasTranslation, enPath as buildEnPath, esPath as buildEsPath } from '../site-pages';
 import '../styles/global.css';
 
@@ -65,19 +66,6 @@ const allStructuredData = [...websiteSchema, ...structuredData];
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  {import.meta.env.PROD && (
-    <>
-      {/* Google Analytics (GA4). Prod builds only; excluded from `astro dev`. */}
-      <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-0ZQBJJGWPG"></script>
-      <script is:inline>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-0ZQBJJGWPG');
-      </script>
-    </>
-  )}
 
   <title>{fullTitle}</title>
   <meta name="description" content={description} />
@@ -144,5 +132,6 @@ const allStructuredData = [...websiteSchema, ...structuredData];
     <slot />
   </main>
   <Footer lang={lang} />
+  <ConsentBanner lang={lang} />
 </body>
 </html>

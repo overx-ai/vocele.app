@@ -1,3 +1,5 @@
+import { OPERATOR } from './data/facts';
+
 // Site-wide constants shared by JSON-LD, the App Store badge and the sitemap.
 // One place to flip when the listing goes live.
 
@@ -14,14 +16,14 @@ export const ORG = {
   name: 'Vocele',
   url: 'https://vocele.app',
   logo: 'https://vocele.app/icon-512.png',
-  sameAs: ['https://overx.ai'],
 };
 
+// The person behind Vocele, never a company or trading name (owner, 2026-10-08).
 export const AUTHOR = {
   '@type': 'Person',
-  name: 'Jack Ma',
-  url: 'https://overx.ai',
-  jobTitle: 'Founder, overX.ai',
+  name: OPERATOR,
+  url: 'https://vocele.app',
+  jobTitle: 'Founder, Vocele',
 };
 
 export const SOFTWARE_APP = {
