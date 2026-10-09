@@ -6,11 +6,11 @@ Same five-cluster shape per locale (EN live, ES live, pt-BR / ru planned — see
 - Pillar (en): Why you understand English but can't speak it — /blog/understand-english-but-cant-speak
 - Pillar (es): Cómo hablar inglés con confianza — /es/blog/como-hablar-ingles-con-confianza
 - Supporting:
-  - entiendo inglés pero no puedo hablarlo — planned (P-201) — es
+  - entiendo inglés pero no puedo hablarlo — /es/blog/entiendo-ingles-pero-no-puedo-hablarlo (P-201, written 2026-10-09, pending deploy) — es
   - how long does it take to become fluent — planned (P-104) — en
   - cómo perder el miedo a hablar inglés — planned (P-204) — es
   - how to think in English (stop translating) — planned (P-119) — en
-- Notes from review: —
+- Notes from review: 2026-10-09: neither pillar has impressions yet. P-201 takes the diagnosis intent ("why"), como-hablar keeps the how-to plan; they link both ways so the two ES pages don't split one query.
 
 ## Cluster B — Pronunciation & accent for L1 speakers (the per-word-scoring story)
 - Pillar (en): AI Accent Training: how per-word pronunciation scoring works — /blog/ai-accent-training
@@ -31,7 +31,7 @@ Same five-cluster shape per locale (EN live, ES live, pt-BR / ru planned — see
   - US citizenship interview English practice — planned (P-103) — en
   - how much does an English tutor cost (2026) — planned — en (Praktika's best-performing format)
   - inglés para la entrevista de ciudadanía / de trabajo — planned (P-202/203) — es
-- Notes from review: —
+- Notes from review: 2026-10-09: the ES pillar is the site's biggest non-brand earner (222 impr, pos ~7.9) with 0 clicks. The SERP above it is schools selling classes (Berlitz, aprendemas: "la IA no reemplaza al profesor") and AI-app listicles; retitled to promise the cost answer and a verdict. Spanish money-decision content is where Google already trusts us; P-206 (apps para aprender inglés hablando) is the natural next ES piece.
 
 ## Cluster D — Situational & occupational English (Year 1, lowest competition)
 - Pillar: planned (phone-call English / everyday ladder)

@@ -57,6 +57,7 @@ Read the first sentence of every paragraph in a row. If they sound like one voic
 
 ## Spanish (es-MX) slop
 sumérgete, desbloquea, potencia, revoluciona, sin esfuerzo, "en el mundo actual", "¿alguna vez te has preguntado", "en conclusión", "cabe destacar", "es importante mencionar", "no busques más"
+- "No es X: es Y" / "no significa X: significa Y" — the Spanish not-X-but-Y; state Y directly (spotted 2026-10-09 in the errores refresh)
 
 ## Portuguese (pt-BR) slop
 mergulhe, desbloqueie, potencialize, revolucione, sem esforço, "no mundo de hoje", "você já se perguntou", "em conclusão", "vale ressaltar", "não procure mais"

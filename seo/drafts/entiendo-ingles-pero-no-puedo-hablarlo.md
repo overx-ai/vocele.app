@@ -1,0 +1,256 @@
+---
+title: "Entiendo inglés pero no puedo hablarlo: por qué y qué hacer"
+slug: es/blog/entiendo-ingles-pero-no-puedo-hablarlo
+keyword: entiendo inglés pero no puedo hablarlo
+cluster: A (es)
+intent: troubleshooting
+serp_format: "Checked 2026-10-09. Mixed SERP: competitor-app blogs (practiceme.app/es ~4,300 words: 3 causes, 5 exercises, 30-day plan, 6-question FAQ; getfluently ~2,400 words in EN), an Argentine magazine Q&A with a teacher (caras.perfil.com, ~320 words, voseo), Q&A sites (todoexpertos), and English explainers (speakconfidentenglish, reallifeglobal). Format that ranks: causes → fixes → FAQ, 1,200–2,500 words; no tables. PAA/FAQ candidates: ¿es normal?, ¿por qué me bloqueo?, ¿necesito más gramática?, ¿cuánto tiempo?, ¿puedo practicar sin compañero?"
+angle: "Every ranking page says 'pasivo vs activo' and 'practica más'. None is written for the Spanish speaker in the US, and none names the specific Spanish-to-English calques the translation step produces ('I have 34 years', 'I am agree', 'explain me'), which are what trigger the mid-sentence audit and the freeze. Ours names them in a table, explains why knowing the rule doesn't help under time pressure, and ties the fix (whole phrases, corrections in your own sentence, rehearsing your real conversation) to a product built for this reader. Theme counterpart of P-101 (EN), written originally in Spanish, not translated."
+cannibalization: "/es/blog/como-hablar-ingles-con-confianza answers the same question in one FAQ item but is a how-to confidence plan (fear loop, 5 steps, exposure ladder). This article is the diagnosis (why the gap exists, the translation traps) and hands the fear plan off to it with a link; the como-hablar FAQ answer now links here."
+meta_description: "¿Entiendes inglés pero no puedes hablarlo? Qué pasa en esos tres segundos, las trampas de traducir del español y qué cierra la brecha."
+sources:
+  - url: https://practiceme.app/es/blog/entiendo-ingles-pero-no-lo-hablo
+    supports: "SERP format: passive vs active, translation habit, fear blocking retrieval; FAQ questions used as PAA proxies"
+  - url: https://caras.perfil.com/noticias/caras-like/por-que-entendes-ingles-pero-no-podes-hablarlo.phtml
+    supports: "school system trains reading/exams rather than real-time response; emotional barrier (fear of sounding ridiculous)"
+  - url: https://www.speakconfidentenglish.com/you-understand-english-but-cant-speak-fluently-heres-why/
+    supports: "recognition vs production framing"
+  - url: https://www.leonardoenglish.com/blog/the-most-common-mistakes-in-english-for-spanish-speakers
+    supports: "calques: 'I have 25 years', 'I am agree', 'Explain me', 'The people is waiting', 'I am here since this morning', subject omission ('Is good'), do/make confusion"
+  - url: https://llexi.com/grammar/common-grammar-mistakes-spanish-speakers-english.html
+    supports: "'tengo 5 años de experiencia' → dropped 'of'; 'hacer una pregunta' → 'make a question'"
+  - url: internal (seo/product.md, seo/experience.md)
+    supports: "$200–320/mo tutor anchor; $14.99 entry plan; 3-day trial; free-tier wording; all product claims"
+experience_used:
+  - "[2026-07] positioning — core pain is shame, not grammar; avatar 'María, 34, Houston'; the parent whose kid translates (first person, paragraph 2)"
+  - "[2026-07] correction spans — highlight the wrong words inside the learner's own sentence; 'where, not just what' (first person, fix 3)"
+  - "[2026-07] dignified gamification — no guilt reminder copy; never paywall the anxiety-preventing feature (product section)"
+  - "Opinion: a single score is a verdict; a trend is a coach (fix 6)"
+internal_links:
+  - /es/blog/clases-de-ingles-o-app-con-ia (C-es pillar, money decision)
+  - /es/blog/como-hablar-ingles-con-confianza (A-es pillar)
+  - /es/blog/errores-de-pronunciacion-en-ingles (B-es pillar)
+  - /es/pricing
+  - /blog/understand-english-but-cant-speak (EN theme counterpart, plain cross-language link; no hreflang by repo convention)
+inbound_links_added:
+  - /es/blog/como-hablar-ingles-con-confianza (FAQ "¿Por qué entiendo inglés pero no puedo hablarlo?")
+  - /es/blog/clases-de-ingles-o-app-con-ia ("El dato que cambia la decisión")
+  - /es/blog/errores-de-pronunciacion-en-ingles (closing section)
+  - /es/faq ("¿Necesito tener un nivel previo para empezar?")
+  - /blog/understand-english-but-cant-speak (closing paragraph, cross-language)
+  - /es/blog index (automatic, from the manifest)
+hreflang: "Not added. CLAUDE.md, docs/001 and src/blog-posts.ts make blog articles original per locale, self-canonical, with no hreflang twin; blog/007 §5 lists P-101↔P-201 as theme counterparts, 'NOT translations'. A cross-language link in each direction stands in for it."
+hero_prompt: "Bold poster illustration: a woman in her thirties at a work meeting table, mouth closed, a speech bubble above her filled with half-crossed-out English words, pink and ink palette, hard offset shadow, no text"
+status: "judge 90/100 PASS; judge fixes applied 2026-10-09 (calque fix column, fewer 'Lo que' openers, H3s, keyword in meta, FAQ wording); awaiting deploy"
+---
+
+<p>
+    Entiendes inglés pero no puedes hablarlo porque entender y hablar son dos
+    habilidades distintas. Entender es reconocer palabras. Hablar es encontrarlas,
+    ordenarlas, pronunciarlas y aguantar los nervios, todo en unos tres segundos.
+    Ver más series no cierra esa brecha. La cierra hablar en voz alta todos los
+    días, con correcciones y sin público.
+  </p>
+
+  <p>
+    Construí Vocele alrededor de este problema. Cuando escribí para quién era la
+    app, no puse "estudiantes de nivel intermedio". Puse a María, 34 años, Houston:
+    entiende el inglés y no puede hablarlo. En la junta del equipo se queda callada,
+    y en la farmacia su hijo traduce por ella. Escribí que su problema principal era
+    la pena, no la gramática, y sigo pensando lo mismo.
+  </p>
+
+  <p>
+    Si te reconoces en María, este artículo explica qué pasa en tu cabeza justo antes
+    de quedarte en blanco, por qué tu español se mete en medio de la frase, y qué
+    hacer para que el inglés que ya tienes salga por la boca.
+  </p>
+
+  <h2>¿Es normal entender inglés y no poder hablarlo?</h2>
+  <p>
+    Es lo más normal del mundo, sobre todo si aprendiste en la escuela. Durante años
+    te entrenaron para leer, llenar ejercicios y pasar exámenes. Casi nadie te pidió
+    que respondieras en voz alta, en tiempo real, a alguien que espera. Así que tu
+    oído y tu lectura están en forma, y tu inglés hablado tiene muy pocas horas de
+    práctica encima.
+  </p>
+  <p>
+    Por eso la explicación de siempre, "vocabulario pasivo contra vocabulario
+    activo", se queda corta. Es verdad que reconoces más palabras de las que usas.
+    Pero muchas de las palabras que "no te salen" las dirías sin problema en un cuarto
+    a solas. La palabra está. Falla al salir con prisa y con alguien mirándote.
+  </p>
+
+  <h2>Lo que pasa en los tres segundos antes de quedarte callado</h2>
+  <p>
+    Llamémoslo tres segundos: el tiempo entre la pregunta y tu silencio. Alguien te
+    dice <em>"So, what do you do?"</em> y en ese hueco pasan tres cosas, en este
+    orden.
+  </p>
+  <p>
+    <strong>Primero, traduces.</strong> La respuesta se arma en español y empiezas a
+    convertirla. Convertir es lento, y produce frases con el orden y las costumbres
+    del español vestidas con palabras en inglés.
+  </p>
+  <p>
+    <strong>Segundo, revisas.</strong> Antes de decir la frase la inspeccionas
+    buscando errores. ¿Era <em>a</em> o <em>an</em>? ¿<em>Work</em> o
+    <em>works</em>? La revisión tarda más de lo que tardaría la frase.
+  </p>
+  <p>
+    <strong>Tercero, sientes la pausa.</strong> La cara de la otra persona cambia.
+    Llega la pena del silencio, y la pena se come la memoria que necesitabas para las
+    palabras. Entonces dices <em>"sorry, my English…"</em> y abandonas la frase.
+  </p>
+
+  <h2>Las trampas de traducir desde el español</h2>
+  <p>
+    El paso uno es el que más te delata, porque el español deja huellas muy
+    concretas en la frase. Estas son las más comunes entre hispanohablantes. Casi
+    siempre <em>conoces</em> la regla. La traducción produce la frase mal, la
+    revisión lo detecta a medias, y ahí te congelas.
+  </p>
+  <table>
+    <thead><tr><th>Piensas en español</th><th>Sale así</th><th>Se dice así</th></tr></thead>
+    <tbody>
+      <tr><td>Tengo 34 años</td><td>I have 34 years</td><td>I'm 34</td></tr>
+      <tr><td>Estoy de acuerdo</td><td>I am agree</td><td>I agree</td></tr>
+      <tr><td>Explícame</td><td>Explain me</td><td>Can you explain it to me?</td></tr>
+      <tr><td>Es importante</td><td>Is important</td><td>It's important</td></tr>
+      <tr><td>Hacer una pregunta</td><td>Make a question</td><td>Ask a question</td></tr>
+      <tr><td>La gente está esperando</td><td>The people is waiting</td><td>People are waiting</td></tr>
+      <tr><td>Estoy aquí desde la mañana</td><td>I am here since this morning</td><td>I've been here since this morning</td></tr>
+      <tr><td>Tengo cinco años de experiencia</td><td>I have five years experience</td><td>I have five years <strong>of</strong> experience</td></tr>
+    </tbody>
+  </table>
+  <p>
+    Ninguna de estas frases es un desastre; te van a entender. El problema es lo que
+    hacen en tu cabeza. Si a mitad de <em>"I have 34…"</em> algo te avisa de que está
+    mal, frenas, buscas la forma correcta y la pausa ya empezó. La salida es practicar
+    la frase correcta hasta que salga entera, sin pasar por el español.
+  </p>
+
+  <h2>Por qué ver más series no lo arregla</h2>
+  <p>
+    Podcasts, series, YouTube, leer noticias en inglés: todo se siente como estudiar,
+    y todo entrena el reconocimiento. Si casi todo tu tiempo con el inglés es
+    escuchar y leer, te vuelves experto en recibir y sigues siendo principiante en
+    producir. Nadie ha resuelto un problema de hablar escuchando más.
+  </p>
+  <p>
+    El otro consejo de siempre es "habla más", que normalmente significa un
+    intercambio de idiomas o un maestro. Es correcto y es caro: dos clases por semana
+    con un maestro particular cuestan entre $200 y $320 dólares al mes, y aun así son
+    pocas frases tuyas por semana. Hice la cuenta completa en
+    <a href="/es/blog/clases-de-ingles-o-app-con-ia">clases de inglés o app con IA</a>.
+    La versión corta: el maestro es muy bueno para darte disciplina y dirección, y
+    malo para darte el volumen de repeticiones que este problema pide.
+  </p>
+
+  <h2>Qué sí cierra la brecha</h2>
+
+  <h3>1. Habla en voz alta todos los días, aunque sean diez minutos</h3>
+  <p>
+    Cuenta una sola cosa: cuántas veces a la semana produces una frase bajo un poco
+    de presión y alguien te la corrige. Diez minutos diarios le ganan a dos horas el
+    sábado, porque quedarte en blanco es un reflejo, y los reflejos cambian con
+    frecuencia, no con intensidad.
+  </p>
+
+  <h3>2. Aprende frases enteras</h3>
+  <p>
+    La traducción se salta cuando la frase ya existe completa en tu memoria. En vez
+    de memorizar <em>experience</em>, practica <em>"I've been working in sales for
+    five years"</em> hasta que salga de un tirón. Guarda las frases que necesitas
+    de verdad, incluidas las de emergencia: <em>"Sorry, could you say that again?"</em>,
+    <em>"What do you mean by…?"</em>, <em>"Let me think for a second."</em> Esas tres
+    solas te compran el tiempo que hoy pierdes en silencio.
+  </p>
+
+  <h3>3. Que te corrijan justo donde fallaste</h3>
+  <p>
+    Cuando dices <em>"I have five years experience"</em> y alguien te responde con
+    un párrafo corregido, aprendes la frase buena y nada sobre dónde se rompió la
+    tuya. En Vocele decidí marcar las palabras equivocadas dentro de tu propia frase,
+    con la corrección debajo, en lugar de mostrarla en una tarjeta aparte. Lo decidí
+    así porque la tarjeta te dice <em>qué</em> era correcto, y la marca en tu frase
+    te dice <em>dónde</em> te equivocaste, que es lo que se te queda.
+  </p>
+
+  <h3>4. Ensaya la conversación que temes</h3>
+  <p>
+    La práctica genérica da confianza genérica. Si la conversación que temes es la
+    junta escolar, ensaya la junta escolar, incluida la parte en que la maestra dice
+    algo que no entiendes y tienes que pedirle que lo repita. Si es la cita médica,
+    ensaya cómo describir un dolor. Bloquearte es algo específico, así que el ensayo
+    también tiene que serlo. Para el plan paso a paso, de la práctica a solas a la
+    llamada telefónica, sigue la guía de
+    <a href="/es/blog/como-hablar-ingles-con-confianza">cómo hablar inglés con
+    confianza</a>.
+  </p>
+
+  <h3>5. Dilo mal primero</h3>
+  <p>
+    Este es un cambio de hábito. Di la frase, óyela salir mal, corrígela. A los
+    adultos nos cuesta muchísimo, y la única forma de hacerlo soportable es practicar
+    donde el error no tiene costo. Por eso sirve un coach con un modo de "solo
+    correcciones": arregla la frase sin darte una clase encima.
+  </p>
+
+  <h3>6. Mide algo</h3>
+  <p>
+    Quedarte en blanco se siente permanente porque solo lo notas cuando pasa. Así que
+    mide. Cuenta cuántas frases dijiste hoy en voz alta. Califica tu pronunciación en
+    las mismas palabras cada semana y mira la gráfica. Un puntaje aislado es un
+    veredicto; una tendencia es un coach. Si te piden repetir seguido, empieza por
+    <a href="/es/blog/errores-de-pronunciacion-en-ingles">los errores de pronunciación
+    que delatan a los hispanohablantes</a>.
+  </p>
+
+  <h2>Cómo está hecho Vocele para esto</h2>
+  <p>
+    Vocele es un coach de idiomas con IA para iPhone que te pone a hablar desde la
+    primera sesión. Hablas por voz con Luna o con Lorenzo en tres modos: con apoyo
+    completo cuando necesitas ayuda para armar la frase, solo correcciones cuando
+    quieres que te arreglen sin explicaciones, e inmersivo cuando no quieres
+    interrupciones. Los errores se marcan dentro de tu propia frase. Tocas cualquier
+    palabra del chat para ver qué significa, y con una pulsación larga guardas una
+    frase en tu libreta de frases, que te la vuelve a preguntar con repaso espaciado.
+  </p>
+  <p>
+    La gramática se explica en español. La pronunciación se califica palabra por
+    palabra y se guarda semana a semana. El plan de cada día se arma con los errores
+    de ayer y con los temas que elegiste. Dos reglas de diseño importan aquí: los
+    recordatorios son locales y sin frases de culpa, y cuando separamos lo gratis de
+    lo pagado, la regla que puse fue que la función que te quita el pánico nunca
+    puede ser la que queda detrás del pago.
+  </p>
+  <p>
+    Vocele todavía no está en el App Store. Las cuentas gratuitas pueden probar la
+    app con acceso limitado, y la app muestra lo que incluye. Los planes de pago
+    empiezan en $14.99 dólares al mes con prueba de 3 días; los tienes en la
+    <a href="/es/pricing">página de precios</a>.
+  </p>
+  <p>
+    Si lees en inglés, escribí sobre el mismo problema desde otro ángulo en
+    <a href="/blog/understand-english-but-cant-speak">Why you understand English but
+    can't speak it</a>.
+  </p>
+
+<h2>Preguntas frecuentes</h2>
+
+<h3>¿Es normal entender inglés pero no poder hablarlo?</h3>
+<p>Sí. Es lo más común en adultos que aprendieron leyendo, escuchando y haciendo exámenes. Reconocer siempre va por delante de producir. La brecha solo dice que entrenaste una habilidad y casi no tocaste la otra.</p>
+
+<h3>¿Por qué me bloqueo cuando me hablan en inglés?</h3>
+<p>Porque en dos o tres segundos intentas traducir del español, revisar la frase buscando errores y aguantar la cara de la otra persona. Cada paso añade retraso, y la pena de la pausa ocupa la memoria que necesitabas para las palabras. Se reentrena practicando donde equivocarte no cuesta nada.</p>
+
+<h3>¿Necesito estudiar más gramática para poder hablar?</h3>
+<p>Casi nunca. Si entiendes series y correos, la gramática está ahí. Falta sacarla en voz alta bajo un poco de presión, muchas veces. Más reglas alimentan la revisión mental que te frena; más práctica hablada la vuelve automática.</p>
+
+<h3>¿Cuánto tiempo tarda en soltarse el inglés si ya lo entiendo?</h3>
+<p>No hay un plazo honesto, y quien te prometa uno te está vendiendo algo. Depende de cuántas frases produces al día, no de cuántos meses llevas inscrito. Sí puedes medir si hoy hablas más y te traban menos palabras que hace un mes.</p>
+
+<h3>¿Puedo practicar hablar inglés sin compañero?</h3>
+<p>Sí. Puedes narrar en voz alta lo que haces, grabarte respondiendo preguntas y escucharte, o conversar con un coach de IA que te marca dónde fallaste en tu propia frase. Lo importante es producir frases completas en voz alta todos los días, con alguien o algo que te diga dónde fallaste.</p>
+

@@ -12,7 +12,7 @@ app ru native-language support.
 | P-101 | Why You Understand English But Can't Speak It | A confidence | backlog | understand english but can't speak | high | — |
 | P-102 | Job-Interview English: the 27 Phrases (ex I-001) | C situations | backlog | job interview english phrases | high | — |
 | P-103 | US Citizenship Interview English Practice | C situations | backlog | citizenship interview english practice | high | — |
-| P-201 | Entiendo inglés pero no puedo hablarlo | A confianza | backlog | entiendo ingles pero no puedo hablarlo | high | — |
+| P-201 | Entiendo inglés pero no puedo hablarlo | A confianza | written 2026-10-09 (pending judge + deploy) | entiendo ingles pero no puedo hablarlo | high | — |
 | P-202 | Inglés para la entrevista de ciudadanía (ex I-002) | C situaciones | backlog | ingles entrevista ciudadania | high | — |
 | P-203 | Inglés para entrevista de trabajo en EE.UU. | C situaciones | backlog | ingles para entrevista de trabajo | high | — |
 | P-301..308 | pt-BR launch set (8) | see 007 §5 | backlog | como falar inglês, pronúncia… | high | /pt infra (007 §10 ph.0) |

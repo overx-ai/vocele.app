@@ -4,7 +4,7 @@ import ArticleLayout from '../../../layouts/ArticleLayout.astro';
 const faq = [
   {
     q: '¿Cuánto cuestan las clases de inglés en Estados Unidos?',
-    a: 'Un maestro particular en plataformas como Preply o italki cobra entre $25 y $40 dólares por hora. Con dos clases por semana son $200–320 dólares al mes. Las escuelas de inglés presenciales suelen cobrar $150–400 al mes según intensidad, y los cursos comunitarios gratuitos existen pero con grupos grandes y poco tiempo de habla por alumno.',
+    a: 'Un maestro particular con dos clases por semana cuesta alrededor de $200–320 dólares al mes. Las escuelas de inglés presenciales suelen cobrar $150–400 al mes según intensidad, y los cursos comunitarios gratuitos existen pero con grupos grandes y poco tiempo de habla por alumno.',
   },
   {
     q: '¿Sirven las apps para aprender inglés de verdad?',
@@ -12,11 +12,11 @@ const faq = [
   },
   {
     q: '¿Qué es mejor para un adulto que trabaja: clases o una app?',
-    a: 'Para la mayoría, la combinación gana — pero si hay que elegir una sola cosa, la que uses TODOS los días le gana a la que uses dos veces por semana. Un adulto con trabajo y familia rara vez sostiene horarios fijos de clases; una app de práctica diaria de 15 minutos cabe en cualquier vida.',
+    a: 'Para la mayoría, la combinación gana. Si hay que elegir una sola cosa, la que uses TODOS los días le gana a la que uses dos veces por semana. Un adulto con trabajo y familia rara vez sostiene horarios fijos de clases; una app de práctica diaria de 15 minutos cabe en cualquier vida.',
   },
   {
     q: '¿Cuánto cuesta un coach de inglés con IA?',
-    a: 'Vocele cuesta entre $14.99 y $49.99 dólares al mes según el plan: Core ($14.99) da 10 minutos de conversación con IA al día; Fluency ($29.99) sube a 20 minutos al día y agrega entrenamiento de acento con calificación por palabra; Meta ($49.99) da 40 minutos al día, 30.000 palabras guardadas y hasta cinco idiomas a la vez. También hay un plan gratuito. Hasta el plan más completo cuesta la sexta parte de un tutor particular.',
+    a: 'Vocele cuesta entre $14.99 y $49.99 dólares al mes según el plan. Core ($14.99) incluye 300 minutos de conversación con IA y 90 de práctica de pronunciación al mes. Lo que incluye cada plan está en la <a href="/es/fair-use">página de uso</a>. Las cuentas gratuitas pueden probar la app con acceso limitado. Incluso el plan más caro cuesta una cuarta parte o menos de un tutor particular.',
   },
 ];
 ---
@@ -25,8 +25,8 @@ const faq = [
     Si estás decidiendo entre pagar clases de inglés o probar una app con
     inteligencia artificial, el dinero es la mitad de la pregunta. Un maestro
     particular dos veces por semana cuesta <strong>$200–320 dólares al mes</strong>;
-    una app de coaching con IA, entre <strong>$15 y $50</strong>. Pero la pregunta
-    completa es qué recibes por ese dinero — y sobre todo, cuál de las dos opciones
+    una app como Vocele, de <strong>$14.99 a $49.99</strong>. Pero la pregunta
+    completa es qué recibes por ese dinero y, sobre todo, cuál de las dos opciones
     vas a poder sostener los meses que de verdad toma hablar inglés. Vamos por
     partes, con números.
   </p>
@@ -36,54 +36,57 @@ const faq = [
     <thead><tr><th></th><th>Clases particulares (2x/semana)</th><th>Escuela / curso grupal</th><th>Coach de IA</th></tr></thead>
     <tbody>
       <tr><td><strong>Costo mensual</strong></td><td>$200–320</td><td>$150–400 (privada) o gratis (comunitario)</td><td>$14.99–$49.99</td></tr>
-      <tr><td><strong>Tus minutos hablando por semana</strong></td><td>60–90 (la mitad de la clase habla el maestro)</td><td>10–20 (se divide entre todo el grupo)</td><td>Los que quieras — todos los días</td></tr>
+      <tr><td><strong>Tus minutos hablando por semana</strong></td><td>60–90 (la mitad de la clase habla el maestro)</td><td>10–20 (se divide entre todo el grupo)</td><td>Todos los días, dentro de los minutos de tu plan (Core: 300 al mes, unos 10 diarios)</td></tr>
       <tr><td><strong>Horario</strong></td><td>Fijo, con cancelaciones</td><td>Fijo, con traslados</td><td>El tuyo: 6 am o 11 pm</td></tr>
-      <tr><td><strong>Corrección</strong></td><td>Buena pero selectiva — deja pasar errores por no cortar la plática</td><td>Casi nula por alumno</td><td>Cada frase, con el error marcado en tu propia oración</td></tr>
-      <tr><td><strong>Pronunciación</strong></td><td>"Repítelo" — de oído</td><td>Rara vez individual</td><td>Calificación objetiva palabra por palabra</td></tr>
-      <tr><td><strong>Pena / miedo al ridículo</strong></td><td>Existe — es una persona mirándote</td><td>Máxima — es un grupo</td><td>Cero. Nadie te ve equivocarte</td></tr>
+      <tr><td><strong>Corrección</strong></td><td>Buena pero selectiva: deja pasar errores por no cortar la plática</td><td>Casi nula por alumno</td><td>Cada frase, con el error marcado en tu propia oración</td></tr>
+      <tr><td><strong>Pronunciación</strong></td><td>"Repítelo", de oído</td><td>Rara vez individual</td><td>Calificación objetiva palabra por palabra</td></tr>
+      <tr><td><strong>Pena / miedo al ridículo</strong></td><td>Existe: es una persona mirándote</td><td>Máxima: es un grupo</td><td>Cero. Nadie te ve equivocarte</td></tr>
     </tbody>
   </table>
 
   <h2>El dato que cambia la decisión: minutos hablando</h2>
   <p>
-    Hablar inglés se aprende hablando — suena obvio, pero mira los números de la
+    Hablar inglés se aprende hablando. Suena obvio, pero mira los números de la
     tabla otra vez. En un grupo hablas 10–20 minutos <em>a la semana</em>. Con
-    tutor, 60–90. Con práctica diaria de 15 minutos en una app, acumulas
-    <strong>105 minutos semanales</strong> hablando tú, con corrección en cada
-    frase. La opción más barata resulta ser también la que más repeticiones te da
-    — y las repeticiones son el ingrediente que a los adultos siempre les falta.
+    tutor, 60–90. Con 10 minutos diarios de conversación en una app, acumulas
+    <strong>unos 70 minutos semanales</strong> hablando tú, con corrección en cada
+    frase y repartidos en siete días en lugar de dos. La opción más barata te da
+    tantas repeticiones como el tutor, y las repeticiones son el ingrediente que a
+    los adultos siempre les falta.
     (Si el miedo a hablar es tu freno principal, empieza por
     <a href="/es/blog/como-hablar-ingles-con-confianza">cómo hablar inglés con
-    confianza</a>.)
+    confianza</a>. Y si entiendes casi todo pero te quedas en blanco al responder,
+    lee <a href="/es/blog/entiendo-ingles-pero-no-puedo-hablarlo">por qué entiendes
+    inglés pero no puedes hablarlo</a>.)
   </p>
 
   <h2>Cuándo sí valen la pena las clases</h2>
-  <p>Seamos honestos — hay casos donde el humano gana:</p>
+  <p>Seamos honestos: hay casos donde el humano gana.</p>
   <ul>
     <li><strong>Necesitas que alguien te espere.</strong> Si sin una cita agendada no practicas, la clase compra disciplina.</li>
-    <li><strong>Trámites y contextos muy delicados</strong> — una carta legal, una negociación fuerte — donde quieres el criterio de alguien que ha vivido el idioma.</li>
+    <li><strong>Trámites y contextos muy delicados</strong>, como una carta legal o una negociación fuerte, donde quieres el criterio de alguien que ha vivido el idioma.</li>
     <li><strong>Nivel muy avanzado</strong>, puliendo matices finos.</li>
   </ul>
 
   <h2>Cuándo la app con IA es la decisión racional</h2>
   <ul>
     <li><strong>Tu horario manda:</strong> trabajas, tienes familia, y la práctica tiene que caber en los huecos del día.</li>
-    <li><strong>Te da pena equivocarte frente a gente</strong> — la práctica sin público es la puerta de entrada, no un atajo.</li>
-    <li><strong>El presupuesto importa:</strong> $300 al mes durante el año que toma la fluidez son $3,600 dólares. La constancia muere donde muere el presupuesto.</li>
-    <li><strong>Quieres ver tu progreso en números:</strong> la pronunciación calificada palabra por palabra te enseña qué corregir — como explicamos en <a href="/es/blog/errores-de-pronunciacion-en-ingles">los errores de pronunciación que nos delatan</a>.</li>
+    <li><strong>Te da pena equivocarte frente a gente.</strong> La práctica sin público es la puerta de entrada, no un atajo.</li>
+    <li><strong>El presupuesto importa:</strong> $300 al mes durante un año son $3,600 dólares. La constancia muere donde muere el presupuesto.</li>
+    <li><strong>Quieres ver tu progreso en números:</strong> la pronunciación calificada palabra por palabra te enseña qué corregir, como explicamos en <a href="/es/blog/errores-de-pronunciacion-en-ingles">los errores de pronunciación que nos delatan</a>.</li>
   </ul>
 
   <h2>La combinación que más rinde por dólar</h2>
   <p>
     No tiene que ser guerra: el esquema que más resultados da por dólar es práctica
-    diaria con IA (la base del progreso) más una clase humana ocasional — una al
-    mes, no ocho — para dirección y ánimo. Gastas $50–90 al mes en lugar de $300,
+    diaria con IA (la base del progreso) más una clase humana ocasional, una al
+    mes en vez de ocho, para dirección y ánimo. Gastas $50–90 al mes en lugar de $300,
     y hablas <em>más</em> minutos por semana, no menos.
   </p>
   <p>
     Vocele está hecho para ser esa base diaria: conversación real con tus coaches
     Luna y Lorenzo, corrección de cada frase en el momento, entrenamiento de acento
-    con calificación por palabra y vocabulario por situaciones reales — entrevistas,
+    con calificación por palabra y vocabulario por situaciones reales: entrevistas,
     citas médicas, juntas escolares. Los planes van de $14.99 a $49.99 dólares al
     mes; compáralos en la <a href="/es/pricing">página de precios</a>.
   </p>

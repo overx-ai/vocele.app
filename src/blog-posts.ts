@@ -72,6 +72,16 @@ export const BLOG_POSTS: BlogPost[] = [
     category: { label: 'Exams', gradient: 'learn' },
   },
   {
+    slug: 'blog/entiendo-ingles-pero-no-puedo-hablarlo',
+    locale: 'es',
+    title: 'Entiendo inglés pero no puedo hablarlo: por qué y qué hacer',
+    cardTitle: '¿Entiendes inglés pero no lo hablas?',
+    description:
+      '¿Entiendes inglés pero no puedes hablarlo? Qué pasa en esos tres segundos, las trampas de traducir del español y qué cierra la brecha.',
+    datePublished: '2026-10-09',
+    category: { label: 'Confianza', gradient: 'talk' },
+  },
+  {
     slug: 'blog/como-hablar-ingles-con-confianza',
     locale: 'es',
     title: 'Cómo hablar inglés con confianza (aunque te dé pena)',
@@ -84,21 +94,23 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     slug: 'blog/clases-de-ingles-o-app-con-ia',
     locale: 'es',
-    title: '¿Clases de inglés o una app con IA? Comparación real de costos y resultados',
+    title: 'Clases de inglés o app con IA: costo real y cuál te conviene',
     cardTitle: '¿Clases de inglés o app con IA?',
     description:
-      'Un maestro particular cuesta $200–320 dólares al mes. Comparamos clases de inglés tradicionales contra un coach de inglés con IA: costo, horarios y resultados.',
+      'Un maestro cobra $200–320 al mes por dos clases a la semana; una app como Vocele, de $14.99 a $49.99. Cuál te hace hablar más y cuándo sí vale el maestro.',
     datePublished: '2026-07-10',
+    dateModified: '2026-10-09',
     category: { label: 'Comparativa', gradient: 'learn' },
   },
   {
     slug: 'blog/errores-de-pronunciacion-en-ingles',
     locale: 'es',
-    title: 'Los errores de pronunciación en inglés que delatan a los hispanohablantes',
+    title: 'Errores de pronunciación en inglés: los 9 que nos delatan',
     cardTitle: 'Errores de pronunciación en inglés',
     description:
-      'La "i" corta, la "th", las vocales que no existen en español: los errores de pronunciación en inglés más comunes entre hispanohablantes y cómo corregirlos.',
+      'La "i" corta, la schwa, la "h" que suena a "j": los 9 errores de pronunciación en inglés más comunes en hispanohablantes, con pares para practicar.',
     datePublished: '2026-07-10',
+    dateModified: '2026-10-09',
     category: { label: 'Pronunciación', gradient: 'accent' },
   },
 ];
