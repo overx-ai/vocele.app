@@ -5,7 +5,7 @@ import { ORG, SOFTWARE_APP } from '../../site';
 
 const structuredData = [
   { '@context': 'https://schema.org', ...ORG },
-  { '@context': 'https://schema.org', ...SOFTWARE_APP, description: 'App de coaching de idiomas con IA que enseña inglés, español, francés, alemán, italiano, portugués y japonés mediante práctica de conversación real, corrección instantánea y entrenamiento de acento.' },
+  { '@context': 'https://schema.org', ...SOFTWARE_APP, description: 'App de coaching de idiomas con IA que enseña inglés, español, francés, alemán, italiano, portugués, japonés, ruso y polaco mediante práctica de conversación real, corrección instantánea y entrenamiento de acento.' },
 ];
 
 const scenarios = [
@@ -34,6 +34,8 @@ const languages = [
   { flag: '🇮🇹', name: 'Italiano', sep: '#1aa88c' },
   { flag: '🇵🇹', name: 'Portugués', sep: '#2163eb' },
   { flag: '🇯🇵', name: 'Japonés', sep: '#f24552' },
+  { flag: '🇷🇺', name: 'Ruso', sep: '#944ff5' },
+  { flag: '🇵🇱', name: 'Polaco', sep: '#f04582' },
 ];
 
 const topics = [
@@ -134,7 +136,7 @@ const topics = [
           coach que te dice exactamente qué corregir cada vez que hablas.
         </p>
         <ul class="stats">
-          <li><strong class="clip-talk">7</strong><span>idiomas</span></li>
+          <li><strong class="clip-talk">9</strong><span>idiomas</span></li>
           <li><strong class="clip-accent">3</strong><span>modos</span></li>
           <li><strong class="clip-read">24/7</strong><span>sin horarios</span></li>
         </ul>
@@ -159,7 +161,7 @@ const topics = [
   <!-- ============ LANGUAGES — marquee ============ -->
   <section class="languages">
     <div class="container">
-      <h2>Un coach.<br />Siete idiomas.</h2>
+      <h2>Un coach.<br />Nueve idiomas.</h2>
       <p class="lang-sub">Aprende cualquiera desde el idioma que ya hablas.</p>
     </div>
     <div class="ticker lang-ticker" aria-hidden="true">

@@ -56,7 +56,7 @@ HTML. SEO/GEO is the entire point of this app. Full reference:
   Google Analytics are the only third parties named. From this version on, a replaced policy stays at
   `/privacy/<yyyy-mm>` (noindex, not in the sitemap), and it falls under every check like any other page.
 - Content guardrails (from ios-claude-hello ASO doc): never publish the 90-day
-  guarantee; only 7 learnable languages (es en fr de it pt ja — never ru/pl/ar);
+  guarantee; only 9 learnable languages (es en fr de it pt ja ru pl — never ar);
   prices $14.99/$29.99/$49.99; sell against human tutors ($200–320/mo), never
   against Duolingo.
 

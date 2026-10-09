@@ -20,10 +20,10 @@ An AI language coach for iPhone that makes you speak from day one: voice convers
 - 3-day free trial on all tiers. Cancel from device settings.
 - Honest caveat: today every server-side gate sits at `core`. Do not describe specific Fluency/Meta-only features in articles; say "paid plans" or point to /pricing.
 
-## Learnable languages (exactly seven)
-Spanish, English, French, German, Italian, Portuguese, Japanese.
+## Learnable languages (exactly nine)
+Spanish, English, French, German, Italian, Portuguese, Japanese, Russian, Polish.
 
-## Interface locales (not learnable languages)
+## Interface locales (a separate list from learnable languages)
 English, Spanish, Portuguese, Russian, Polish. Grammar explanations and word meanings can be shown in the learner's native language.
 
 ## Features that EXIST
@@ -62,7 +62,7 @@ The wedge is **where the words come from and where they go**, never algorithm qu
 ## Features that DO NOT exist (the hallucination fence)
 Never mention these as available, planned, or "may support":
 - Android or web app
-- Learning Russian, Polish, Arabic, or anything beyond the seven
+- Learning Arabic, or anything beyond the nine
 - A curated professional role-play scenario library ("140 scenarios", "job interview simulator pack") — conversation is open-topic + interests, not a scenario catalogue
 - 90-day guarantee, 90-day roadmap, money-back guarantee, checkpoint tracker
 - Offline conversation/scoring (only the phrase dictionary is offline-first; everything else needs an account + connection)

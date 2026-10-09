@@ -34,7 +34,7 @@ hero_prompt: "n/a — comparison page uses the site og-image"
 status: published 2026-09-23
 ---
 
-<p>TalkPal is the broader app: 130+ languages, eight conversation modes including roleplays and debates, a web version and a free daily allowance. Vocele is the deeper one in seven languages: vocabulary that returns on a spaced-repetition schedule, grammar explained in your own language, pronunciation diagnosed down to the sound and tracked over weeks, and corrections drawn inside the sentence you said.</p>
+<p>TalkPal is the broader app: 130+ languages, eight conversation modes including roleplays and debates, a web version and a free daily allowance. Vocele is the deeper one in nine languages: vocabulary that returns on a spaced-repetition schedule, grammar explained in your own language, pronunciation diagnosed down to the sound and tracked over weeks, and corrections drawn inside the sentence you said.</p>
 
 <p>In August I read Fluently, Praktika, Speak and ELSA from their listings and reviews, wrote down what they had that we didn't, then checked that list against our own code. Five of the six gaps were already shipped or stale. Since then I read competitor marketing, and ours, with the same suspicion, so everything below about TalkPal comes from its App Store listing, its site and three independent reviews, all linked from the facts they support.</p>
 
@@ -62,7 +62,7 @@ status: published 2026-09-23
 
 <h2>What Vocele does differently</h2>
 
-<p>The minuses first. Vocele teaches seven languages, not 130. It has no roleplay catalogue, no famous characters, no debates and no web or Android app. It's iPhone only and not on the App Store yet. If you want a rare language or a laptop, TalkPal wins. Here's what you get instead.</p>
+<p>The minuses first. Vocele teaches nine languages, not 130. It has no roleplay catalogue, no famous characters, no debates and no web or Android app. It's iPhone only and not on the App Store yet. If you want a rare language or a laptop, TalkPal wins. Here's what you get instead.</p>
 
 <h3>Pronunciation with a diagnosis and a history</h3>
 
@@ -87,7 +87,7 @@ status: published 2026-09-23
     <tr><th></th><th>TalkPal</th><th>Vocele</th></tr>
   </thead>
   <tbody>
-    <tr><td>Languages</td><td>130+</td><td>7: es, en, fr, de, it, pt, ja</td></tr>
+    <tr><td>Languages</td><td>130+</td><td>9: es, en, fr, de, it, pt, ja, ru, pl</td></tr>
     <tr><td>Conversation modes</td><td>Chat, Call, Dialogue, Roleplays, Characters, Debates, Photo, Word, Sentence</td><td>Open-topic talk with named coaches in three modes (scaffolding, corrections-only, immersive)</td></tr>
     <tr><td>Pronunciation</td><td>Color-coded per word</td><td>Per-word score, sound-level diagnosis, history over weeks, phrase drills</td></tr>
     <tr><td>Corrections</td><td>Personalised corrections in chat</td><td>Wrong words highlighted inside your sentence, rule chips, save the fix</td></tr>
@@ -102,7 +102,7 @@ status: published 2026-09-23
 
 <h2>Which one should you pick</h2>
 
-<p><strong>TalkPal</strong> is the better choice if your language isn't one of Vocele's seven, you want to practice on Android or a laptop, you like switching between roleplays, debates and characters, or you want to talk a little every day for free.</p>
+<p><strong>TalkPal</strong> is the better choice if your language isn't one of Vocele's nine, you want to practice on Android or a laptop, you like switching between roleplays, debates and characters, or you want to talk a little every day for free.</p>
 
 <p><strong>Vocele</strong> is the better choice if you understand far more than you can say and <a href="/blog/understand-english-but-cant-speak">freeze when it's your turn</a>, you want the words from today's conversation to still be there next month, or you want to see a specific sound improve in numbers rather than colors.</p>
 
@@ -120,7 +120,7 @@ A: Partly. The free plan allows 10 minutes of practice a day. Vocele's free tier
 Q: Does TalkPal have pronunciation scoring?
 A: Yes, color-coded per word. Vocele also scores each word, then names the sound behind the score, suggests phrase drills and charts that sound over weeks.
 Q: Which languages does Vocele teach?
-A: Spanish, English, French, German, Italian, Portuguese and Japanese. TalkPal lists more than 130.
+A: Spanish, English, French, German, Italian, Portuguese, Japanese, Russian and Polish. TalkPal lists more than 130.
 Q: Is Vocele on Android or the web?
 A: No. Vocele is iPhone only (iOS 17 or later). TalkPal runs on iOS, Android and the web.
 -->

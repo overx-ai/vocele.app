@@ -39,6 +39,6 @@ locale targets its own keywords with its own content.
 
 ## Guardrails (from marketing/001-aso-offer-strategy.md)
 - Never publish the 90-day guarantee until the in-app checkpoint tracker ships.
-- Only 7 learnable languages (es, en, fr, de, it, pt, ja) — never market ru/pl/ar.
+- Only 9 learnable languages (es, en, fr, de, it, pt, ja, ru, pl) — never market ar.
 - Prices: $14.99 / $29.99 / $49.99; tutor anchor $200–320/mo.
 - Sell against human tutoring, never against Duolingo.

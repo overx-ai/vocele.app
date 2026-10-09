@@ -1,7 +1,7 @@
 {
   "name": "Vocele — AI Language Coach",
   "short_name": "Vocele",
-  "description": "AI language coaching app teaching Spanish, English, French, German, Italian, Portuguese, and Japanese.",
+  "description": "AI language coaching app teaching Spanish, English, French, German, Italian, Portuguese, Japanese, Russian, and Polish.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",

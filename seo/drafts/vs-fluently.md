@@ -6,7 +6,7 @@ cluster: E
 intent: comparison
 serp_format: "Review pages ~3,800 words with a feature matrix and 10-question FAQ (practiceme.app); Medium reviews 1,000–1,500 words; Trustpilot and Product Hunt listings. Table + FAQ expected. This page targets ~1,500 words."
 angle: "Fluently is built for working professionals who already speak and want to sound better on calls. Vocele is built for adults, many of them immigrants, who understand a language but freeze. Nobody ranking says plainly that these are different learners. We do."
-meta_description: "Fluently coaches English for work calls from $24.99/mo. Vocele coaches 7 languages with per-word accent scores and in-sentence corrections. Which fits you."
+meta_description: "Fluently coaches English for work calls from $24.99/mo. Vocele coaches 9 languages with per-word accent scores and in-sentence corrections. Which fits you."
 sources:
   - url: https://apps.apple.com/us/app/fluently-ai-language-learning/id6683289805
     supports: "Languages listed: English, French, Japanese, Portuguese, Spanish; IAP: weekly $4.99–19.99, monthly $24.99, 3-month $44.99–89.99, annual $89.99–179.99, Workplace English Course $19.99; 4.8 stars / 5.5K ratings; free with IAP; 'Learn through speaking, not endless grammar drills'; 'Real conversations with a personal AI tutor' (fetched 2026-09-02)"
@@ -36,11 +36,11 @@ hero_prompt: "n/a"
 status: published 2026-09-02
 ---
 
-<p>Fluently is an English coach for professionals who already speak and want to sound better at work, scoring each conversation on pronunciation, fluency, vocabulary and grammar. Vocele is a coach for adults who understand a language but freeze when they speak it, in seven languages, with pronunciation scored word by word and corrections drawn inside the sentence you said.</p>
+<p>Fluently is an English coach for professionals who already speak and want to sound better at work, scoring each conversation on pronunciation, fluency, vocabulary and grammar. Vocele is a coach for adults who understand a language but freeze when they speak it, in nine languages, with pronunciation scored word by word and corrections drawn inside the sentence you said.</p>
 
 <p>I studied Fluently from its listings and reviews while building Vocele, then audited my "what they have that we don't" list against our own code. Five of the six gaps I'd written down were already shipped or stale. That exercise taught me to read competitor marketing, including ours, with some suspicion, and it shaped how this page is written: from what each app's store page and reviewers actually say.</p>
 
-<p>The shortest version of the contrast is price and audience. Fluently is $24.99 a month for English, aimed at professionals working toward C1. Vocele starts at $14.99 a month across seven languages, aimed at the adult who understands far more than they can say.</p>
+<p>The shortest version of the contrast is price and audience. Fluently is $24.99 a month for English, aimed at professionals working toward C1. Vocele starts at $14.99 a month across nine languages, aimed at the adult who understands far more than they can say.</p>
 
 <h2>What Fluently does well</h2>
 
@@ -76,9 +76,9 @@ status: published 2026-09-02
 
 <p>Both apps score pronunciation. The difference is granularity and time. Vocele scores every word, names the sound that dragged the score down, and charts that sound over weeks. Fluently's pronunciation axis is one number per conversation. I'd argue the trend matters more than either number; the <a href="/blog/ai-accent-training">accent training explainer</a> covers why.</p>
 
-<h3>Seven languages, explained in yours</h3>
+<h3>Nine languages, explained in yours</h3>
 
-<p>Vocele teaches Spanish, English, French, German, Italian, Portuguese and Japanese. Grammar rules are explained in the language you already speak (the interface runs in English, Spanish, Portuguese, Russian and Polish), and vocabulary returns on a spaced-repetition schedule across six practice modes.</p>
+<p>Vocele teaches Spanish, English, French, German, Italian, Portuguese, Japanese, Russian and Polish. Grammar rules are explained in the language you already speak (the interface runs in English, Spanish, Portuguese, Russian and Polish), and vocabulary returns on a spaced-repetition schedule across six practice modes.</p>
 
 <h3>Games, with rules</h3>
 
@@ -92,7 +92,7 @@ status: published 2026-09-02
   </thead>
   <tbody>
     <tr><td>Who it's for</td><td>Working professionals aiming at C1</td><td>Adults who understand but freeze; immigrants</td></tr>
-    <tr><td>Languages</td><td>English (App Store also lists fr, ja, pt, es)</td><td>7: es, en, fr, de, it, pt, ja</td></tr>
+    <tr><td>Languages</td><td>English (App Store also lists fr, ja, pt, es)</td><td>9: es, en, fr, de, it, pt, ja, ru, pl</td></tr>
     <tr><td>Tutor</td><td>One AI tutor, one voice</td><td>Named coaches Luna and Lorenzo, three modes</td></tr>
     <tr><td>Feedback</td><td>Four-axis score per conversation</td><td>Corrections highlighted inside your sentence; post-session analysis; grammar reports in your native language</td></tr>
     <tr><td>Pronunciation</td><td>One axis per conversation</td><td>Per-word score, sound diagnosis, weekly history</td></tr>
@@ -118,7 +118,7 @@ status: published 2026-09-02
 
 <!-- FAQ
 Q: Is Fluently only for English?
-A: In practice, yes. Fluently's site and every review treat it as an English coach for professionals. Its App Store listing now also names French, Japanese, Portuguese and Spanish. Vocele teaches seven languages.
+A: In practice, yes. Fluently's site and every review treat it as an English coach for professionals. Its App Store listing now also names French, Japanese, Portuguese and Spanish. Vocele teaches nine languages.
 Q: How much does Fluently cost?
 A: The App Store lists $24.99 a month, $44.99 to $89.99 for three months and $89.99 to $179.99 a year, with weekly plans from $4.99. Call analysis and a Workplace English Course are paid separately. Prices vary by region.
 Q: Does Vocele have anything like Fluently's real-call feedback?

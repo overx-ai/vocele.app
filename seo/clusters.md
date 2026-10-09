@@ -50,7 +50,7 @@ Same five-cluster shape per locale (EN live, ES live, pt-BR / ru planned — see
   - Vocele vs Anki (for language learners) — planned (V-006) — the vocabulary axis
 - Guardrail: never against Duolingo. Three axes, three different angles:
   - accent-only apps (BoldVoice/ELSA) — we add the full conversation loop
-  - conversation apps (Praktika/Speak/TalkPal/Fluently) — we add per-word accent depth + 7 languages
+  - conversation apps (Praktika/Speak/TalkPal/Fluently) — we add per-word accent depth + 9 languages
   - vocabulary/SRS apps (WRD/Anki/Quizlet/Memrise) — the words come from your own conversation and
     get spoken back, not obtained as a deck. Never argue scheduler quality. See product.md
     § Positioning against vocabulary / spaced-repetition apps.

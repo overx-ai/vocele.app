@@ -86,9 +86,9 @@ Follows existing conventions — nothing new invented:
   - `/vs/` comparison pages (near-zero KD): BoldVoice, ELSA, Speak, Praktika —
     EN first, then locale versions where brand search exists.
 - **Launch gate (ru):** RU pages publish when app ru *native-language* support
-  ships (decision 2026-08-05: ru is planned as an equal locale). The learnable-7
-  guardrail is unchanged — ru is a native/marketing locale, never a learnable
-  language. Update the guardrail wording in `CLAUDE.md` + `000-strategy.md`
+  ships (decision 2026-08-05: ru is planned as an equal locale). Since 2026-09-21
+  ru is also a learnable language (the learnable set is nine: es en fr de it pt
+  ja ru pl). Update the guardrail wording in `CLAUDE.md` + `000-strategy.md`
   accordingly (see §12).
 
 ## 4. Cluster map per locale (Step 0)
@@ -280,7 +280,7 @@ Ship in Q2–Q3 once enough score volume exists per L1.
 
 - **Product definition file** (Step 3): one file, one truth — but add a
   `locale_claims` section: which app native-languages are live (blocks RU articles
-  from claiming ru support before it ships), prices, learnable-7 list. Versioned
+  from claiming ru support before it ships), prices, learnable-9 list. Versioned
   next to pipeline code, changed in the same commit as product changes.
 - **Experience assets** (Step 4): the library needs per-locale assets — screenshots
   of the app in that display language, and first-person material *from that
@@ -389,8 +389,8 @@ languages, ≥1 occupational cluster ranking #1–3 in a non-EN locale.
 
 ## 12. Guardrails (restated)
 
-- 7 learnable languages only (es en fr de it pt ja) — ru is a **native/marketing
-  locale**, never listed as learnable.
+- 9 learnable languages only (es en fr de it pt ja ru pl) — ru is both a
+  native/marketing locale and a learnable language.
 - No 90-day guarantee anywhere until the checkpoint tracker ships.
 - Prices $14.99/$29.99/$49.99; tutor anchor $200–320/mo; sell against tutors,
   **never against Duolingo** (cluster E targets BoldVoice/ELSA/Speak brand

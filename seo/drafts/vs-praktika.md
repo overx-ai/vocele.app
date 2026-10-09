@@ -89,7 +89,7 @@ refresh_2026-10-09:
 
   <h2>What Vocele does differently</h2>
 
-  <p>The honest minuses first. Vocele has no avatars; its coaches, Luna and Lorenzo, are voices with names. It teaches seven languages: Spanish, English, French, German, Italian, Portuguese and Japanese. It's iPhone only. And it costs more, starting at $14.99 a month. What you get for that is review and tracking around the conversation.</p>
+  <p>The honest minuses first. Vocele has no avatars; its coaches, Luna and Lorenzo, are voices with names. It teaches nine languages: Spanish, English, French, German, Italian, Portuguese, Japanese, Russian and Polish. It's iPhone only. And it costs more, starting at $14.99 a month. What you get for that is review and tracking around the conversation.</p>
 
   <h3>Corrections inside your own sentence</h3>
 
@@ -118,7 +118,7 @@ refresh_2026-10-09:
       <tr><th></th><th>Praktika</th><th>Vocele</th></tr>
     </thead>
     <tbody>
-      <tr><td>Languages</td><td>13</td><td>7 (es, en, fr, de, it, pt, ja)</td></tr>
+      <tr><td>Languages</td><td>13</td><td>9 (es, en, fr, de, it, pt, ja, ru, pl)</td></tr>
       <tr><td>Conversation partner</td><td>Animated avatars</td><td>Named voice coaches (Luna, Lorenzo), three modes</td></tr>
       <tr><td>Corrections</td><td>In chat; listing claims post-conversation feedback; LanguaTalk found no end-of-lesson summary</td><td>Highlighted inside your sentence; corrections-only mode; post-session analysis</td></tr>
       <tr><td>Pronunciation</td><td>Feedback in lessons (2025 upgrade)</td><td>Per-word score, sound-level diagnosis, weekly history</td></tr>
