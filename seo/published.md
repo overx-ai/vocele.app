@@ -12,7 +12,7 @@ Maintained by `/seo write` (append) and `/seo review` (verdict column). Site liv
 | /vs/praktika | praktika alternative | E | 2026-09-02 | 2026-10-09 | 26 | 0% | 7.2 | refresh | refreshed 2026-10-09 for `praktika app review` (pos 7.3): review H2, re-verified pricing/ratings/languages; judge 78 → 77 → 83 PASS (revision 3); PracticeMe disclosed as a competitor source |
 | /vs/fluently | fluently ai alternative | E | 2026-09-02 | 2026-10-09 | 31 | 0% | 5.9 | refresh | queued: pos 5–15 with 0 clicks; re-verify Fluently pricing first |
 | /blog/understand-english-but-cant-speak | understand english but can't speak | A | 2026-09-02 | 2026-10-09 | 0 | — | — | hold | 5 weeks old, no impressions yet; now cross-links its ES counterpart |
-| /es/blog/errores-de-pronunciacion-en-ingles | errores de pronunciación en inglés | B (es) | 2026-08-05 | 2026-10-09 | 34 | 0% | 11.4 | refresh | refreshed 2026-10-09: 3 new sections, sourced vowel counts, first-person block, tier claim fixed |
+| /es/blog/errores-de-pronunciacion-en-ingles | errores de pronunciación en inglés | B (es) | 2026-08-05 | 2026-10-09 | 34 | 0% | 11.4 | refresh | refreshed 2026-10-09: 3 new sections, sourced vowel counts, first-person block, tier claim fixed Apex URL indexed; recrawl requested in GSC 2026-10-11. |
 | /vs/talkpal | talkpal alternative | E | 2026-09-23 | 2026-10-09 | 14 | 7.1% | 5.6 | hold | pos qualifies for refresh, but 14 impressions on a 16-day-old page with the best CTR on the site; re-check next review |
 | /es/blog/entiendo-ingles-pero-no-puedo-hablarlo | entiendo inglés pero no puedo hablarlo | A (es) | 2026-10-09 | — | — | — | — | hold | P-201; request indexing in GSC after deploy |
 
