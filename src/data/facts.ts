@@ -29,7 +29,7 @@ export const OWNER_NOTES = {
 } as const;
 
 export const LEGAL_DATES = {
-  privacy: { effective: '2026-10-08', updated: '2026-10-08' },
+  privacy: { effective: '2026-10-08', updated: '2026-10-19' },
   terms: { effective: '2026-10-08', updated: '2026-10-08' },
   'fair-use': { effective: '2026-10-08', updated: '2026-10-08' },
 } as const;

@@ -200,7 +200,20 @@ export const PRIVACY: LegalDocument = {
       content: `
         <p>The coach's replies, corrections, feedback, translations and spoken audio are produced by AI. To do that,
         what you write and say is processed by AI providers on our behalf (${ref('recipients')}). They receive what
-        each request needs and nothing more.</p>
+        each request needs and nothing more:</p>
+        <ul>
+          <li><strong>Your voice recordings</strong> go to ${PROCESSOR_CATEGORIES[1]}, to transcribe and score what
+          you said.</li>
+          <li><strong>Your chat messages and typed answers</strong> go to ${PROCESSOR_CATEGORIES[0]}, to write the
+          coach's replies, corrections and translations.</li>
+          <li><strong>The coach's replies and other text the app reads aloud</strong> go to
+          ${PROCESSOR_CATEGORIES[2]}, to produce the spoken audio.</li>
+        </ul>
+        <p><strong>The app asks you first.</strong> Before any of your recordings or messages is sent to these
+        providers, the app asks whether you agree. You can change your answer at any time in
+        ${MY_DATA} &rarr; AI processing. If you say no, the features that need these providers, such as talking with
+        the coach and pronunciation scores, are switched off and show you how to turn them back on; everything else in
+        the app keeps working.</p>
         <p><strong>We do not use your content to train AI models.</strong></p>`,
     },
     'automated-decisions': {
