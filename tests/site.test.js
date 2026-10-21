@@ -105,6 +105,9 @@ const BANNED = [
   /garant[ií]a de devoluci/i,
   /duolingo/i,
   /high[- ]stakes simulation/i,
+  // Plan minutes are monthly (spec 001).
+  /minutes of (AI conversation|pronunciation)[^.<]{0,30}\ba day/i,
+  /minutos de (conversación|práctica de pronunciación|calificación)[^.<]{0,30}al día/i,
 ];
 
 test('no page makes a banned claim', () => {

@@ -1,7 +1,7 @@
 ---
 id: 001
 title: "The pricing page and FAQ state the monthly minutes the app sells"
-status: approved
+status: done
 priority: p1
 created: 2026-10-10
 updated: 2026-10-21
@@ -52,13 +52,13 @@ schedule, so never state a weekly figure. Never call the free minutes a trial.
 
 | # | Task | Files | Agent | Status |
 |---|---|---|---|---|
-| T1 | Replace the per-day lines with the monthly table above, in the pages' existing voice | `src/pages/pricing.astro`, `src/pages/faq.astro` | dev | open |
-| T2 | Grep the rest of `src/` (blog, `vs/`) for `minutes … a day` and correct any plan claim the same way | `src/pages/pricing.astro` | dev | open |
-| T3 | Same as T1 in Spanish, in the pages' existing voice (`al mes`) | `src/pages/es/pricing.astro`, `src/pages/es/faq.astro` | dev | open |
-| T4 | Correct the minute table in `seo/product.md` | `seo/product.md` | dev | open |
+| T1 | Replace the per-day lines with the monthly table above, in the pages' existing voice | `src/pages/pricing.astro`, `src/pages/faq.astro` | dev | done |
+| T2 | Grep the rest of `src/` (blog, `vs/`) for `minutes … a day` and correct any plan claim the same way | `src/pages/pricing.astro` | dev | done |
+| T3 | Same as T1 in Spanish, in the pages' existing voice (`al mes`) | `src/pages/es/pricing.astro`, `src/pages/es/faq.astro` | dev | done |
+| T4 | Correct the minute table in `seo/product.md` | `seo/product.md` | dev | done |
 
 ## Acceptance
 
-- [ ] No page says a plan's minutes are per day.
-- [ ] Each plan's numbers equal the table above.
-- [ ] `/fair-use` is still linked from `/pricing`.
+- [x] No page says a plan's minutes are per day.
+- [x] Each plan's numbers equal the table above.
+- [x] `/fair-use` is still linked from `/pricing`.
