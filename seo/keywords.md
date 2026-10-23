@@ -10,7 +10,7 @@ Status: idea → ready → writing → published → pruned
 | praktika alternative / vocele vs praktika / praktika app review | E | comparison + review | low-med | ASO `praktika` 49/74, `praktika ai` 9/23; Praktika doesn't defend its brand SERP; languatalk + practiceme rank with review/vs pages; GSC 2026-10-09: `praktika app review` pos 7.3 | published | V-004 → /vs/praktika; review H2 added 2026-10-09 |
 | fluently ai alternative / vocele vs fluently | E | comparison | low | ASO `fluently ai` 9/17; Fluently is English-only, B1+ professionals | published | → /vs/fluently |
 | talkpal alternative | E | comparison | low-med | ASO `talkpal` 42/66; SERP = directories + app-owned alt pages (~2.4k words) | published | V-005 → /vs/talkpal |
-| elsa speak alternative | E | comparison | med | ASO `elsa speak` 56/87; pronunciation overlap | idea | V-002 |
+| elsa speak alternative | E | comparison | med | ASO `elsa speak` 56/87; pronunciation overlap; SERP 2026-10-23 = directories + competitor-owned roundups (speakshark, Headway, EngVarta) | published | V-002 → /vs/elsa (2026-10-23); judge 78 → 85 PASS |
 | speak app alternative | E | comparison | low | ASO `speak` 63/80 (generic word, noisy) | idea | V-003 |
 | boldvoice alternative | E | comparison | low | accent-only app; our angle: full conversation loop | idea | V-001 |
 | why can I understand english but not speak it | A | troubleshooting | med | forum/Quora answers + generic listicles rank; no product-backed answer with a quotable block | published | P-101 → /blog/understand-english-but-cant-speak |

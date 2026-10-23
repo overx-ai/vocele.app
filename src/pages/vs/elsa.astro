@@ -1,0 +1,109 @@
+---
+import VsLayout from '../../layouts/VsLayout.astro';
+import { AUTHOR, ORG } from '../../site';
+import { vsBySlug } from '../../vs-pages';
+
+const page = vsBySlug('elsa');
+const article = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: page.title,
+  description: page.description,
+  datePublished: page.datePublished,
+  dateModified: page.dateModified ?? page.datePublished,
+  inLanguage: 'en',
+  mainEntityOfPage: 'https://vocele.app/vs/elsa',
+  author: AUTHOR,
+  publisher: ORG,
+  image: 'https://vocele.app/og-image.jpg',
+};
+---
+<VsLayout slug="elsa">
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(article)} />
+
+  <p>ELSA Speak is the deeper English pronunciation trainer: 8,000+ lessons, American, British and Australian target accents, exam score predictions and an Android app. Vocele is the broader speaking coach in nine languages: open conversation with corrections drawn inside your sentence, grammar in your own language, saved words that come back on a schedule, and per-word pronunciation scores with a history.</p>
+
+  <p>If English pronunciation is the whole goal, stay with ELSA. If you've drilled sounds for months and still go quiet when a real conversation starts, or you're learning a language other than English, that's where an alternative earns its place. Shopping for a conversation app more than a pronunciation one? I've also compared Vocele with <a href="/vs/talkpal">TalkPal</a>, <a href="/vs/praktika">Praktika</a> and <a href="/vs/fluently">Fluently</a>.</p>
+
+  <p>I build Vocele, so read this as a biased source. In August I read Fluently, Praktika, Speak and ELSA from their listings and reviews and listed what they had that we didn't. When I checked that list against our own code, five of the six gaps were already shipped or stale. Marketing copy, theirs and ours, overstates differences.</p>
+
+  <p>So everything below about ELSA comes from its App Store listing, its own site and four reviews, each linked from the fact it supports. All four reviews were written by companies that sell a rival app or tutoring, and I name them where I quote them.</p>
+
+  <h2>What ELSA does well</h2>
+
+  <p>Pronunciation detail is what ELSA is known for, and it holds 4.8 stars from about 114,000 US App Store ratings. Headway's October 2026 review, written by a rival app, still leads with its "instant color-coded feedback at the phoneme level." FluentU's reviewer found that when you get a sound wrong, "the app gives you a detailed explanation of how it should sound." EngVarta, which sells human tutoring, calls it "the best consumer pronunciation tool currently available."</p>
+
+  <p>It's also no longer the read-aloud app most alternative pages describe. The current App Store subtitle is "Practice Conversations with AI." The listing names role-plays, open-ended dialogues, an Interview Coach and a Speech Analyzer that lets you "speak freely" and get feedback. FluentU's 2024 review said it was "only for American English." The listing now offers American, British and Australian accents as your target.</p>
+
+  <p>Exam takers get more from ELSA than from most apps. Premium covers IELTS, TOEFL, TOEIC, EIKEN and CEFR preparation, and the free plan's Speech Analyzer includes test-score predictions. It runs on iPhone, iPad and Android, and a Bilingual AI Tutor lets beginners learn English in their native language.</p>
+
+  <p>A comparison that won't say what the other app does better isn't worth reading. On English pronunciation, the lesson library and the accent choice, ELSA is ahead of Vocele.</p>
+
+  <h2>Where ELSA falls short</h2>
+
+  <ul>
+    <li><strong>English only.</strong> The listing names one language. SpeakShark's roundup puts it plainly: "ELSA teaches English."</li>
+    <li><strong>Little beyond pronunciation.</strong> Headway's verdict: "you get little help with grammar, vocabulary, or writing." FluentU's reviewer tried ELSA's study sets and "didn't find them very useful, though, compared to flashcards from other language learning apps."</li>
+    <li><strong>Drills can wear thin.</strong> EngVarta describes the core loop as reading prepared sentences while the AI scores you sound by sound, and warns about "unnatural slow articulation that earns higher marks."</li>
+    <li><strong>Scoring is strict, sometimes wrong.</strong> FluentU's reviewer called it "a bit too strict," and Headway notes reports of "the AI grading correct speech as a mistake."</li>
+    <li><strong>Pricing is hard to read.</strong> The US App Store listing shows ten in-app purchases, from $19.99 a month to yearly plans between $71.00 and $129.99. Headway saw yearly plans at $89.99, $99.99 and $159.99, and cites Trustpilot complaints about "hard-to-find subscription management."</li>
+  </ul>
+
+  <p>Too many lessons is a real complaint too. FluentU's reviewer "got overwhelmed because there were so many options for lessons." When the library is the strength, picking what to do today is your job.</p>
+
+  <h2>What Vocele does differently</h2>
+
+  <p>The minuses first. Vocele has no exam score predictions, no accent picker, no lesson library in the thousands and no Android app. It's iPhone only (iOS 17 or later) and not on the App Store yet, so there are no ratings to compare. Four things make up for that, depending on what you need.</p>
+
+  <h3>Corrections inside the sentence you just said</h3>
+
+  <p>You talk with a named coach, Luna or Lorenzo, about whatever you choose, and their replies are spoken aloud. When you get something wrong, Vocele highlights the wrong words in your own bubble and puts the fix beneath, with rule chips. I chose that over rewriting your sentence in a separate card, because a rewrite shows you the right version and the highlight shows you where yours broke. You can save the corrected sentence.</p>
+
+  <p>The coaches run in three modes: full scaffolding when you need help building each sentence, corrections-only, and immersive. Start in the first one if a blank turn makes you freeze, and move up when you stop needing it.</p>
+
+  <h3>Pronunciation inside the conversation</h3>
+
+  <p>Vocele scores each word, diagnoses it down to the sound and keeps a score history over weeks, with phrase drills. ELSA tracks scores over time too (EngVarta: "you can see actual numerical improvement"), so the history isn't unique. What's different is where you can use it: you can check pronunciation on any spoken turn in a chat, so the sentence you're scored on is one you chose to say. The <a href="/blog/ai-accent-training">explainer on AI accent training</a> covers how per-word scoring works.</p>
+
+  <p>I think accent is why people start looking, and it's rarely why they stop speaking. When I wrote Vocele's positioning, I described the core pain as the learner who freezes in the team meeting, and a perfect "th" doesn't unfreeze anyone.</p>
+
+  <h3>Words and grammar that come back</h3>
+
+  <p>Long-press a word in chat, tap a coach chip, or save a correction, and it's yours to review. Vocabulary returns on a spaced-repetition schedule in six modes: flashcards, matching, typing, listening, pictures and fill-in-the-blank. Grammar rules are explained in your native language, with adaptive quizzes and a report of the sentences where you could have used the rule. Each day's plan is built from the previous day's errors.</p>
+
+  <h3>Nine languages</h3>
+
+  <p>Spanish, English, French, German, Italian, Portuguese, Japanese, Russian and Polish, each with its own level if you learn more than one. The interface runs in English, Spanish, Portuguese, Russian and Polish. That's a short list next to apps that advertise a hundred or more, so check that yours is on it before anything else on this page matters.</p>
+
+  <h2>Side by side</h2>
+
+  <table>
+    <thead>
+      <tr><th></th><th>ELSA Speak</th><th>Vocele</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Languages you can learn</td><td>English</td><td>9: es, en, fr, de, it, pt, ja, ru, pl</td></tr>
+      <tr><td>Pronunciation</td><td>Phoneme-level feedback, 8,000+ lessons, American, British or Australian target</td><td>Per-word score, sound-level diagnosis, history over weeks, phrase drills, check any spoken chat turn</td></tr>
+      <tr><td>Conversation</td><td>Role-plays, open-ended dialogues, Interview Coach, Speech Analyzer</td><td>Open-topic talk with named coaches in three modes (scaffolding, corrections-only, immersive)</td></tr>
+      <tr><td>Corrections</td><td>"Phoneme-level feedback after each sentence" (EngVarta)</td><td>Wrong words highlighted inside your sentence, rule chips, save the fix</td></tr>
+      <tr><td>Vocabulary</td><td>Study sets, quizzed on pronunciation</td><td>Spaced repetition in 6 modes, phrasebook, words saved from chat</td></tr>
+      <tr><td>Grammar</td><td>Little, per Headway's review</td><td>Rules in your native language, adaptive quizzes, usage reports</td></tr>
+      <tr><td>Exam prep</td><td>IELTS, TOEFL, TOEIC, EIKEN, CEFR; score predictions</td><td>No score predictions</td></tr>
+      <tr><td>Price (US)</td><td>$19.99/mo; yearly $71.00 to $129.99 on the App Store; 7-day trial</td><td>$14.99 / $29.99 / $49.99 per month; 3-day trial</td></tr>
+      <tr><td>Ratings</td><td>4.8, ~114K (US App Store)</td><td>Pre-release, none yet</td></tr>
+      <tr><td>Platforms</td><td>iPhone, iPad, Android</td><td>iPhone (iOS 17+)</td></tr>
+    </tbody>
+  </table>
+
+  <p>Every Vocele plan meters spoken conversation and pronunciation scoring by the month. Core includes 150 minutes of talk and 30 of pronunciation scoring, and the <a href="/pricing">pricing page</a> lists the rest.</p>
+
+  <h2>Which one should you pick</h2>
+
+  <p><strong>ELSA</strong> is the better choice if you're learning English and pronunciation is the goal, you want a British or Australian target accent, you're preparing for IELTS or TOEFL and want a predicted score, or you practice on Android.</p>
+
+  <p>Pick <strong>Vocele</strong> when you can already pronounce most words and still go quiet mid-conversation, you want your mistakes corrected where you made them, you want the words from today's chat back next week, or the language you're learning isn't English.</p>
+
+  <p>For exam prep with an AI coach, read <a href="/blog/ielts-toefl-speaking-practice-ai">IELTS and TOEFL speaking practice with AI</a>. If the real choice is an app or a private tutor, I position Vocele against private tutoring at $200 to $320 a month for two lessons a week, and <a href="/blog/ai-speaking-coach-vs-human-tutor">the AI coach vs human tutor comparison</a> shows where that figure comes from and where apps lose.</p>
+
+  <p>Vocele isn't on the App Store yet. If corrections inside your own sentence and words that come back are what you came for, <a href="/pricing">see the plans and the 3-day trial</a>. I'll update this page when the listing goes live.</p>
+</VsLayout>

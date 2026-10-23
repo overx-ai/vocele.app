@@ -15,6 +15,7 @@ Maintained by `/seo write` (append) and `/seo review` (verdict column). Site liv
 | /es/blog/errores-de-pronunciacion-en-ingles | errores de pronunciación en inglés | B (es) | 2026-08-05 | 2026-10-09 | 34 | 0% | 11.4 | refresh | refreshed 2026-10-09: 3 new sections, sourced vowel counts, first-person block, tier claim fixed Apex URL indexed; recrawl requested in GSC 2026-10-11. |
 | /vs/talkpal | talkpal alternative | E | 2026-09-23 | 2026-10-09 | 14 | 7.1% | 5.6 | hold | pos qualifies for refresh, but 14 impressions on a 16-day-old page with the best CTR on the site; re-check next review |
 | /es/blog/entiendo-ingles-pero-no-puedo-hablarlo | entiendo inglés pero no puedo hablarlo | A (es) | 2026-10-09 | — | — | — | — | hold | P-201; request indexing in GSC after deploy |
+| /vs/elsa | elsa speak alternative | E | 2026-10-23 | n/a | n/a | n/a | n/a | hold | V-002; judge 78 FAIL → 85 PASS (revision 2). Inbound from /vs/praktika, /vs/talkpal, /vs/fluently, /blog/ai-accent-training. Re-verify ELSA App Store prices at next review |
 
 ## Non-pipeline pages (context only)
 

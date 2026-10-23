@@ -44,7 +44,7 @@ Same five-cluster shape per locale (EN live, ES live, pt-BR / ru planned — see
   - Vocele vs Praktika — /vs/praktika — praktika alternative / praktika review
   - Vocele vs Fluently — /vs/fluently — fluently ai alternative / review
   - Vocele vs TalkPal — /vs/talkpal — talkpal alternative / review
-  - Vocele vs ELSA Speak — planned (V-002)
+  - Vocele vs ELSA Speak: /vs/elsa, elsa speak alternative (V-002)
   - Vocele vs Speak — planned (V-003)
   - Vocele vs BoldVoice — planned (V-001)
   - Vocele vs Anki (for language learners) — planned (V-006) — the vocabulary axis

@@ -61,6 +61,21 @@ export const VS_PAGES: VsPage[] = [
       { q: "Is Vocele on Android or the web?", a: "No. Vocele is iPhone only (iOS 17 or later). TalkPal runs on iOS, Android and the web." },
     ],
   },
+  {
+    slug: 'elsa',
+    competitor: 'ELSA Speak',
+    title: "ELSA Speak Alternative? An Honest Vocele vs ELSA Comparison",
+    description: "ELSA Speak alternative, compared: ELSA is the deeper English pronunciation drill. Vocele adds coached conversation, saved words and 9 languages.",
+    datePublished: '2026-10-23',
+    faq: [
+      { q: "Is ELSA Speak worth it in 2026?", a: "For English pronunciation, yes. Reviewers, including rival apps, rate its phoneme-level feedback highly, and it now adds role-plays and a Speech Analyzer. It's weaker on grammar and vocabulary, teaches only English, and its pricing is hard to compare, so read the plan before the 7-day trial ends." },
+      { q: "Is ELSA Speak free?", a: "Partly. ELSA's free plan includes the Speech Analyzer with test-score predictions, but reviewers say most lessons are locked, and exam preparation needs Premium. Vocele's free accounts can try the app with limited access; what's included is shown in the app." },
+      { q: "How much does ELSA Speak cost?", a: "The US App Store lists $19.99 a month, three-month plans from $39.99 to $52.00 and yearly plans from $71.00 to $129.99. Headway saw yearly Pro, Premium and Professional plans at $89.99, $99.99 and $159.99 in October 2026. Prices vary by region and promotion." },
+      { q: "Does ELSA Speak support British English?", a: "Yes. Its current App Store listing offers American, British and Australian accents as targets. FluentU's 2024 review described it as American English only, which is out of date." },
+      { q: "Is there an ELSA alternative for languages other than English?", a: "Yes. ELSA teaches only English. Vocele teaches Spanish, English, French, German, Italian, Portuguese, Japanese, Russian and Polish." },
+      { q: "Is Vocele on Android?", a: "No. Vocele is iPhone only (iOS 17 or later). ELSA runs on iPhone, iPad and Android." },
+    ],
+  },
 ];
 
 export const vsBySlug = (slug: string): VsPage => {
