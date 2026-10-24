@@ -48,6 +48,7 @@ Same five-cluster shape per locale (EN live, ES live, pt-BR / ru planned — see
   - Vocele vs Speak — planned (V-003)
   - Vocele vs BoldVoice — planned (V-001)
   - Vocele vs Anki (for language learners) — planned (V-006) — the vocabulary axis
+  - apps para aprender inglés hablando: /es/blog/apps-para-aprender-ingles-hablando (P-206, es buying guide; the one ES page in E)
 - Guardrail: never against Duolingo. Three axes, three different angles:
   - accent-only apps (BoldVoice/ELSA) — we add the full conversation loop
   - conversation apps (Praktika/Speak/TalkPal/Fluently) — we add per-word accent depth + 9 languages

@@ -113,6 +113,16 @@ export const BLOG_POSTS: BlogPost[] = [
     dateModified: '2026-10-09',
     category: { label: 'Pronunciación', gradient: 'accent' },
   },
+  {
+    slug: 'blog/apps-para-aprender-ingles-hablando',
+    locale: 'es',
+    title: 'Apps para aprender inglés hablando: cuál te conviene',
+    cardTitle: 'Apps para aprender inglés hablando',
+    description:
+      'Speak, Praktika, ELSA Speak, Fluently y Vocele comparadas: cuál te hace hablar, cómo te corrige cada una y cuál elegir según lo que te frena.',
+    datePublished: '2026-10-24',
+    category: { label: 'Comparativa', gradient: 'learn' },
+  },
 ];
 
 export const postsFor = (locale: 'en' | 'es') => BLOG_POSTS.filter((p) => p.locale === locale);
