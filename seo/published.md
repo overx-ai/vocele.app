@@ -17,6 +17,7 @@ Maintained by `/seo write` (append) and `/seo review` (verdict column). Site liv
 | /es/blog/entiendo-ingles-pero-no-puedo-hablarlo | entiendo inglés pero no puedo hablarlo | A (es) | 2026-10-09 | — | — | — | — | hold | P-201; request indexing in GSC after deploy |
 | /vs/elsa | elsa speak alternative | E | 2026-10-23 | n/a | n/a | n/a | n/a | hold | V-002; judge 78 FAIL → 85 PASS (revision 2). Inbound from /vs/praktika, /vs/talkpal, /vs/fluently, /blog/ai-accent-training. Re-verify ELSA App Store prices at next review |
 | /es/blog/apps-para-aprender-ingles-hablando | apps para aprender inglés hablando | E (es) | 2026-10-24 | n/a | n/a | n/a | n/a | hold | P-206; judge 81 PASS. Inbound from /es/blog/clases-de-ingles-o-app-con-ia, /es/blog/entiendo-ingles-pero-no-puedo-hablarlo, /es/blog/errores-de-pronunciacion-en-ingles, /es/blog/como-hablar-ingles-con-confianza. Re-verify competitor ratings/languages at next review |
+| /vs/speak | speak app alternative | E | 2026-10-24 | n/a | n/a | n/a | n/a | hold | V-003; judge 83 PASS. Inbound from /vs/praktika, /vs/fluently, /vs/elsa, /vs/talkpal. Re-verify Speak languages, tiers and review claims at next review |
 
 ## Non-pipeline pages (context only)
 

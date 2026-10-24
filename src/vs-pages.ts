@@ -62,6 +62,21 @@ export const VS_PAGES: VsPage[] = [
     ],
   },
   {
+    slug: 'speak',
+    competitor: 'Speak',
+    title: "Speak App Alternative? Vocele vs Speak, Compared Honestly",
+    description: "Speak app alternative, compared: Speak is the polished beginner course. Vocele adds open conversation, in-sentence corrections and words that come back.",
+    datePublished: '2026-10-24',
+    faq: [
+      { q: "Is the Speak app worth it?", a: "For a beginner who wants a guided course, yes. Reviewers praise its polish and structure. They also report lenient scoring, brief feedback and a ceiling at intermediate level, so if you're past the basics, use the 7-day trial to check whether the lessons still stretch you." },
+      { q: "Is there a free version of Speak?", a: "Not for daily practice. Headway's review says Speak has no ongoing free tier and offers a 7-day trial of Premium. Vocele's free accounts can try the app with limited access; what's included is shown in the app." },
+      { q: "Does Speak use spaced repetition?", a: "Reviewers disagree. LanguaTalk found no spaced repetition or long-term vocabulary tracking; Headway describes a Smart Review that brings weak words back over time. Speak's site lists personalized review in Premium Plus. Vocele reviews saved words on a spaced-repetition schedule in six modes." },
+      { q: "Is Speak good for intermediate learners?", a: "Less so. Headway lists a ceiling for intermediate and advanced learners as a con, and LanguaTalk found tutor lessons and vocab builders almost absent at those levels. Vocele's conversation has no lesson script to finish; you pick how much help you get." },
+      { q: "What languages does Speak teach?", a: "Speak's site lists Spanish, French, Korean, Japanese, Italian and Chinese for English speakers, and its App Store listing adds English. Vocele teaches Spanish, English, French, German, Italian, Portuguese, Japanese, Russian and Polish." },
+      { q: "Is Vocele on Android?", a: "No. Vocele is iPhone only (iOS 17 or later) and not on the App Store yet. Speak runs on iPhone, Android and the web." },
+    ],
+  },
+  {
     slug: 'elsa',
     competitor: 'ELSA Speak',
     title: "ELSA Speak Alternative? An Honest Vocele vs ELSA Comparison",
