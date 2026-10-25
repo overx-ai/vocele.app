@@ -4,16 +4,16 @@
 // The controller on /privacy and the trader on /terms: a person, never a company or trading name (owner, 2026-10-08).
 export const OPERATOR = 'Yauheni Malashchytski';
 export const OPERATOR_KIND = 'an individual entrepreneur (sole trader)';
-export const OPERATOR_COUNTRY = 'Georgia';
+export const OPERATOR_COUNTRY = 'Belarus';
 // One address for support, privacy requests and legal notices. No street address or phone is published: the postal
 // address is given on request by email (owner, 2026-10-08).
 export const CONTACT_EMAIL = 'support@overx.ai';
 // GDPR and UK GDPR Art. 27 representatives. Empty = none appointed, and /privacy leaves the section out.
 export const EU_REPRESENTATIVE = '';
 export const UK_REPRESENTATIVE = '';
-export const GOVERNING_LAW = 'Georgia';
-export const COURTS = 'the courts of Tbilisi, Georgia';
-export const SUPERVISORY_AUTHORITY = "Georgia's Personal Data Protection Service";
+export const GOVERNING_LAW = 'Belarus';
+export const COURTS = 'the courts of Belarus';
+export const SUPERVISORY_AUTHORITY = 'the National Center for Personal Data Protection of the Republic of Belarus';
 
 export const SITE_HOST = 'vocele.app';
 export const LIABILITY_FLOOR = 'USD 50';
@@ -29,7 +29,7 @@ export const OWNER_NOTES = {
 } as const;
 
 export const LEGAL_DATES = {
-  privacy: { effective: '2026-10-08', updated: '2026-10-19' },
+  privacy: { effective: '2026-10-08', updated: '2026-10-26' },
   terms: { effective: '2026-10-08', updated: '2026-10-26' },
   'fair-use': { effective: '2026-10-08', updated: '2026-10-08' },
 } as const;

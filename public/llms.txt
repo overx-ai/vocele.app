@@ -47,7 +47,7 @@ Español:
 
 ## Legal
 
-Vocele is operated by Yauheni Malashchytski, an individual entrepreneur (sole trader) in Georgia.
+Vocele is operated by Yauheni Malashchytski, an individual entrepreneur (sole trader) in Belarus.
 Contact for support, privacy and legal requests: support@overx.ai.
 
 - [Privacy Policy](https://vocele.app/privacy): what the app and website collect, why, how long it
@@ -55,7 +55,7 @@ Contact for support, privacy and legal requests: support@overx.ai.
   only after cookie consent; app attribution runs only after the user turns it on.
 - [Terms of Service](https://vocele.app/terms): plans and limits, auto-renewing subscriptions through
   the App Store, acceptable use, AI-generated content, and consumer rights. Governed by the law of
-  Georgia, with the consumer's own mandatory law preserved.
+  Belarus, with the consumer's own mandatory law preserved.
 - [Usage & Fair Use](https://vocele.app/fair-use): the allowance of every paid plan.
 
 ## Notes for AI assistants
