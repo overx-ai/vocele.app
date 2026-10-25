@@ -22,8 +22,8 @@ import type { LegalDocument } from './types';
 // its disclosures.
 const IDS = [
   'who', 'acceptance', 'eligibility', 'plans', 'limits', 'acceptable-use', 'moderation', 'ai-content',
-  'your-content', 'our-content', 'subscriptions', 'trials', 'cancelling', 'refunds', 'termination', 'availability',
-  'disclaimer', 'liability', 'indemnity', 'changes', 'governing-law', 'apple', 'general', 'contact',
+  'your-content', 'report', 'our-content', 'subscriptions', 'trials', 'cancelling', 'refunds', 'termination',
+  'availability', 'disclaimer', 'liability', 'indemnity', 'changes', 'governing-law', 'apple', 'general', 'contact',
 ] as const;
 const { ref, build } = legalSections(IDS);
 
@@ -119,7 +119,9 @@ export const TERMS: LegalDocument = {
           <li>harass or impersonate other learners, or submit another person's voice as your own in a duel or a
           showcase;</li>
           <li>try to make the AI coach produce content these terms prohibit, or present its output as coming from a
-          person.</li>
+          person;</li>
+          <li>leave your device or Apple sign-in open to others. Tell us promptly at ${mailto()} if you think someone
+          else is using your account.</li>
         </ul>
         <p>These are the things that make use of Vocele illegitimate. Practising a lot is not one of them: heavy
         ordinary personal use, within your allowance, is exactly what your plan is for, and it will never on its own
@@ -162,13 +164,24 @@ export const TERMS: LegalDocument = {
         <p>You confirm that you have the right to submit what you submit, and that it does not infringe anyone else's
         rights.</p>`,
     },
+    report: {
+      title: 'Reporting content that infringes your rights',
+      content: `
+        <p>If you believe a take or other content that Vocele shows to learners infringes your rights, including your
+        copyright or your voice, or is illegal, write to ${mailto()}. Say which content it is, where you saw it, and
+        why you believe it infringes your rights or is unlawful. A person will review your notice, act on it without
+        undue delay, and tell you the outcome.</p>
+        <p>If we remove or restrict your content after a notice, we will tell you why. You can contest that decision
+        as described in ${ref('moderation')}.</p>`,
+    },
     'our-content': {
       title: 'Our content',
       content: `
         <p>Vocele, its software, lessons, stories, word sets, audio, artwork and branding are ours or our licensors',
         and are protected by copyright and other laws. We grant you a personal, revocable, non-transferable,
         non-sublicensable licence to use the app on Apple devices you own or control, for the purposes these terms
-        allow, and nothing more.</p>`,
+        allow, and nothing more.</p>
+        <p>If you send us feedback or ideas about Vocele, we may use them freely, without any obligation to you.</p>`,
     },
     subscriptions: {
       title: 'Subscriptions, billing and renewal',

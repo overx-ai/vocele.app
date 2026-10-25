@@ -232,8 +232,8 @@ const PRIVACY_IDS = [
 ];
 const TERMS_IDS = [
   'who', 'acceptance', 'eligibility', 'plans', 'limits', 'acceptable-use', 'moderation', 'ai-content',
-  'your-content', 'our-content', 'subscriptions', 'trials', 'cancelling', 'refunds', 'termination', 'availability',
-  'disclaimer', 'liability', 'indemnity', 'changes', 'governing-law', 'apple', 'general', 'contact',
+  'your-content', 'report', 'our-content', 'subscriptions', 'trials', 'cancelling', 'refunds', 'termination',
+  'availability', 'disclaimer', 'liability', 'indemnity', 'changes', 'governing-law', 'apple', 'general', 'contact',
 ];
 const FAIR_USE_IDS = ['metered', 'plans', 'arrival', 'limit', 'fair-use', 'changes', 'questions'];
 const BANNED_WORDS = [
@@ -339,6 +339,7 @@ check(terms.raw('refunds').includes('href="https://reportaproblem.apple.com"'), 
 has(terms.get('moderation'), ['Automated', 'contest', 'a person will review'], 'terms #moderation');
 has(terms.get('ai-content'), ['inaccurate', 'not a certified exam', 'immigration', 'medical', 'legal', 'do not guarantee'], 'terms #ai-content');
 has(terms.get('your-content'), ['licence', 'withdraw', 'already happened', 'we do not use it to train AI models'], 'terms #your-content');
+has(terms.get('report'), ['infring', 'person will review', 'contest'], 'terms #report');
 has(terms.get('disclaimer'), ['"as is"', 'To the extent permitted by law'], 'terms #disclaimer');
 has(terms.get('liability'), [fact('LIABILITY_FLOOR'), '12 months', 'indirect', 'cannot be limited or excluded by law', 'death or personal injury', 'fraud', 'consumers'], 'terms #liability');
 has(terms.get('indemnity'), ['breach', 'consumer'], 'terms #indemnity');
