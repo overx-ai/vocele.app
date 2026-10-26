@@ -91,6 +91,21 @@ export const VS_PAGES: VsPage[] = [
       { q: "Is Vocele on Android?", a: "No. Vocele is iPhone only (iOS 17 or later). ELSA runs on iPhone, iPad and Android." },
     ],
   },
+  {
+    slug: 'boldvoice',
+    competitor: 'BoldVoice',
+    title: "BoldVoice Alternative? Vocele vs BoldVoice, Compared Honestly",
+    description: "BoldVoice alternative, compared: BoldVoice is the American accent specialist. Vocele trains your accent inside real conversation and teaches 9 languages.",
+    datePublished: '2026-10-26',
+    faq: [
+      { q: "Is BoldVoice worth it?", a: "If your English is already strong and you want an American accent, yes. Reviewers praise its coach videos and sensitive scoring. One review says it isn't built for people still learning English, and some users report scores that misfire, so use the 7-day trial to check it on your own voice." },
+      { q: "Is BoldVoice only for American English?", a: "Its site calls it an American accent training app and doesn't list a British or other target accent. Vocele scores pronunciation word by word inside its conversations and drills, and teaches nine languages." },
+      { q: "Does BoldVoice have conversation practice?", a: "Yes, its App Store listing names an AI chat partner and scenarios for meetings, interviews and exams. In Vocele, conversation is the main exercise, and you can check pronunciation on any spoken turn." },
+      { q: "Is there a BoldVoice alternative for other languages?", a: "Yes. BoldVoice teaches English only. Vocele teaches Spanish, English, French, German, Italian, Portuguese, Japanese, Russian and Polish." },
+      { q: "Does Vocele have video lessons like BoldVoice?", a: "No. Vocele has no coach videos or mouth diagrams. Its pronunciation work is per-word scoring, sound-level diagnosis, phrase drills and a score history over weeks." },
+      { q: "Is Vocele on Android?", a: "No. Vocele is iPhone only (iOS 17 or later) and not on the App Store yet. BoldVoice runs on iPhone, iPad and Android." },
+    ],
+  },
 ];
 
 export const vsBySlug = (slug: string): VsPage => {

@@ -46,7 +46,7 @@ Same five-cluster shape per locale (EN live, ES live, pt-BR / ru planned — see
   - Vocele vs TalkPal — /vs/talkpal — talkpal alternative / review
   - Vocele vs ELSA Speak: /vs/elsa, elsa speak alternative (V-002)
   - Vocele vs Speak: /vs/speak, speak app alternative (V-003)
-  - Vocele vs BoldVoice — planned (V-001)
+  - Vocele vs BoldVoice: /vs/boldvoice, boldvoice alternative (V-001)
   - Vocele vs Anki (for language learners) — planned (V-006) — the vocabulary axis
   - apps para aprender inglés hablando: /es/blog/apps-para-aprender-ingles-hablando (P-206, es buying guide; the one ES page in E)
 - Guardrail: never against Duolingo. Three axes, three different angles:
