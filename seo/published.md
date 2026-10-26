@@ -19,6 +19,7 @@ Maintained by `/seo write` (append) and `/seo review` (verdict column). Site liv
 | /es/blog/apps-para-aprender-ingles-hablando | apps para aprender inglés hablando | E (es) | 2026-10-24 | n/a | n/a | n/a | n/a | hold | P-206; judge 81 PASS. Inbound from /es/blog/clases-de-ingles-o-app-con-ia, /es/blog/entiendo-ingles-pero-no-puedo-hablarlo, /es/blog/errores-de-pronunciacion-en-ingles, /es/blog/como-hablar-ingles-con-confianza. Re-verify competitor ratings/languages at next review |
 | /vs/speak | speak app alternative | E | 2026-10-24 | n/a | n/a | n/a | n/a | hold | V-003; judge 83 PASS. Inbound from /vs/praktika, /vs/fluently, /vs/elsa, /vs/talkpal. Re-verify Speak languages, tiers and review claims at next review |
 | /vs/boldvoice | boldvoice alternative | E | 2026-10-26 | n/a | n/a | n/a | n/a | hold | V-001; judge 84 PASS. Inbound from /vs/elsa, /vs/speak, /vs/praktika, /blog/ai-accent-training. Re-verify BoldVoice platforms, accents and conversation features at next review |
+| /es/blog/ingles-para-entrevista-de-trabajo | inglés para entrevista de trabajo en Estados Unidos | C (es) | 2026-10-26 | n/a | n/a | n/a | n/a | hold | P-203; judge 88 PASS. Inbound from /es/blog/clases-de-ingles-o-app-con-ia, /es/blog/entiendo-ingles-pero-no-puedo-hablarlo, /es/blog/como-hablar-ingles-con-confianza |
 
 ## Non-pipeline pages (context only)
 

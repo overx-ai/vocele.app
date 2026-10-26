@@ -30,7 +30,8 @@ Same five-cluster shape per locale (EN live, ES live, pt-BR / ru planned — see
   - job interview English: the 27 phrases — planned (P-102) — en
   - US citizenship interview English practice — planned (P-103) — en
   - how much does an English tutor cost (2026) — planned — en (Praktika's best-performing format)
-  - inglés para la entrevista de ciudadanía / de trabajo — planned (P-202/203) — es
+  - inglés para entrevista de trabajo: /es/blog/ingles-para-entrevista-de-trabajo (P-203, 2026-10-26), es
+  - inglés para la entrevista de ciudadanía — planned (P-202) — es
 - Notes from review: 2026-10-09: the ES pillar is the site's biggest non-brand earner (222 impr, pos ~7.9) with 0 clicks. The SERP above it is schools selling classes (Berlitz, aprendemas: "la IA no reemplaza al profesor") and AI-app listicles; retitled to promise the cost answer and a verdict. Spanish money-decision content is where Google already trusts us; P-206 (apps para aprender inglés hablando) is the natural next ES piece.
 
 ## Cluster D — Situational & occupational English (Year 1, lowest competition)

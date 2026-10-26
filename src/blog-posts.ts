@@ -123,6 +123,16 @@ export const BLOG_POSTS: BlogPost[] = [
     datePublished: '2026-10-24',
     category: { label: 'Comparativa', gradient: 'learn' },
   },
+  {
+    slug: 'blog/ingles-para-entrevista-de-trabajo',
+    locale: 'es',
+    title: 'Inglés para entrevista de trabajo en Estados Unidos',
+    cardTitle: 'Inglés para tu entrevista de trabajo',
+    description:
+      'Inglés para entrevista de trabajo en Estados Unidos: cuatro respuestas para decir en voz alta, frases para ganar tiempo y los calcos que más se notan.',
+    datePublished: '2026-10-26',
+    category: { label: 'Trabajo', gradient: 'talk' },
+  },
 ];
 
 export const postsFor = (locale: 'en' | 'es') => BLOG_POSTS.filter((p) => p.locale === locale);
