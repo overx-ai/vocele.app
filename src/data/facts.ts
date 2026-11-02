@@ -31,7 +31,17 @@ export const OWNER_NOTES = {
 export const LEGAL_DATES = {
   privacy: { effective: '2026-10-08', updated: '2026-10-26' },
   terms: { effective: '2026-10-08', updated: '2026-10-26' },
-  'fair-use': { effective: '2026-10-08', updated: '2026-10-08' },
+  'fair-use': { effective: '2026-10-08', updated: '2026-11-02' },
+} as const;
+
+// Per plan [Core, Fluency, Meta]. Minutes: learn-words services/minute_wallets.py PLAN_MINUTES; vocabulary and PDF
+// imports: services/entitlements.py TIER_LIMITS (1B-bots origin/master, verified 2026-11-02). /fair-use and /pricing
+// both render from here, and scripts/check-legal.mjs parses it by name.
+export const PLAN_ALLOWANCE = {
+  talkPerMonth: [150, 300, 600],
+  pronunciationPerMonth: [30, 60, 120],
+  vocabulary: [2500, 10000, 30000],
+  pdfPerMonth: [2, 5, 20],
 } as const;
 
 export const RETENTION = {

@@ -353,13 +353,24 @@ for (const clause of ['acknowledgement', 'scope of licence', 'maintenance and su
 has(terms.get('general'), ['unenforceable', 'not a waiver', 'transfer', 'whole agreement', 'English version prevails'], 'terms #general');
 check(!/\bunlimited\b/i.test(terms.get('plans') + terms.get('limits')), 'terms: no plan is called unlimited');
 
-// Fair use: no Free column (owner, 2026-10-08), paid figures only, both locales.
+// Fair use: no Free column (owner, 2026-10-08), paid figures only, both locales, and the same minutes /pricing sells.
+const allowance = (key) => (FACTS.match(new RegExp(`\\b${key}:\\s*\\[([^\\]]*)\\]`))?.[1] ?? '').split(',').map(Number).filter(Boolean);
+const PLAN_TALK = allowance('talkPerMonth');
+const PLAN_PRON = allowance('pronunciationPerMonth');
+check(PLAN_TALK.length === 3 && PLAN_PRON.length === 3, 'src/data/facts.ts: PLAN_ALLOWANCE minutes not parsed');
+const thousands = (n) => String(n).replace(/\B(?=(\d{3})+$)/g, '[,.]');
 for (const page of ['fair-use', 'es/fair-use']) {
   const html = readHtml(page);
   const head = html.match(/<thead>([\s\S]*?)<\/thead>/)?.[1] ?? '';
   check(!/Free|Gratis/i.test(head), `${page}: the allowance table must not carry a Free column`);
-  for (const n of ['300', '600', '1[,.]200', '90', '180', '360', '2[,.]500', '10[,.]000', '30[,.]000']) check(new RegExp(`\\b${n}\\b`).test(head + html.match(/<tbody>([\s\S]*?)<\/tbody>/)?.[1]), `${page}: allowance ${n} missing`);
+  for (const key of ['talkPerMonth', 'pronunciationPerMonth', 'vocabulary', 'pdfPerMonth']) {
+    for (const n of allowance(key)) check(new RegExp(`\\b${thousands(n)}\\b`).test(head + html.match(/<tbody>([\s\S]*?)<\/tbody>/)?.[1]), `${page}: allowance ${key} ${n} missing`);
+  }
   check(/limited access|acceso limitado/.test(plainText(html)), `${page}: must say free accounts get limited access, shown in the app`);
+}
+for (const [page, unit] of [['pricing', 'minutes'], ['es/pricing', 'minutos']]) {
+  const text = plainText(readHtml(page));
+  for (const n of [...PLAN_TALK, ...PLAN_PRON]) check(text.includes(`${n} ${unit}`), `${page}: plan minutes ${n} missing (must match /fair-use)`);
 }
 
 // ---------------------------------------------------------------------------------------------------------------

@@ -2,6 +2,9 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PricingCard from '../components/PricingCard.astro';
 import { SOFTWARE_APP } from '../site';
+import { PLAN_ALLOWANCE } from '../data/facts';
+
+const { talkPerMonth: TALK, pronunciationPerMonth: PRON } = PLAN_ALLOWANCE;
 
 const structuredData = [
   { '@context': 'https://schema.org', ...SOFTWARE_APP },
@@ -38,8 +41,8 @@ const structuredData = [
       tagline="Never miss your daily practice."
       cta="Start with Core"
       features={[
-        '150 minutes of AI conversation a month',
-        '30 minutes of pronunciation scoring a month',
+        `${TALK[0]} minutes of AI conversation a month`,
+        `${PRON[0]} minutes of pronunciation scoring a month`,
         '2,500 saved words',
         'Daily conversation practice with Luna &amp; Lorenzo',
         'Streaks &amp; progress charts',
@@ -56,8 +59,8 @@ const structuredData = [
       cta="Start with Fluency"
       features={[
         '<strong>Everything in Core</strong>',
-        '300 minutes of AI conversation a month, any mode',
-        '60 minutes of pronunciation scoring a month',
+        `${TALK[1]} minutes of AI conversation a month, any mode`,
+        `${PRON[1]} minutes of pronunciation scoring a month`,
         '10,000 saved words',
         'Personalized reading at your level',
         'Premium natural voices',
@@ -73,8 +76,8 @@ const structuredData = [
       cta="Start with Meta"
       features={[
         '<strong>Everything in Fluency</strong>',
-        '600 minutes of AI conversation a month',
-        '120 minutes of pronunciation scoring a month',
+        `${TALK[2]} minutes of AI conversation a month`,
+        `${PRON[2]} minutes of pronunciation scoring a month`,
         '30,000 saved words',
         '20 PDF imports a month',
         'Up to 5 languages at once',

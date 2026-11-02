@@ -1,23 +1,15 @@
-import { mailto } from './facts';
+import { PLAN_ALLOWANCE as ALLOWANCE, mailto } from './facts';
 import { legalSections, legalTable } from './sections';
 import type { Lang, LegalDocument } from './types';
 
 // Not an FAQ accordion on purpose: ASA v EE (2025) held a fair-use policy misleading on PLACEMENT alone, because it
 // sat behind an FAQ expander. Never fold this into /faq. No prices here (the paywall is the price surface).
-// Paid allowances verified 2026-10-08 against learn-words at 1B-bots origin/master: services/minute_wallets.py
-// PLAN_MINUTES (300/90, 600/180, 1200/360) and services/entitlements.py TIER_LIMITS (vocabulary, PDF imports).
 // The FREE column was dropped (owner, 2026-10-08): free gets no recurring minutes beyond the onboarding
 // conversation, a GitOps-tunable vocabulary cap and limited stories, and a table cell cannot stay exactly true to
 // that. Top-ups are absent because no top-up product can be bought in the app.
 const IDS = ['metered', 'plans', 'arrival', 'limit', 'fair-use', 'changes', 'questions'] as const;
 
 const PLANS = ['Core', 'Fluency', 'Meta'] as const;
-const ALLOWANCE = {
-  talkPerMonth: [300, 600, 1200],
-  pronunciationPerMonth: [90, 180, 360],
-  vocabulary: [2500, 10000, 30000],
-  pdfPerMonth: [2, 5, 20],
-} as const;
 const DAYS_PER_MONTH = 30;
 const EN = legalSections(IDS);
 const ES = legalSections(IDS, 'Sección');
