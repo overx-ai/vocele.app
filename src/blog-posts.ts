@@ -94,12 +94,12 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     slug: 'blog/clases-de-ingles-o-app-con-ia',
     locale: 'es',
-    title: 'Clases de inglés o app con IA: costo real y cuál te conviene',
+    title: '¿Clases de inglés o una app con IA? Cuánto cuesta cada una',
     cardTitle: '¿Clases de inglés o app con IA?',
     description:
-      'Un maestro cobra $200–320 al mes por dos clases a la semana; una app como Vocele, de $14.99 a $49.99. Cuál te hace hablar más y cuándo sí vale el maestro.',
+      'Un buen maestro cobra unos $25–40 la hora: $200–320 al mes por dos clases a la semana. Vocele tendrá planes de $14.99–$49.99. ¿Cuál te conviene?',
     datePublished: '2026-07-10',
-    dateModified: '2026-10-09',
+    dateModified: '2026-11-02',
     category: { label: 'Comparativa', gradient: 'learn' },
   },
   {
