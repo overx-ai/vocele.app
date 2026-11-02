@@ -20,6 +20,7 @@ Maintained by `/seo write` (append) and `/seo review` (verdict column). Site liv
 | /vs/speak | speak app alternative | E | 2026-10-24 | n/a | n/a | n/a | n/a | hold | V-003; judge 83 PASS. Inbound from /vs/praktika, /vs/fluently, /vs/elsa, /vs/talkpal. Re-verify Speak languages, tiers and review claims at next review |
 | /vs/boldvoice | boldvoice alternative | E | 2026-10-26 | n/a | n/a | n/a | n/a | hold | V-001; judge 84 PASS. Inbound from /vs/elsa, /vs/speak, /vs/praktika, /blog/ai-accent-training. Re-verify BoldVoice platforms, accents and conversation features at next review |
 | /es/blog/ingles-para-entrevista-de-trabajo | inglés para entrevista de trabajo en Estados Unidos | C (es) | 2026-10-26 | n/a | n/a | n/a | n/a | hold | P-203; judge 88 PASS. Inbound from /es/blog/clases-de-ingles-o-app-con-ia, /es/blog/entiendo-ingles-pero-no-puedo-hablarlo, /es/blog/como-hablar-ingles-con-confianza |
+| /es/blog/como-pronunciar-la-th-en-ingles | cómo pronunciar la th en inglés | B (es) | 2026-11-02 | n/a | n/a | n/a | n/a | hold | P-214; judge 82 PASS. Inbound from /es/blog/errores-de-pronunciacion-en-ingles, /es/blog/apps-para-aprender-ingles-hablando, /es/blog/ingles-para-entrevista-de-trabajo |
 
 ## Non-pipeline pages (context only)
 

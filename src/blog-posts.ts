@@ -133,6 +133,16 @@ export const BLOG_POSTS: BlogPost[] = [
     datePublished: '2026-10-26',
     category: { label: 'Trabajo', gradient: 'talk' },
   },
+  {
+    slug: 'blog/como-pronunciar-la-th-en-ingles',
+    locale: 'es',
+    title: 'Cómo pronunciar la TH en inglés: los dos sonidos',
+    cardTitle: 'Cómo pronunciar la TH en inglés',
+    description:
+      'Cómo pronunciar la TH en inglés: dónde va la lengua, la TH sorda y la sonora, el sonido del español que ya tienes y cómo saber si te salió bien.',
+    datePublished: '2026-11-02',
+    category: { label: 'Pronunciación', gradient: 'accent' },
+  },
 ];
 
 export const postsFor = (locale: 'en' | 'es') => BLOG_POSTS.filter((p) => p.locale === locale);

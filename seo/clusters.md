@@ -18,7 +18,8 @@ Same five-cluster shape per locale (EN live, ES live, pt-BR / ru planned — see
 - Supporting:
   - shadowing technique: does it fix your accent — planned (P-106) — en
   - the TH sound / American R / ship vs sheep — planned (P-114..116) — en
-  - la TH / la R americana / vocales — planned (P-214..216) — es
+  - cómo pronunciar la TH en inglés: /es/blog/como-pronunciar-la-th-en-ingles (P-214, 2026-11-02), es
+  - la R americana / vocales — planned (P-215..216) — es
   - /accent-reduction, /pronunciation-checker landers — deferred post-launch (P-121/122)
 - Notes from review: —
 
