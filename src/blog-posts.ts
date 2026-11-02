@@ -143,6 +143,16 @@ export const BLOG_POSTS: BlogPost[] = [
     datePublished: '2026-11-02',
     category: { label: 'Pronunciación', gradient: 'accent' },
   },
+  {
+    slug: 'blog/best-ai-language-tutor-app',
+    locale: 'en',
+    title: 'Best AI Language Tutor App in 2026: 7 Compared by Problem',
+    cardTitle: 'Best AI language tutor app in 2026',
+    description:
+      'The best AI language tutor app in 2026 depends on what stops you speaking. Seven apps compared by a founder who built one, including where ours loses.',
+    datePublished: '2026-11-02',
+    category: { label: 'Comparison', gradient: 'learn' },
+  },
 ];
 
 export const postsFor = (locale: 'en' | 'es') => BLOG_POSTS.filter((p) => p.locale === locale);

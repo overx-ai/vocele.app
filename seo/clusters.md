@@ -41,7 +41,7 @@ Same five-cluster shape per locale (EN live, ES live, pt-BR / ru planned — see
 - Notes from review: —
 
 ## Cluster E — Brand & comparison (near-zero KD, EN-only /vs/ pages)
-- Pillar (en): best AI language tutor app 2026 (honest roundup incl. us) — planned (P-105)
+- Pillar (en): Best AI Language Tutor App in 2026: 7 Compared by Problem, /blog/best-ai-language-tutor-app (P-105, 2026-11-02)
 - Supporting:
   - Vocele vs Praktika — /vs/praktika — praktika alternative / praktika review
   - Vocele vs Fluently — /vs/fluently — fluently ai alternative / review
