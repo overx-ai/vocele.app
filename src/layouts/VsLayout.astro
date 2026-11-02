@@ -1,9 +1,12 @@
 ---
 // Thin wrapper for /vs/<competitor> pages. Reads meta from vs-pages.ts and emits
-// BreadcrumbList + FAQPage only — no BlogPosting, and never AggregateRating or
-// Review (we have no third-party ratings to back one).
+// Article + BreadcrumbList + FAQPage — never AggregateRating or Review (we have
+// no third-party ratings to back one).
 import BaseLayout from './BaseLayout.astro';
 import { vsBySlug } from '../vs-pages';
+import { articleSchema } from '../site';
+import ArticleByline from '../components/ArticleByline.astro';
+import ArticleCta from '../components/ArticleCta.astro';
 import '../styles/article.css';
 
 export interface Props {
@@ -16,6 +19,16 @@ const site = Astro.site?.toString().replace(/\/$/, '') ?? 'https://vocele.app';
 const canonicalURL = `${site}/vs/${slug}`;
 
 const structuredData: object[] = [
+  articleSchema({
+    type: 'Article',
+    headline: page.title,
+    description: page.description,
+    datePublished: page.datePublished,
+    dateModified: page.dateModified,
+    lang: 'en',
+    url: canonicalURL,
+    site,
+  }),
   {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
@@ -34,12 +47,15 @@ const structuredData: object[] = [
     })),
   },
 ];
-
-const fmt = (iso: string) =>
-  new Date(iso + 'T00:00:00Z').toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' });
-const shown = page.dateModified ?? page.datePublished;
 ---
-<BaseLayout title={page.title} description={page.description} slug={`vs/${slug}`} structuredData={structuredData}>
+<BaseLayout
+  title={page.title}
+  description={page.description}
+  slug={`vs/${slug}`}
+  structuredData={structuredData}
+  ogType="article"
+  article={{ published: page.datePublished, modified: page.dateModified ?? page.datePublished }}
+>
   <section class="art-masthead">
     <div class="container">
       <nav class="crumbs" aria-label="Breadcrumb">
@@ -48,11 +64,7 @@ const shown = page.dateModified ?? page.datePublished;
         <span class="crumb-cat" style="background: var(--gradient-talk)">Compare</span>
       </nav>
       <h1 class="art-title">{page.title}</h1>
-      <p class="byline">
-        <span class="byline-brand"><img src="/logo-96.png" width="20" height="20" alt="" class="byline-mark" />Vocele</span>
-        <span class="sep" aria-hidden="true">·</span>
-        <span>{page.dateModified ? 'Updated' : 'Published'} <time datetime={shown}>{fmt(shown)}</time></span>
-      </p>
+      <ArticleByline lang="en" datePublished={page.datePublished} dateModified={page.dateModified} />
     </div>
   </section>
 
@@ -71,11 +83,5 @@ const shown = page.dateModified ?? page.datePublished;
     </section>
   </article>
 
-  <section class="art-cta">
-    <div class="container cta-inner">
-      <h2>Practice today with your <span class="clip-talk">AI coach.</span></h2>
-      <p>Vocele corrects your spoken sentences in real time and trains your accent, word by word.</p>
-      <a href="/" class="pill pill-light">Meet Vocele <span aria-hidden="true">↗</span></a>
-    </div>
-  </section>
+  <ArticleCta lang="en" />
 </BaseLayout>

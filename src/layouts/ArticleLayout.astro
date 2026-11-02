@@ -6,7 +6,9 @@
 import BaseLayout from './BaseLayout.astro';
 import { postBySlug, categoryAccent } from '../blog-posts';
 import { enPath, esPath } from '../site-pages';
-import { ORG, AUTHOR } from '../site';
+import { articleSchema } from '../site';
+import ArticleByline from '../components/ArticleByline.astro';
+import ArticleCta from '../components/ArticleCta.astro';
 import '../styles/article.css';
 
 export interface Props {
@@ -27,21 +29,17 @@ const canonicalURL = `${site}${path}`;
 const blogIndexPath = lang === 'es' ? '/es/blog' : '/blog';
 const homePath = lang === 'es' ? '/es' : '/';
 
-
 const structuredData: object[] = [
-  {
-    '@context': 'https://schema.org',
-    '@type': 'BlogPosting',
+  articleSchema({
+    type: 'BlogPosting',
     headline: post.title,
     description: post.description,
     datePublished: post.datePublished,
-    dateModified: post.dateModified ?? post.datePublished,
-    inLanguage: lang === 'es' ? 'es-MX' : 'en-US',
-    author: AUTHOR,
-    publisher: ORG,
-    mainEntityOfPage: canonicalURL,
-    image: `${site}/og-image.jpg`,
-  },
+    dateModified: post.dateModified,
+    lang,
+    url: canonicalURL,
+    site,
+  }),
   {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
@@ -64,13 +62,6 @@ if (faq.length > 0) {
     })),
   });
 }
-
-const fmt = (iso: string) =>
-  new Date(iso + 'T00:00:00Z').toLocaleDateString(lang === 'es' ? 'es-MX' : 'en-US', {
-    year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC',
-  });
-const dateLabel = fmt(post.datePublished);
-const modified = post.dateModified && post.dateModified !== post.datePublished ? post.dateModified : undefined;
 ---
 <BaseLayout
   title={post.title}
@@ -91,21 +82,7 @@ const modified = post.dateModified && post.dateModified !== post.datePublished ?
         <span class="crumb-cat" style={`background: var(--gradient-${post.category.gradient})`}>{post.category.label}</span>
       </nav>
       <h1 class="art-title">{post.title}</h1>
-      <p class="byline">
-        <span class="byline-brand">
-          <!-- The byline's copy of the header mark — same asset, same iOS mask. See Header.astro. -->
-          <img src="/logo-96.png" width="20" height="20" alt="" class="byline-mark" />
-          {AUTHOR.name}, {lang === 'es' ? 'fundador de' : 'founder of'} <a href={lang === 'es' ? '/es' : '/'} rel="author">Vocele</a>
-        </span>
-        <span class="sep" aria-hidden="true">·</span>
-        <time datetime={post.datePublished}>{dateLabel}</time>
-        {modified && (
-          <>
-            <span class="sep" aria-hidden="true">·</span>
-            <span>{lang === 'es' ? 'Actualizado' : 'Updated'} <time datetime={modified}>{fmt(modified)}</time></span>
-          </>
-        )}
-      </p>
+      <ArticleByline lang={lang} datePublished={post.datePublished} dateModified={post.dateModified} />
     </div>
   </section>
 
@@ -126,16 +103,6 @@ const modified = post.dateModified && post.dateModified !== post.datePublished ?
     )}
   </article>
 
-  <section class="art-cta">
-    <div class="container cta-inner">
-      <h2>{lang === 'es' ? 'Practica hoy con tu ' : 'Practice today with your '}<span class="clip-talk">{lang === 'es' ? 'coach de IA.' : 'AI coach.'}</span></h2>
-      <p>
-        {lang === 'es'
-          ? 'Vocele corrige tu inglés hablado en tiempo real y entrena tu acento, palabra por palabra.'
-          : 'Vocele corrects your spoken sentences in real time and trains your accent, word by word.'}
-      </p>
-      <a href={homePath} class="pill pill-light">{lang === 'es' ? 'Conoce Vocele' : 'Meet Vocele'} <span aria-hidden="true">↗</span></a>
-    </div>
-  </section>
+  <ArticleCta lang={lang} />
 </BaseLayout>
 

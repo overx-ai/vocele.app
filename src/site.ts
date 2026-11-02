@@ -26,6 +26,31 @@ export const AUTHOR = {
   jobTitle: 'Founder, Vocele',
 };
 
+export interface ArticleMeta {
+  type: 'Article' | 'BlogPosting';
+  headline: string;
+  description: string;
+  datePublished: string;
+  dateModified?: string;
+  lang: 'en' | 'es';
+  url: string;
+  site: string;
+}
+
+export const articleSchema = ({ type, headline, description, datePublished, dateModified, lang, url, site }: ArticleMeta) => ({
+  '@context': 'https://schema.org',
+  '@type': type,
+  headline,
+  description,
+  datePublished,
+  dateModified: dateModified ?? datePublished,
+  inLanguage: lang === 'es' ? 'es-MX' : 'en-US',
+  author: AUTHOR,
+  publisher: ORG,
+  mainEntityOfPage: url,
+  image: `${site}/og-image.jpg`,
+});
+
 export const SOFTWARE_APP = {
   '@type': 'SoftwareApplication',
   name: 'Vocele',
