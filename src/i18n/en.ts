@@ -5,7 +5,7 @@
 // Write prices, allowances and internal links as placeholders, never as literals. An unknown one fails the build:
 //   {corePrice} {fluencyPrice} {metaPrice}  {tutorRange} {tutorLow} {tutorHigh}  {pricingHref} {fairUseHref}
 //   {coreTalk} {corePron} {coreWords} {corePdf}, and the same four for fluency and meta
-// Keys named *Html, `features`, `notes`, `compareLinks`, faq `a` and fair-use `content`/`note` are HTML.
+// Keys named *Html, `features`, `notes`, `compareLinks`, faq `a` and fair-use `heading`/`content`/`note` are HTML.
 const en = {
   skipLink: 'Skip to content',
   ogImageAlt: 'Vocele — AI Language Coach',

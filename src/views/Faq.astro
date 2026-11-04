@@ -4,6 +4,7 @@ import FaqItem from '../components/FaqItem.astro';
 import Clip from '../components/Clip.astro';
 import { useLang } from '../i18n';
 import { localePath } from '../site-pages';
+import { faqPageSchema, rowNumber } from '../site';
 import type { Lang } from '../data/types';
 
 interface Props {
@@ -12,37 +13,25 @@ interface Props {
 
 const { lang } = Astro.props;
 const { t } = useLang(lang);
-const { items } = t.faq;
-
-const structuredData = [
-  {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: items.map((f) => ({
-      '@type': 'Question',
-      name: f.q,
-      acceptedAnswer: { '@type': 'Answer', text: f.a.replace(/<[^>]+>/g, '') },
-    })),
-  },
-];
+const faq = t.faq;
 ---
-<BaseLayout title={t.faq.meta.title} description={t.faq.meta.description} lang={lang} slug="faq" structuredData={structuredData}>
+<BaseLayout title={faq.meta.title} description={faq.meta.description} lang={lang} slug="faq" structuredData={[faqPageSchema(faq.items)]}>
   <section class="masthead">
     <div class="container">
-      <span class="eyebrow">{t.faq.eyebrow}</span>
-      <h1 class="mast-title"><Clip parts={t.faq.title} /></h1>
+      <span class="eyebrow">{faq.eyebrow}</span>
+      <h1 class="mast-title"><Clip parts={faq.title} /></h1>
     </div>
   </section>
 
   <section class="faq-list">
     <div class="container">
-      {items.map((f, i) => <FaqItem question={f.q} answer={f.a} num={String(i + 1).padStart(2, '0')} />)}
+      {faq.items.map((f, i) => <FaqItem question={f.q} answer={f.a} num={rowNumber(i)} />)}
     </div>
   </section>
 
   <section class="faq-cta">
     <div class="container cta-inner">
-      <h2><Clip parts={t.faq.ctaTitle} class="clip-talk" /></h2>
+      <h2><Clip parts={faq.ctaTitle} class="clip-talk" /></h2>
       <a href={localePath(lang, '')} class="pill pill-light">{t.meetVocele} <span aria-hidden="true">↗</span></a>
     </div>
   </section>

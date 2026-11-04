@@ -6,8 +6,9 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import ConsentBanner from '../components/ConsentBanner.astro';
 import { useLang } from '../i18n';
-import { localeOf } from '../i18n/locales';
+import { DEFAULT_LANG, localeOf } from '../i18n/locales';
 import { alternates, hasTwins, localePath, localesOf } from '../site-pages';
+import { jsonLd, jsonLdScript, siteOrigin } from '../site';
 import type { Lang } from '../data/types';
 import '../styles/global.css';
 
@@ -28,7 +29,7 @@ export interface Props {
 const {
   title,
   description,
-  lang = 'en',
+  lang = DEFAULT_LANG,
   slug = '',
   ogImage = '/og-image.jpg',
   structuredData = [],
@@ -37,7 +38,7 @@ const {
   article,
 } = Astro.props;
 
-const site = Astro.site?.toString().replace(/\/$/, '') ?? 'https://vocele.app';
+const site = siteOrigin(Astro.site);
 const { t, locale } = useLang(lang);
 const canonicalURL = `${site}${localePath(lang, slug)}`;
 const fullTitle = title.includes('Vocele') ? title : `${title} | Vocele`;
@@ -52,13 +53,7 @@ const otherLocales = translated ? localesOf(slug).filter((l) => l !== lang).map(
 // No page defines its own WebSite entry today — keep it that way.
 const websiteSchema =
   slug === '' && indexable
-    ? [{
-        '@context': 'https://schema.org',
-        '@type': 'WebSite',
-        name: 'Vocele',
-        url: `${site}/`,
-        inLanguage: locale.tag,
-      }]
+    ? [jsonLd({ '@type': 'WebSite', name: 'Vocele', url: `${site}/`, inLanguage: locale.tag })]
     : [];
 const allStructuredData = [...websiteSchema, ...structuredData];
 ---
@@ -118,12 +113,12 @@ const allStructuredData = [...websiteSchema, ...structuredData];
   {locale.displayFont === 'outfit' && <link rel="preload" href="/fonts/outfit-latin.woff2" as="font" type="font/woff2" crossorigin />}
 
   {allStructuredData.map((entry) => (
-    <script is:inline type="application/ld+json" set:html={JSON.stringify(entry)} />
+    <script is:inline type="application/ld+json" set:html={jsonLdScript(entry)} />
   ))}
 </head>
 <body>
   <a href="#main" class="skip-link">{t.skipLink}</a>
-  <Header lang={lang} slug={slug} translated={translated} />
+  <Header lang={lang} slug={slug} />
   <main id="main">
     <slot />
   </main>

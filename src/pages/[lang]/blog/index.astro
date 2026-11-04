@@ -1,13 +1,7 @@
 ---
 import BlogIndex from '../../../views/BlogIndex.astro';
-import { translatedPaths, type Lang } from '../../../i18n/locales';
+import { translatedPaths } from '../../../i18n/locales';
 
-export function getStaticPaths() {
-  return translatedPaths();
-}
-
-interface Props {
-  lang: Lang;
-}
+export const getStaticPaths = translatedPaths;
 ---
-<BlogIndex lang={Astro.props.lang} />
+<BlogIndex {...Astro.props} />

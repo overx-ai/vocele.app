@@ -45,6 +45,8 @@ before(() => {
 
 const indexable = () => [...pages].filter(([, p]) => !/name="robots"[^>]*noindex/.test(p.html));
 const rel = (file) => path.relative(ROOT, file);
+const hreflangs = (html) => [...html.matchAll(/<link rel="alternate" hreflang="([^"]+)" href="([^"]+)"/g)].map((m) => `${m[1]} ${m[2]}`).sort();
+const withoutCode = (html) => html.replace(/<script[\s\S]*?<\/script>|<style[\s\S]*?<\/style>/g, '');
 
 test('sitemap and build agree on which pages exist', () => {
   assert.ok(sitemap.size > 0, 'sitemap.xml has no <url> entries');
@@ -64,10 +66,7 @@ test('every indexable page has exactly one canonical, matching its sitemap URL',
 
 test('hreflang in the head matches hreflang in the sitemap', () => {
   for (const [url, p] of indexable()) {
-    const head = [...p.html.matchAll(/<link rel="alternate" hreflang="([^"]+)" href="([^"]+)"/g)]
-      .map((m) => `${m[1]} ${m[2]}`)
-      .sort();
-    assert.deepEqual(head, sitemap.get(url), `${rel(p.file)} head alternates differ from the sitemap entry`);
+    assert.deepEqual(hreflangs(p.html), sitemap.get(url), `${rel(p.file)} head alternates differ from the sitemap entry`);
   }
 });
 
@@ -82,6 +81,7 @@ test('every JSON-LD block parses', () => {
   for (const [, p] of pages) {
     for (const [, json] of p.html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)) {
       assert.doesNotThrow(() => JSON.parse(json), `${rel(p.file)} has unparseable JSON-LD`);
+      assert.ok(!json.includes('<'), `${rel(p.file)} has a raw < in JSON-LD, which could close its script`);
     }
   }
 });
@@ -101,6 +101,7 @@ test('the apple-app-site-association is valid and claims the invite path', () =>
 const BANNED = [
   /90[- ]day (guarantee|roadmap)/i,
   /plan de 90 d/i,
+  /90[\s\u00a0-]*(?:Tage|jours|giorni|dias|dni|дней|日間|يوم)/i,
   /money[- ]back/i,
   /garant[ií]a de devoluci/i,
   /duolingo/i,
@@ -119,7 +120,7 @@ test('no page makes a banned claim', () => {
 });
 
 // "Unlimited" in every language. The only allowed use is each fair-use page's own denial of it.
-const UNLIMITED = /unlimited|ilimitad|illimit|unbegrenzt|grenzenlos|bez limitu|безлимит|неогранич|無制限|使い放題|غير محدود|بلا حدود/i;
+const UNLIMITED = /unlimited|ilimitad|illimit|unbegrenzt|grenzenlos|ohne limit|sans limite|senza limit|sem limite|bez limitu|nielimitowan|безлимит|неогранич|без ограничен|無制限|使い放題|制限なし|غير محدود|بلا حدود|دون حدود/i;
 const DENIALS = [
   /do(?:es)? not sell anything as (?:&quot;|")?unlimited/gi,
   /never sells? anything as (?:&quot;|")?unlimited/gi,
@@ -144,7 +145,7 @@ const ARABIC = /\barabic\b|\b[áa]rabe\b|arabisch|\barabo\b|arabsk|арабск|
 test('no locale offers Arabic as a language to learn', () => {
   for (const [, p] of pages) {
     if (/privacy|terms|dist\/vs\//.test(rel(p.file))) continue; // /vs pages describe competitors' catalogues
-    const text = p.html.replace(/<script[\s\S]*?<\/script>|<style[\s\S]*?<\/style>/g, '').replace(/<[^>]+>/g, ' ');
+    const text = withoutCode(p.html).replace(/<[^>]+>/g, ' ');
     assert.ok(!ARABIC.test(text), `${rel(p.file)} names Arabic: ${text.match(ARABIC)?.[0]}`);
   }
 });
@@ -152,13 +153,10 @@ test('no locale offers Arabic as a language to learn', () => {
 const LOCALES = ['en', 'es', 'ru', 'pl', 'pt', 'de', 'fr', 'it', 'ja', 'ar'];
 const HTML_LANG = { en: 'en-US', es: 'es-MX', pt: 'pt-BR' };
 const CORE_SLUGS = ['', 'pricing', 'faq', 'fair-use'];
-const urlFor = (lang, slug) => `${ORIGIN}/${[lang === 'en' ? '' : lang, slug].filter(Boolean).join('/')}`.replace(/\/$/, '') || ORIGIN;
-const pageFor = (lang, slug) => pages.get(slug === '' && lang === 'en' ? `${ORIGIN}/` : urlFor(lang, slug));
-const hreflangs = (html) => [...html.matchAll(/<link rel="alternate" hreflang="([^"]+)" href="([^"]+)"/g)].map((m) => `${m[1]} ${m[2]}`).sort();
+const urlFor = (lang, slug) => `${ORIGIN}/${[lang === 'en' ? '' : lang, slug].filter(Boolean).join('/')}`;
+const pageFor = (lang, slug) => pages.get(urlFor(lang, slug));
 
 test('every locale serves its core pages with the right lang, dir and reciprocal hreflang', () => {
-  const home = hreflangs(pageFor('en', '').html);
-  assert.equal(home.length, LOCALES.length + 1, 'home must list every locale plus x-default');
   for (const lang of LOCALES) {
     for (const slug of CORE_SLUGS) {
       const page = pageFor(lang, slug);
@@ -167,15 +165,14 @@ test('every locale serves its core pages with the right lang, dir and reciprocal
       assert.ok(tag.includes(`lang="${HTML_LANG[lang] ?? lang}"`), `${rel(page.file)} has ${tag}`);
       assert.ok(tag.includes(`dir="${lang === 'ar' ? 'rtl' : 'ltr'}"`), `${rel(page.file)} has ${tag}`);
       assert.equal(hreflangs(page.html).length, LOCALES.length + 1, `${rel(page.file)} hreflang set is incomplete`);
-      if (slug === '') assert.deepEqual(hreflangs(page.html), home, `${rel(page.file)} is not reciprocal`);
+      assert.deepEqual(hreflangs(page.html), hreflangs(pageFor('en', slug).html), `${rel(page.file)} is not reciprocal`);
     }
   }
 });
 
 test('no placeholder survives into a page', () => {
   for (const [, p] of pages) {
-    const text = p.html.replace(/<script[\s\S]*?<\/script>|<style[\s\S]*?<\/style>/g, '');
-    assert.ok(!/\{[a-z][A-Za-z]+\}/.test(text), `${rel(p.file)} has an unfilled placeholder`);
+    assert.ok(!/\{[a-z][A-Za-z]+\}/.test(withoutCode(p.html)), `${rel(p.file)} has an unfilled placeholder`);
   }
 });
 
@@ -184,6 +181,18 @@ test('a blog index with no article stays out of the index', () => {
     if (!/<p class="lead empty/.test(p.html)) continue;
     assert.ok(/name="robots" content="noindex/.test(p.html), `${rel(p.file)} is empty and indexable`);
     assert.ok(!sitemap.has(urlOf(p.file)), `${rel(p.file)} is empty and in the sitemap`);
+  }
+});
+
+const langMenu = (html) => [...html.match(/<details class="lang-menu[\s\S]*?<\/details>/)[0].matchAll(/<a href="([^"]+)"/g)].map((m) => m[1]);
+
+test('the language menu never links a missing page, and keeps blog readers on a blog index', () => {
+  for (const [, p] of pages) {
+    if (!p.html.includes('class="lang-menu')) continue;
+    for (const href of langMenu(p.html)) assert.ok(pages.has(new URL(href, ORIGIN).href), `${rel(p.file)} links ${href} from its language menu`);
+  }
+  for (const from of ['es', 'ru']) {
+    assert.deepEqual(langMenu(pageFor(from, 'blog').html).map((href) => new URL(href, ORIGIN).href), LOCALES.map((lang) => urlFor(lang, 'blog')));
   }
 });
 
@@ -224,7 +233,7 @@ const QUOTED_PRICE = new RegExp(
 
 test('plan pages quote only approved prices, and every plan price', () => {
   const planPages = Object.entries(ALLOWED_PRICES)
-    .map(([lang, prices]) => ({ lang, prices, page: pages.get(`${ORIGIN}/${lang === 'en' ? '' : `${lang}/`}pricing`) }))
+    .map(([lang, prices]) => ({ lang, prices, page: pageFor(lang, 'pricing') }))
     .filter(({ page }) => page);
   assert.ok(planPages.length >= 2, 'no plan pages found');
   for (const { lang, prices, page } of planPages) {

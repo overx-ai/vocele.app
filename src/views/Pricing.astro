@@ -4,7 +4,7 @@ import PricingCard from '../components/PricingCard.astro';
 import Clip from '../components/Clip.astro';
 import { useLang } from '../i18n';
 import { PLANS, PLAN_NAMES, PRICES, TUTOR } from '../data/prices';
-import { ORG, softwareApp } from '../site';
+import { ORG, breadcrumbSchema, jsonLd, softwareApp } from '../site';
 import { downloadPath, localePath } from '../site-pages';
 import type { Lang } from '../data/types';
 
@@ -18,15 +18,11 @@ const p = t.pricing;
 const { display } = PRICES[lang];
 
 const structuredData = [
-  { '@context': 'https://schema.org', ...softwareApp(lang) },
-  {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: t.nav.home, item: `${ORG.url}${localePath(lang, '')}` },
-      { '@type': 'ListItem', position: 2, name: t.nav.pricing, item: `${ORG.url}${localePath(lang, 'pricing')}` },
-    ],
-  },
+  jsonLd(softwareApp(lang)),
+  breadcrumbSchema([
+    { name: t.nav.home, url: `${ORG.url}${localePath(lang, '')}` },
+    { name: t.nav.pricing, url: `${ORG.url}${localePath(lang, 'pricing')}` },
+  ]),
 ];
 ---
 <BaseLayout title={p.meta.title} description={p.meta.description} lang={lang} slug="pricing" structuredData={structuredData}>

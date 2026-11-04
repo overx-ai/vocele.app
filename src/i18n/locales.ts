@@ -30,7 +30,5 @@ export const localeOf = (lang: Lang): Locale => LANGS.find((l) => l.code === lan
 
 export const liveLocales = (): Locale[] => LIVE_LANGS.map(localeOf);
 
-export const shortCode = (locale: Locale) => locale.code.toUpperCase();
-
 export const translatedPaths = () =>
   LIVE_LANGS.filter((lang) => lang !== DEFAULT_LANG).map((lang) => ({ params: { lang }, props: { lang } }));

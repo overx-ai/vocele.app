@@ -9,6 +9,7 @@
 import BaseLayout from './BaseLayout.astro';
 import { formatDate } from '../data/facts';
 import { useLang } from '../i18n';
+import { rowNumber } from '../site';
 import type { Lang, LegalDates, LegalDocument } from '../data/types';
 
 export interface Props {
@@ -42,7 +43,7 @@ const summary = doc.summaryHtml.trim().startsWith('<ul') ? doc.summaryHtml : `<p
     <div class="legal-prose">
       {doc.sections.map((s, i) => (
         <section class="block" id={s.id}>
-          <h2><span class="num">{String(i + 1).padStart(2, '0')}</span>{s.title}</h2>
+          <h2><span class="num">{rowNumber(i)}</span>{s.title}</h2>
           <div set:html={s.content} />
         </section>
       ))}

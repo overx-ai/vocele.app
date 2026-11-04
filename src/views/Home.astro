@@ -3,7 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import AppStoreBadge from '../components/AppStoreBadge.astro';
 import Clip from '../components/Clip.astro';
 import { useLang } from '../i18n';
-import { ORG, softwareApp } from '../site';
+import { ORG, jsonLd, rowNumber, softwareApp } from '../site';
 import type { Lang } from '../data/types';
 
 interface Props {
@@ -14,15 +14,15 @@ const { lang } = Astro.props;
 const h = useLang(lang).t.home;
 
 const structuredData = [
-  { '@context': 'https://schema.org', ...ORG },
-  { '@context': 'https://schema.org', ...softwareApp(lang), description: h.meta.appDescription },
+  jsonLd(ORG),
+  jsonLd({ ...softwareApp(lang), description: h.meta.appDescription }),
 ];
 
 const SCENARIO_COLORS = ['#f04582', '#21c7eb', '#f78f38', '#635ccf', '#1aa88c', '#2163eb'];
 const scenarios = h.scenarios.map((text, i) => ({ text, color: SCENARIO_COLORS[i] }));
 
 const modules = (['talk', 'accent', 'learn', 'read', 'grammar', 'sets'] as const).map((key, i) => ({
-  n: String(i + 1).padStart(2, '0'),
+  n: rowNumber(i),
   key,
   ...h.modules[key],
 }));
@@ -75,7 +75,7 @@ const topics = ([
             </div>
             <div class="chat-body">
               <div class="msg msg-ai">{h.chat.question}</div>
-              <div class="msg msg-user" dir="ltr">I have five years experience in marketing.</div>
+              <div class="msg msg-user"><span dir="ltr">I have five years experience in marketing.</span></div>
               <div class="coach-fix">
                 <span class="fix-label">{h.chat.fixLabel}</span><br />
                 {h.chat.tryLabel} <strong dir="ltr">"I've been working in marketing for five years."</strong>

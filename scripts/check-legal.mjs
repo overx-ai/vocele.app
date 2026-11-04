@@ -241,11 +241,13 @@ const BANNED_WORDS = [
   'state-of-the-art', 'journey', 'navigate', 'crucial', 'utilize', 'facilitate', 'Furthermore', 'Moreover', 'Additionally',
 ];
 const terms = reader('terms');
+// Every built locale of a page, read from the sitemap so a new locale is checked without touching this file.
+const sitemap = readFileSync(path.join(DIST, 'sitemap.xml'), 'utf8');
+const localized = (slug) => [...sitemap.matchAll(new RegExp(`/((?:[a-z]{2}/)?${slug})</loc>`, 'g'))].map((m) => m[1]);
 for (const [page, r, ids] of [
   ['privacy', privacy, PRIVACY_IDS],
   ['terms', terms, TERMS_IDS],
-  ['fair-use', reader('fair-use'), FAIR_USE_IDS],
-  ['es/fair-use', reader('es/fair-use'), FAIR_USE_IDS],
+  ...localized('fair-use').map((page) => [page, reader(page), FAIR_USE_IDS]),
 ]) {
   check(JSON.stringify(r.sections.map((s) => s.id)) === JSON.stringify(ids), `${page}: sections must be, in order, ${ids.join(', ')}; got ${r.sections.map((s) => s.id).join(', ')}`);
   r.sections.forEach((s, i) => check(s.num === i + 1, `${page}: #${s.id} is numbered ${s.num}, expected ${i + 1}`));
@@ -263,8 +265,7 @@ for (const [page, r, ids] of [
 }
 
 // Dates: Effective + Last updated from LEGAL_DATES, and the sitemap's lastmod is the same "Last updated".
-const sitemap = readFileSync(path.join(DIST, 'sitemap.xml'), 'utf8');
-for (const [page, key] of [['privacy', 'privacy'], ['terms', 'terms'], ['fair-use', 'fair-use'], ['es/fair-use', 'fair-use']]) {
+for (const [page, key] of [['privacy', 'privacy'], ['terms', 'terms'], ...localized('fair-use').map((page) => [page, 'fair-use'])]) {
   const dates = FACTS.match(new RegExp(`'?${key}'?: \\{ effective: '([\\d-]+)', updated: '([\\d-]+)' \\}`));
   const [, effective, updated] = readHtml(page).match(/: <time datetime="([\d-]+)"[^>]*>[^<]+<\/time> · [^:]+: <time datetime="([\d-]+)"[^>]*>/) ?? [];
   check(dates && effective === dates[1] && updated === dates[2], `${page}: must show Effective ${dates?.[1]} and Last updated ${dates?.[2]} from LEGAL_DATES`);
@@ -358,24 +359,26 @@ for (const clause of ['acknowledgement', 'scope of licence', 'maintenance and su
 has(terms.get('general'), ['unenforceable', 'not a waiver', 'transfer', 'whole agreement', 'English version prevails'], 'terms #general');
 check(!/\bunlimited\b/i.test(terms.get('plans') + terms.get('limits')), 'terms: no plan is called unlimited');
 
-// Fair use: no Free column (owner, 2026-10-08), paid figures only, both locales, and the same minutes /pricing sells.
+// Fair use: no Free column (owner, 2026-10-08), paid figures only, every locale, and the same minutes /pricing sells.
 const allowance = (key) => (FACTS.match(new RegExp(`\\b${key}:\\s*\\[([^\\]]*)\\]`))?.[1] ?? '').split(',').map(Number).filter(Boolean);
 const PLAN_TALK = allowance('talkPerMonth');
 const PLAN_PRON = allowance('pronunciationPerMonth');
 check(PLAN_TALK.length === 3 && PLAN_PRON.length === 3, 'src/data/facts.ts: PLAN_ALLOWANCE minutes not parsed');
-const thousands = (n) => String(n).replace(/\B(?=(\d{3})+$)/g, '[,.]');
-for (const page of ['fair-use', 'es/fair-use']) {
+const thousands = (n) => String(n).replace(/\B(?=(\d{3})+$)/g, '[,.\\s]');
+const LIMITED_FREE_ACCESS = /limited access|acceso limitado|acesso limitado|accesso limitato|accès limité|begrenztem Zugang|w ograniczonym zakresie|ограниченным доступом|限定された範囲|بوصول محدود/;
+for (const page of localized('fair-use')) {
   const html = readHtml(page);
   const head = html.match(/<thead>([\s\S]*?)<\/thead>/)?.[1] ?? '';
   check(!/Free|Gratis/i.test(head), `${page}: the allowance table must not carry a Free column`);
   for (const key of ['talkPerMonth', 'pronunciationPerMonth', 'vocabulary', 'pdfPerMonth']) {
     for (const n of allowance(key)) check(new RegExp(`\\b${thousands(n)}\\b`).test(head + html.match(/<tbody>([\s\S]*?)<\/tbody>/)?.[1]), `${page}: allowance ${key} ${n} missing`);
   }
-  check(/limited access|acceso limitado/.test(plainText(html)), `${page}: must say free accounts get limited access, shown in the app`);
+  check(LIMITED_FREE_ACCESS.test(plainText(html)), `${page}: must say free accounts get limited access, shown in the app`);
 }
-for (const [page, unit] of [['pricing', 'minutes'], ['es/pricing', 'minutos']]) {
+const MINUTE_UNITS = { pricing: ' minutes', 'es/pricing': ' minutos' };
+for (const page of localized('pricing')) {
   const text = plainText(readHtml(page));
-  for (const n of [...PLAN_TALK, ...PLAN_PRON]) check(text.includes(`${n} ${unit}`), `${page}: plan minutes ${n} missing (must match /fair-use)`);
+  for (const n of [...PLAN_TALK, ...PLAN_PRON]) check(text.includes(`${n}${MINUTE_UNITS[page] ?? ''}`), `${page}: plan minutes ${n} missing (must match /fair-use)`);
 }
 
 // ---------------------------------------------------------------------------------------------------------------

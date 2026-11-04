@@ -12,6 +12,8 @@ export interface SitePage {
   slug: string;
   /** More than one = twins, with reciprocal hreflang. One = self-canonical, no hreflang, listed where it lives. */
   locales: readonly Lang[];
+  /** Where the page is built, when wider than `locales`: linkable, but noindex and so out of hreflang and the sitemap. */
+  builtIn?: readonly Lang[];
   /** ISO date for sitemap <lastmod>. */
   lastmod?: string;
 }
@@ -28,7 +30,7 @@ export const SITE_PAGES: SitePage[] = [
   { slug: 'privacy', locales: ENGLISH_ONLY, lastmod: LEGAL_DATES.privacy.updated },
   { slug: 'terms', locales: ENGLISH_ONLY, lastmod: LEGAL_DATES.terms.updated },
   // The index pages ARE locale twins. A locale with no article yet keeps a noindex page, so the nav link still works.
-  { slug: 'blog', locales: LIVE_LANGS.filter((lang) => BLOG_POSTS.some((p) => p.locale === lang)), lastmod: PAGES_LASTMOD },
+  { slug: 'blog', locales: LIVE_LANGS.filter((lang) => BLOG_POSTS.some((p) => p.locale === lang)), builtIn: LIVE_LANGS, lastmod: PAGES_LASTMOD },
   // Articles are original per locale (never translations): self-canonical, no hreflang twin. Registered once in
   // blog-posts.ts, appended here so the sitemap can't miss them.
   // NOT listed: /privacy/<yyyy-mm>. A policy replaced from 2026-10-08 on is kept there (the promise in /privacy#changes),
@@ -39,11 +41,7 @@ export const SITE_PAGES: SitePage[] = [
   ...VS_PAGES.map((v) => ({ slug: `vs/${v.slug}`, locales: ENGLISH_ONLY, lastmod: v.dateModified ?? v.datePublished })),
 ];
 
-export const localePath = (lang: Lang, slug: string) => {
-  const { prefix } = localeOf(lang);
-  const path = [prefix, slug].filter(Boolean).join('/');
-  return `/${path}`;
-};
+export const localePath = (lang: Lang, slug: string) => `/${[localeOf(lang).prefix, slug].filter(Boolean).join('/')}`;
 
 // The #download target only exists on the home pages.
 export const downloadPath = (lang: Lang) => `${localePath(lang, '')}#download`;
@@ -54,14 +52,18 @@ export const localesOf = (slug: string): readonly Lang[] => SITE_PAGES.find((p) 
 
 export const hasTwins = (slug: string) => localesOf(slug).length > 1;
 
-export const alternates = (slug: string, origin: string) =>
-  hasTwins(slug)
-    ? [
-        ...localesOf(slug).map((lang) => ({ hreflang: localeOf(lang).hreflang, href: `${origin}${localePath(lang, slug)}` })),
-        { hreflang: X_DEFAULT, href: `${origin}${localePath(DEFAULT_LANG, slug)}` },
-      ]
-    : [];
+export const alternates = (slug: string, origin: string) => {
+  if (!hasTwins(slug)) return [];
+  const href = (lang: Lang) => `${origin}${localePath(lang, slug)}`;
+  return [
+    ...localesOf(slug).map((lang) => ({ hreflang: localeOf(lang).hreflang, href: href(lang) })),
+    { hreflang: X_DEFAULT, href: href(DEFAULT_LANG) },
+  ];
+};
 
-// Same page in another language where it has a twin, otherwise that language's home: never link a 404.
-export const switchPath = (target: Lang, slug: string, translated: boolean) =>
-  localePath(target, translated && localesOf(slug).includes(target) ? slug : '');
+// Same page in another language wherever it is built, otherwise that language's home: never link a 404. Reads the
+// manifest directly: localesOf's every-locale default would send an unregistered page to URLs that do not exist.
+export const switchPath = (target: Lang, slug: string) => {
+  const page = SITE_PAGES.find((p) => p.slug === slug);
+  return localePath(target, (page?.builtIn ?? page?.locales)?.includes(target) ? slug : '');
+};

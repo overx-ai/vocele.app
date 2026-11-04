@@ -1,28 +1,26 @@
 ---
 import { useLang } from '../i18n';
-import { liveLocales, shortCode } from '../i18n/locales';
+import { liveLocales } from '../i18n/locales';
 import { downloadPath, localePath, switchPath } from '../site-pages';
 import type { Lang } from '../data/types';
 
 export interface Props {
-  lang?: Lang;
+  lang: Lang;
   /** Current page's shared slug — makes the language menu keep your place. */
-  slug?: string;
-  /** Whether this page has twins (computed in BaseLayout). */
-  translated?: boolean;
+  slug: string;
 }
-const { lang = 'en', slug = '', translated = false } = Astro.props;
-const { t, locale } = useLang(lang);
+const { lang, slug } = Astro.props;
+const { t } = useLang(lang);
 const home = localePath(lang, '');
 
 // blog articles share the 'blog' nav highlight; everything else matches its slug.
-const activeKey = slug.startsWith('blog') ? 'blog' : slug;
+const activeSlug = slug.startsWith('blog') ? 'blog' : slug;
 
 const nav = [
-  { key: '', href: home, label: t.nav.home },
-  { key: 'pricing', href: localePath(lang, 'pricing'), label: t.nav.pricing },
-  { key: 'faq', href: localePath(lang, 'faq'), label: t.nav.faq },
-  { key: 'blog', href: localePath(lang, 'blog'), label: t.nav.blog },
+  { slug: '', label: t.nav.home },
+  { slug: 'pricing', label: t.nav.pricing },
+  { slug: 'faq', label: t.nav.faq },
+  { slug: 'blog', label: t.nav.blog },
 ];
 ---
 
@@ -49,18 +47,18 @@ const nav = [
     <nav class="main-nav" aria-label={t.nav.primaryLabel}>
       <ul>
         {nav.map((item) => (
-          <li><a href={item.href} class={item.key === activeKey ? 'active' : ''}>{item.label}</a></li>
+          <li><a href={localePath(lang, item.slug)} class={item.slug === activeSlug ? 'active' : ''}>{item.label}</a></li>
         ))}
       </ul>
     </nav>
 
     <div class="header-actions">
       <details class="lang-menu">
-        <summary aria-label={t.nav.switchLanguage}>{shortCode(locale)}</summary>
+        <summary aria-label={t.nav.switchLanguage}>{lang.toUpperCase()}</summary>
         <ul>
           {liveLocales().map((l) => (
             <li>
-              <a href={switchPath(l.code, slug, translated)} lang={l.tag} hreflang={l.hreflang} aria-current={l.code === lang ? 'true' : undefined}>{l.name}</a>
+              <a href={switchPath(l.code, slug)} lang={l.tag} hreflang={l.hreflang} aria-current={l.code === lang ? 'true' : undefined}>{l.name}</a>
             </li>
           ))}
         </ul>

@@ -1,13 +1,7 @@
 ---
 import Faq from '../../views/Faq.astro';
-import { translatedPaths, type Lang } from '../../i18n/locales';
+import { translatedPaths } from '../../i18n/locales';
 
-export function getStaticPaths() {
-  return translatedPaths();
-}
-
-interface Props {
-  lang: Lang;
-}
+export const getStaticPaths = translatedPaths;
 ---
-<Faq lang={Astro.props.lang} />
+<Faq {...Astro.props} />

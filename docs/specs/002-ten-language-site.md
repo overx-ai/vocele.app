@@ -1,7 +1,7 @@
 ---
 id: 002
 title: "The site speaks all ten languages the app does"
-status: approved
+status: in-progress
 priority: p1
 created: 2026-11-04
 updated: 2026-11-04
@@ -45,14 +45,30 @@ tasks: []
 | Content fence and legal checks only scan en/es copies | Banned claims ship in new locales | Run checks over every built page, with per-language "unlimited" terms | plan |
 | fair-use legal text mistranslated | Consumer-law exposure | Render from one structure; numbers from `facts.ts` | plan |
 
+## Price sources
+Plan prices: App Store Connect monthly customer prices, read 2026-11-04 (Core / Fluency / Meta): DE, FR, IT EUR 17.99 / 34.99 / 59.99; PL PLN 69.99 / 129.99 / 229.99; BR BRL 99.90 / 199.90 / 299.90; JP JPY 2500 / 5000 / 8000; RU RUB 1290 / 2490 / 4490; SA SAR 59.99 / 129.99 / 199.99.
+
+Tutor ranges, read 2026-11-04. Each is about eight lessons a month, so a derived estimate, not a published figure.
+
+| Locale | Range | Basis | Sources |
+|--------|-------|-------|---------|
+| de | 180–295 € | 22.49-36.99 €/h, one online school | giga.de Lingoda prices, 2026-01-14; superprof.de adult average 22 €/h |
+| fr | 160–540 € | 20-60 €/h | acadomia.fr/tarifs; groupe-reussite.fr |
+| it | 120–200 € | 15-25 €/h online | cronoshare.it lezioni-inglese, 2026-01-07; superprof.it |
+| pl | 400–660 zł | 50-82.50 zł/h, middle 50% of 38,012 ads | e-korepetycje.net report 2026; wprost.pl |
+| pt | R$ 400–1.200 | R$ 50-150/h | cronoshare.com.br, 2026-01-09; getninjas.com.br |
+| ja | ¥60,000〜75,000 | one-to-one conversation schools, 40 min | shane.co.jp/lesson/price; berlitz.com/ja-jp/adults/pricing |
+| ru | 12 000–19 000 ₽ | 1,500 ₽/h low; school entry price high | repetit.ru; skyeng.ru |
+| ar | 800–1,200 ر.س. | 25 listed tutors, median 114 SAR/h | apprentus.com Saudi English tutors; modarby.com and learn.sa as floors |
+
 ## Tasks
 | ID | Description | Agent | Depends On | Status | Files |
 |----|-------------|-------|------------|--------|-------|
-| T1 | Locale table, copy extraction for en and es, shared views, manifest, layouts, language menu, 404, parity proof | dev | - | pending | src/i18n, src/views, src/pages, src/site-pages.ts, src/layouts, src/components |
-| T2 | Fonts, per-locale type overrides, RTL | dev | T1 | pending | src/styles/global.css, public/fonts, src/layouts/BaseLayout.astro |
-| T3 | Native copy for ru pl pt de fr it ja ar | dev | T1 | pending | src/i18n/*.ts, src/data/fair-use.ts |
-| T4 | Tests and legal checks across every locale | dev | T3 | pending | tests/site.test.js, scripts/check-legal.mjs |
-| T5 | llms.txt sections and CLAUDE.md rule update | dev | T3 | pending | public/llms.txt, CLAUDE.md, docs/001-seo-crawlability.md |
+| T1 | Locale table, copy extraction for en and es, shared views, manifest, layouts, language menu, 404, parity proof | dev | - | done | src/i18n, src/views, src/pages, src/site-pages.ts, src/layouts, src/components |
+| T2 | Fonts, per-locale type overrides, RTL | dev | T1 | done | src/styles/global.css, public/fonts, src/layouts/BaseLayout.astro |
+| T3 | Native copy for ru pl pt de fr it ja ar | dev | T1 | done | src/i18n/*.ts, src/data/fair-use.ts |
+| T4 | Tests and legal checks across every locale | dev | T3 | done | tests/site.test.js, scripts/check-legal.mjs |
+| T5 | llms.txt sections and CLAUDE.md rule update | dev | T3 | done | public/llms.txt, CLAUDE.md, docs/001-seo-crawlability.md |
 
 ## Acceptance Criteria
 - [ ] Every locale serves all five core pages with correct `html lang`, `dir`, canonical and reciprocal hreflang.

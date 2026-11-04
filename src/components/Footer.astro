@@ -4,8 +4,8 @@ import { GA_MEASUREMENT_ID, OPERATOR } from '../data/facts';
 import { useLang } from '../i18n';
 import { localePath } from '../site-pages';
 import type { Lang } from '../data/types';
-export interface Props { lang?: Lang }
-const { lang = 'en' } = Astro.props;
+export interface Props { lang: Lang }
+const { lang } = Astro.props;
 const { t } = useLang(lang);
 
 const links = [

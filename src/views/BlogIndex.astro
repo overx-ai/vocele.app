@@ -4,6 +4,7 @@ import Clip from '../components/Clip.astro';
 import { useLang } from '../i18n';
 import { postsFor, categoryAccent } from '../blog-posts';
 import { localePath } from '../site-pages';
+import { rowNumber } from '../site';
 import type { Lang } from '../data/types';
 
 interface Props {
@@ -30,7 +31,7 @@ const date = (iso: string) => fmt.date(iso, { month: 'short', day: 'numeric', ye
       {posts.length === 0 && <p class="lead empty">{b.empty}</p>}
       {posts.map((post, i) => (
         <a class="post-row" href={localePath(lang, post.slug)} style={`--sh:${categoryAccent[post.category.gradient]}`}>
-          <span class="row-n">{String(i + 1).padStart(2, '0')}</span>
+          <span class="row-n">{rowNumber(i)}</span>
           <span class="row-cat"><span class="cat-pill" style={`background: var(--gradient-${post.category.gradient})`}>{post.category.label}</span></span>
           <span class="row-main">
             <span class="row-title">{post.title}</span>

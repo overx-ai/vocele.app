@@ -7,7 +7,7 @@ import BaseLayout from './BaseLayout.astro';
 import { postBySlug, categoryAccent } from '../blog-posts';
 import { useLang } from '../i18n';
 import { localePath } from '../site-pages';
-import { articleSchema } from '../site';
+import { articleSchema, breadcrumbSchema, faqPageSchema, siteOrigin } from '../site';
 import ArticleByline from '../components/ArticleByline.astro';
 import ArticleCta from '../components/ArticleCta.astro';
 import '../styles/article.css';
@@ -24,7 +24,7 @@ const post = postBySlug(slug);
 const lang = post.locale;
 const accent = categoryAccent[post.category.gradient];
 
-const site = Astro.site?.toString().replace(/\/$/, '') ?? 'https://vocele.app';
+const site = siteOrigin(Astro.site);
 const canonicalURL = `${site}${localePath(lang, slug)}`;
 const blogIndexPath = localePath(lang, 'blog');
 const homePath = localePath(lang, '');
@@ -41,28 +41,14 @@ const structuredData: object[] = [
     url: canonicalURL,
     site,
   }),
-  {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: t.nav.home, item: `${site}${homePath}` },
-      { '@type': 'ListItem', position: 2, name: t.nav.blog, item: `${site}${blogIndexPath}` },
-      { '@type': 'ListItem', position: 3, name: post.cardTitle, item: canonicalURL },
-    ],
-  },
+  breadcrumbSchema([
+    { name: t.nav.home, url: `${site}${homePath}` },
+    { name: t.nav.blog, url: `${site}${blogIndexPath}` },
+    { name: post.cardTitle, url: canonicalURL },
+  ]),
 ];
 
-if (faq.length > 0) {
-  structuredData.push({
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: faq.map((f) => ({
-      '@type': 'Question',
-      name: f.q,
-      acceptedAnswer: { '@type': 'Answer', text: f.a.replace(/<[^>]+>/g, '') },
-    })),
-  });
-}
+if (faq.length > 0) structuredData.push(faqPageSchema(faq));
 ---
 <BaseLayout
   title={post.title}

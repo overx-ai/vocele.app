@@ -170,6 +170,7 @@ p { margin: 0 0 var(--space-md); }
 }
 .clip-talk { background: var(--gradient-talk); -webkit-background-clip: text; background-clip: text; color: transparent; }
 .clip-accent { background: var(--gradient-accent); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.clip-read { background: var(--gradient-read); -webkit-background-clip: text; background-clip: text; color: transparent; }
 
 .container {
   max-width: var(--max-width);
@@ -250,6 +251,6 @@ html:lang(ja) :is(h1, h2, h3, h4), html:lang(ar) :is(h1, h2, h3, h4) { line-heig
 html:lang(de) :is(h1, h2, h3, h4) { hyphens: auto; overflow-wrap: break-word; }
 
 /* Arrows are not bidi-mirrored characters, so RTL has to turn them round itself. */
-[dir='rtl'] :is(.mod-arrow, .row-arrow, .arw, .crumbs .sep) { display: inline-block; transform: scaleX(-1); }
-[dir='rtl'] :is(.pill, .cta) [aria-hidden] { display: inline-block; transform: scaleX(-1); }
+[dir='rtl'] :is(.mod-arrow, .row-arrow, .arw, .crumbs .sep) { transform: scaleX(-1); }
+[dir='rtl'] :is(.pill, .cta) [aria-hidden] { transform: scaleX(-1); }
 [dir='rtl'] :is(.prose, .legal-prose) ul li::before { transform: scaleX(-1); }

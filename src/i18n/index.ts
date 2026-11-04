@@ -21,7 +21,7 @@ const fill = (text: string, vars: Vars) =>
     return vars[name];
   });
 
-const fillAll = <T,>(value: T, vars: Vars): T => {
+const fillAll = <T>(value: T, vars: Vars): T => {
   if (typeof value === 'string') return fill(value, vars) as T;
   if (Array.isArray(value)) return value.map((v) => fillAll(v, vars)) as T;
   if (value && typeof value === 'object') {

@@ -22,7 +22,7 @@ export function fairUseDocument(lang: Lang): LegalDocument {
     [talk, ...ALLOWANCE.talkPerMonth.map((m) => `<strong>${perDay(m)} ${day}</strong><br />${n(m)} ${month}`)],
     [pron, ...ALLOWANCE.pronunciationPerMonth.map((m) => `${perDay(m)} ${day}<br />${n(m)} ${month}`)],
     [vocab, ...ALLOWANCE.vocabulary.map((v) => `${n(v)} ${words}`)],
-    [pdf, ...ALLOWANCE.pdfPerMonth.map((v) => `${v} ${month}`)],
+    [pdf, ...ALLOWANCE.pdfPerMonth.map((v) => `${n(v)} ${month}`)],
     [rest, ...PLANS.map(() => included)],
   ]);
   const { plans, questions, ...prose } = copy.sections;
