@@ -6,7 +6,7 @@ Single source of truth for every claim the pipeline makes about the app. Sources
 An AI language coach for iPhone that makes you speak from day one: voice conversation with named coaches, corrections shown inside your own sentence, and per-word pronunciation scoring. Built for adult learners and immigrants; sold against private tutoring ($200–320/mo), never against gamified free apps.
 
 ## Platforms
-- iOS: yes (iOS 17+). App Store id 6805929109. **Unreleased as of 2026-09-02** — no public listing, no TestFlight build.
+- iOS: yes (iOS 17+). App Store id 6805929109. **Unreleased as of 2026-11-04** — no public listing yet (App Store lookup empty).
 - Android: no
 - Web: no (marketing site only)
 
@@ -24,7 +24,7 @@ An AI language coach for iPhone that makes you speak from day one: voice convers
 Spanish, English, French, German, Italian, Portuguese, Japanese, Russian, Polish.
 
 ## Interface locales (a separate list from learnable languages)
-English, Spanish, Portuguese, Russian, Polish. Grammar explanations and word meanings can be shown in the learner's native language.
+Ten, matching `LocalizationHelper.supportedLanguages` in the app: English, Spanish, Russian, Polish, Portuguese (Brazilian), German, French, Italian, Japanese, Arabic. Arabic is an interface language only, never a learnable one. Grammar explanations and word meanings can be shown in the learner's native language.
 
 ## Features that EXIST
 - Voice + text conversation with named AI coaches Luna and Lorenzo (plus Cloudy, Dela). Coach replies spoken aloud.

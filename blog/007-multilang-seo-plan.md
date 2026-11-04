@@ -5,6 +5,8 @@
 **Locales:** en, es-MX (live) + pt-BR, ru (new)
 **Method:** the SEO pipeline guide v2 (clusters → keyword backlog → SERP check → originality → anti-slop → score → publish → feedback loop → GEO), applied per locale.
 
+**Audience update (owner, 2026-11-04):** the site now covers all 10 app interface languages, and new locale pages target people in their home countries, mostly learning English. The US-immigrant avatars below stay valid as article angles for pt and ru. Section 3 URL structure stands; the locale list does not.
+
 **Positioning rule (from the GTM doc — governs every page here):** Vocele is a
 full **AI conversation partner & coach** (conversation, accent, correction,
 reading, grammar, vocabulary). Accent is the sharpest low-competition

@@ -25,7 +25,7 @@ Format: `- [YYYY-MM] <cluster or topic> — <the concrete thing> (asset: path/ur
 - [2026-07] correction spans — Highlight the exact wrong substring inside the learner's own bubble instead of re-writing the sentence in a separate card; the learner sees *where*, not just *what*. (asset: docs/002-talk-correction-spans.md)
 
 ## Screenshots / recordings
-- None public yet. `fastlane/screenshots/` does not exist (release blocker). Site og-image is a render, not a capture. Do not describe screenshots as real product captures until this changes.
+- [2026-11] `ios-claude-hello/fastlane/screenshots/<locale>/` holds 7 App Store screenshots for each of the 10 locales. They are composed store images, not raw captures, so never describe them as unedited. Site og-image is a render.
 
 ## Things that broke and how I fixed them
 - [2026-08] Two concurrent RevenueCat `customerInfo()` calls caused a production `SIGABRT`; serialised the calls. (asset: spec 175)
