@@ -42,7 +42,7 @@ const placeholders = (lang: Lang, number: (n: number) => string): Vars => {
   ]);
   return {
     ...Object.fromEntries(perPlan),
-    ...TUTOR,
+    ...TUTOR[lang],
     pricingHref: localePath(lang, 'pricing'),
     fairUseHref: localePath(lang, 'fair-use'),
   };

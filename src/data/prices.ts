@@ -35,6 +35,20 @@ export const PRICES: Record<Lang, LocalePrices> = {
   ar: prices('SAR', ['59.99', '129.99', '199.99'], (a) => `${a}${NBSP}ر.س.`),
 };
 
-// The human tutor the plans are sold against stays in USD everywhere: it is a researched US figure, not a storefront
-// price, and no per-country figure has been sourced (spec 002: real storefront data or USD, never guessed).
-export const TUTOR = { tutorLow: '$200', tutorHigh: '$320', tutorRange: '$200–320' } as const;
+// What a private tutor twice a week costs per month in each market: eight lessons at sourced hourly rates, listed in
+// spec 002. Never guess one: without a source, a locale stays in USD.
+const tutor = (tutorLow: string, tutorHigh: string, tutorRange: string) => ({ tutorLow, tutorHigh, tutorRange });
+const USD_TUTOR = tutor('$200', '$320', '$200–320');
+
+export const TUTOR: Record<Lang, ReturnType<typeof tutor>> = {
+  en: USD_TUTOR,
+  es: USD_TUTOR,
+  de: tutor(`180${NBSP}€`, `295${NBSP}€`, `180–295${NBSP}€`),
+  fr: tutor(`160${NBSP}€`, `540${NBSP}€`, `160–540${NBSP}€`),
+  it: tutor(`120${NBSP}€`, `200${NBSP}€`, `120–200${NBSP}€`),
+  pl: tutor(`400${NBSP}zł`, `660${NBSP}zł`, `400–660${NBSP}zł`),
+  pt: tutor(`R$${NBSP}400`, `R$${NBSP}1.200`, `R$${NBSP}400–1.200`),
+  ja: tutor('¥60,000', '¥75,000', '¥60,000〜75,000'),
+  ru: tutor(`12${NBSP}000${NBSP}₽`, `19${NBSP}000${NBSP}₽`, `12${NBSP}000–19${NBSP}000${NBSP}₽`),
+  ar: tutor(`800${NBSP}ر.س.`, `1,200${NBSP}ر.س.`, `800–1,200${NBSP}ر.س.`),
+};

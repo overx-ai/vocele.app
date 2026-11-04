@@ -27,7 +27,8 @@ export const SITE_PAGES: SitePage[] = [
   { slug: 'fair-use', locales: LIVE_LANGS, lastmod: LEGAL_DATES['fair-use'].updated },
   { slug: 'privacy', locales: ENGLISH_ONLY, lastmod: LEGAL_DATES.privacy.updated },
   { slug: 'terms', locales: ENGLISH_ONLY, lastmod: LEGAL_DATES.terms.updated },
-  { slug: 'blog', locales: LIVE_LANGS, lastmod: PAGES_LASTMOD }, // the index pages ARE locale twins
+  // The index pages ARE locale twins. A locale with no article yet keeps a noindex page, so the nav link still works.
+  { slug: 'blog', locales: LIVE_LANGS.filter((lang) => BLOG_POSTS.some((p) => p.locale === lang)), lastmod: PAGES_LASTMOD },
   // Articles are original per locale (never translations): self-canonical, no hreflang twin. Registered once in
   // blog-posts.ts, appended here so the sitemap can't miss them.
   // NOT listed: /privacy/<yyyy-mm>. A policy replaced from 2026-10-08 on is kept there (the promise in /privacy#changes),

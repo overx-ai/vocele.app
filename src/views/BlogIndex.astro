@@ -16,7 +16,7 @@ const b = t.blog;
 const posts = postsFor(lang);
 const date = (iso: string) => fmt.date(iso, { month: 'short', day: 'numeric', year: 'numeric' });
 ---
-<BaseLayout title={b.meta.title} description={b.meta.description} lang={lang} slug="blog">
+<BaseLayout title={b.meta.title} description={b.meta.description} lang={lang} slug="blog" noindex={posts.length === 0}>
   <section class="masthead">
     <div class="container">
       <span class="eyebrow">{b.eyebrow}</span>

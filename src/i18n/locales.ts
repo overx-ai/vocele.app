@@ -22,7 +22,7 @@ export const DEFAULT_LANG: Lang = 'en';
 
 // Publishing a locale means adding its code here: routes, sitemap, hreflang, the language menu and the 404 redirect all
 // read this list. A code without its src/i18n/<code>.ts fails the build.
-export const LIVE_LANGS = ['en', 'es'] as const satisfies readonly Lang[];
+export const LIVE_LANGS = ['en', 'es', 'ru', 'pl', 'pt', 'de', 'fr', 'it', 'ja', 'ar'] as const satisfies readonly Lang[];
 
 export const X_DEFAULT = 'x-default';
 

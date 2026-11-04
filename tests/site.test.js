@@ -118,9 +118,90 @@ test('no page makes a banned claim', () => {
   }
 });
 
-// Every price a locale's plan page may quote, as printed, nbsp included. Each locale's tutor comparison stays in USD.
+// "Unlimited" in every language. The only allowed use is each fair-use page's own denial of it.
+const UNLIMITED = /unlimited|ilimitad|illimit|unbegrenzt|grenzenlos|bez limitu|безлимит|неогранич|無制限|使い放題|غير محدود|بلا حدود/i;
+const DENIALS = [
+  /do(?:es)? not sell anything as (?:&quot;|")?unlimited/gi,
+  /never sells? anything as (?:&quot;|")?unlimited/gi,
+  /No vendemos nada como ilimitado/gi,
+  /N[ãa]o vendemos nada como ilimitado/gi,
+  /Nous ne vendons rien d(?:’|&#x27;|&rsquo;)illimité/gi,
+  /Nie sprzedajemy niczego jako „bez limitu”/g,
+  /ничего не продаём как безлимитное/gi,
+];
+
+test('no page calls a plan unlimited, in any language', () => {
+  for (const [, p] of pages) {
+    if (rel(p.file).includes('terms')) continue; // check-legal holds the terms to this
+    const html = DENIALS.reduce((text, denial) => text.replace(denial, ''), p.html);
+    assert.ok(!UNLIMITED.test(html), `${rel(p.file)} says unlimited: ${html.match(UNLIMITED)?.[0]}`);
+  }
+});
+
+// Arabic is an interface language, never a learnable one, and only the Arabic pages have reason to name it.
+const ARABIC = /\barabic\b|\b[áa]rabe\b|arabisch|\barabo\b|arabsk|арабск|アラビア語/i;
+
+test('no locale offers Arabic as a language to learn', () => {
+  for (const [, p] of pages) {
+    if (/privacy|terms|dist\/vs\//.test(rel(p.file))) continue; // /vs pages describe competitors' catalogues
+    const text = p.html.replace(/<script[\s\S]*?<\/script>|<style[\s\S]*?<\/style>/g, '').replace(/<[^>]+>/g, ' ');
+    assert.ok(!ARABIC.test(text), `${rel(p.file)} names Arabic: ${text.match(ARABIC)?.[0]}`);
+  }
+});
+
+const LOCALES = ['en', 'es', 'ru', 'pl', 'pt', 'de', 'fr', 'it', 'ja', 'ar'];
+const HTML_LANG = { en: 'en-US', es: 'es-MX', pt: 'pt-BR' };
+const CORE_SLUGS = ['', 'pricing', 'faq', 'fair-use'];
+const urlFor = (lang, slug) => `${ORIGIN}/${[lang === 'en' ? '' : lang, slug].filter(Boolean).join('/')}`.replace(/\/$/, '') || ORIGIN;
+const pageFor = (lang, slug) => pages.get(slug === '' && lang === 'en' ? `${ORIGIN}/` : urlFor(lang, slug));
+const hreflangs = (html) => [...html.matchAll(/<link rel="alternate" hreflang="([^"]+)" href="([^"]+)"/g)].map((m) => `${m[1]} ${m[2]}`).sort();
+
+test('every locale serves its core pages with the right lang, dir and reciprocal hreflang', () => {
+  const home = hreflangs(pageFor('en', '').html);
+  assert.equal(home.length, LOCALES.length + 1, 'home must list every locale plus x-default');
+  for (const lang of LOCALES) {
+    for (const slug of CORE_SLUGS) {
+      const page = pageFor(lang, slug);
+      assert.ok(page, `missing /${lang}/${slug}`);
+      const tag = page.html.match(/<html[^>]*>/)[0];
+      assert.ok(tag.includes(`lang="${HTML_LANG[lang] ?? lang}"`), `${rel(page.file)} has ${tag}`);
+      assert.ok(tag.includes(`dir="${lang === 'ar' ? 'rtl' : 'ltr'}"`), `${rel(page.file)} has ${tag}`);
+      assert.equal(hreflangs(page.html).length, LOCALES.length + 1, `${rel(page.file)} hreflang set is incomplete`);
+      if (slug === '') assert.deepEqual(hreflangs(page.html), home, `${rel(page.file)} is not reciprocal`);
+    }
+  }
+});
+
+test('no placeholder survives into a page', () => {
+  for (const [, p] of pages) {
+    const text = p.html.replace(/<script[\s\S]*?<\/script>|<style[\s\S]*?<\/style>/g, '');
+    assert.ok(!/\{[a-z][A-Za-z]+\}/.test(text), `${rel(p.file)} has an unfilled placeholder`);
+  }
+});
+
+test('a blog index with no article stays out of the index', () => {
+  for (const [, p] of pages) {
+    if (!/<p class="lead empty/.test(p.html)) continue;
+    assert.ok(/name="robots" content="noindex/.test(p.html), `${rel(p.file)} is empty and indexable`);
+    assert.ok(!sitemap.has(urlOf(p.file)), `${rel(p.file)} is empty and in the sitemap`);
+  }
+});
+
+// Every price a locale's plan page may quote, as printed, nbsp included, tutor comparison included.
 const NBSP = '\u00a0';
-const TUTOR_PRICES = ['$200', '$320'];
+const USD_TUTOR = ['$200', '$320'];
+const TUTOR_PRICES = {
+  en: USD_TUTOR,
+  es: USD_TUTOR,
+  de: [`295${NBSP}€`],
+  fr: [`540${NBSP}€`],
+  it: [`200${NBSP}€`],
+  pl: [`660${NBSP}zł`],
+  pt: [`R$${NBSP}400`],
+  ja: ['¥60,000'],
+  ru: [`19${NBSP}000${NBSP}₽`],
+  ar: [`1,200${NBSP}ر.س.`],
+};
 const EUR_PRICES = [`17,99${NBSP}€`, `34,99${NBSP}€`, `59,99${NBSP}€`];
 const USD_PRICES = ['$14.99', '$29.99', '$49.99'];
 const ALLOWED_PRICES = {
@@ -143,14 +224,14 @@ const QUOTED_PRICE = new RegExp(
 
 test('plan pages quote only approved prices, and every plan price', () => {
   const planPages = Object.entries(ALLOWED_PRICES)
-    .map(([lang, prices]) => ({ prices, page: pages.get(`${ORIGIN}/${lang === 'en' ? '' : `${lang}/`}pricing`) }))
+    .map(([lang, prices]) => ({ lang, prices, page: pages.get(`${ORIGIN}/${lang === 'en' ? '' : `${lang}/`}pricing`) }))
     .filter(({ page }) => page);
   assert.ok(planPages.length >= 2, 'no plan pages found');
-  for (const { prices, page } of planPages) {
+  for (const { lang, prices, page } of planPages) {
     const html = page.html.replace(/&nbsp;|&#160;|&#xa0;/gi, NBSP);
     const quoted = html.match(QUOTED_PRICE) ?? [];
     for (const price of quoted) {
-      assert.ok([...prices, ...TUTOR_PRICES].includes(price), `${rel(page.file)} quotes ${price}, which is not an approved price`);
+      assert.ok([...prices, ...TUTOR_PRICES[lang]].includes(price), `${rel(page.file)} quotes ${price}, which is not an approved price`);
     }
     for (const price of prices) assert.ok(quoted.includes(price), `${rel(page.file)} never quotes ${price}`);
   }
