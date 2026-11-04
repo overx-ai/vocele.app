@@ -12,7 +12,7 @@ const fr: Copy = {
     fairUse: 'Usage raisonnable',
     privacy: 'Confidentialité',
     terms: 'Conditions',
-    getApp: 'Obtenir l’appli',
+    getApp: 'L’appli',
     logoLabel: 'Accueil Vocele',
     primaryLabel: 'Navigation principale',
     footerLabel: 'Pied de page',

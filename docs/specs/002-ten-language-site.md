@@ -1,7 +1,7 @@
 ---
 id: 002
 title: "The site speaks all ten languages the app does"
-status: in-progress
+status: done
 priority: p1
 created: 2026-11-04
 updated: 2026-11-04
@@ -15,7 +15,7 @@ tasks: []
 
 # 002 - The site speaks all ten languages the app does
 
-> **TL;DR** — vocele.app gains home, pricing, FAQ, fair-use and blog index in ru, pl, pt, de, fr, it, ja and ar on one shared template, replacing the en/es ternaries and the duplicated /es tree. Every existing en and es URL keeps its text. Pilot articles follow separately.
+> **TL;DR** — vocele.app now serves home, pricing, FAQ, fair-use and a blog index in all ten app languages from one template, with local prices and sourced tutor ranges. en and es text stayed unchanged. Owner: get a native read of ja, ar, pl and the fair-use pages.
 
 ## Requirements
 - Locales match the app's `LocalizationHelper.supportedLanguages`: en es ru pl pt de fr it ja ar. pt is pt-BR, es stays es-MX.
@@ -71,11 +71,11 @@ Tutor ranges, read 2026-11-04. Each is about eight lessons a month, so a derived
 | T5 | llms.txt sections and CLAUDE.md rule update | dev | T3 | done | public/llms.txt, CLAUDE.md, docs/001-seo-crawlability.md |
 
 ## Acceptance Criteria
-- [ ] Every locale serves all five core pages with correct `html lang`, `dir`, canonical and reciprocal hreflang.
-- [ ] Sitemap matches the build.
-- [ ] en and es built text and URLs are unchanged, apart from the language menu and hreflang.
-- [ ] No "unlimited" equivalent, 90-day guarantee, Duolingo comparison or learn-Arabic claim in any locale.
-- [ ] Prices are real storefront values or USD.
-- [ ] 390px and desktop reviewed for every locale, including Arabic RTL.
-- [ ] All tests passing.
-- [ ] Code review clean.
+- [x] Every locale serves all five core pages with correct `html lang`, `dir`, canonical and reciprocal hreflang.
+- [x] Sitemap matches the build.
+- [x] en and es built text and URLs are unchanged, apart from the language menu and hreflang.
+- [x] No "unlimited" equivalent, 90-day guarantee, Duolingo comparison or learn-Arabic claim in any locale.
+- [x] Prices are real storefront values or USD.
+- [x] 390px and desktop reviewed for every locale, including Arabic RTL.
+- [x] All tests passing.
+- [x] Code review clean.

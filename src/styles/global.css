@@ -248,7 +248,7 @@ p { margin: 0 0 var(--space-md); }
    latin subset has no capital ẞ to be tempted by. Its long compounds are what overflow at 390px. */
 html:lang(ja) *, html:lang(ar) * { text-transform: none !important; letter-spacing: 0 !important; }
 html:lang(ja) :is(h1, h2, h3, h4), html:lang(ar) :is(h1, h2, h3, h4) { line-height: 1.25 !important; }
-html:lang(de) :is(h1, h2, h3, h4) { hyphens: auto; overflow-wrap: break-word; }
+html:is(:lang(de), :lang(ru)) :is(h1, h2, h3, h4) { hyphens: auto; hyphenate-limit-chars: 10 4 4; overflow-wrap: break-word; }
 
 /* Arrows are not bidi-mirrored characters, so RTL has to turn them round itself. */
 [dir='rtl'] :is(.mod-arrow, .row-arrow, .arw, .crumbs .sep) { transform: scaleX(-1); }
