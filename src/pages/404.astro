@@ -1,5 +1,8 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { liveLocales } from '../i18n/locales';
+
+const prefixes = liveLocales().map((l) => l.prefix).filter(Boolean);
 
 const notFound = [
   { text: 'Page not found', color: '#f04582' },
@@ -37,9 +40,10 @@ const notFound = [
        real 404 status — the right signal for crawlers — while humans get
        auto-redirected to the locale-appropriate home. The only client JS on
        the site, and it only runs on the 404 page. -->
-  <script is:inline>
+  <script is:inline define:vars={{ prefixes }}>
     setTimeout(function () {
-      location.replace(/^\/es(\/|$)/.test(location.pathname) ? '/es' : '/');
+      var first = location.pathname.split('/')[1];
+      location.replace(prefixes.indexOf(first) < 0 ? '/' : '/' + first);
     }, 2500);
   </script>
 </BaseLayout>

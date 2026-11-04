@@ -1,3 +1,5 @@
+import { localeOf, type Lang } from '../i18n/locales';
+
 // Every fact the legal pages state about who runs Vocele and how long data is kept. Pages must not hardcode any of
 // it, and scripts/check-legal.mjs reads the identity constants below by name.
 
@@ -96,9 +98,10 @@ export const mailto = (email: string = CONTACT_EMAIL) => `<a href="mailto:${emai
 export const externalLink = (url: string, label: string = url) =>
   `<a href="${url}" rel="noopener noreferrer">${label}</a>`;
 
-const LOCALES = { en: 'en-GB', es: 'es-ES' } as const;
+// The legal pack's English is British, unlike the en-US marketing pages.
+const LEGAL_DATE_TAGS: Partial<Record<Lang, string>> = { en: 'en-GB' };
 
-export const formatDate = (iso: string, lang: keyof typeof LOCALES = 'en') =>
-  new Intl.DateTimeFormat(LOCALES[lang], { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' }).format(
+export const formatDate = (iso: string, lang: Lang = 'en') =>
+  new Intl.DateTimeFormat(LEGAL_DATE_TAGS[lang] ?? localeOf(lang).dateTag, { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' }).format(
     new Date(`${iso}T00:00:00Z`),
   );

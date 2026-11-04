@@ -1,70 +1,62 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import AppStoreBadge from '../../components/AppStoreBadge.astro';
-import { ORG, SOFTWARE_APP } from '../../site';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import AppStoreBadge from '../components/AppStoreBadge.astro';
+import Clip from '../components/Clip.astro';
+import { useLang } from '../i18n';
+import { ORG, softwareApp } from '../site';
+import type { Lang } from '../data/types';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const h = useLang(lang).t.home;
 
 const structuredData = [
   { '@context': 'https://schema.org', ...ORG },
-  { '@context': 'https://schema.org', ...SOFTWARE_APP, description: 'App de coaching de idiomas con IA que enseña inglés, español, francés, alemán, italiano, portugués, japonés, ruso y polaco mediante práctica de conversación real, corrección instantánea y entrenamiento de acento.' },
+  { '@context': 'https://schema.org', ...softwareApp(lang), description: h.meta.appDescription },
 ];
 
-const scenarios = [
-  { text: 'La entrevista de trabajo', color: '#f04582' },
-  { text: 'La reunión de equipo', color: '#21c7eb' },
-  { text: 'La junta escolar', color: '#f78f38' },
-  { text: 'La cita con el doctor', color: '#635ccf' },
-  { text: 'La visita al departamento', color: '#1aa88c' },
-  { text: 'La negociación de sueldo', color: '#2163eb' },
-];
+const SCENARIO_COLORS = ['#f04582', '#21c7eb', '#f78f38', '#635ccf', '#1aa88c', '#2163eb'];
+const scenarios = h.scenarios.map((text, i) => ({ text, color: SCENARIO_COLORS[i] }));
 
-const modules = [
-  { n: '01', key: 'talk', name: 'Conversación', desc: 'Habla con Luna o Lorenzo en tres modos — sin guion, sin horarios, sin juicios.' },
-  { n: '02', key: 'accent', name: 'Acento', desc: 'Puntaje de pronunciación palabra por palabra — ve qué sonidos te delatan y cómo mejoran.' },
-  { n: '03', key: 'learn', name: 'Corrección', desc: 'Los errores marcados en la frase que de verdad dijiste, con la corrección justo debajo — patrones, no tachones.' },
-  { n: '04', key: 'read', name: 'Lectura', desc: 'Historias cortas generadas exactamente a tu nivel — siempre lo justo para crecer.' },
-  { n: '05', key: 'grammar', name: 'Gramática', desc: 'La repetición espaciada te trae cada regla justo antes de que la olvides.' },
-  { n: '06', key: 'sets', name: 'Vocabulario', desc: 'Vocabulario armado alrededor de situaciones reales — entrevistas, el doctor — no tarjetas al azar.' },
-];
+const modules = (['talk', 'accent', 'learn', 'read', 'grammar', 'sets'] as const).map((key, i) => ({
+  n: String(i + 1).padStart(2, '0'),
+  key,
+  ...h.modules[key],
+}));
 
-const languages = [
-  { flag: '🇬🇧', name: 'Inglés', sep: '#f04582' },
-  { flag: '🇪🇸', name: 'Español', sep: '#f78f38' },
-  { flag: '🇫🇷', name: 'Francés', sep: '#635ccf' },
-  { flag: '🇩🇪', name: 'Alemán', sep: '#21c7eb' },
-  { flag: '🇮🇹', name: 'Italiano', sep: '#1aa88c' },
-  { flag: '🇵🇹', name: 'Portugués', sep: '#2163eb' },
-  { flag: '🇯🇵', name: 'Japonés', sep: '#f24552' },
-  { flag: '🇷🇺', name: 'Ruso', sep: '#944ff5' },
-  { flag: '🇵🇱', name: 'Polaco', sep: '#f04582' },
-];
+const languages = ([
+  ['🇬🇧', 'english', '#f04582'],
+  ['🇪🇸', 'spanish', '#f78f38'],
+  ['🇫🇷', 'french', '#635ccf'],
+  ['🇩🇪', 'german', '#21c7eb'],
+  ['🇮🇹', 'italian', '#1aa88c'],
+  ['🇵🇹', 'portuguese', '#2163eb'],
+  ['🇯🇵', 'japanese', '#f24552'],
+  ['🇷🇺', 'russian', '#944ff5'],
+  ['🇵🇱', 'polish', '#f04582'],
+] as const).map(([flag, key, sep]) => ({ flag, name: h.languages[key], sep }));
 
-const topics = [
-  { img: 'work-office', label: 'Trabajo y Oficina', alt: 'Vocabulario de trabajo y oficina', shadow: '#f04582' },
-  { img: 'business-finance', label: 'Negocios y Finanzas', alt: 'Vocabulario de negocios y finanzas', shadow: '#2163eb' },
-  { img: 'restaurant-dining', label: 'Restaurante', alt: 'Vocabulario de restaurante', shadow: '#f78f38' },
-  { img: 'travel-transport', label: 'Viajes y Transporte', alt: 'Vocabulario de viajes y transporte', shadow: '#21c7eb' },
-  { img: 'city-places', label: 'Ciudad y Lugares', alt: 'Vocabulario de la ciudad', shadow: '#1aa88c' },
-  { img: 'school-education', label: 'Escuela y Educación', alt: 'Vocabulario de escuela y educación', shadow: '#635ccf' },
-];
+const topics = ([
+  ['work-office', 'work', '#f04582'],
+  ['business-finance', 'business', '#2163eb'],
+  ['restaurant-dining', 'restaurant', '#f78f38'],
+  ['travel-transport', 'travel', '#21c7eb'],
+  ['city-places', 'city', '#1aa88c'],
+  ['school-education', 'school', '#635ccf'],
+] as const).map(([img, key, shadow]) => ({ img, shadow, ...h.topics[key] }));
 ---
-<BaseLayout
-  title="Vocele: Aprende Inglés con IA"
-  description="Habla con confianza, sin miedo. Vocele es el coach de inglés con inteligencia artificial que corrige tu forma de hablar en tiempo real y entrena tu acento — pensado para inmigrantes que construyen una nueva vida en Estados Unidos."
-  lang="es"
-  slug=""
-  structuredData={structuredData}
->
+<BaseLayout title={h.meta.title} description={h.meta.description} lang={lang} slug="" structuredData={structuredData}>
   <!-- ============ HERO ============ -->
   <section class="hero">
     <div class="container hero-grid">
       <div>
-        <span class="eyebrow">Vocele — El Coach de Idiomas con IA</span>
-        <h1 class="hero-title">Las palabras<br />que ya sabes.<br /><span class="clip">Por fin, en voz&nbsp;alta.</span></h1>
-        <p class="lead">
-          Corrección del habla en tiempo real. Entrenamiento de acento que puntúa cada
-          palabra. Y ensayo para esa conversación que más temes — hasta que deje de dar miedo.
-        </p>
-        <div class="hero-actions"><AppStoreBadge lang="es" variant="dark" /></div>
+        <span class="eyebrow">{h.eyebrow}</span>
+        <h1 class="hero-title">{h.heroLines[0]}<br />{h.heroLines[1]}<br /><span class="clip">{h.heroEmphasis}</span></h1>
+        <p class="lead">{h.lead}</p>
+        <div class="hero-actions"><AppStoreBadge lang={lang} variant="dark" /></div>
       </div>
 
       <div class="hero-visual" aria-hidden="true">
@@ -75,27 +67,27 @@ const topics = [
               <img src="/coaches/luna.webp" width="38" height="38" alt="" />
               <div class="chat-who">
                 <span class="chat-name">Luna</span>
-                <span class="chat-live">● en vivo</span>
+                <span class="chat-live">{h.chat.live}</span>
               </div>
               <div class="wave">
                 <span></span><span></span><span></span><span></span>
               </div>
             </div>
             <div class="chat-body">
-              <div class="msg msg-ai">Cuéntame sobre tu última entrevista de trabajo.</div>
-              <div class="msg msg-user">I have five years experience in marketing.</div>
+              <div class="msg msg-ai">{h.chat.question}</div>
+              <div class="msg msg-user" dir="ltr">I have five years experience in marketing.</div>
               <div class="coach-fix">
-                <span class="fix-label">Coach fix</span><br />
-                Prueba: <strong>"I've been working in marketing for five years."</strong>
+                <span class="fix-label">{h.chat.fixLabel}</span><br />
+                {h.chat.tryLabel} <strong dir="ltr">"I've been working in marketing for five years."</strong>
               </div>
-              <div class="scores">
+              <div class="scores" dir="ltr">
                 <span class="score score-cyan">marketing · 96</span>
                 <span class="score score-green">years · 91</span>
                 <span class="score score-amber">experience · 78</span>
               </div>
             </div>
             <div class="chat-input">
-              <div class="input-pill">Mantén para hablar…</div>
+              <div class="input-pill">{h.chat.holdToSpeak}</div>
               <div class="mic"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 15a3 3 0 0 0 3-3V6a3 3 0 0 0-6 0v6a3 3 0 0 0 3 3Z" stroke="white" stroke-width="1.8"/><path d="M6 11a6 6 0 0 0 12 0M12 19v2" stroke="white" stroke-width="1.8" stroke-linecap="round"/></svg></div>
             </div>
           </div>
@@ -127,18 +119,13 @@ const topics = [
   <!-- ============ PROOF — black manifesto ============ -->
   <section class="proof">
     <div class="container">
-      <h2 class="proof-title">No tienes un problema de talento. Tienes un <span class="clip-talk">problema de práctica.</span></h2>
+      <h2 class="proof-title"><Clip parts={h.proof.title} class="clip-talk" /></h2>
       <div class="proof-grid">
-        <p class="proof-copy">
-          Hablar con fluidez no es algo que tienes o no tienes — es una habilidad que se
-          entrena, como un acento, un swing de golf o un oído musical. Vocele te da lo que un
-          salón de clases nunca podrá: repetición diaria y sin juicios, a tu propio ritmo, con un
-          coach que te dice exactamente qué corregir cada vez que hablas.
-        </p>
+        <p class="proof-copy">{h.proof.copy}</p>
         <ul class="stats">
-          <li><strong class="clip-talk">9</strong><span>idiomas</span></li>
-          <li><strong class="clip-accent">3</strong><span>modos</span></li>
-          <li><strong class="clip-read">24/7</strong><span>sin horarios</span></li>
+          <li><strong class="clip-talk">9</strong><span>{h.proof.stats.languages}</span></li>
+          <li><strong class="clip-accent">3</strong><span>{h.proof.stats.modes}</span></li>
+          <li><strong class="clip-read">24/7</strong><span>{h.proof.stats.schedule}</span></li>
         </ul>
       </div>
     </div>
@@ -147,22 +134,22 @@ const topics = [
   <!-- ============ COACHES — split duo ============ -->
   <section class="coaches">
     <div class="coach talk">
-      <img src="/coaches/luna.webp" width="150" height="150" alt="Luna, Coach de Conversación — coach con IA en Vocele" />
-      <div><h3>Luna</h3><p class="role">Coach de Conversación</p></div>
-      <p class="coach-desc">Cálida, curiosa e incansablemente alentadora — Luna es con quien hablas cuando solo quieres hablar y tomar impulso.</p>
+      <img src="/coaches/luna.webp" width="150" height="150" alt={h.coaches.luna.alt} />
+      <div><h3>Luna</h3><p class="role">{h.coaches.luna.role}</p></div>
+      <p class="coach-desc">{h.coaches.luna.desc}</p>
     </div>
     <div class="coach learn">
-      <img src="/coaches/lorenzo.webp" width="150" height="150" alt="Lorenzo, Coach de Estructura — coach con IA en Vocele" />
-      <div><h3>Lorenzo</h3><p class="role">Coach de Estructura</p></div>
-      <p class="coach-desc">Preciso y directo — Lorenzo es con quien hablas cuando quieres la gramática, el vocabulario y la corrección bien explicados.</p>
+      <img src="/coaches/lorenzo.webp" width="150" height="150" alt={h.coaches.lorenzo.alt} />
+      <div><h3>Lorenzo</h3><p class="role">{h.coaches.lorenzo.role}</p></div>
+      <p class="coach-desc">{h.coaches.lorenzo.desc}</p>
     </div>
   </section>
 
   <!-- ============ LANGUAGES — marquee ============ -->
   <section class="languages">
     <div class="container">
-      <h2>Un coach.<br />Nueve idiomas.</h2>
-      <p class="lang-sub">Aprende cualquiera desde el idioma que ya hablas.</p>
+      <h2>{h.languagesTitle[0]}<br />{h.languagesTitle[1]}</h2>
+      <p class="lang-sub">{h.languagesSub}</p>
     </div>
     <div class="ticker lang-ticker" aria-hidden="true">
       <div class="ticker-track reverse">
@@ -177,8 +164,8 @@ const topics = [
   <section class="topics">
     <div class="container">
       <div class="topics-head">
-        <h2>Vocabulario para los momentos que importan</h2>
-        <p>Listas de palabras armadas alrededor de situaciones reales — no tarjetas al azar.</p>
+        <h2>{h.topicsTitle}</h2>
+        <p>{h.topicsSub}</p>
       </div>
       <ul class="topic-grid">
         {topics.map((t) => (
@@ -197,9 +184,9 @@ const topics = [
       <div class="wave big" aria-hidden="true">
         <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
       </div>
-      <h2 class="cta-title">El inglés que necesitas para la vida que viniste a <span class="clip-talk">construir.</span></h2>
-      <p class="cta-sub">Empieza hoy. Tu primera conversación es gratis.</p>
-      <AppStoreBadge lang="es" variant="light" />
+      <h2 class="cta-title"><Clip parts={h.ctaTitle} class="clip-talk" /></h2>
+      <p class="cta-sub">{h.ctaSub}</p>
+      <AppStoreBadge lang={lang} variant="light" />
     </div>
   </section>
 </BaseLayout>
@@ -214,7 +201,7 @@ const topics = [
 
   /* ---- Device / chat mock ---- */
   .hero-visual { display: flex; justify-content: center; }
-  .device { transform: rotate(2.5deg); background: var(--color-ink); padding: 12px; border-radius: 48px; box-shadow: 16px 16px 0 var(--color-ink); width: 340px; max-width: 100%; }
+  .device { transform: rotate(calc(2.5deg * var(--flip))); background: var(--color-ink); padding: 12px; border-radius: 48px; box-shadow: calc(16px * var(--flip)) 16px 0 var(--color-ink); width: 340px; max-width: 100%; }
   .screen { position: relative; background: #fff; border-radius: 38px; padding: 26px 16px 0; }
   .notch { width: 120px; height: 22px; background: var(--color-ink); border-radius: 0 0 14px 14px; margin: 0 auto 12px; }
   .chat-head { display: flex; align-items: center; gap: 10px; padding: 4px 4px 14px; border-bottom: 1px solid rgba(60,60,67,0.1); }
@@ -229,8 +216,8 @@ const topics = [
   .wave span:nth-child(4) { animation-delay: 0.45s; }
   .chat-body { padding: 16px 2px 0; }
   .msg { border-radius: 18px; padding: 11px 15px; font-size: 0.9rem; max-width: 88%; width: fit-content; }
-  .msg-ai { border-bottom-left-radius: 6px; background: var(--color-bg-secondary); }
-  .msg-user { border-bottom-right-radius: 6px; margin: 10px 0 0 auto; background: var(--gradient-talk); color: #fff; }
+  .msg-ai { border-end-start-radius: 6px; background: var(--color-bg-secondary); }
+  .msg-user { border-end-end-radius: 6px; margin-block-start: 10px; margin-inline-start: auto; background: var(--gradient-talk); color: #fff; }
   .coach-fix { font-size: 0.78rem; background: rgba(46,199,125,0.09); border: 1px solid rgba(46,199,125,0.25); border-radius: 14px; padding: 10px 13px; margin-top: 12px; line-height: 1.55; }
   .fix-label { font-family: var(--font-display); font-weight: 700; color: var(--grad-read-to); font-size: 0.65rem; letter-spacing: 0.06em; text-transform: uppercase; }
   .scores { display: flex; gap: 5px; flex-wrap: wrap; margin-top: 12px; }
@@ -257,12 +244,12 @@ const topics = [
   .modules { display: flex; flex-direction: column; }
   /* Full-bleed color background, but content stays in the centered max-width column
      on wide screens (gutter collapses to space-lg at <=1280 — comp look preserved). */
-  .module-row { --gutter: max(var(--space-lg), calc((100% - var(--max-width)) / 2)); display: grid; grid-template-columns: 90px 1fr 1.2fr 40px; gap: var(--space-lg); align-items: center; padding: 30px var(--gutter); text-decoration: none; color: #fff; transition: padding-left 0.2s ease; }
-  .module-row:hover { padding-left: calc(var(--gutter) + 20px); color: #fff; }
+  .module-row { --gutter: max(var(--space-lg), calc((100% - var(--max-width)) / 2)); display: grid; grid-template-columns: 90px 1fr 1.2fr 40px; gap: var(--space-lg); align-items: center; padding: 30px var(--gutter); text-decoration: none; color: #fff; transition: padding-inline-start 0.2s ease; }
+  .module-row:hover { padding-inline-start: calc(var(--gutter) + 20px); color: #fff; }
   .mod-n { font-family: var(--font-display); font-weight: 800; font-size: 0.9375rem; opacity: 0.75; }
   .mod-name { font-family: var(--font-display); font-weight: 800; font-size: 1.875rem; letter-spacing: -0.02em; text-transform: uppercase; }
   .mod-desc { font-size: 1rem; opacity: 0.92; }
-  .mod-arrow { font-size: 1.5rem; font-weight: 700; text-align: right; }
+  .mod-arrow { font-size: 1.5rem; font-weight: 700; text-align: end; }
 
   /* ---- Proof ---- */
   .proof { background: var(--color-ink); color: #f5f5f7; padding: 110px 0; }
@@ -278,8 +265,8 @@ const topics = [
   .coach { color: #fff; padding: 72px 56px; display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-cozy); }
   /* On wide screens both panels' content converges toward the centre seam (each
      content box caps at ~640px); the gradient still bleeds to the page edges. */
-  .coach.talk { background: linear-gradient(160deg, var(--grad-talk-from), var(--grad-talk-to)); padding-left: max(56px, calc(100% - 640px)); }
-  .coach.learn { background: linear-gradient(160deg, var(--grad-learn-from), var(--grad-learn-to)); padding-right: max(56px, calc(100% - 640px)); }
+  .coach.talk { background: linear-gradient(160deg, var(--grad-talk-from), var(--grad-talk-to)); padding-inline-start: max(56px, calc(100% - 640px)); }
+  .coach.learn { background: linear-gradient(160deg, var(--grad-learn-from), var(--grad-learn-to)); padding-inline-end: max(56px, calc(100% - 640px)); }
   .coach img { width: 150px; height: 150px; border-radius: 50%; object-fit: cover; border: 4px solid rgba(255,255,255,0.55); box-shadow: 0 16px 40px rgba(0,0,0,0.2); }
   .coach h3 { font-size: 2.875rem; letter-spacing: -0.02em; margin: 0; color: #fff; }
   .role { font-family: var(--font-display); font-weight: 700; font-size: 0.8125rem; letter-spacing: 0.12em; text-transform: uppercase; margin: 4px 0 0; opacity: 0.85; }
@@ -298,7 +285,7 @@ const topics = [
   .topic-grid { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(6, 1fr); gap: 18px; }
   .topic-grid li { display: flex; flex-direction: column; gap: var(--space-compact); }
   .topic-grid img { width: 100%; aspect-ratio: 1; border: var(--border-bold); transition: transform 0.2s ease, box-shadow 0.2s ease; }
-  .topic-grid img:hover { transform: translate(-4px, -4px); box-shadow: 6px 6px 0 var(--sh); }
+  .topic-grid img:hover { transform: translate(calc(-4px * var(--flip)), -4px); box-shadow: calc(6px * var(--flip)) 6px 0 var(--sh); }
   .topic-grid span { font-family: var(--font-display); font-weight: 700; font-size: 0.8125rem; letter-spacing: 0.05em; text-transform: uppercase; }
 
   /* ---- Final CTA ---- */
@@ -328,10 +315,10 @@ const topics = [
   @media (max-width: 760px) {
     .coaches { grid-template-columns: 1fr; }
     .coach { padding: 56px var(--space-lg); }
-    .coach.talk { padding-left: var(--space-lg); }
-    .coach.learn { padding-right: var(--space-lg); }
+    .coach.talk { padding-inline-start: var(--space-lg); }
+    .coach.learn { padding-inline-end: var(--space-lg); }
     .module-row { grid-template-columns: 48px 1fr; gap: var(--space-compact) var(--space-md); padding: 24px var(--space-lg); }
-    .module-row:hover { padding-left: var(--space-lg); }
+    .module-row:hover { padding-inline-start: var(--space-lg); }
     .mod-desc { grid-column: 1 / -1; }
     .mod-arrow { display: none; }
     .topic-grid { grid-template-columns: repeat(3, 1fr); }

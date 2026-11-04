@@ -1,31 +1,33 @@
 ---
+import { useLang } from '../i18n';
 import { AUTHOR } from '../site';
+import { localePath } from '../site-pages';
+import type { Lang } from '../data/types';
 
 export interface Props {
-  lang: 'en' | 'es';
+  lang: Lang;
   datePublished: string;
   dateModified?: string;
 }
 
 const { lang, datePublished, dateModified } = Astro.props;
-const fmt = (iso: string) =>
-  new Date(iso + 'T00:00:00Z').toLocaleDateString(lang === 'es' ? 'es-MX' : 'en-US', {
-    year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC',
-  });
+const { t, fmt } = useLang(lang);
+const date = (iso: string) => fmt.date(iso, { year: 'numeric', month: 'long', day: 'numeric' });
 const modified = dateModified && dateModified !== datePublished ? dateModified : undefined;
+const [founderBefore, founderAfter] = t.article.founderOf;
 ---
 <p class="byline">
   <span class="byline-brand">
     <!-- The byline's copy of the header mark — same asset, same iOS mask. See Header.astro. -->
     <img src="/logo-96.png" width="20" height="20" alt="" class="byline-mark" />
-    {AUTHOR.name}, {lang === 'es' ? 'fundador de' : 'founder of'} <a href={lang === 'es' ? '/es' : '/'} rel="author">Vocele</a>
+    {AUTHOR.name}, {founderBefore}<a href={localePath(lang, '')} rel="author">Vocele</a>{founderAfter}
   </span>
   <span class="sep" aria-hidden="true">·</span>
-  <time datetime={datePublished}>{fmt(datePublished)}</time>
+  <time datetime={datePublished}>{date(datePublished)}</time>
   {modified && (
     <>
       <span class="sep" aria-hidden="true">·</span>
-      <span>{lang === 'es' ? 'Actualizado' : 'Updated'} <time datetime={modified}>{fmt(modified)}</time></span>
+      <span>{t.article.updated} <time datetime={modified}>{date(modified)}</time></span>
     </>
   )}
 </p>

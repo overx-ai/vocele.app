@@ -1,9 +1,11 @@
 import { OPERATOR } from './data/facts';
+import { PLANS, PLAN_NAMES, PRICES } from './data/prices';
+import { localeOf, type Lang } from './i18n/locales';
 
 // Site-wide constants shared by JSON-LD, the App Store badge and the sitemap.
 // One place to flip when the listing goes live.
 
-/** App Store listing (ASC id 6805929109). `undefined` until the app is live —
+/** App Store listing (ASC app id 6800364555). `undefined` until the app is live —
  *  a dead store link in schema/badges is worse than none. */
 export const APP_STORE_URL: string | undefined = undefined;
 
@@ -32,7 +34,7 @@ export interface ArticleMeta {
   description: string;
   datePublished: string;
   dateModified?: string;
-  lang: 'en' | 'es';
+  lang: Lang;
   url: string;
   site: string;
 }
@@ -44,31 +46,30 @@ export const articleSchema = ({ type, headline, description, datePublished, date
   description,
   datePublished,
   dateModified: dateModified ?? datePublished,
-  inLanguage: lang === 'es' ? 'es-MX' : 'en-US',
+  inLanguage: localeOf(lang).tag,
   author: AUTHOR,
   publisher: ORG,
   mainEntityOfPage: url,
   image: `${site}/og-image.jpg`,
 });
 
-export const SOFTWARE_APP = {
-  '@type': 'SoftwareApplication',
-  name: 'Vocele',
-  url: 'https://vocele.app',
-  image: 'https://vocele.app/icon-512.png',
-  applicationCategory: 'EducationalApplication',
-  operatingSystem: 'iOS',
-  author: ORG,
-  ...(APP_STORE_URL ? { installUrl: APP_STORE_URL, downloadUrl: APP_STORE_URL } : {}),
-  offers: [
-    ['Core', '14.99'],
-    ['Fluency', '29.99'],
-    ['Meta', '49.99'],
-  ].map(([name, price]) => ({
-    '@type': 'Offer',
-    name,
-    price,
-    priceCurrency: 'USD',
-    priceSpecification: { '@type': 'UnitPriceSpecification', billingDuration: 'P1M' },
-  })),
+export const softwareApp = (lang: Lang) => {
+  const { currency, amounts } = PRICES[lang];
+  return {
+    '@type': 'SoftwareApplication',
+    name: 'Vocele',
+    url: 'https://vocele.app',
+    image: 'https://vocele.app/icon-512.png',
+    applicationCategory: 'EducationalApplication',
+    operatingSystem: 'iOS',
+    author: ORG,
+    ...(APP_STORE_URL ? { installUrl: APP_STORE_URL, downloadUrl: APP_STORE_URL } : {}),
+    offers: PLANS.map((plan) => ({
+      '@type': 'Offer',
+      name: PLAN_NAMES[plan],
+      price: amounts[plan],
+      priceCurrency: currency,
+      priceSpecification: { '@type': 'UnitPriceSpecification', billingDuration: 'P1M' },
+    })),
+  };
 };

@@ -15,14 +15,6 @@ export default defineConfig({
   site: process.env.PUBLIC_SITE_URL || 'https://vocele.app',
   output: 'static',
   trailingSlash: 'never',
-  i18n: {
-    locales: ['en', 'es'],
-    defaultLocale: 'en',
-    routing: {
-      prefixDefaultLocale: false, // English stays at /, /pricing, /faq (default + broad,
-                                   // mirrors the en-US App Store listing strategy)
-    },
-  },
   build: {
     inlineStylesheets: 'always', // no extra CSS request on first paint
   },

@@ -1,0 +1,59 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import FaqItem from '../components/FaqItem.astro';
+import Clip from '../components/Clip.astro';
+import { useLang } from '../i18n';
+import { localePath } from '../site-pages';
+import type { Lang } from '../data/types';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const { t } = useLang(lang);
+const { items } = t.faq;
+
+const structuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: items.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a.replace(/<[^>]+>/g, '') },
+    })),
+  },
+];
+---
+<BaseLayout title={t.faq.meta.title} description={t.faq.meta.description} lang={lang} slug="faq" structuredData={structuredData}>
+  <section class="masthead">
+    <div class="container">
+      <span class="eyebrow">{t.faq.eyebrow}</span>
+      <h1 class="mast-title"><Clip parts={t.faq.title} /></h1>
+    </div>
+  </section>
+
+  <section class="faq-list">
+    <div class="container">
+      {items.map((f, i) => <FaqItem question={f.q} answer={f.a} num={String(i + 1).padStart(2, '0')} />)}
+    </div>
+  </section>
+
+  <section class="faq-cta">
+    <div class="container cta-inner">
+      <h2><Clip parts={t.faq.ctaTitle} class="clip-talk" /></h2>
+      <a href={localePath(lang, '')} class="pill pill-light">{t.meetVocele} <span aria-hidden="true">↗</span></a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .masthead { padding: 84px 0 56px; border-bottom: var(--border-bold); }
+  .mast-title { font-size: clamp(2.75rem, 7vw, 5.25rem); line-height: 0.98; margin: 0; }
+  .faq-list { padding: 0 0 90px; }
+  .faq-cta { background: var(--color-ink); color: #f5f5f7; padding: 84px 0; }
+  .cta-inner { display: flex; align-items: center; justify-content: space-between; gap: 40px; flex-wrap: wrap; }
+  .cta-inner h2 { font-size: clamp(2rem, 3.5vw, 2.875rem); line-height: 1.02; margin: 0; max-width: 22ch; color: #f5f5f7; }
+  @media (max-width: 640px) { .faq-cta { padding: 64px 0; } }
+</style>

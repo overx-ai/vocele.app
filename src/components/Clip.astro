@@ -1,0 +1,8 @@
+---
+export interface Props {
+  parts: readonly [string, string, string];
+  class?: 'clip' | 'clip-talk';
+}
+const { parts: [before, emphasis, after], class: className = 'clip' } = Astro.props;
+---
+{before}<span class={className}>{emphasis}</span>{after}

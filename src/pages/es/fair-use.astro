@@ -1,8 +1,0 @@
----
-import LegalLayout from '../../layouts/LegalLayout.astro';
-import { LEGAL_DATES } from '../../data/facts';
-import { FAIR_USE } from '../../data/fair-use';
----
-{/* An ES twin on purpose: /es/pricing sells to Spanish speakers, and an English-only cap disclosure does not clear
-    UCPD Art. 7. Keep both locales of src/data/fair-use.ts equivalent in substance. */}
-<LegalLayout slug="fair-use" lang="es" doc={FAIR_USE.es} dates={LEGAL_DATES['fair-use']} />

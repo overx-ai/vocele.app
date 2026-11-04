@@ -118,14 +118,40 @@ test('no page makes a banned claim', () => {
   }
 });
 
-// Every price a plan page quotes, including the tutor comparison it sells against.
-const ALLOWED_PRICES = new Set(['$14.99', '$29.99', '$49.99', '$200', '$320']);
+// Every price a locale's plan page may quote, as printed, nbsp included. Each locale's tutor comparison stays in USD.
+const NBSP = '\u00a0';
+const TUTOR_PRICES = ['$200', '$320'];
+const EUR_PRICES = [`17,99${NBSP}€`, `34,99${NBSP}€`, `59,99${NBSP}€`];
+const USD_PRICES = ['$14.99', '$29.99', '$49.99'];
+const ALLOWED_PRICES = {
+  en: USD_PRICES,
+  es: USD_PRICES,
+  de: EUR_PRICES,
+  fr: EUR_PRICES,
+  it: EUR_PRICES,
+  pl: [`69,99${NBSP}zł`, `129,99${NBSP}zł`, `229,99${NBSP}zł`],
+  pt: [`R$${NBSP}99,90`, `R$${NBSP}199,90`, `R$${NBSP}299,90`],
+  ja: ['¥2,500', '¥5,000', '¥8,000'],
+  ru: [`1${NBSP}290${NBSP}₽`, `2${NBSP}490${NBSP}₽`, `4${NBSP}490${NBSP}₽`],
+  ar: [`59.99${NBSP}ر.س.`, `129.99${NBSP}ر.س.`, `199.99${NBSP}ر.س.`],
+};
+// R$ before $, so a real is never read as a dollar. A space inside a number is a thousands separator.
+const QUOTED_PRICE = new RegExp(
+  `R\\$${NBSP}?[\\d.,]*\\d|\\$\\d+(?:\\.\\d{2})?|¥[\\d,]*\\d|\\d[\\d.,${NBSP}]*${NBSP}(?:€|zł|₽|ر\\.س\\.)`,
+  'g',
+);
 
-test('plan pages quote only approved prices', () => {
-  for (const slug of ['pricing', 'es/pricing']) {
-    const { html, file } = pages.get(`${ORIGIN}/${slug}`);
-    for (const [price] of html.matchAll(/\$\d+(?:\.\d{2})?/g)) {
-      assert.ok(ALLOWED_PRICES.has(price), `${rel(file)} quotes ${price}, which is not an approved price`);
+test('plan pages quote only approved prices, and every plan price', () => {
+  const planPages = Object.entries(ALLOWED_PRICES)
+    .map(([lang, prices]) => ({ prices, page: pages.get(`${ORIGIN}/${lang === 'en' ? '' : `${lang}/`}pricing`) }))
+    .filter(({ page }) => page);
+  assert.ok(planPages.length >= 2, 'no plan pages found');
+  for (const { prices, page } of planPages) {
+    const html = page.html.replace(/&nbsp;|&#160;|&#xa0;/gi, NBSP);
+    const quoted = html.match(QUOTED_PRICE) ?? [];
+    for (const price of quoted) {
+      assert.ok([...prices, ...TUTOR_PRICES].includes(price), `${rel(page.file)} quotes ${price}, which is not an approved price`);
     }
+    for (const price of prices) assert.ok(quoted.includes(price), `${rel(page.file)} never quotes ${price}`);
   }
 });

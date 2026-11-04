@@ -2,10 +2,11 @@
 // Thin wrapper over BaseLayout for blog articles. Looks up the article's meta
 // from blog-posts.ts (single source of truth) and emits BlogPosting +
 // BreadcrumbList (+ optional FAQPage) JSON-LD. Articles are original per locale:
-// translated:false in the manifest → self-canonical, zero hreflang.
+// a single-locale manifest entry → self-canonical, zero hreflang.
 import BaseLayout from './BaseLayout.astro';
 import { postBySlug, categoryAccent } from '../blog-posts';
-import { enPath, esPath } from '../site-pages';
+import { useLang } from '../i18n';
+import { localePath } from '../site-pages';
 import { articleSchema } from '../site';
 import ArticleByline from '../components/ArticleByline.astro';
 import ArticleCta from '../components/ArticleCta.astro';
@@ -24,10 +25,10 @@ const lang = post.locale;
 const accent = categoryAccent[post.category.gradient];
 
 const site = Astro.site?.toString().replace(/\/$/, '') ?? 'https://vocele.app';
-const path = lang === 'es' ? esPath(slug) : enPath(slug);
-const canonicalURL = `${site}${path}`;
-const blogIndexPath = lang === 'es' ? '/es/blog' : '/blog';
-const homePath = lang === 'es' ? '/es' : '/';
+const canonicalURL = `${site}${localePath(lang, slug)}`;
+const blogIndexPath = localePath(lang, 'blog');
+const homePath = localePath(lang, '');
+const { t } = useLang(lang);
 
 const structuredData: object[] = [
   articleSchema({
@@ -44,8 +45,8 @@ const structuredData: object[] = [
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: lang === 'es' ? 'Inicio' : 'Home', item: `${site}${homePath}` },
-      { '@type': 'ListItem', position: 2, name: lang === 'es' ? 'Artículos' : 'Blog', item: `${site}${blogIndexPath}` },
+      { '@type': 'ListItem', position: 1, name: t.nav.home, item: `${site}${homePath}` },
+      { '@type': 'ListItem', position: 2, name: t.nav.blog, item: `${site}${blogIndexPath}` },
       { '@type': 'ListItem', position: 3, name: post.cardTitle, item: canonicalURL },
     ],
   },
@@ -74,10 +75,10 @@ if (faq.length > 0) {
 >
   <section class="art-masthead">
     <div class="container">
-      <nav class="crumbs" aria-label="Breadcrumb">
-        <a href={homePath}>{lang === 'es' ? 'Inicio' : 'Home'}</a>
+      <nav class="crumbs" aria-label={t.nav.breadcrumbLabel}>
+        <a href={homePath}>{t.nav.home}</a>
         <span class="sep" aria-hidden="true">→</span>
-        <a href={blogIndexPath}>{lang === 'es' ? 'Artículos' : 'Blog'}</a>
+        <a href={blogIndexPath}>{t.nav.blog}</a>
         <span class="sep" aria-hidden="true">→</span>
         <span class="crumb-cat" style={`background: var(--gradient-${post.category.gradient})`}>{post.category.label}</span>
       </nav>
@@ -92,7 +93,7 @@ if (faq.length > 0) {
     </div>
     {faq.length > 0 && (
       <section class="article-faq">
-        <h2>{lang === 'es' ? 'Preguntas frecuentes' : 'Frequently asked questions'}</h2>
+        <h2>{t.article.faqHeading}</h2>
         {faq.map((f) => (
           <details>
             <summary>{f.q}</summary>

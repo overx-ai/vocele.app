@@ -1,0 +1,13 @@
+---
+import Home from '../../views/Home.astro';
+import { translatedPaths, type Lang } from '../../i18n/locales';
+
+export function getStaticPaths() {
+  return translatedPaths();
+}
+
+interface Props {
+  lang: Lang;
+}
+---
+<Home lang={Astro.props.lang} />

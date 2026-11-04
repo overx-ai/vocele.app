@@ -3,14 +3,17 @@
 // request (fast + always renders). Swap for Apple's official black/white SVG badge
 // asset before launch — https://developer.apple.com/app-store/marketing/guidelines/
 export interface Props {
-  lang?: 'en' | 'es';
+  lang?: Lang;
   /** 'dark' = ink pill on light sections; 'light' = white pill on black sections. */
   variant?: 'dark' | 'light';
 }
+import { useLang } from '../i18n';
 import { APP_STORE_URL } from '../site';
+import { downloadPath } from '../site-pages';
+import type { Lang } from '../data/types';
 const { lang = 'en', variant = 'dark' } = Astro.props;
-const href = APP_STORE_URL ?? (lang === 'es' ? '/es#download' : '/#download');
-const line1 = lang === 'es' ? 'Disponible en' : 'Download on the';
+const href = APP_STORE_URL ?? downloadPath(lang);
+const { line1 } = useLang(lang).t.badge;
 const line2 = 'App Store';
 ---
 <a href={href} class:list={['appstore-badge', variant]} aria-label={`${line1} ${line2}`}>

@@ -1,19 +1,20 @@
 ---
+import Clip from './Clip.astro';
+import { useLang } from '../i18n';
+import { localePath } from '../site-pages';
+import type { Lang } from '../data/types';
+
 export interface Props {
-  lang: 'en' | 'es';
+  lang: Lang;
 }
 
 const { lang } = Astro.props;
-const es = lang === 'es';
+const { t } = useLang(lang);
 ---
 <section class="art-cta">
   <div class="container cta-inner">
-    <h2>{es ? 'Muy pronto en iPhone: tu ' : 'Coming soon to iPhone: your '}<span class="clip-talk">{es ? 'coach de IA.' : 'AI coach.'}</span></h2>
-    <p>
-      {es
-        ? 'Vocele todavía no está en la App Store. Cuando se lance, corregirá tu inglés hablado y entrenará tu acento, palabra por palabra.'
-        : "Vocele isn't on the App Store yet. When it launches, it will correct your spoken sentences and train your accent, word by word."}
-    </p>
-    <a href={es ? '/es' : '/'} class="pill pill-light">{es ? 'Conoce Vocele' : 'Meet Vocele'} <span aria-hidden="true">↗</span></a>
+    <h2><Clip parts={t.article.ctaTitle} class="clip-talk" /></h2>
+    <p>{t.article.ctaBody}</p>
+    <a href={localePath(lang, '')} class="pill pill-light">{t.meetVocele} <span aria-hidden="true">↗</span></a>
   </div>
 </section>

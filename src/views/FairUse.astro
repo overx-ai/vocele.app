@@ -1,0 +1,13 @@
+---
+import LegalLayout from '../layouts/LegalLayout.astro';
+import { LEGAL_DATES } from '../data/facts';
+import { fairUseDocument } from '../data/fair-use';
+import type { Lang } from '../data/types';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+---
+<LegalLayout slug="fair-use" lang={lang} doc={fairUseDocument(lang)} dates={LEGAL_DATES['fair-use']} />

@@ -1,6 +1,4 @@
 ---
-import LegalLayout from '../layouts/LegalLayout.astro';
-import { LEGAL_DATES } from '../data/facts';
-import { FAIR_USE } from '../data/fair-use';
+import FairUse from '../views/FairUse.astro';
 ---
-<LegalLayout slug="fair-use" doc={FAIR_USE.en} dates={LEGAL_DATES['fair-use']} />
+<FairUse lang="en" />

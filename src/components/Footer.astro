@@ -1,38 +1,34 @@
 ---
 import { VS_PAGES } from '../vs-pages';
 import { GA_MEASUREMENT_ID, OPERATOR } from '../data/facts';
-import { CONSENT_COPY } from './consent-copy';
-export interface Props { lang?: 'en' | 'es' }
+import { useLang } from '../i18n';
+import { localePath } from '../site-pages';
+import type { Lang } from '../data/types';
+export interface Props { lang?: Lang }
 const { lang = 'en' } = Astro.props;
-const base = lang === 'es' ? '/es' : '';
-const t = lang === 'es'
-  ? { pricing: 'Precios', faq: 'Preguntas', blog: 'Artículos', fairUse: 'Uso justo', privacy: 'Privacidad', terms: 'Términos' }
-  : { pricing: 'Pricing', faq: 'FAQ', blog: 'Blog', fairUse: 'Fair use', privacy: 'Privacy', terms: 'Terms' };
+const { t } = useLang(lang);
 
 const links = [
-  { href: `${base}/pricing`, label: t.pricing },
-  { href: `${base}/faq`, label: t.faq },
-  { href: `${base}/blog`, label: t.blog },
-  // EN-only comparison pages (src/vs-pages.ts); ES has no twins yet.
-  ...VS_PAGES.map((v) => ({ href: `/vs/${v.slug}`, label: `vs ${v.competitor}` })),
-  // Fair use has an /es twin (it is a purchase-decision disclosure); privacy/terms are EN-only.
-  { href: `${base}/fair-use`, label: t.fairUse },
-  { href: '/privacy', label: t.privacy },   // EN-only legal pages
-  { href: '/terms', label: t.terms },
+  { href: localePath(lang, 'pricing'), label: t.nav.pricing },
+  { href: localePath(lang, 'faq'), label: t.nav.faq },
+  { href: localePath(lang, 'blog'), label: t.nav.blog },
+  ...VS_PAGES.map((v) => ({ href: `/vs/${v.slug}`, label: `vs ${v.competitor}` })), // English-only (src/vs-pages.ts)
+  { href: localePath(lang, 'fair-use'), label: t.nav.fairUse },
+  { href: '/privacy', label: t.nav.privacy }, // English-only legal pages
+  { href: '/terms', label: t.nav.terms },
 ];
 const year = new Date().getFullYear();
-const cookieSettings = CONSENT_COPY[lang].settings;
 ---
 
 <footer class="site-footer">
   <div class="container row">
     <span class="brand">Vocele</span>
-    <nav aria-label="Footer">
+    <nav aria-label={t.nav.footerLabel}>
       <ul>
         {links.map((l) => (
           <li><a href={l.href}>{l.label}</a></li>
         ))}
-        {GA_MEASUREMENT_ID && <li><button type="button" data-consent-open>{cookieSettings}</button></li>}
+        {GA_MEASUREMENT_ID && <li><button type="button" data-consent-open>{t.consent.settings}</button></li>}
       </ul>
     </nav>
     <p class="copy">&copy; {year} {OPERATOR}</p>

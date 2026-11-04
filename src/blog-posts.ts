@@ -1,11 +1,13 @@
 // Single source of truth for blog article metadata. Consumed by:
 //   - src/site-pages.ts (appends these to SITE_PAGES → sitemap + head logic)
-//   - src/pages/blog/index.astro + src/pages/es/blog/index.astro (card lists)
+//   - src/views/BlogIndex.astro (card lists)
 //   - src/layouts/ArticleLayout.astro (per-article meta via postBySlug)
 //
 // Articles are ORIGINAL PER LOCALE, not translations — each is self-canonical
-// with no hreflang twin (translated: false in the manifest). Register every new
+// with no hreflang twin (a single-locale entry in the manifest). Register every new
 // article here; the page file alone is not enough.
+
+import type { Lang } from './i18n/locales';
 
 /** Category accent — the gradient key drives the index-card pill + breadcrumb
  *  pill (via var(--gradient-<key>)) and the row hover offset-shadow (via the
@@ -20,7 +22,7 @@ export const categoryAccent: Record<CategoryKey, string> = {
 export interface BlogPost {
   /** Shared-slug form used by the manifest, e.g. 'blog/ai-accent-training'. */
   slug: string;
-  locale: 'en' | 'es';
+  locale: Lang;
   title: string;
   description: string;
   datePublished: string; // ISO date
@@ -155,7 +157,7 @@ export const BLOG_POSTS: BlogPost[] = [
   },
 ];
 
-export const postsFor = (locale: 'en' | 'es') => BLOG_POSTS.filter((p) => p.locale === locale);
+export const postsFor = (locale: Lang) => BLOG_POSTS.filter((p) => p.locale === locale);
 
 export const postBySlug = (slug: string): BlogPost => {
   const post = BLOG_POSTS.find((p) => p.slug === slug);

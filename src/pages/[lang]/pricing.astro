@@ -1,0 +1,13 @@
+---
+import Pricing from '../../views/Pricing.astro';
+import { translatedPaths, type Lang } from '../../i18n/locales';
+
+export function getStaticPaths() {
+  return translatedPaths();
+}
+
+interface Props {
+  lang: Lang;
+}
+---
+<Pricing lang={Astro.props.lang} />

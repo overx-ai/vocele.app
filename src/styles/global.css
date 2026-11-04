@@ -11,8 +11,10 @@
   mirror. (v1 is light-only — the dark token block was removed.)
 */
 
-/* Outfit — self-hosted variable subset (latin), display type only. One same-origin
-   request, preloaded in BaseLayout. Body text stays on the system stack. */
+/* Outfit — self-hosted variable subsets, display type only. Latin is one same-origin
+   request, preloaded in BaseLayout. Latin-ext (Polish) is fetched only by a page that uses
+   its glyphs. Outfit has no Cyrillic, so ru sets --font-display below rather than mix fonts
+   inside a heading. Body text stays on the system stack. */
 @font-face {
   font-family: 'Outfit';
   font-style: normal;
@@ -20,6 +22,14 @@
   font-display: swap;
   src: url('/fonts/outfit-latin.woff2') format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Outfit';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('/fonts/outfit-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 
 :root {
@@ -87,6 +97,8 @@
 
   /* ---- Bold Poster structure (web-only, no app mirror) ---- */
   --border-bold: 2px solid var(--color-ink);
+  --flip: 1;                 /* -1 under RTL: mirrors hard offset shadows and hover nudges */
+  --marquee-end: -50%;
   --shadow-card: 0 6px 12px rgba(0, 0, 0, 0.08);
   --shadow-card-lg: 0 12px 32px rgba(0, 0, 0, 0.12);
 
@@ -97,11 +109,18 @@
   */
   --font-display: 'Outfit', ui-rounded, "SF Pro Rounded", system-ui, sans-serif;
   --font-rounded: ui-rounded, "SF Pro Rounded", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  --font-body: -apple-system, system-ui, "Segoe UI", Roboto, sans-serif;
+  --font-system: -apple-system, system-ui, "Segoe UI", Roboto, sans-serif;
+  --font-body: var(--font-system);
 
   --max-width: 1280px;       /* poster pages (landing/pricing/faq/blog index) */
   --max-width-prose: 800px;  /* article + legal body column */
 }
+
+/* ---- Per-locale display type ---- */
+html:lang(ru), html:lang(ja), html:lang(ar) { --font-display: var(--font-rounded); }
+html:lang(ja) { --font-body: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic", system-ui, sans-serif; --font-display: var(--font-body); }
+html:lang(ar) { --font-body: "SF Arabic", "Geeza Pro", "Noto Sans Arabic", "Segoe UI", Tahoma, system-ui, sans-serif; --font-display: var(--font-body); }
+[dir='rtl'] { --flip: -1; --marquee-end: 50%; }
 
 /* ---- Reset ---- */
 *, *::before, *::after { box-sizing: border-box; }
@@ -120,7 +139,7 @@ a:hover { color: var(--grad-talk-to); }
 
 /* Marquee tickers + wave bars (used across landing/404). The blanket
    reduced-motion rule below neutralizes both. */
-@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(var(--marquee-end)); } }
 @keyframes wave { 0%, 100% { transform: scaleY(0.3); } 50% { transform: scaleY(1); } }
 
 @media (prefers-reduced-motion: reduce) {
@@ -207,17 +226,30 @@ p { margin: 0 0 var(--space-md); }
 
 .skip-link {
   position: absolute;
-  left: -999px;
+  inset-inline-start: -999px;
   top: 0;
   background: var(--color-ink);
   color: #fff;
   padding: var(--space-sm) var(--space-md);
-  border-radius: 0 0 var(--radius-medium) 0;
+  border-end-end-radius: var(--radius-medium);
   z-index: 100;
 }
-.skip-link:focus { left: 0; }
+.skip-link:focus { inset-inline-start: 0; }
 
 :focus-visible {
   outline: 2px solid var(--grad-talk-to);
   outline-offset: 2px;
 }
+
+/* The uppercase, tight-tracked poster look needs a bicameral alphabet: ja and ar have no case, tracking breaks Arabic's
+   joined letters, and both need more line height than the 0.98 headings. !important because the rule is set per
+   component, in scoped styles. German needs nothing for case: uppercase maps ß to SS, the standard spelling, and Outfit's
+   latin subset has no capital ẞ to be tempted by. Its long compounds are what overflow at 390px. */
+html:lang(ja) *, html:lang(ar) * { text-transform: none !important; letter-spacing: 0 !important; }
+html:lang(ja) :is(h1, h2, h3, h4), html:lang(ar) :is(h1, h2, h3, h4) { line-height: 1.25 !important; }
+html:lang(de) :is(h1, h2, h3, h4) { hyphens: auto; overflow-wrap: break-word; }
+
+/* Arrows are not bidi-mirrored characters, so RTL has to turn them round itself. */
+[dir='rtl'] :is(.mod-arrow, .row-arrow, .arw, .crumbs .sep) { display: inline-block; transform: scaleX(-1); }
+[dir='rtl'] :is(.pill, .cta) [aria-hidden] { display: inline-block; transform: scaleX(-1); }
+[dir='rtl'] :is(.prose, .legal-prose) ul li::before { transform: scaleX(-1); }

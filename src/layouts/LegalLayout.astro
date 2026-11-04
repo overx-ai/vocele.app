@@ -4,10 +4,11 @@
 // reference cannot point at the wrong number. Bold Poster look: LEGAL eyebrow, a callout with a hard offset shadow,
 // top-ruled numbered headings.
 //
-// `lang` MUST be passed by any /es page: without it the page renders <html lang="en-US">, an EN canonical and an EN
-// footer.
+// `lang` MUST be passed by any translated page: without it the page renders <html lang="en-US">, an EN canonical and an
+// EN footer.
 import BaseLayout from './BaseLayout.astro';
 import { formatDate } from '../data/facts';
+import { useLang } from '../i18n';
 import type { Lang, LegalDates, LegalDocument } from '../data/types';
 
 export interface Props {
@@ -17,15 +18,13 @@ export interface Props {
   dates?: LegalDates;
 }
 const { slug, doc, lang = 'en', dates } = Astro.props;
-const t = lang === 'es'
-  ? { effective: 'Vigente desde', updated: 'Última actualización' }
-  : { effective: 'Effective', updated: 'Last updated' };
+const t = useLang(lang).t.legal;
 const summary = doc.summaryHtml.trim().startsWith('<ul') ? doc.summaryHtml : `<p>${doc.summaryHtml}</p>`;
 ---
 <BaseLayout title={doc.pageTitle} description={doc.description} slug={slug} lang={lang}>
   <section class="legal-masthead">
     <div class="container">
-      <span class="eyebrow">Legal</span>
+      <span class="eyebrow">{t.eyebrow}</span>
       <h1 class="legal-title" set:html={doc.heading} />
       {dates && (
         <p class="updated">
@@ -58,9 +57,9 @@ const summary = doc.summaryHtml.trim().startsWith('<ul') ? doc.summaryHtml : `<p
 
   .legal-body { max-width: var(--max-width-prose); margin: 0 auto; padding: 64px var(--space-lg) 90px; }
 
-  .draft-notice { border: var(--border-bold); box-shadow: 8px 8px 0 var(--grad-grammar-from); padding: 22px 26px; margin-bottom: 48px; }
+  .draft-notice { border: var(--border-bold); box-shadow: calc(8px * var(--flip)) 8px 0 var(--grad-grammar-from); padding: 22px 26px; margin-bottom: 48px; }
   .draft-notice :global(p), .draft-notice :global(li) { margin: 0; font-size: 0.96875rem; line-height: 1.65; color: var(--color-text-muted); }
-  .draft-notice :global(ul) { margin: 0; padding-left: 1.1em; display: flex; flex-direction: column; gap: 8px; }
+  .draft-notice :global(ul) { margin: 0; padding-inline-start: 1.1em; display: flex; flex-direction: column; gap: 8px; }
   .draft-notice .lbl, .draft-notice :global(strong) { font-family: var(--font-display); color: var(--color-ink); letter-spacing: 0.06em; text-transform: uppercase; }
   .draft-notice .lbl { font-weight: 800; margin-bottom: 10px; }
 
@@ -71,20 +70,20 @@ const summary = doc.summaryHtml.trim().startsWith('<ul') ? doc.summaryHtml : `<p
     border-top: var(--border-bold); padding-top: 26px; margin: 40px 0 20px;
   }
   .block:first-child h2 { margin-top: 0; }
-  .num { color: var(--grad-talk-to); font-size: 0.9375rem; margin-right: 0.6em; }
+  .num { color: var(--grad-talk-to); font-size: 0.9375rem; margin-inline-end: 0.6em; }
   .legal-prose :global(p) { font-size: 1.03125rem; line-height: 1.7; color: var(--color-text-muted); margin: 0 0 18px; }
   .legal-prose :global(strong), .legal-prose :global(.label) { color: var(--color-ink); }
   .legal-prose :global(.label) { font-weight: 700; }
   .legal-prose :global(a) { color: var(--grad-talk-to); text-decoration: none; border-bottom: 2px solid var(--grad-talk-to); overflow-wrap: anywhere; }
   .legal-prose :global(ul) { list-style: none; padding: 0; margin: 0 0 40px; display: flex; flex-direction: column; gap: 13px; }
-  .legal-prose :global(ul li) { position: relative; padding-left: 26px; font-size: 1.03125rem; line-height: 1.7; color: var(--color-text-muted); }
-  .legal-prose :global(ul li)::before { content: "→"; position: absolute; left: 0; color: var(--grad-talk-to); font-family: var(--font-display); font-weight: 800; }
+  .legal-prose :global(ul li) { position: relative; padding-inline-start: 26px; font-size: 1.03125rem; line-height: 1.7; color: var(--color-text-muted); }
+  .legal-prose :global(ul li)::before { content: "→"; position: absolute; inset-inline-start: 0; color: var(--grad-talk-to); font-family: var(--font-display); font-weight: 800; }
 
   .legal-prose :global(.legal-table) { overflow-x: auto; margin: 0 0 18px; }
   .legal-prose :global(.legal-table table) { width: 100%; border-collapse: collapse; min-width: 480px; }
   .legal-prose :global(.legal-table th),
   .legal-prose :global(.legal-table td) {
-    text-align: left; padding: 13px 14px; vertical-align: top;
+    text-align: start; padding: 13px 14px; vertical-align: top;
     border-bottom: 2px solid var(--color-ink); font-size: 0.96875rem; line-height: 1.5;
     color: var(--color-text-muted);
   }

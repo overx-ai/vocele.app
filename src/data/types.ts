@@ -1,4 +1,4 @@
-export type Lang = 'en' | 'es';
+export type { Lang } from '../i18n/locales';
 
 export interface LegalSection {
   id: string;

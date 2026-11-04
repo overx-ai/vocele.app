@@ -1,48 +1,34 @@
 ---
-import { enPath, esPath } from '../site-pages';
+import { useLang } from '../i18n';
+import { liveLocales, shortCode } from '../i18n/locales';
+import { downloadPath, localePath, switchPath } from '../site-pages';
+import type { Lang } from '../data/types';
 
 export interface Props {
-  lang?: 'en' | 'es';
-  /** Current page's shared slug — makes the language switcher keep your place. */
+  lang?: Lang;
+  /** Current page's shared slug — makes the language menu keep your place. */
   slug?: string;
-  /** Whether an /es twin of this page exists (computed in BaseLayout). */
+  /** Whether this page has twins (computed in BaseLayout). */
   translated?: boolean;
 }
 const { lang = 'en', slug = '', translated = false } = Astro.props;
-const base = lang === 'es' ? '/es' : '';
-const home = lang === 'es' ? '/es' : '/'; // never '/es/' — trailing slash 301s
+const { t, locale } = useLang(lang);
+const home = localePath(lang, '');
 
 // blog articles share the 'blog' nav highlight; everything else matches its slug.
 const activeKey = slug.startsWith('blog') ? 'blog' : slug;
 
-const nav = lang === 'es'
-  ? [
-      { key: '', href: home, label: 'Inicio' },
-      { key: 'pricing', href: `${base}/pricing`, label: 'Precios' },
-      { key: 'faq', href: `${base}/faq`, label: 'Preguntas' },
-      { key: 'blog', href: `${base}/blog`, label: 'Artículos' },
-    ]
-  : [
-      { key: '', href: home, label: 'Home' },
-      { key: 'pricing', href: `${base}/pricing`, label: 'Pricing' },
-      { key: 'faq', href: `${base}/faq`, label: 'FAQ' },
-      { key: 'blog', href: `${base}/blog`, label: 'Blog' },
-    ];
-
-// Slug-aware switch when the twin exists; otherwise fall back to the other
-// locale's home (privacy/terms/404 have no /es twin — never link a 404).
-const otherLangHref = translated
-  ? (lang === 'es' ? enPath(slug) : esPath(slug))
-  : (lang === 'es' ? '/' : '/es');
-const otherLangLabel = lang === 'es' ? 'EN' : 'ES';
-
-// The #download target only exists on the home pages — anchor via the locale home.
-const ctaHref = lang === 'es' ? '/es#download' : '/#download';
+const nav = [
+  { key: '', href: home, label: t.nav.home },
+  { key: 'pricing', href: localePath(lang, 'pricing'), label: t.nav.pricing },
+  { key: 'faq', href: localePath(lang, 'faq'), label: t.nav.faq },
+  { key: 'blog', href: localePath(lang, 'blog'), label: t.nav.blog },
+];
 ---
 
 <header class="site-header">
   <div class="container bar">
-    <a href={home} class="logo" aria-label="Vocele home">
+    <a href={home} class="logo" aria-label={t.nav.logoLabel}>
       <!--
         The real app icon, not a drawing of one. This was an inline pink-gradient SVG (a rounded
         square with a smile arc) that predated the icon and matched nothing the learner installs.
@@ -60,7 +46,7 @@ const ctaHref = lang === 'es' ? '/es#download' : '/#download';
       <span>Vocele</span>
     </a>
 
-    <nav class="main-nav" aria-label="Primary">
+    <nav class="main-nav" aria-label={t.nav.primaryLabel}>
       <ul>
         {nav.map((item) => (
           <li><a href={item.href} class={item.key === activeKey ? 'active' : ''}>{item.label}</a></li>
@@ -69,8 +55,17 @@ const ctaHref = lang === 'es' ? '/es#download' : '/#download';
     </nav>
 
     <div class="header-actions">
-      <a href={otherLangHref} class="lang-switch" aria-label="Switch language">{otherLangLabel}</a>
-      <a href={ctaHref} class="cta">{lang === 'es' ? 'Descargar' : 'Get the App'} <span aria-hidden="true">↗</span></a>
+      <details class="lang-menu">
+        <summary aria-label={t.nav.switchLanguage}>{shortCode(locale)}</summary>
+        <ul>
+          {liveLocales().map((l) => (
+            <li>
+              <a href={switchPath(l.code, slug, translated)} lang={l.tag} hreflang={l.hreflang} aria-current={l.code === lang ? 'true' : undefined}>{l.name}</a>
+            </li>
+          ))}
+        </ul>
+      </details>
+      <a href={downloadPath(lang)} class="cta">{t.nav.getApp} <span aria-hidden="true">↗</span></a>
     </div>
   </div>
 </header>
@@ -129,17 +124,45 @@ const ctaHref = lang === 'es' ? '/es#download' : '/#download';
   .main-nav a.active { color: var(--color-ink); }
   .main-nav a:hover { color: var(--grad-talk-to); }
   .header-actions { display: flex; align-items: center; gap: var(--space-compact); }
-  .lang-switch {
+  .lang-menu { position: relative; }
+  .lang-menu summary {
+    display: flex;
+    align-items: center;
+    gap: 5px;
     font-family: var(--font-display);
     font-weight: 700;
     font-size: 0.8125rem;
-    text-decoration: none;
     color: var(--color-ink);
     border: var(--border-bold);
     border-radius: var(--radius-pill);
     padding: 6px 12px;
+    cursor: pointer;
+    list-style: none;
   }
-  .lang-switch:hover { background: var(--color-ink); color: #fff; }
+  .lang-menu summary::-webkit-details-marker { display: none; }
+  .lang-menu summary::after { content: '▾'; font-size: 0.625rem; }
+  .lang-menu summary:hover, .lang-menu[open] summary { background: var(--color-ink); color: #fff; }
+  /* The list sits on the page's end edge, so at 390px it can only grow towards the free side of the header. */
+  .lang-menu ul {
+    position: absolute;
+    top: calc(100% + 8px);
+    inset-inline-end: 0;
+    min-width: 168px;
+    max-height: calc(100vh - 84px);
+    overflow-y: auto;
+    list-style: none;
+    margin: 0;
+    padding: 6px;
+    background: #fff;
+    border: var(--border-bold);
+    box-shadow: calc(4px * var(--flip)) 4px 0 var(--color-ink);
+    /* Never the page's own --font-body: Japanese fonts set Cyrillic and Latin full-width. */
+    font-family: var(--font-system);
+    font-size: 0.9375rem;
+  }
+  .lang-menu li a { display: block; padding: 9px 12px; text-decoration: none; color: var(--color-ink); }
+  .lang-menu li a:hover { background: var(--color-bg-secondary); }
+  .lang-menu li a[aria-current] { font-weight: 700; }
   .cta {
     display: inline-flex;
     align-items: center;

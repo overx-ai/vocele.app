@@ -5,14 +5,17 @@
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import ConsentBanner from '../components/ConsentBanner.astro';
-import { hasTranslation, enPath as buildEnPath, esPath as buildEsPath } from '../site-pages';
+import { useLang } from '../i18n';
+import { localeOf } from '../i18n/locales';
+import { alternates, hasTwins, localePath, localesOf } from '../site-pages';
+import type { Lang } from '../data/types';
 import '../styles/global.css';
 
 export interface Props {
   title: string;
   description: string;
-  lang?: 'en' | 'es';
-  /** Path segment shared by the en/es equivalents, e.g. "" for home, "pricing", "faq". Used to build hreflang + canonical. */
+  lang?: Lang;
+  /** Path segment shared by a page's locale twins, e.g. "" for home, "pricing", "faq". Used to build hreflang + canonical. */
   slug?: string;
   ogImage?: string;
   structuredData?: object[];
@@ -35,16 +38,15 @@ const {
 } = Astro.props;
 
 const site = Astro.site?.toString().replace(/\/$/, '') ?? 'https://vocele.app';
-const enPath = buildEnPath(slug);
-const esPath = buildEsPath(slug);
-const currentPath = lang === 'es' ? esPath : enPath;
-const canonicalURL = `${site}${currentPath}`;
+const { t, locale } = useLang(lang);
+const canonicalURL = `${site}${localePath(lang, slug)}`;
 const fullTitle = title.includes('Vocele') ? title : `${title} | Vocele`;
 
 // noindex pages (404) get no canonical/hreflang. Single-locale pages (privacy,
-// terms) get a canonical but no hreflang — its /es twin doesn't exist.
+// terms) get a canonical but no hreflang — they have no twin.
 const indexable = !noindex;
-const translated = indexable && hasTranslation(slug);
+const translated = indexable && hasTwins(slug);
+const otherLocales = translated ? localesOf(slug).filter((l) => l !== lang).map(localeOf) : [];
 
 // WebSite schema (Google site-name) on the home pages only, per Google guidance.
 // No page defines its own WebSite entry today — keep it that way.
@@ -55,14 +57,14 @@ const websiteSchema =
         '@type': 'WebSite',
         name: 'Vocele',
         url: `${site}/`,
-        inLanguage: lang === 'es' ? 'es-MX' : 'en-US',
+        inLanguage: locale.tag,
       }]
     : [];
 const allStructuredData = [...websiteSchema, ...structuredData];
 ---
 
 <!DOCTYPE html>
-<html lang={lang === 'es' ? 'es-MX' : 'en-US'}>
+<html lang={locale.tag} dir={locale.dir}>
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -74,13 +76,7 @@ const allStructuredData = [...websiteSchema, ...structuredData];
     : <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />}
 
   {indexable && <link rel="canonical" href={canonicalURL} />}
-  {translated && (
-    <>
-      <link rel="alternate" hreflang="en-US" href={`${site}${enPath}`} />
-      <link rel="alternate" hreflang="es-MX" href={`${site}${esPath}`} />
-      <link rel="alternate" hreflang="x-default" href={`${site}${enPath}`} />
-    </>
-  )}
+  {translated && alternates(slug, site).map(({ hreflang, href }) => <link rel="alternate" hreflang={hreflang} href={href} />)}
 
   <!-- Open Graph -->
   <meta property="og:type" content={ogType} />
@@ -93,9 +89,9 @@ const allStructuredData = [...websiteSchema, ...structuredData];
   <meta property="og:image" content={`${site}${ogImage}`} />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="675" />
-  <meta property="og:image:alt" content="Vocele — AI Language Coach" />
-  <meta property="og:locale" content={lang === 'es' ? 'es_MX' : 'en_US'} />
-  {translated && <meta property="og:locale:alternate" content={lang === 'es' ? 'en_US' : 'es_MX'} />}
+  <meta property="og:image:alt" content={t.ogImageAlt} />
+  <meta property="og:locale" content={locale.og} />
+  {otherLocales.map((l) => <meta property="og:locale:alternate" content={l.og} />)}
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
@@ -119,14 +115,14 @@ const allStructuredData = [...websiteSchema, ...structuredData];
   <meta name="theme-color" content="#F04582" />
   <meta name="color-scheme" content="light" />
   <!-- Outfit display face — self-hosted latin subset, one same-origin request. -->
-  <link rel="preload" href="/fonts/outfit-latin.woff2" as="font" type="font/woff2" crossorigin />
+  {locale.displayFont === 'outfit' && <link rel="preload" href="/fonts/outfit-latin.woff2" as="font" type="font/woff2" crossorigin />}
 
   {allStructuredData.map((entry) => (
     <script is:inline type="application/ld+json" set:html={JSON.stringify(entry)} />
   ))}
 </head>
 <body>
-  <a href="#main" class="skip-link">Skip to content</a>
+  <a href="#main" class="skip-link">{t.skipLink}</a>
   <Header lang={lang} slug={slug} translated={translated} />
   <main id="main">
     <slot />

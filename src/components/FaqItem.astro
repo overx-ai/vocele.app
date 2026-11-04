@@ -30,12 +30,12 @@ const { question, answer, num } = Astro.props;
   .faq-q { font-family: var(--font-display); font-weight: 800; font-size: 1.625rem; line-height: 1.15; letter-spacing: -0.02em; text-transform: uppercase; }
   .faq-plus { font-family: var(--font-display); font-weight: 700; font-size: 1.875rem; color: var(--grad-talk-to); text-align: center; transition: transform 0.2s ease; display: inline-block; }
   details[open] .faq-plus { transform: rotate(45deg); }
-  .faq-a { margin: 0; padding: 0 8px 30px 118px; font-size: 1.0625rem; line-height: 1.7; color: var(--color-text-muted); max-width: 76ch; }
+  .faq-a { margin: 0; padding-block: 0 30px; padding-inline: 118px 8px; font-size: 1.0625rem; line-height: 1.7; color: var(--color-text-muted); max-width: 76ch; }
 
   @media (max-width: 640px) {
     summary { grid-template-columns: 1fr 32px; gap: var(--space-md); padding: 24px 4px; }
     .faq-num { display: none; }
     .faq-q { font-size: 1.25rem; }
-    .faq-a { padding: 0 4px 24px; }
+    .faq-a { padding-block: 0 24px; padding-inline: 4px; }
   }
 </style>

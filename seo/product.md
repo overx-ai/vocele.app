@@ -6,7 +6,7 @@ Single source of truth for every claim the pipeline makes about the app. Sources
 An AI language coach for iPhone that makes you speak from day one: voice conversation with named coaches, corrections shown inside your own sentence, and per-word pronunciation scoring. Built for adult learners and immigrants; sold against private tutoring ($200–320/mo), never against gamified free apps.
 
 ## Platforms
-- iOS: yes (iOS 17+). App Store id 6805929109. **Unreleased as of 2026-11-04** — no public listing yet (App Store lookup empty).
+- iOS: yes (iOS 17+). App Store id 6800364555. **Unreleased as of 2026-11-04** — no public listing yet (App Store lookup empty).
 - Android: no
 - Web: no (marketing site only)
 

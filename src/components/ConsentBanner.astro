@@ -1,6 +1,6 @@
 ---
 import { GA_MEASUREMENT_ID } from '../data/facts';
-import { CONSENT_COPY } from './consent-copy';
+import { useLang } from '../i18n';
 import type { Lang } from '../data/types';
 
 interface Props {
@@ -8,13 +8,13 @@ interface Props {
 }
 
 const { lang = 'en' } = Astro.props;
-const t = CONSENT_COPY[lang];
+const t = useLang(lang).t.consent;
 ---
 {GA_MEASUREMENT_ID && (
   <div id="consent" class="consent" role="region" aria-label={t.label} hidden>
     <p>
       {t.text}{' '}
-      <a href="/privacy#website" hreflang={lang === 'es' ? 'en' : undefined}>{t.privacy}</a>
+      <a href="/privacy#website" hreflang={lang === 'en' ? undefined : 'en'}>{t.privacy}</a>
     </p>
     <div class="choices">
       <button type="button" data-consent="granted">{t.accept}</button>
