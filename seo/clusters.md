@@ -1,6 +1,6 @@
 # Topic clusters
 
-Same five-cluster shape per locale (EN live, ES live, pt-BR / ru planned — see blog/007). Content is original per locale, never translated. Cannibalization checks run within a locale only. Full backlog IDs (P-1xx en, P-2xx es, P-3xx pt, P-4xx ru, V-00x vs) live in blog/007-multilang-seo-plan.md §5–6.
+Same five-cluster shape per locale (all ten locales; ru pl pt de fr it ja ar are pilots from 2026-11-04). Content is original per locale, never translated. Cannibalization checks run within a locale only. Full backlog IDs (P-1xx en, P-2xx es, P-3xx pt, P-4xx ru, V-00x vs) live in blog/007-multilang-seo-plan.md §5–6.
 
 ## Cluster A — "I understand but can't speak" (confidence cornerstone, GEO magnet)
 - Pillar (en): Why you understand English but can't speak it — /blog/understand-english-but-cant-speak
@@ -77,3 +77,41 @@ forgetting, and the competitors are WRD/Anki/Quizlet rather than tutors or conve
 
 ## Orphans (published pages with no cluster — assign or prune)
 - none
+
+## Locale pilots (2026-11-04)
+
+### ru
+- A (ru): pillar Понимаю английский, но не могу говорить: что делать, /ru/blog/ponimayu-anglijskij-no-ne-mogu-govorit (P-402, 2026-11-04)
+- B (ru): pillar Как убрать акцент в английском: с чего начать, /ru/blog/kak-ubrat-akcent-v-anglijskom (P-403 reframed, 2026-11-04)
+
+### pl
+- A (pl): pillar Jak przełamać barierę językową, gdy rozumiesz angielski, /pl/blog/jak-przelamac-bariere-jezykowa
+- B (pl): pillar Polski akcent w angielskim: które błędy naprawdę szkodzą, /pl/blog/polski-akcent-w-angielskim
+- C (pl): planned, ile kosztują korepetycje z angielskiego
+- D (pl): planned, small talk i spotkania po angielsku
+
+### pt
+- A (pt): Pillar: Entendo inglês mas não consigo falar, /pt/blog/entendo-ingles-mas-nao-consigo-falar (P-302, 2026-11-04)
+- B (pt): Pronúncia do -ed em inglês, /pt/blog/pronuncia-do-ed-em-ingles (2026-11-04); pillar erros de pronúncia planned (P-303)
+
+### de
+- A pillar (de): Englisch verstehen, aber nicht sprechen: Woran es liegt, /de/blog/englisch-verstehen-aber-nicht-sprechen (2026-11-04)
+- B pillar (de): Englische Aussprache verbessern: Womit Deutsche anfangen, /de/blog/englische-aussprache-verbessern (2026-11-04)
+
+### fr
+- Cluster A (fr) pillar: Je comprends l’anglais mais je n’arrive pas à parler, /fr/blog/je-comprends-l-anglais-mais-je-n-arrive-pas-a-parler
+- Cluster B (fr) pillar: Perdre son accent français en anglais : par où commencer, /fr/blog/perdre-son-accent-francais-en-anglais
+
+### it
+- A (it): pillar /it/blog/capisco-inglese-ma-non-riesco-a-parlare (diagnosis with Italian data, four blocks); supporting planned: paura di parlare in inglese, parlare senza pensare in italiano, inglese scolastico.
+- B (it): pillar /it/blog/errori-pronuncia-inglese-italiani (errors ranked with measured rates); supporting planned: schwa, -ed finale, h aspirata.
+- C (it): planned: quanto costa un insegnante di inglese, colloquio di lavoro in inglese, esame cambridge b2 speaking.
+
+### ja
+- A (ja): pillar 英語が聞き取れるけど話せない, /ja/blog/eigo-kikitoreru-kedo-hanasenai
+- B (ja): pillar LとRの発音の違い, /ja/blog/l-to-r-no-hatsuon
+- C (ja): planned, 英会話スクールの料金とAI英会話の比較 (no page yet)
+
+### ar
+- A (ar): Pillar: لماذا أفهم الإنجليزية ولا أستطيع التحدث بطلاقة؟: /ar/blog/afham-alinjliziya-wala-astatie-altahadduth
+- B (ar): Pillar: الفرق بين p و b في النطق: /ar/blog/alfarq-bayn-p-wa-b-fi-alnutq

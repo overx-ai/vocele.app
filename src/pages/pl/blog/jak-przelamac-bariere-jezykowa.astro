@@ -1,0 +1,225 @@
+---
+import ArticleLayout from '../../../layouts/ArticleLayout.astro';
+import { PRICES, TUTOR } from '../../../data/prices';
+
+const { core } = PRICES.pl.display;
+const { tutorRange } = TUTOR.pl;
+
+const faq = [
+  {
+    q: 'Co to jest bariera językowa?',
+    a: 'W nauce języka to sytuacja, w której rozumiesz, a mimo to nie potrafisz się odezwać albo milkniesz w połowie zdania. Blokada językowa to potoczna nazwa tego samego. Zwykle winne są brak praktyki w mówieniu i strach przed oceną, rzadziej brak słówek.',
+  },
+  {
+    q: 'Czy poziom B1 wystarczy, żeby mówić po angielsku?',
+    a: 'Tak, jeśli mowa o zwykłej rozmowie, z błędami i prostymi zdaniami. Na B1 i B2 barierę częściej tworzy oczekiwanie, że każde zdanie będzie poprawne, niż sam poziom. Na spotkania w pracy przyda się więcej, ale pierwsze rozmowy nie muszą na to czekać.',
+  },
+  {
+    q: 'Jak ćwiczyć mówienie po angielsku, gdy nie ma z kim rozmawiać?',
+    a: 'Opowiadaj na głos, co robisz. Nagraj minutową odpowiedź na pytanie, które słyszysz w pracy, i odsłuchaj ją. Rozmawiaj z trenerem AI, który poprawi twoje zdania. Potrzebujesz dwóch rzeczy: mówić na głos pełnymi zdaniami i wiedzieć, gdzie robisz błąd. Czytanie i słuchanie tego nie dadzą.',
+  },
+  {
+    q: 'Czy błędy w mówieniu bardzo przeszkadzają?',
+    a: 'Większość nie. „I very like it” każdy zrozumie od razu. Gorzej działa milczenie, bo rozmówca nie ma czego zrozumieć. Warto poprawiać to, co powtarza się najczęściej, a resztę odpuszczać i mówić dalej.',
+  },
+  {
+    q: 'Ile czasu zajmuje przełamanie bariery językowej?',
+    a: 'Szczerze mówiąc, nie da się podać terminu i nie ufałbym nikomu, kto go obiecuje. Dużo zależy od tego, ile zdań wypowiadasz na głos w tygodniu, mniej od liczby miesięcy na kursie. Można za to mierzyć postęp: czy dziś mówisz dłużej i rzadziej stajesz w pół zdania niż miesiąc temu.',
+  },
+];
+---
+<ArticleLayout slug="blog/jak-przelamac-bariere-jezykowa" faq={faq}>
+  <p>
+    <strong>Krótka odpowiedź:</strong> żeby przełamać barierę językową, trzeba mówić
+    na głos codziennie, choćby dziesięć minut, tam, gdzie błąd nic nie kosztuje, i dostawać
+    poprawki do własnych zdań. Rozumienie i mówienie to dwie osobne umiejętności.
+    Kolejne seriale i lekcje gramatyki ćwiczą pierwszą z nich, a blokada siedzi w drugiej.
+  </p>
+
+  <p>
+    Podpowiedzi Google w Polsce mówią to niemal wprost:
+    „rozumiem po angielsku, ale nie potrafię mówić”, „rozumiem, ale nie umiem mówić”,
+    „boję się mówić po angielsku”. Mail od klienta, podcast, serial bez napisów jakoś idą. Potem ktoś na callu pyta, co o tym sądzisz, i masz pustkę w głowie.
+  </p>
+
+  <p>
+    Od razu zaznaczam, że robię Vocele, aplikację do ćwiczenia mówienia, więc bezstronny nie
+    jestem. Kiedy opisywałem, dla kogo ją buduję, nie wpisałem „poziom średnio
+    zaawansowany”. Wpisałem osobę, która milknie na spotkaniu zespołu, i rodzica, za
+    którego tłumaczy dziecko. Główny problem nazwałem wstydem, nie gramatyką, i nadal
+    tak uważam.
+  </p>
+
+  <h2>Polska w liczbach: najsłabiej wypada mówienie</h2>
+  <p>
+    W Eurobarometrze z 2023 roku tylko 33% badanych w Polsce zadeklarowało, że potrafi
+    rozmawiać w co najmniej jednym języku innym niż ojczysty. To najniższy wynik w Unii
+    Europejskiej. Po angielsku potrafi rozmawiać, według własnej deklaracji, 31%.
+  </p>
+  <p>
+    Ranking EF EPI 2025 pokazuje to z innej strony. Polska jest tam 15. na świecie, co
+    brzmi świetnie, dopóki nie zajrzy się do wyników cząstkowych. Czytanie ma 612
+    punktów, słuchanie 597, pisanie 557, a mówienie 518. Różnica między czytaniem a
+    mówieniem wynosi 94 punkty.
+  </p>
+  <p>
+    Sondaż i test mierzą co innego, więc tych liczb nie da się zestawiać wprost. Razem dają jednak spójny obraz: z rozmową idzie nam gorzej, niż sugeruje 15. miejsce. Jeśli rozumiesz, a nie mówisz, jesteś w
+    bardzo licznym towarzystwie.
+  </p>
+
+  <h2>Skąd to się bierze: szkoła nagradza poprawność</h2>
+  <p>
+    Ustna matura z języka obcego jest dziś obowiązkowa, ale do świadectwa wystarcza
+    30% punktów. Tak wynika z
+    <a href="https://lodz.oke.gov.pl/lodz.oke.gov.pl/wp-content/uploads/2025/10/20251010-EM-2026-Informacja-Aktualizacja.pdf">informacji CKE o egzaminie w 2026 roku</a>.
+    Egzamin składa się z rozmowy wstępnej i trzech zadań, a część ustna nie dzieli się
+    na poziomy. Dla mnie to znaczy, że mówienie jest w programie, ale swobody nikt nie wymaga.
+  </p>
+  <p>
+    Reszta szkolnego angielskiego to głównie kartkówki, testy i rozprawki, czyli zadania
+    z czasem do namysłu i punktami odejmowanymi za błąd. Po kilku latach zostaje nawyk: zdanie najpierw ma być dobre, a dopiero potem można je powiedzieć. W rozmowie
+    ten nawyk szkodzi, bo nikt nie czeka, aż ułożysz zdanie.
+  </p>
+
+  <h2>Co się dzieje w głowie, gdy przychodzi blokada</h2>
+  <p>
+    Już w 1986 roku Horwitz, Horwitz i Cope pisali o ludziach, którzy twierdzą, że mają
+    „mental block” przed nauką języka. Badali 75 amerykańskich studentów, ale wyniki
+    brzmią znajomo. Aż 49% przyznało, że wpada w panikę, gdy na zajęciach musi mówić
+    bez przygotowania. Część wierzyła, że dopóki zdanie nie będzie poprawne, lepiej się
+    nie odzywać.
+  </p>
+  <p>
+    Ja nazywam to czerwonym długopisem w głowie. Słyszysz pytanie, zaczynasz tłumaczyć
+    odpowiedź z polskiego, po drodze sprawdzasz przedimki i czasy, a rozmówca czeka.
+    Każda sekunda ciszy podnosi napięcie, napięcie zabiera uwagę potrzebną na słowa i
+    wszystko kończy się na <em>„sorry, my English…”</em>.
+  </p>
+
+  <h2>Kalki, o które potyka się polskie zdanie</h2>
+  <p>
+    Odpowiedź rodzi się po polsku, więc wychodzi z niej polska składnia z angielskimi słowami. Te przykłady powtarzają się na listach błędów publikowanych przez polskie szkoły językowe. Regułę zwykle się zna, a pod presją czasu i tak wygrywa polszczyzna.
+  </p>
+  <table>
+    <thead>
+      <tr><th>Po polsku</th><th>Co wychodzi</th><th>Jak to powiedzieć</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Mam 25 lat</td><td><em>I have 25 years</em></td><td><em>I'm 25</em> / <em>I'm 25 years old</em></td></tr>
+      <tr><td>Bardzo to lubię</td><td><em>I very like it</em></td><td><em>I really like it</em></td></tr>
+      
+      <tr><td>Zrobić zdjęcie</td><td><em>make a photo</em></td><td><em>take a photo</em></td></tr>
+      <tr><td>Na zdjęciu</td><td><em>on the picture</em></td><td><em>in the picture</em></td></tr>
+      <tr><td>Wytłumacz mi to</td><td><em>Explain me this</em></td><td><em>Explain this to me</em></td></tr>
+      <tr><td>To zależy od ciebie</td><td><em>It depends of you</em></td><td><em>It depends on you</em></td></tr>
+      <tr><td>Pracuję tu od pięciu lat</td><td><em>I am working here for five years</em></td><td><em>I've been working here for five years</em></td></tr>
+      <tr><td>Aktualnie pracuję w Warszawie</td><td><em>Actually I work in Warsaw</em></td><td><em>I currently work in Warsaw</em></td></tr>
+      <tr><td>Ewentualnie możemy spotkać się jutro</td><td><em>Eventually we can meet tomorrow</em></td><td><em>We could also meet tomorrow</em></td></tr>
+    </tbody>
+  </table>
+  <p>
+    Dwa ostatnie przykłady są najgroźniejsze, bo zdanie brzmi poprawnie i znaczy coś
+    innego. Reszta rzadko przeszkadza rozmówcy. Dużo gorszy jest moment, w którym słyszysz swój błąd, wracasz do początku zdania i tracisz wątek.
+  </p>
+
+  <h2>Jak przełamać blokadę językową w praktyce</h2>
+
+  <h3>1. Mów na głos codziennie</h3>
+  <p>
+    Dziesięć minut dziennie daje około pięciu godzin miesięcznie, ale ważniejsza od tej
+    sumy jest częstotliwość. Blokada działa jak odruch, a odruch zmienia się przez
+    powtarzanie. Wolę krótko i codziennie niż dwie godziny w sobotę.
+  </p>
+
+  <h3>2. Przygotuj zdania na chwilę, gdy brakuje słowa</h3>
+  <p>
+    Cisza boli najbardziej, więc miej czym ją wypełnić. Wystarczą cztery zdania
+    wykute na pamięć: <em>„Give me a second”</em>, <em>„What I mean is…”</em>,
+    <em>„What's the word for…?”</em> i <em>„Could you say that again?”</em>. Mówisz je
+    bez myślenia, a mózg dostaje czas na resztę.
+  </p>
+
+  <h3>3. Mów prościej, niż myślisz</h3>
+  <p>
+    Po polsku masz w głowie zdanie wielokrotnie złożone, więc szukasz dla niego
+    odpowiednika i stajesz. Rozbij je na dwa krótkie. Zamiast <em>„I am responsible for
+    the coordination of…”</em> powiedz <em>„I run this project. I talk to the
+    client”</em>. Takie zdania są mniej eleganckie, ale przechodzą przez gardło.
+  </p>
+
+  <h3>4. Proś o poprawki do własnych zdań</h3>
+  <p>
+    Gotowa poprawna wersja mówi tylko, jak powinno być. W Vocele zdecydowałem się
+    zaznaczać błędne słowa w samym zdaniu użytkownika, z poprawką pod spodem, zamiast
+    pokazywać osobną kartę z poprawioną wersją. Tak widać, <em>gdzie</em> zdanie się
+    rozjechało, a nie tylko, jak powinno brzmieć. Z korepetytorem zadziała to samo:
+    poproś, żeby nie podawał od razu gotowej wersji, tylko wskazywał, gdzie jest błąd.
+  </p>
+
+  <h3>5. Zrób próbę generalną rozmowy, której się boisz</h3>
+  <p>
+    Jeśli stresuje cię poranne daily, przećwicz trzy zdania o tym, co zrobione i co
+    stoi. Jeśli czeka cię rozmowa kwalifikacyjna, opowiedz na głos o swojej ostatniej
+    pracy. Luźne konwersacje na dowolny temat tego nie załatwią, bo blokada wraca
+    właśnie w tej jednej, konkretnej sytuacji.
+  </p>
+
+  <h3>6. Mierz postępy</h3>
+  <p>
+    Blokadę czuć w chwili, gdy się pojawia, a postępu nie czuć wcale. Dlatego warto
+    liczyć cokolwiek: minuty mówienia, rozmowy w tygodniu, zdania dokończone mimo błędu.
+  </p>
+  <p>
+    Jeśli rozmówcy często proszą o powtórzenie, przyczyna może leżeć w wymowie. Sprawdź
+    wtedy,
+    <a href="/pl/blog/polski-akcent-w-angielskim">które cechy polskiego akcentu naprawdę utrudniają zrozumienie</a>.
+  </p>
+
+  <h2>Korepetycje, konwersacje czy aplikacja</h2>
+  <p>
+    Większość tekstów o barierze językowej piszą szkoły, które na końcu sprzedają
+    lekcje. Ja sprzedaję aplikację i uważam, że w codziennej praktyce wygrywa z
+    korepetycjami. Czytaj tę tabelę, pamiętając, kto ją napisał.
+  </p>
+  <table>
+    <thead>
+      <tr><th></th><th>Co daje</th><th>Czego nie daje</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Korepetycje</strong><br />{tutorRange} miesięcznie przy dwóch lekcjach w tygodniu</td>
+        <td>Żywy człowiek, który reaguje, plan pod ciebie</td>
+        <td>Praktyki między lekcjami. Pełnej godziny mówienia, bo część czasu mówi korepetytor</td>
+      </tr>
+      <tr>
+        <td><strong>Konwersacje w grupie</strong></td>
+        <td>Kilku rozmówców, różne akcenty, presja jak w rozmowie na żywo</td>
+        <td>Dużo czasu na osobę. Przy silnej blokadzie publiczność bywa przeszkodą</td>
+      </tr>
+      <tr>
+        <td><strong>Aplikacja z trenerem AI</strong><br />Vocele: od {core} miesięcznie po premierze</td>
+        <td>Mówienie o dowolnej porze, błąd bez świadków, poprawki w twoim zdaniu</td>
+        <td>Człowieka naprzeciwko. Do ludzi i tak trzeba kiedyś wyjść</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>
+    Przy silnej blokadzie zacząłbym od mówienia bez publiczności, a kiedy zdania
+    zaczną wychodzić, dołożyłbym rozmowy z ludźmi. Jeśli stać cię na korepetytora i masz dobrego,
+    nie rezygnuj z niego. Dołóż sobie codzienną praktykę między lekcjami.
+  </p>
+
+  <h2>Jak Vocele pomaga przełamać blokadę</h2>
+  <p>
+    Vocele to trener językowy z AI na iPhone'a. Rozmawiasz głosem z Luną albo Lorenzem
+    w jednym z trzech trybów: z pełnym wsparciem przy układaniu zdań, tylko z poprawkami
+    albo bez przerywania. Błędy widzisz zaznaczone w swoim zdaniu. Stukasz w słowo na
+    czacie i widzisz jego znaczenie. Przytrzymujesz frazę, a ona trafia do rozmówek, które wracają w powtórkach.
+  </p>
+  <p>
+    Aplikacja tłumaczy gramatykę po polsku, ocenia wymowę słowo po słowie, a plan dnia układa z wczorajszych błędów i wybranych przez ciebie tematów. Przypomnienia nie wpędzają w poczucie winy.
+  </p>
+  <p>
+    Vocele nie ma jeszcze w App Store. Z darmowym kontem dostęp będzie ograniczony, a szczegóły zobaczysz w aplikacji. Płatne plany będą kosztować od {core} miesięcznie, z trzydniowym okresem próbnym. Szczegóły są w <a href="/pl/pricing">cenniku</a>.
+  </p>
+</ArticleLayout>

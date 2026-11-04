@@ -1,0 +1,148 @@
+---
+import ArticleLayout from '../../../layouts/ArticleLayout.astro';
+import { PRICES, TUTOR } from '../../../data/prices';
+
+const { core } = PRICES.pt.display;
+const { tutorLow, tutorHigh } = TUTOR.pt;
+
+const faq = [
+  {
+    q: 'É normal entender inglês e não conseguir falar?',
+    a: 'É. Quem aprendeu lendo, ouvindo e fazendo prova acumulou prática de entender a língua e quase nenhuma de falar. Um estudo de vocabulário com 83 estudantes aponta na mesma direção: os alunos reconheciam palavras que ainda não conseguiam usar.',
+  },
+  {
+    q: 'Como destravar o inglês?',
+    a: 'Fale em voz alta todos os dias, mesmo que por pouco tempo, numa situação em que errar não custe nada e alguém mostre onde você errou. Ensaie as conversas que você tem de verdade, como reunião e entrevista. Mais teoria costuma alimentar a autocobrança que trava.',
+  },
+  {
+    q: 'Como perder o medo de falar inglês?',
+    a: 'O medo costuma cair com repetição em ambiente de baixo risco. Coragem de última hora ajuda pouco. Comece sem plateia, passe para uma pessoa só e deixe a reunião para depois. Decore também duas ou três frases-coringa para quando der branco.',
+  },
+  {
+    q: 'Como treinar speaking sozinho?',
+    a: 'Conte em voz alta o que fez ontem, grave um minuto e ouça. Ensaie respostas para perguntas que você vai ouvir no trabalho. Depois repita com um parceiro ou um treinador de IA que corrija a frase, porque sozinho você dificilmente percebe os próprios erros.',
+  },
+  {
+    q: 'Quanto tempo leva para destravar o inglês?',
+    a: 'Não existe prazo honesto. Depende de quantas frases você fala por semana, não de quantos anos você estuda. Dá para medir progresso de outro jeito: quantas vezes você terminou a frase em vez de desistir e quantas vezes ainda pedem para você repetir.',
+  },
+];
+---
+<ArticleLayout slug="blog/entendo-ingles-mas-nao-consigo-falar" faq={faq}>
+  <p>
+    <strong>Resposta curta:</strong> você entende inglês, mas não consegue falar porque entender e falar são treinos diferentes. Para entender, basta reconhecer as palavras. Para falar, precisa achar, montar e pronunciar a frase em segundos, com alguém esperando. Mais série e gramática não resolvem. O que ajuda é falar em voz alta todo dia, com correção, num ambiente em que errar não custa nada.
+  </p>
+
+  <p>
+    Quando defini para quem o Vocele seria feito, escrevi que o problema principal era vergonha, não gramática: a pessoa que fica muda na reunião do time, o pai ou a mãe que depende do filho para traduzir.
+    Sigo achando que é por aí. Se você lê e-mail em inglês sem dicionário, acompanha série e mesmo assim dá branco quando alguém pergunta <em>"so, what do you do?"</em>, sua
+    gramática provavelmente está melhor do que parece.
+  </p>
+
+  <h2>Por que dá branco se você entende tudo</h2>
+  <p>
+    Quem pesquisa vocabulário mede duas coisas separadas: a palavra que você reconhece e a que você consegue usar. Stuart Webb fez esse teste em 2008 com 83 estudantes. Segundo o resumo publicado pelo ESLPod, a diferença entre reconhecer e usar passou de 12% para 35% conforme as palavras ficavam menos comuns. Nessa última faixa, os alunos ainda não conseguiam usar cerca de um terço das palavras que reconheciam. O teste é de vocabulário, mas o padrão lembra o que você sente na fala.
+  </p>
+  <p>
+    Os números do Brasil complicam um pouco essa história. No <a href="https://www.prnewswire.com/br/comunicados-para-a-imprensa/brasil-melhora-sua-fluencia-em-ingles-e-sobe-seis-posicoes-em-ranking-global-302617488.html">EF EPI 2025</a>, um ranking de proficiência em inglês com 123 países e territórios, o Brasil ficou em 75º, com 482 pontos, abaixo da média global de 488. Em leitura foram 516 pontos, em fala, 464. Na compreensão oral foram 468, praticamente empatada com a fala. A folga está na leitura, então vale se perguntar se você entende mesmo o inglês falado ou se entende o inglês com legenda.
+  </p>
+
+  <h2>Tradução, fiscal e plateia: quem trava a sua fala</h2>
+  <p>
+    É assim que eu explico o que acontece na hora H. Três coisas disputam a mesma cabeça enquanto a frase tenta sair.
+  </p>
+  <p>
+    <strong>A tradução.</strong> A frase nasce em português e você tenta passar para o inglês palavra por palavra. Isso é lento e, às vezes, dá errado de um jeito que você mesmo percebe no meio do
+    caminho.
+  </p>
+  <p>
+    <strong>O fiscal.</strong> Antes de abrir a boca, você confere tudo. Era <em>do</em> ou
+    <em>does</em>? Tem <em>s</em> aqui? Quanto mais regra você estudou, mais trabalho esse fiscal
+    tem.
+  </p>
+  <p>
+    <strong>A plateia.</strong> Você imagina como a frase vai soar para o outro. Um estudo
+    brasileiro de Hashiguti (2017), baseado em seis postagens de alunos em um fórum, chama isso de
+    fantasma do falante nativo idealizado: você se compara a alguém que nem está na conversa. É aqui que mora a vergonha de que falei no começo. O
+    clássico de Horwitz, Horwitz e Cope (1986) mediu esse sufoco em 75 universitários dos Estados Unidos que estudavam língua estrangeira: 49% disseram entrar em pânico quando precisam falar sem preparação na aula. O mesmo artigo descreve alunos que travam em simulações de conversa. Ou seja, isso não é defeito de brasileiro.
+  </p>
+
+  <h2>Onde o português entra no meio da frase</h2>
+  <p>
+    Quando você traduz palavra por palavra, sai uma frase que você mesmo estranha antes de terminar. Aí você para, procura a forma certa, e o silêncio começa.
+  </p>
+  <table>
+    <thead><tr><th>Você pensa</th><th>Palavra por palavra</th><th>Em inglês</th></tr></thead>
+    <tbody>
+      <tr><td>Tenho 30 anos</td><td>I have 30 years</td><td>I'm 30</td></tr>
+      <tr><td>Estou com fome</td><td>I'm with hungry</td><td>I'm hungry</td></tr>
+      <tr><td>Faz dois anos que trabalho aqui</td><td>Makes two years that I work here</td><td>I've been working here for two years</td></tr>
+      <tr><td>Depende de você</td><td>Depends of you</td><td>It depends on you</td></tr>
+      <tr><td>Pretendo viajar</td><td>I pretend to travel</td><td>I'm planning to travel</td></tr>
+    </tbody>
+  </table>
+  <p>
+    Essas você provavelmente já sabe. O problema é o tempo: saber a regra é uma coisa, ter a frase na ponta da língua é outra.
+  </p>
+
+  <h2>Série, gramática e aula particular: o que cada uma resolve</h2>
+  <p>
+    Série e podcast são ótimos para o que treinam, que é entender. Mais gramática costuma piorar a situação, porque dá mais munição ao fiscal.
+  </p>
+  <p>
+    Aula particular resolve em parte. Um bom professor dá direção e cobrança, coisas que app
+    nenhum faz tão bem. Só que, pela minha conta, duas aulas por semana saem de {tutorLow} a {tutorHigh} por mês e dão cerca de oito horas de conversa, com sorte. Eu trato o travamento como reflexo, e reflexo muda com repetição quase diária. Esse volume em aula particular sai caro, e por isso comparo o Vocele com ela: os planos vão começar em {core} por mês.
+  </p>
+
+  <h2>O que destrava a fala na prática</h2>
+
+  <h3>Troque a maratona de sábado por uma dose diária</h3>
+  <p>
+    Na minha opinião, dez minutos por dia em voz alta rendem mais do que duas horas no fim de semana. Conte o dia de ontem, explique seu trabalho, resuma o episódio que você viu. Vale até cozinhando.
+  </p>
+
+  <h3>Decore suas frases-coringa</h3>
+  <p>
+    Tenha prontas as frases que seguram a conversa: <em>"Sorry, could you say that again?"</em>,
+    <em>"Give me a second."</em>, <em>"What I mean is..."</em>. Elas substituem o silêncio e
+    desarmam a plateia, porque quem está ganhando tempo em inglês continua na conversa.
+  </p>
+
+  <h3>Ensaie a conversa que você tem de verdade</h3>
+  <p>
+    Se o seu problema é a daily com o time de fora, ensaie a daily: o que fez ontem, o que faz
+    hoje, onde travou. Se é uma call com cliente, ensaie como discordar com educação. Medo de
+    conversa genérica quase ninguém tem. O medo costuma ter data e nome.
+  </p>
+
+  <h3>Fale errado primeiro e corrija no lugar exato</h3>
+  <p>
+    Solte a frase, ouça a frase sair torta, conserte. Para isso funcionar, a correção precisa cair em cima
+    do erro. No Vocele decidi destacar as palavras erradas dentro da sua própria frase, com a
+    correção embaixo, em vez de reescrever a frase em outro bloco. A frase reescrita mostra <em>o que</em> estava certo. O destaque mostra <em>onde</em> você errou, e é isso que dá para consertar da
+    próxima vez.
+  </p>
+
+  <h3>Acerte os sons que fazem pedirem para você repetir</h3>
+  <p>
+    Quando pedem para você repetir, a plateia cresce na sua cabeça da próxima vez. Às vezes a causa é
+    pequena e bem brasileira, como a vogal extra que colocamos depois de consoante final: <em>like</em> vira "laiki". Comece
+    pela <a href="/pt/blog/pronuncia-do-ed-em-ingles">pronúncia do -ed em inglês</a>, que aparece o tempo todo quando você conta o que fez.
+  </p>
+
+  <h3>Anote o que melhora</h3>
+  <p>
+    Travar parece permanente porque você só nota quando acontece. Anote quantas frases terminou
+    hoje sem desistir. Na pronúncia, acompanhe as mesmas palavras por semanas. Quando pensei na parte de pronúncia do Vocele, a ideia foi esta: uma nota sozinha é um veredito, e a evolução ao longo das semanas mostra o que treinar.
+  </p>
+
+  <h2>Como o Vocele vai ajudar nisso</h2>
+  <p>
+    Quando for lançado, o Vocele vai ser um treinador de idiomas com IA para iPhone. Você vai poder conversar por voz com a Luna ou o Lorenzo em três modos (com apoio completo, só com correções ou em imersão), ver as correções marcadas na sua própria frase e tocar em qualquer palavra da conversa para saber o significado. A gramática vai vir explicada em português, a pronúncia vai ganhar nota palavra por palavra, com histórico ao longo das semanas, e o plano do dia vai sair dos erros de ontem.
+  </p>
+  <p>
+    O app ainda não está na App Store, e por isso não tenho dados de alunos para mostrar aqui.
+    Contas gratuitas vão poder testar com acesso limitado, e o que está incluído vai aparecer no próprio app. Todos os planos pagos vão ter 3 dias de teste grátis. Os detalhes estão na
+    <a href="/pt/pricing">página de preços</a>.
+  </p>
+</ArticleLayout>

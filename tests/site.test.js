@@ -203,7 +203,7 @@ const TUTOR_PRICES = {
   en: USD_TUTOR,
   es: USD_TUTOR,
   de: [`295${NBSP}€`],
-  fr: [`540${NBSP}€`],
+  fr: [`480${NBSP}€`],
   it: [`200${NBSP}€`],
   pl: [`660${NBSP}zł`],
   pt: [`R$${NBSP}400`],

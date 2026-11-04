@@ -1,0 +1,261 @@
+---
+import ArticleLayout from '../../../layouts/ArticleLayout.astro';
+import { PRICES, TUTOR } from '../../../data/prices';
+
+const { core } = PRICES.it.display;
+const { tutorLow, tutorHigh } = TUTOR.it;
+
+const faq = [
+  {
+    q: "Qual è l'errore di pronuncia più comune degli italiani in inglese?",
+    a: "Nello studio di Wheelock su 27 italiani che leggono ad alta voce, tra le consonanti è la s sonora finale pronunciata sorda, in parole come <em>please</em> o <em>cheese</em>: 51,5%. Segue la <em>th</em> di <em>these</em> pronunciata come d, 42,9%. Le liste che ho letto citano quasi sempre la h, che però nello studio non è misurata.",
+  },
+  {
+    q: "Come si perde l'accento italiano in inglese?",
+    a: "Di solito non serve perderlo. Chi ascolta può sentire un accento forte e capirti benissimo. Conviene correggere quello che cambia il ritmo o la parola: vocale aggiunta in fondo, schwa, s sonora finale, th, h. Il resto puoi tenerlo. Registrati, scegli un suono alla volta e riascoltati dopo qualche settimana.",
+  },
+  {
+    q: 'Come si pronuncia la th in inglese?',
+    a: "Metti la punta della lingua tra i denti e soffia. Senza voce ottieni la th di <em>think</em>, con la voce quella di <em>this</em>. Non è né t né d. Controlla allo specchio che la lingua si veda: se non si vede, stai dicendo <em>tink</em> o <em>dis</em>.",
+  },
+  {
+    q: 'Perché gli italiani aggiungono una vocale alla fine delle parole inglesi?',
+    a: "Perché in italiano quasi tutte le parole finiscono per vocale, e la bocca tende a chiudere allo stesso modo anche in inglese. Così <em>stop</em> diventa \"stoppe\". Succede soprattutto sulle parole isolate. Si corregge fermando la voce sulla consonante, senza aggiungere nessuna vocale.",
+  },
+  {
+    q: 'Come si pronuncia la -ed dei verbi inglesi?',
+    a: "La e di solito non si sente. Dopo un suono sordo la -ed suona t (<em>worked</em>), dopo un suono sonoro suona d (<em>called</em>). Diventa una sillaba in più solo dopo t o d (<em>wanted</em>, <em>needed</em>). <em>Worked</em> ha una sillaba sola, non due.",
+  },
+  {
+    q: 'Serve un insegnante madrelingua per la pronuncia?',
+    a: "Aiuta, ma non è indispensabile. Un buon insegnante ti guarda la bocca e sa dove sbagli. Di solito manca la quantità di pratica: la pronuncia cambia con la ripetizione, e due ore a settimana sono poche. Ti serve un riscontro su ogni tentativo, da una persona o da uno strumento.",
+  },
+];
+---
+<ArticleLayout slug="blog/errori-pronuncia-inglese-italiani" faq={faq}>
+  <p>
+    Gli errori di pronuncia inglese degli italiani che pesano di più sono quelli che
+    cambiano il ritmo o la parola: la vocale aggiunta in fondo, lo schwa che manca, la s sonora finale che si spegne,
+    la th di <em>these</em>, le vocali di <em>ship</em> e <em>bad</em> e la h che sparisce. L'accento italiano, di per sé, non è un problema.
+  </p>
+
+  <p>
+    Le liste che ho letto su questo tema sembrano cataloghi: la h, la th, la r, la -ed,
+    tutte allo stesso livello. Io ho ordinato la mia secondo il mio giudizio, in base a una sola domanda: questo
+    errore cambia quello che capisce chi ti ascolta? Che un suono possa cambiare quello
+    che l'altro capisce l'ho imparato scegliendo il nome di questa app. Ho valutato 96 nomi e ne ho scartati circa il
+    95%, e un'intera famiglia, quelli che iniziano per Zor-, è saltata perché in
+    spagnolo ricorda <em>zorra</em>, che è un insulto.
+  </p>
+
+  <p>
+    Per i numeri uso due studi. Il primo è di <a href="https://www.hpu.edu/research-publications/tesol-working-papers/2016/04AnneWheelock.pdf" rel="noopener">Anne
+    Wheelock (2016)</a>, che ha analizzato le registrazioni di 27 italiani mentre
+    leggevano ad alta voce lo stesso brano. Il secondo è di
+    <a href="https://www.openstarts.units.it/server/api/core/bitstreams/d5b55c0b-b43c-4575-aec0-e9d539714638/content" rel="noopener">Maria
+    Grazia Busà</a>, su 19 italiani del Nord che vivevano in California. Sono gruppi piccoli, con l'inglese americano come riferimento, e
+    leggere non è parlare. Prendi le percentuali come indicazioni di massima.
+  </p>
+
+  <h2>Quanto spesso succede davvero</h2>
+  <table>
+    <thead><tr><th>Errore</th><th>Esempio</th><th>Frequenza (Wheelock)</th></tr></thead>
+    <tbody>
+      <tr><td>s sonora finale detta sorda</td><td><em>cheese, kids, bags</em></td><td>51,5%</td></tr>
+      <tr><td>th sonora detta come d</td><td><em>these, brother</em></td><td>42,9%</td></tr>
+      <tr><td>Vocale di <em>cat</em> sbagliata</td><td><em>snack, bags</em></td><td>32,6%</td></tr>
+      <tr><td>th sorda detta come t</td><td><em>things, three</em></td><td>20,4%</td></tr>
+      <tr><td><em>ee</em> detta come la i di <em>ship</em></td><td><em>these</em> che suona <em>this</em></td><td>12,0%</td></tr>
+      <tr><td>i di <em>ship</em> detta come <em>ee</em></td><td><em>six, with</em></td><td>10,9%</td></tr>
+    </tbody>
+  </table>
+  <p>
+    La s sonora finale, assente dalle guide italiane che ho letto, è l'errore più frequente
+    tra le consonanti, mentre <em>ship</em> e
+    <em>sheep</em>, il classico dei classici, stanno in fondo. Ho lasciato fuori alcune
+    voci dello studio, come la o di <em>go</em> (60,5%), perché cambiano il suono ma
+    quasi mai la parola. Vocale aggiunta, schwa e h in tabella non ci sono perché lo
+    studio non dà una percentuale. Le prime due le metto comunque in testa alla lista,
+    per l'effetto che hanno sul ritmo.
+  </p>
+
+  <h2>1. La vocale in più alla fine</h2>
+  <p>
+    Quasi tutte le parole italiane finiscono per vocale, e la bocca mantiene l'abitudine
+    anche in inglese: <em>stop</em> diventa "stoppe", <em>speak</em> diventa "spicche". Wheelock
+    trascrive così la frase di un parlante italiano: <em>"I atə soupə for lunchə."</em>
+    Ogni vocale in più è una sillaba in più, e la frase perde il ritmo.
+  </p>
+  <p>
+    <strong>Esercizio.</strong> Di' <em>"I ate soup for lunch"</em>. Sulla p di <em>soup</em> chiudi le labbra e
+    fermati, sulla ch di <em>lunch</em> smetti appena finito il suono, senza aggiungere
+    vocali. Fallo prima parola per parola, perché
+    <a href="https://en.wikipedia.org/wiki/Non-native_pronunciations_of_English" rel="noopener">sulle
+    parole isolate la vocale esce con più forza</a>.
+  </p>
+
+  <h2>2. Lo schwa, la vocale che l'italiano non ha</h2>
+  <p>
+    Lo schwa è il suono debole e corto della prima a di <em>about</em>, e Wheelock lo
+    indica come la vocale più comune dell'inglese parlato. L'italiano standard non ce
+    l'ha: Busà scrive che ha sette vocali e nessuna riduzione. Così chi parla dà a ogni
+    vocale scritta il suo valore pieno, e <em>lemon</em> esce "lèmon", <em>sugar</em> esce "sciùgar", <em>television</em> ha tutte le sue vocali in fila.
+  </p>
+  <p>
+    Insieme alla vocale in più, è la prima cosa da sistemare. Busà parte dall'ipotesi che uno dei problemi principali degli italiani in inglese
+    sia il ritmo, e chiude chiedendo che l'insegnamento gli dedichi più attenzione. In inglese le sillabe forti spiccano
+    e le altre quasi spariscono. In italiano hanno tutte più o meno lo stesso peso.
+  </p>
+  <p>
+    <strong>Esercizio.</strong> Prendi <em>banana</em>: solo la seconda sillaba è
+    forte, la prima e la terza sono schwa. Poi passa a <em>teacher, problem,
+    today</em>, e schiaccia la sillaba debole finché quasi non la senti.
+  </p>
+
+  <h2>3. La s sonora finale che si spegne</h2>
+  <p>
+    In inglese la s finale di <em>cheese</em> o <em>bags</em> è spesso sonora: un ronzio,
+    come la s di <em>rosa</em> al Nord. Pronunciarla sorda è l'errore più frequente tra
+    le consonanti dello studio: 51,5%. In italiano la s sonora compare prima di una
+    consonante sonora e, in molte zone, tra due vocali, quindi in fondo alla parola non
+    hai l'abitudine. Nel brano dello studio undici parole finivano così, tra cui <em>please, peas,
+    cheese, kids, bags</em>. La peggiore è stata <em>these</em> (81,5%), che lì era
+    seguita da <em>things</em>: davanti a un suono sordo la vibrazione si perde ancora più facilmente.
+  </p>
+  <p>
+    Sembra un dettaglio, finché <em>peas</em> non diventa <em>peace</em> e
+    <em>prize</em> non diventa <em>price</em>.
+  </p>
+  <p>
+    <strong>Esercizio.</strong> Appoggia due dita sulla gola e fai un lungo "zzz": senti vibrare. Tieni quella vibrazione fino in fondo a <em>bags, cheese,
+    plays</em>. Poi confronta <em>place</em> e <em>plays</em>, <em>price</em> e
+    <em>prize</em>, <em>rice</em> e <em>rise</em>.
+  </p>
+
+  <h2>4. La th: più difficile in <em>these</em> che in <em>think</em></h2>
+  <p>
+    I due suoni della th non esistono in italiano, ma non sbagli allo stesso modo: la th
+    sonora di <em>these</em> diventa d nel 42,9% dei casi, quella sorda di
+    <em>think</em> diventa t nel 20,4%. Di solito ci si allena su <em>think</em> e
+    <em>three</em>, però il suono che sbagli più spesso sta in parole che dici di
+    continuo: <em>the, this, they, that</em>.
+  </p>
+  <p>
+    <strong>Esercizio.</strong> Punta della lingua tra i denti, soffia, e aggiungi
+    la voce per la versione sonora. Coppie utili: <em>they/day, those/doze,
+    then/den</em>, poi <em>think/tink, three/tree, thank/tank</em>.
+  </p>
+
+  <h2>5. <em>Ship</em> e <em>sheep</em> non sono una i corta e una i lunga</h2>
+  <p>
+    A scuola ti hanno detto che una è
+    corta e l'altra è lunga, ed è vero solo in parte. Per Busà l'idea di distinguerle soprattutto dalla durata viene da una tradizione in
+    parte imprecisa, ancora presente nei libri di testo. Nel suo studio gli italiani con l'accento più leggero
+    separavano bene le due vocali, eppure continuavano ad allungare troppo quella di
+    <em>sheep</em>.
+  </p>
+  <p>
+    A distinguerle è soprattutto la qualità del suono: <em>sheep</em> ha la i italiana,
+    <em>ship</em> ha una vocale più rilassata, a metà strada tra i ed e, che l'italiano
+    non ha.
+  </p>
+  <p>
+    <strong>Esercizio.</strong> Non contare i tempi. Per <em>ship</em> rilassa la
+    bocca e smetti di tirare le labbra in un sorriso. Coppie: <em>ship/sheep,
+    fit/feet, live/leave, sit/seat</em>.
+  </p>
+
+  <h2>6. <em>Bad</em>, <em>bed</em>, <em>but</em>: tre vocali che si confondono</h2>
+  <p>
+    L'italiano ha una sola a, l'inglese ne ha tre (<em>cat, park, cut</em>), e Wheelock
+    nota che <em>cat</em> e <em>cut</em> possono diventare entrambe "kat". Altre volte
+    la vocale scivola verso la e, e
+    <a href="https://en.wikipedia.org/wiki/Non-native_pronunciations_of_English" rel="noopener"><em>bad</em>
+    e <em>bed</em> suonano uguali</a>. Nello studio la
+    vocale di <em>cat</em> esce sbagliata circa una volta su tre: 32,6%.
+  </p>
+  <p>
+    <strong>Esercizio.</strong> Per <em>bad</em> apri molto la bocca e tieni la
+    lingua bassa e avanti, partendo da una e aperta per scendere verso la a. Alterna
+    <em>bad/bed, man/men, cat/cut, hat/hut</em>.
+  </p>
+
+  <h2>7. La h che sparisce, e quella che spunta</h2>
+  <p>
+    In italiano la h è muta, quindi in inglese
+    <a href="https://www.teflcourse.net/blog/these-are-the-most-common-english-pronunciation-mistakes-made-by-italian-native-speakers/" rel="noopener">spesso
+    salta</a>: <em>have</em> e <em>home</em> perdono l'inizio. Per compensare, a volte la si aggiunge dove non va, e
+    <a href="https://www.accentify.co.uk/blog/9-common-accent-struggles-for-italian-speakers" rel="noopener"><em>eggs</em>
+    diventa <em>heggs</em></a>. Qui i numeri non li ho: sono osservazioni di
+    insegnanti, non misure. Però chi sbaglia la h cambia parola: <em>hair/air,
+    heat/eat, hold/old</em>.
+  </p>
+  <p>
+    <strong>Esercizio.</strong> Alita sul vetro, come per appannarlo: quella è la h. Attacca quel soffio a <em>hello, happy, house</em>, poi alterna con le coppie
+    qui sopra.
+  </p>
+
+  <h2>8. Leggere l'inglese come è scritto</h2>
+  <p>
+    L'italiano si legge quasi come si scrive, e l'abitudine passa all'inglese:
+    <em>walk</em> con la l, <em>boiled</em> in due sillabe, <em>water</em> che diventa
+    il "vater" del bagno. Lo stesso succede con la
+    <a href="https://www.oxfordseregno.it/news/pronuncia-inglese-gli-errori-degli-italiani/" rel="noopener">-ed
+    finale</a>, che molti pronunciano come è scritta.
+  </p>
+  <p>
+    <strong>Esercizio.</strong> La regola è breve. Dopo un suono sordo la -ed è t
+    (<em>worked, stopped</em>), dopo un suono sonoro è d (<em>called, played</em>), e
+    fa sillaba solo dopo t o d (<em>wanted, needed</em>). Le parole nuove ascoltale prima di leggerle.
+  </p>
+
+  <h2>Il tuo accento italiano può restare</h2>
+  <p>
+    Mentre sviluppavo Vocele mi sono convinto che la gente cerchi soprattutto per l'accento: nessuno digita "partner di conversazione con l'IA", tutti cercano come non
+    sembrare stranieri. Il desiderio lo capisco, però accento e comprensibilità sono due
+    cose diverse. Busà cita uno studio di Munro e Derwing in cui chi ascolta giudica
+    molto marcato l'accento di persone che capisce senza problemi. Racconta anche di un
+    gruppo il cui accento a lei sembrava fortissimo, e che i madrelingua dicevano di
+    capire senza difficoltà.
+  </p>
+  <p>
+    Quindi non puntare a sembrare londinese. Punta a non doverti ripetere. Se hai poco tempo, l'ordine è questo: prima il ritmo (punti 1 e 2), poi i suoni che
+    cambiano la parola (dal 3 al 7), poi tutto il resto.
+  </p>
+
+  <h2>Come sentire i tuoi errori</h2>
+  <p>
+    Da solo è difficile sentirli, perché senti quello che volevi dire. Il metodo più
+    economico è il telefono: leggi un paragrafo, registralo, riascolta cercando un solo
+    errore alla volta. Se invece ti blocchi proprio quando devi parlare, il problema è più ampio e ha altre
+    cause: ne parlo in
+    <a href="/it/blog/capisco-inglese-ma-non-riesco-a-parlare">capisco l'inglese ma non
+    riesco a parlare</a>.
+  </p>
+  <p>
+    Un insegnante vede la tua bocca, e questo un telefono non lo fa. Ma a 15–25 € l'ora, secondo le
+    <a href="https://www.cronoshare.it/quanto-costa/lezioni-inglese" rel="noopener">tariffe
+    online di Cronoshare</a>, due lezioni da un'ora a settimana fanno da {tutorLow} a
+    {tutorHigh} al mese, e in quelle ore la pronuncia è solo una parte del
+    lavoro. La pronuncia cambia con la ripetizione, e la ripetizione la devi fare tu.
+  </p>
+  <p>
+    Per me un punteggio conta meno di come cambia nel tempo: un numero da solo è una
+    sentenza, una curva ti dice se stai migliorando. Un punteggio basso su <em>these</em> oggi ti dice poco. Se in sei settimane sale,
+    sai che quello che fai funziona.
+  </p>
+
+  <h2>Come funziona in Vocele</h2>
+  <p>
+    Vocele non è ancora sull'App Store. È un coach linguistico con IA per iPhone e ha una
+    sezione dedicata all'accento. Ogni parola riceve un punteggio di pronuncia, con la diagnosi suono per suono e lo
+    storico settimana per settimana, così vedi la curva di cui parlavo. Puoi esercitarti
+    su frasi intere, e durante una conversazione con i coach Luna e Lorenzo puoi chiedere il controllo
+    della pronuncia su qualsiasi frase tu dica.
+  </p>
+  <p>
+    I piani partono dal Core, a {core} al mese, con 30 minuti al mese di valutazione della
+    pronuncia e 3 giorni di prova gratuita. Trovi tutti
+    i piani nella <a href="/it/pricing">pagina dei prezzi</a>.
+  </p>
+</ArticleLayout>

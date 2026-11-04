@@ -59,7 +59,7 @@ export const TUTOR: Record<Lang, ReturnType<typeof tutor>> = {
   en: USD_TUTOR,
   es: USD_TUTOR,
   de: tutor(eur, '180', '295'),
-  fr: tutor(eur, '160', '540'),
+  fr: tutor(eur, '160', '480'),
   it: tutor(eur, '120', '200'),
   pl: tutor(pln, '400', '660'),
   pt: tutor(brl, '400', '1.200'),

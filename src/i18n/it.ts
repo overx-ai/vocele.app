@@ -34,7 +34,7 @@ const it: Copy = {
     founderOf: ['fondatore di ', ''],
     updated: 'Aggiornato',
     ctaTitle: ['Presto su iPhone: il tuo ', 'coach IA.', ''],
-    ctaBody: "Vocele non è ancora sull'App Store. Quando arriverà, correggerà le frasi che dici ad alta voce e allenerà il tuo accento, parola per parola.",
+    ctaBody: "Vocele non è ancora sull'App Store. Quando arriverà, correggerà le frasi che dici ad alta voce e allenerà la tua pronuncia, parola per parola.",
   },
   home: {
     meta: {

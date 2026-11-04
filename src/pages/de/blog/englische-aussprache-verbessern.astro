@@ -1,0 +1,128 @@
+---
+import ArticleLayout from '../../../layouts/ArticleLayout.astro';
+import { PRICES, TUTOR } from '../../../data/prices';
+
+const { core, fluency, meta } = PRICES.de.display;
+const { tutorRange } = TUTOR.de;
+
+const faq = [
+  {
+    q: 'Welche Aussprachefehler machen Deutsche im Englischen?',
+    a: 'Typisch sind harte Wortenden (<em>bed</em> klingt wie <em>bet</em>), verwechselte w und v, <em>men</em> statt <em>man</em>, ein Knacklaut vor jedem Vokal und s oder d statt th. Dazu kommt oft eine Überkorrektur: <em>very</em> wird zu <em>wery</em>.',
+  },
+  {
+    q: 'Warum sagen Deutsche s statt th?',
+    a: 'Das Deutsche kennt beide th-Laute nicht, also weichst du auf den nächsten vertrauten Laut aus. Das stimmlose th aus <em>thin</em> wird oft zu s, das stimmhafte aus <em>this</em> zu z oder d. Der Laut selbst ist nicht schwer. Schwer ist es, ihn beim schnellen Sprechen nicht zu vergessen.',
+  },
+  {
+    q: 'Muss ich Britisch oder Amerikanisch lernen?',
+    a: 'Nimm beim Üben eines von beiden als Vorbild, und zwar das, was du im Job oder in Serien am häufigsten hörst. Wortenden, w und v und der Knacklaut sind in beiden Varianten dieselbe Baustelle.',
+  },
+  {
+    q: 'Kann man den deutschen Akzent komplett loswerden?',
+    a: 'Das kann ich dir nicht versprechen, und du brauchst es auch nicht. Ein Akzent ist kein Fehler, solange man dich gut versteht. Sinnvoll ist es, die Laute zu ändern, bei denen aus einem Wort ein anderes wird. Der Rest darf nach Deutschland klingen.',
+  },
+  {
+    q: 'Wie übe ich Aussprache, wenn es mir peinlich ist?',
+    a: 'Fang allein an: Nimm Wortpaare mit dem Handy auf, hör sie dir an und vergleiche sie mit einem Wörterbuch mit Audio. Eine Diktierfunktion oder eine App gibt dir Rückmeldung, ohne dass jemand zuhört. Mit einem Lehrer üben kannst du später, wenn die Laute sitzen.',
+  },
+];
+---
+<ArticleLayout slug="blog/englische-aussprache-verbessern" faq={faq}>
+  <p>
+    <strong>Kurze Antwort:</strong> Wenn Deutsch deine Muttersprache ist und du deine englische Aussprache verbessern willst, fang bei den Wortenden an: <em>bed</em> klingt sonst schnell wie <em>bet</em>. Danach kommen w und v, der Vokal in <em>man</em> und der Knacklaut vor Vokalen. Das th kann warten, obwohl viele damit beginnen.
+  </p>
+
+  <p>
+    Viele deutsche Ratgeber beginnen beim th und listen dann schwierige Wörter auf. Das ist verständlich, weil man das th sofort hört. Nur weil ein Fehler sofort auffällt, stört er im Gespräch noch lange nicht am meisten. Ich ordne die typischen Aussprachefehler Deutscher im Englischen deshalb danach, wie sehr sie ein Gespräch stören.
+  </p>
+
+  <p>
+    Ich entwickle Vocele, eine App zum Englischsprechen, die jedes Wort einzeln bewertet, und bin deshalb nicht neutral. Die Reihenfolge unten ist trotzdem unabhängig von der App: Du kannst sie allein mit deinem Handy abarbeiten.
+  </p>
+
+  <h2>Woher die Reihenfolge kommt</h2>
+  <p>
+    Teilweise stütze ich mich dabei auf den Lingua Franca Core der Linguistin Jennifer Jenkins, eine Liste der Merkmale, die für die Verständigung unter Nicht-Muttersprachlern zählen. Vokallänge steht darauf, das th ausdrücklich nicht. Dass <em>thin</em> und <em>sin</em> auch zwei Wörter sind, weiß ich. Das th steht trotzdem hinten, weil die Liste es ausklammert.
+  </p>
+  <p>
+    Die Liste taugt nur begrenzt: Sie beruht laut Wikipedia auf 40 Missverständnissen zwischen Sprechern aus Japan und der Schweiz und sagt nichts über Muttersprachler als Zuhörer. Für die Plätze 2 bis 4 fehlt mir so ein Beleg. Die Tabelle ist also meine eigene Einschätzung, den Knacklaut stelle ich vor das th, weil er für mein Ohr mehr stört.
+  </p>
+  <table>
+    <thead><tr><th>Rang</th><th>Was</th><th>Beispiel</th><th>Was passiert</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Harte Wortenden</td><td>bed / bet</td><td>Ein anderes Wort</td></tr>
+      <tr><td>2</td><td>w und v</td><td>west / vest</td><td>Ein anderes Wort, in beide Richtungen</td></tr>
+      <tr><td>3</td><td>Vokal in <em>man</em></td><td>man / men</td><td>Ein anderes Wort</td></tr>
+      <tr><td>4</td><td>Knacklaut vor Vokalen</td><td>an apple</td><td>Klingt abgehackt</td></tr>
+      <tr><td>5</td><td>th</td><td>thin / sin</td><td>Ein anderes Wort, laut Liste aber verzichtbar</td></tr>
+    </tbody>
+  </table>
+
+  <h2>1. Wortenden: Warum aus <em>bed</em> ein <em>bet</em> wird</h2>
+  <p>
+    Im Hochdeutschen, wie es vor allem im Norden gesprochen wird, werden stimmhafte Konsonanten am Wortende stimmlos. <em>Rad</em> und <em>Rat</em> klingen dann gleich, und niemand stört sich daran. Diese Gewohnheit nehmen viele Deutsche ins Englische mit: Am Wort- oder Silbenende wird aus b ein p, aus d ein t und aus g ein k. In einer Studie mit deutschen und englischen Sprechern war das stimmhafte Wortende bei den Deutschen entsprechend schwächer ausgeprägt.
+  </p>
+  <p>
+    Dabei kommt es nicht nur auf den Konsonanten an. Der Vokal davor ist im Englischen vor einem stimmhaften Laut länger: Das i in <em>kid</em> dauert länger als in <em>kit</em>. Hier setzt du an. Dehne den Vokal, dann klingt der Schluss fast von selbst weicher.
+  </p>
+  <p>
+    <strong>Übung:</strong> Sprich die Wortpaare und übertreib am Anfang ruhig: <em>bed / bet</em>, <em>had / hat</em>, <em>made / mate</em>, <em>rise / rice</em>, <em>cab / cap</em>. Stell danach die Diktierfunktion deines Handys auf Englisch und diktiere einen kurzen Satz mit dem Wort. Erscheint <em>bet</em>, weißt du Bescheid.
+  </p>
+
+  <h2>2. w und v: Der Fehler, der mit besserem Englisch auftaucht</h2>
+  <p>
+    Bekannt ist die eine Richtung: <em>west</em> klingt wie <em>vest</em>, weil das deutsche w dem englischen v entspricht. Weniger bekannt ist die Gegenrichtung. Wer jahrelang auf das w geachtet hat, sagt plötzlich <em>wery</em> statt <em>very</em> oder <em>wet</em> statt <em>vet</em>. Diese Überkorrektur betrifft laut einer Untersuchung von 2016, die ich nur aus einem Überblicksartikel kenne, vor allem jüngere und erfahrene Sprecher.
+  </p>
+  <p>
+    Beim englischen w runden sich die Lippen, die Zähne bleiben aus dem Spiel. Beim v liegen die oberen Zähne auf der Unterlippe. Sag vor dem Spiegel <em>wet / vet</em> und <em>west / vest</em>, dann den Satz <em>We visited a very wet village.</em> Nimm ihn auf. Hörst du selbst nicht, welchen Laut du gesprochen hast, geht es deinem Gegenüber vermutlich genauso.
+  </p>
+
+  <h2>3. <em>man</em> und <em>men</em>: Der Vokal, den das Deutsche nicht hat</h2>
+  <p>
+    Der Laut in <em>man</em>, <em>bad</em> und <em>sat</em> hat im Deutschen kein Gegenstück, wie Bohn und Flege 1992 festhielten. Deshalb rutschst du leicht zum vertrauten Vokal aus <em>men</em> und <em>bed</em>. Erfahrene deutsche Sprecher bildeten den Laut in ihrer Studie immerhin ähnlich wie Muttersprachler.
+  </p>
+  <p>
+    <strong>Übung:</strong> Der Vokal liegt tief vorn im Mund. Mach den Kiefer weiter auf als für ein deutsches ä und sag <em>men / man</em>, <em>bed / bad</em>, <em>set / sat</em>. Anfangs fühlt sich das übertrieben an.
+  </p>
+
+  <h2>4. Der Knacklaut vor jedem Vokal</h2>
+  <p>
+    Dieser Punkt fehlt in den gängigen Listen meist, und für mich ist er der Hauptgrund, warum deutsches Englisch abgehackt klingt. Im Deutschen setzt man vor Vokalen oft mit einem kleinen Knacklaut neu an, wie in <em>beachten</em> oder <em>Spiegelei</em>. Ein EU-Forschungsprojekt an der TU Dresden beschreibt, dass deutsche Sprecher diese Gewohnheit an Wortgrenzen ins Englische übertragen. Das Englische verbindet solche Wörter eher.
+  </p>
+  <p>
+    Sprich kurze Gruppen deshalb wie ein einziges Wort: <em>an apple</em> wie „a-napple“, <em>pick it up</em> wie „pi-ki-tup“, <em>go on</em>, <em>it is</em>. Das Tempo bleibt gleich, nur die Lücken verschwinden.
+  </p>
+
+  <h2>5. th: Wichtig, aber erst zum Schluss</h2>
+  <p>
+    Das stimmlose th wird bei Deutschsprachigen oft zu s, das stimmhafte zu z oder d: <em>thin</em> klingt wie <em>sin</em>, <em>they</em> wie <em>day</em>. Im Lingua Franca Core gilt das th als verzichtbar, Muttersprachler hören es trotzdem sofort. Sprichst du viel mit britischen oder amerikanischen Kollegen, lohnt sich die Übung, nur eben nach den ersten vier Punkten.
+  </p>
+  <p>
+    <strong>Übung:</strong> Leg die Zungenspitze leicht an oder zwischen die Zähne und lass Luft durchströmen. Sag <em>sin / thin</em>, <em>day / they</em>, dann <em>I think that's the third thing.</em>
+  </p>
+
+  <h2>Und die Satzmelodie?</h2>
+  <p>
+    Sie steht bewusst nicht in der Tabelle. Dass Deutsche im Englischen monoton klingen, liest man oft, die Belege sind aber älter und beruhen eher auf Eindrücken. Bei Mennen und Kollegen lag der Tonumfang von Lernenden beim Vorlesen oft im passenden Bereich. Besser belegt ist etwas anderes: Deutschsprachige formulieren Bitten oft direkter als Englischsprachige und mildern sie mit anderen Mitteln ab. <em>I need the report today</em> kann härter ankommen, als du es meinst. <em>Could you send me the report today?</em> kostet dich kaum mehr Zeit.
+  </p>
+
+  <h2>So baust du dein Training auf</h2>
+  <p>
+    Fünf Minuten am Tag reichen für den Anfang. Nimm immer nur einen Punkt aus der Tabelle, bis er in Sätzen sitzt und nicht nur in Wortpaaren. Rechne damit, dass der alte Laut zurückkommt, sobald du schnell oder nervös sprichst.
+  </p>
+  <p>
+    Einmal pro Woche sprichst du dieselben zehn Wörter und denselben Absatz ein und vergleichst sie mit deiner Aufnahme vom Vormonat. Von Tag zu Tag hörst du den Unterschied kaum. Deshalb habe ich Vocele so gebaut: Die App markiert falsche Wörter direkt in deinem eigenen Satz, damit du siehst, wo es hakt, und bewertet die Aussprache Wort für Wort. Wichtiger als der Wert ist mir aber sein Verlauf. Eine einzelne Zahl ist nur ein Urteil. Erst der Verlauf über mehrere Wochen zeigt dir, ob dein Training wirkt.
+  </p>
+  <p>
+    Verstummst du im Gespräch eher ganz, liegt es vermutlich nicht an den Lauten. Dann lies zuerst, <a href="/de/blog/englisch-verstehen-aber-nicht-sprechen">warum du Englisch verstehen, aber nicht sprechen kannst</a>.
+  </p>
+
+  <h2>Was Vocele dabei übernimmt</h2>
+  <p>
+    Im Aussprachetraining von Vocele bekommst du für jedes Wort einen Wert, eine Analyse der einzelnen Laute und Übungen mit ganzen Phrasen. Deine Werte bleiben über Wochen gespeichert, du siehst also deinen Verlauf. Auch im Gespräch mit den Coaches Luna und Lorenzo kannst du bei jeder deiner gesprochenen Antworten die Aussprache prüfen lassen. So testest du <em>bed</em> dort, wo der alte Laut zurückkommt: mitten im Satz.
+  </p>
+  <p>
+    Ein guter Lehrer sieht dir allerdings auf den Mund und zeigt dir, was schiefläuft. Das kann keine Punktzahl. Dafür kosten acht Einzelstunden im Monat bei einer Online-Sprachschule nach meiner Rechnung etwa {tutorRange}. Vocele läuft nur auf dem iPhone und ist noch nicht im App Store. Core kostet {core}, Fluency {fluency} und Meta {meta} im Monat, jeweils mit einer dreitägigen kostenlosen Testphase. Core enthält 30 Aussprache-Minuten im Monat. Alles Weitere steht auf der <a href="/de/pricing">Preisseite</a>.
+  </p>
+</ArticleLayout>

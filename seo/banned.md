@@ -44,8 +44,7 @@ Read the first sentence of every paragraph in a row. If they sound like one voic
 ## Vocele-specific (guardrails, not style)
 - **duolingo** — never name it, never compare against it. The comparison set is human tutors ($200–320/mo).
 - **90-day guarantee / 90-day roadmap / money-back** — no product mechanism exists (spec 020 blocked).
-- **"learn Arabic"** — interface locale only, and unlike the others it has no content shelf and no
-  bundled UI locale (RTL is unshipped). Learnable languages are es en fr de it pt ja **ru pl**.
+- **"learn Arabic"** — interface locale only, with no content shelf. Learnable languages are es en fr de it pt ja **ru pl**.
   ⚠️ **This line used to ban "learn Russian" and "learn Polish" too, and it outlived its reason
   by months.** Both became learnable on 2026-09-21: each carries 100 stories spanning A1–C2, 30
   word sets, 50 grammar rules and a complete assessment bank. The ban was correct when written

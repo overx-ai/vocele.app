@@ -1,0 +1,123 @@
+---
+import ArticleLayout from '../../../layouts/ArticleLayout.astro';
+import { PRICES } from '../../../data/prices';
+
+const { core } = PRICES.pt.display;
+
+const faq = [
+  {
+    q: 'Quais são as regras de pronúncia do -ed?',
+    a: 'Olhe o último som do verbo, e não a letra. Nos verbos regulares, depois de t ou d, o -ed vira /ɪd/, com sílaba extra (wanted). Depois de consoante surda, como p, k, f ou s, vira /t/ (stopped). Depois de consoante sonora ou vogal, vira /d/ (played).',
+  },
+  {
+    q: 'Todo verbo com -ed ganha uma sílaba a mais?',
+    a: 'Não. A sílaba extra só aparece quando o verbo termina em som de t ou d, como wanted e needed. Worked, played e called continuam com uma sílaba só.',
+  },
+  {
+    q: 'Por que o brasileiro coloca um "i" no fim das palavras em inglês?',
+    a: 'Porque o português brasileiro prefere sílabas de consoante e vogal, como ca-sa, e, fora empréstimos, não tem palavras terminadas em p, t, k ou f. A vogal extra aparece até no português, como em "rit[i]mo". Ela também nem sempre soa como um i.',
+  },
+  {
+    q: 'Como saber se uma consoante é surda ou sonora?',
+    a: 'Coloque a mão na garganta e faça o último som do verbo, sem vogal nenhuma depois. Compare sss com zzz. Se vibrar, é sonora e o -ed vira /d/. Se não vibrar, é surda e o -ed vira /t/. Se o verbo terminar em som de t ou d, a regra é outra: /ɪd/.',
+  },
+  {
+    q: 'Errar o -ed atrapalha a comunicação?',
+    a: 'Quase sempre dá para entender pelo contexto. O problema mais sério é engolir o som final, porque "I walked every day" vira "I walk every day", que soa como presente. A sílaba extra em "walked" raramente confunde.',
+  },
+];
+---
+<ArticleLayout slug="blog/pronuncia-do-ed-em-ingles" faq={faq}>
+  <p>
+    <strong>Resposta curta:</strong> nos verbos regulares, a pronúncia do -ed em inglês muda conforme o som final do verbo. Tem som de /t/ depois de consoante surda (worked), de /d/ depois de consoante sonora ou vogal (played) e de /ɪd/, com sílaba extra, só depois de som de t ou d (wanted). Nos outros casos, não cria sílaba: worked tem uma só.
+  </p>
+
+  <p>
+    A regra cabe em três linhas e qualquer página de gramática ensina. Difícil é entender por que o brasileiro sabe a regra e mesmo assim diz "uârkiti" ou "uârkitchi". Esse erro vem do português, e dá para ver o mesmo mecanismo na sua própria fala em palavras como "ritmo" e "advogado".
+  </p>
+
+  <h2>Os três sons do -ed</h2>
+  <p>Olhe para o último som do verbo antes do -ed. A letra escrita engana.</p>
+  <table>
+    <thead><tr><th>O verbo termina em</th><th>O -ed soa</th><th>Exemplos</th><th>Sílabas</th></tr></thead>
+    <tbody>
+      <tr><td>Som de t ou d</td><td>/ɪd/</td><td>wanted, needed, started</td><td>uma a mais</td></tr>
+      <tr><td>Consoante surda: p, k, f, s, sh (washed), ch (watched), x (fixed)</td><td>/t/</td><td>stopped, walked, laughed</td><td>nenhuma a mais</td></tr>
+      <tr><td>Consoante sonora ou vogal: b, g, v, z, m, n, l, r, ng (belonged), dj (changed)</td><td>/d/</td><td>played, lived, called</td><td>nenhuma a mais</td></tr>
+    </tbody>
+  </table>
+  <p>
+    Para separar surda de sonora, coloque a mão na garganta e compare sss com zzz, depois fff com vvv. Se vibrar, é sonora. Se não vibrar, é surda. Faça só o som da consoante, sem vogal: em "kê", quem vibra é o ê. Cuidado com a escrita: <em>laugh</em> termina em som de f, embora se escreva com gh, e o s de <em>closed</em> e <em>raised</em> soa como z, então o -ed vira /d/.
+  </p>
+
+  <h2>Por que o brasileiro acrescenta uma vogal</h2>
+  <p>
+    O português brasileiro prefere sílabas de consoante e vogal, como ca-sa e bo-ne-ca. Quando se encontram duas consoantes que o português não costuma juntar, muita gente solta uma vogal entre elas sem perceber: "rit[i]mo", "ad[i]vogado",
+    "op[i]ção". Os linguistas chamam isso de epêntese, e o <a href="https://periodicos.apps.uern.br/index.php/RCOL/article/download/139/99/270">artigo de Silva e Barboza (2017)</a> reúne esses exemplos. Os autores lembram que o português não tem palavras terminadas em p, t, k ou f. A exceção são os empréstimos, como internet, que muita gente fala "interneti".
+  </p>
+  <p>
+    Agora olhe para <em>worked</em>. A palavra termina em /kt/, duas consoantes sem vogal nenhuma
+    depois. A boca brasileira resolve do jeito que conhece: "uârk[i]t[i]".
+    Em vários falares do Brasil ainda entra um segundo efeito, porque o t antes de [i] vira tch,
+    como em "tia". Pronto, <em>worked</em> virou "uârkitchi". Em <em>played</em>, o mesmo acontece com o d: "plêidji". O certo é "uârkt" e "plêid".
+  </p>
+  <p>
+    Isso diminui conforme o nível sobe. Silva e Barboza gravaram aprendizes do Rio Grande do Norte lendo
+    15 palavras terminadas em som de consoante, e a vogal extra apareceu em 20% dos casos no nível A2 e em 5,9% no B1. Foram 270 ocorrências analisadas, nenhuma delas de verbo em -ed, então o número serve só como pista. Os autores também observam que essa vogal nem sempre soa como um i: pode ficar parecida com um e ou com uma vogal neutra.
+  </p>
+
+  <h2>Os três erros que aparecem na fala</h2>
+  <h3>A sílaba fantasma</h3>
+  <p>
+    Você lê a palavra como está escrita: "uól-ked", "stó-ped". O certo é "uókt" e "stópt". Em <em>walked</em> e
+    <em>stopped</em> o -ed não forma sílaba nova. A correção é fechar a palavra no som de t.
+  </p>
+  <h3>O i no final</h3>
+  <p>
+    O miolo da palavra até sai certo, mas ela termina numa vogal que não existe, e isso já é uma sílaba a mais. Treine parar na consoante, com a língua parada no céu da boca, logo atrás dos dentes de cima, sem soltar vogal depois. Se a próxima palavra começar com vogal, o som final gruda nela: <em>talked about</em> soa como "tók-tabaut".
+  </p>
+  <h3>O som que some</h3>
+  <p>
+    Muita gente corta o final, e <em>"I walked every day"</em> vira <em>"I walk every day"</em>. Esse é o erro que mais atrapalha quem ouve, porque a frase perde a marca de passado.
+  </p>
+
+  <h2>Um treino de cinco minutos, contando nos dedos</h2>
+  <p>
+    Fale cada frase em voz alta e conte as sílabas do verbo nos dedos. Se contar a mais, a vogal
+    entrou. Grave e ouça depois, porque ao vivo a gente se engana.
+  </p>
+  <table>
+    <thead><tr><th>Frase</th><th>Som do -ed</th><th>Sílabas do verbo</th></tr></thead>
+    <tbody>
+      <tr><td>I worked hard yesterday.</td><td>/t/</td><td>1</td></tr>
+      <tr><td>We talked about it.</td><td>/t/</td><td>1</td></tr>
+      <tr><td>She called me back.</td><td>/d/</td><td>1</td></tr>
+      <tr><td>They moved out of Recife.</td><td>/d/</td><td>1</td></tr>
+      <tr><td>We needed more time.</td><td>/ɪd/</td><td>2</td></tr>
+      <tr><td>I started at nine.</td><td>/ɪd/</td><td>2</td></tr>
+    </tbody>
+  </table>
+  <p>
+    Comece devagar e aumente a velocidade só quando a conta bater. O teste de verdade é uma frase
+    sua, sobre o seu dia, dita sem olhar para a tabela. É aí que a vogal volta. E, se o seu maior problema é a frase inteira que não sai, leia
+    <a href="/pt/blog/entendo-ingles-mas-nao-consigo-falar">por que você entende inglês, mas não consegue falar</a>.
+  </p>
+
+  <h2>Saber a regra não basta: aprendi isso em português</h2>
+  <p>
+    Vi isso acontecer no meu próprio app. O Vocele em português não tinha um único "você" em 2.305 textos. Ele falava com o leitor no tratamento formal de Portugal, enquanto o texto preparado para a App Store no Brasil usava "você" 11 vezes. Refiz 429 textos para o português do Brasil. Dava para entender tudo, mas não soava brasileiro.
+  </p>
+  <p>
+    Com o -ed acontece algo parecido. A regra das três linhas você aprende hoje, mas soar natural depende do que sai quando você está com pressa, e isso só aparece na prática. Por isso acho que o histórico vale mais do que a nota: uma nota só diz como foi hoje, e o histórico mostra se você está melhorando.
+  </p>
+
+  <h2>Onde o Vocele entra nesse treino</h2>
+  <p>
+    Quando for lançado, o Vocele vai ser um treinador de idiomas com IA para iPhone. Na parte de sotaque, cada palavra vai receber uma nota de pronúncia, com diagnóstico por som, exercícios com frases e histórico ao longo das semanas. Conversando com a Luna ou o Lorenzo, você também vai poder pedir para checar a pronúncia de qualquer coisa que disser.
+  </p>
+  <p>
+    O app ainda não está na App Store, então não tenho dados de alunos sobre o -ed para mostrar.
+    Contas gratuitas vão poder testar com acesso limitado, e o que está incluído aparece no próprio app. Os planos pagos vão começar em {core} por mês, com 3 dias de teste grátis: veja a
+    <a href="/pt/pricing">página de preços</a>.
+  </p>
+</ArticleLayout>

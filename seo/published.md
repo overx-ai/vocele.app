@@ -30,6 +30,22 @@ Maintained by `/seo write` (append) and `/seo review` (verdict column). Site liv
 | / | | 63 | 1.6% | 3.3 | learn | brand query `vocele` (49 impr, pos 1.9) carries it |
 | /es | | 16 | 6.3% | 2.8 | learn | brand |
 | /faq | | 24 | 0% | 6.1 | hold | — |
+| /ru/blog/ponimayu-anglijskij-no-ne-mogu-govorit | ru | понимаю английский, но не могу говорить | A | 2026-11-04 | | | | | | judge passed, no native read yet |
+| /ru/blog/kak-ubrat-akcent-v-anglijskom | ru | как убрать акцент в английском | B | 2026-11-04 | | | | | | judge passed, no native read yet |
+| /pl/blog/jak-przelamac-bariere-jezykowa | pl | jak przełamać barierę językową | A | 2026-11-04 | | | | | | judge passed, no native read yet |
+| /pl/blog/polski-akcent-w-angielskim | pl | polski akcent w angielskim | B | 2026-11-04 | | | | | | judge passed, no native read yet |
+| /pt/blog/entendo-ingles-mas-nao-consigo-falar | pt | entendo inglês mas não consigo falar | A | 2026-11-04 | | | | | | judge passed, no native read yet |
+| /pt/blog/pronuncia-do-ed-em-ingles | pt | pronúncia do ed em inglês | B | 2026-11-04 | | | | | | judge passed, no native read yet |
+| /de/blog/englisch-verstehen-aber-nicht-sprechen | de | englisch verstehen aber nicht sprechen | A | 2026-11-04 | | | | | | judge passed, no native read yet |
+| /de/blog/englische-aussprache-verbessern | de | englische aussprache verbessern | B | 2026-11-04 | | | | | | judge passed, no native read yet |
+| /fr/blog/je-comprends-l-anglais-mais-je-n-arrive-pas-a-parler | fr | je comprends l'anglais mais je n'arrive pas à parler | A | 2026-11-04 | | | | | | judge passed, no native read yet |
+| /fr/blog/perdre-son-accent-francais-en-anglais | fr | perdre son accent français en anglais | B | 2026-11-04 | | | | | | judge passed, no native read yet |
+| /it/blog/capisco-inglese-ma-non-riesco-a-parlare | it | capisco l'inglese ma non riesco a parlare | A | 2026-11-04 | | | | | | judge passed, no native read yet |
+| /it/blog/errori-pronuncia-inglese-italiani | it | errori di pronuncia inglese degli italiani | B | 2026-11-04 | | | | | | judge passed, no native read yet |
+| /ja/blog/eigo-kikitoreru-kedo-hanasenai | ja | 英語 聞き取れるけど話せない | A | 2026-11-04 | | | | | | judge passed, no native read yet |
+| /ja/blog/l-to-r-no-hatsuon | ja | lとrの発音 | B | 2026-11-04 | | | | | | judge passed, no native read yet |
+| /ar/blog/afham-alinjliziya-wala-astatie-altahadduth | ar | لماذا افهم الانجليزي ولكن لا استطيع التحدث بطلاقة | A | 2026-11-04 | | | | | | judge passed, no native read yet |
+| /ar/blog/alfarq-bayn-p-wa-b-fi-alnutq | ar | الفرق بين p و b في النطق | B | 2026-11-04 | | | | | | judge passed, no native read yet |
 
 ## Open issues found in review (2026-10-09)
 

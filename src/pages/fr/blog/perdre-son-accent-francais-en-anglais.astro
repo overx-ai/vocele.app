@@ -1,0 +1,143 @@
+---
+import ArticleLayout from '../../../layouts/ArticleLayout.astro';
+import { PRICES } from '../../../data/prices';
+
+const faq = [
+  {
+    q: 'Peut-on perdre complètement son accent français en anglais ?',
+    a: 'Personne ne peut te le promettre, et ce n’est pas nécessaire pour te faire comprendre. Vise d’abord une prononciation claire, puis décide si le reste vaut l’effort pour toi.',
+  },
+  {
+    q: 'Comment savoir si mon accent gêne vraiment ?',
+    a: 'Regarde ce que les gens te font répéter. S’ils te font toujours reprendre les mêmes mots, tu tiens ta liste. Tu peux aussi t’enregistrer, ou faire noter ta prononciation mot par mot et chercher les sons qui reviennent.',
+  },
+  {
+    q: 'Accent britannique ou américain, lequel choisir ?',
+    a: 'Celui que tu entends le plus, ou celui des gens avec qui tu travailles. Les priorités de cet article valent pour les deux. Évite surtout de changer de modèle chaque mois : tu y perdrais tes repères.',
+  },
+  {
+    q: 'Regarder des séries en VO améliore-t-il l’accent ?',
+    a: 'Ça aide ton oreille, pas directement ta bouche. Pour que ça serve vraiment, reprends une courte réplique, répète-la à voix haute en imitant la mélodie, enregistre-toi et compare. Sans cette étape, tu restes spectateur.',
+  },
+  {
+    q: 'Est-ce grave de dire « ze » à la place de « the » ?',
+    a: 'Rarement. Le contexte suffit presque toujours, et ce son figure parmi ceux que Jennifer Jenkins juge secondaires entre locuteurs non natifs. Tu peux l’apprendre vite si ça te tient à cœur, mais après le H et les voyelles.',
+  },
+];
+
+const { core } = PRICES.fr.display;
+---
+<ArticleLayout slug="blog/perdre-son-accent-francais-en-anglais" faq={faq}>
+  <p>
+    <strong>Réponse courte :</strong> tu n’as pas besoin de perdre ton accent français pour te faire comprendre en anglais. Corrige d’abord ce qui change le sens : le H, le i court et le i long, les P, T, K soufflés, puis l’accent tonique. Le TH et le rythme peuvent attendre. Un accent marqué ne te rend pas forcément incompréhensible.
+  </p>
+
+  <p>
+    Je construis une appli qui note ta prononciation, j’aurais donc tout intérêt à te dire que ton accent est un problème. Je ne le pense pas. En travaillant sur Vocele, je me suis convaincu que c’est par l’accent que les gens se décident à s’y mettre : personne ne tape « partenaire de conversation IA », alors que beaucoup se demandent pourquoi leur accent s’entend autant. La question utile est plus étroite : quels sons empêchent l’autre de te comprendre ?
+  </p>
+
+  <p>
+    Les guides sur le sujet listent les sons difficiles pour un francophone, souvent le TH en tête. J’ai classé ces sons autrement, à partir de ce que la recherche dit de la compréhension. Le TH finit en bas de la liste.
+  </p>
+
+  <h2>Avoir un accent et être compris, ce sont deux choses</h2>
+  <p>
+    En 1995, <a href="https://doi.org/10.1111/j.1467-1770.1995.tb00963.x">Munro et Derwing</a> ont fait écouter à des anglophones des extraits d’apprenants sinophones. Des phrases jugées très accentuées restaient très compréhensibles. Leur conclusion : un fort accent étranger ne réduit pas forcément la compréhension. L’étude ne porte pas sur des Français, donc ça ne prouve rien pour toi, mais je ne vois pas pourquoi le principe ne s’appliquerait pas aux francophones.
+  </p>
+  <p>
+    En France, on part pourtant de l’idée inverse. Le <a href="https://www.cnesco.fr/wp-content/uploads/2023/10/Dossier-synthese-langues_Cnesco.pdf">Cnesco</a> parle d’un « syndrome très français du “modèle du locuteur natif” » et d’élèves qui ne s’autorisent plus à parler en imaginant « un accent parfait qui n’existe pas ». Le linguiste John Levis résume bien le problème dans <a href="https://periodicos.ufsc.br/index.php/desterro/article/download/102641/57892/402320">un entretien</a> : le critère du natif est très restrictif, et les natifs sont des « détectives de l’accent ». Ils te repèreront peut-être toujours. Ça ne veut pas dire qu’ils ne te comprennent pas.
+  </p>
+  <p>
+    Si ton objectif est de passer pour un natif, c’est ton droit, mais c’est un autre projet, bien plus long. Ici, je trie selon un seul critère : ce qui te fait répéter ta phrase.
+  </p>
+
+  <h2>Le classement, du plus gênant au moins gênant</h2>
+  <p>
+    Je m’appuie sur le noyau défini par la linguiste Jennifer Jenkins, la <a href="https://en.wikipedia.org/wiki/Lingua_Franca_Core">Lingua Franca Core</a>, qui sépare ce qui gêne la compréhension entre locuteurs non natifs de ce qui ne la gêne pas. Ce noyau garde le souffle des P, T, K, la longueur des voyelles, le mot fort de la phrase et presque toutes les consonnes, mais pas le TH. Il concerne des échanges entre non-natifs et il est discuté, donc l’ordre ci-dessous reste mon choix. Si tu parles surtout à des natifs, remonte l’accent tonique d’un cran.
+  </p>
+  <table>
+    <thead><tr><th>Priorité</th><th>Point à travailler</th><th>Ce qui peut arriver</th><th>Test rapide</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Le H</td><td><em>hungry</em> devient <em>angry</em></td><td><em>heat / eat</em></td></tr>
+      <tr><td>2</td><td>i court, i long</td><td><em>ship</em> et <em>sheep</em> se confondent</td><td><em>live / leave</em></td></tr>
+      <tr><td>3</td><td>P, T, K soufflés</td><td><em>pie</em> tire vers <em>buy</em></td><td>Une feuille devant la bouche</td></tr>
+      <tr><td>4</td><td>L’accent tonique</td><td>Le mot devient difficile à reconnaître</td><td><em>de-VE-lop</em>, pas <em>de-ve-LOP</em></td></tr>
+      <tr><td>5</td><td>Le R</td><td>Confusion possible avec le W</td><td><em>right / white</em></td></tr>
+      <tr><td>6</td><td>Le TH</td><td>Rarement grave</td><td><em>think / sink</em></td></tr>
+    </tbody>
+  </table>
+
+  <h2>1. Le H, le son que le français a perdu</h2>
+  <p>
+    Le français écrit le H sans le prononcer depuis des siècles : même le <a href="https://en.wikipedia.org/wiki/Aspirated_h">h aspiré</a> est muet aujourd’hui. L’anglais, lui, y tient. <a href="https://nupffale.ufsc.br/newsounds/Papers/22.John_Cardoso.pdf">John et Cardoso</a>, qui ont étudié des francophones canadiens, le qualifient de « très problématique » et décrivent deux erreurs : le H avalé (<em>I ’urt my ankle</em>) et le H ajouté là où il n’y en a pas (<em>I hurt my [h]ankle</em>). La seconde vient souvent quand on commence à corriger la première.
+  </p>
+  <p>
+    Entraîne-toi à souffler sur une vitre comme pour faire de la buée, sans bruit de gorge, puis enchaîne sur la voyelle : <em>hair</em>, <em>heat</em>, <em>hand</em>. Alterne ensuite avec les paires sans H : <em>air</em>, <em>eat</em>, <em>and</em>. Si tu ajoutes des H partout, ralentis.
+  </p>
+
+  <h2>2. Le i court et le i long</h2>
+  <p>
+    <a href="https://en.wikipedia.org/wiki/Non-native_pronunciations_of_English">Les francophones ont tendance</a> à ne pas distinguer le <em>i</em> de <em>ship</em> de celui de <em>sheep</em>. C’est logique : en français, <a href="https://en.wikipedia.org/wiki/French_phonology">la longueur des voyelles ne change pas le sens d’un mot</a>. En anglais, si. La longueur fait justement partie du noyau de Jenkins : la voyelle de <em>heat</em> doit rester plus longue que celle de <em>hit</em>.
+  </p>
+  <p>
+    Le i long dure, lèvres un peu étirées : <em>sheep</em>, <em>leave</em>, <em>seat</em>. Le i court est bref et relâché, la bouche presque au repos : <em>ship</em>, <em>live</em>, <em>sit</em>. Répète les paires en exagérant l’écart, sur la durée comme sur la tension des lèvres. Tu connais sûrement les deux mots qui font rire tout le monde quand le i sort trop court, <em>beach</em> et <em>sheet</em>. Bon exercice, et bonne motivation.
+  </p>
+
+  <h2>3. Les P, T, K qui soufflent</h2>
+  <p>
+    Ceux-là, les guides que j’ai lus n’en parlent pas. En français, <a href="https://en.wikipedia.org/wiki/French_phonology">/p, t, k/ ne sont généralement pas aspirés</a>. En anglais, ils lâchent un petit souffle au début d’un mot, et cette aspiration figure dans le noyau de Jenkins. Sans elle, ton P risque de passer pour un B.
+  </p>
+  <p>
+    Tiens une feuille de papier devant ta bouche et dis <em>pie</em>, <em>time</em>, <em>coat</em> : la feuille doit bouger. Avec <em>buy</em>, <em>dime</em>, <em>goat</em>, elle reste immobile. Une feuille de papier, dix secondes, et tu sais où tu en es.
+  </p>
+
+  <h2>4. L’accent tonique, là où le français te trahit</h2>
+  <p>
+    En français, l’accent tombe sur la dernière voyelle pleine et ne porte aucune information sur le sens. <a href="https://www.pallier.org/papers/DupouxPallierSebastianMehler1997.pdf">Dupoux et ses collègues</a> ont montré en 1997 que des francophones avaient nettement plus de mal que des hispanophones à distinguer des suites de syllabes qui ne diffèrent que par l’accent. L’expérience portait sur l’espagnol, mais elle aide à comprendre pourquoi tu ne l’entends pas toujours toi-même. Le Cnesco note chez les collégiens français des « déplacements systématiques d’accents sur la dernière syllabe des mots ».
+  </p>
+  <p>
+    Ici, je m’écarte de Jenkins, qui classe l’accent de mot parmi les traits secondaires. <a href="https://doi.org/10.2307/3588487">John Field</a> a testé des enregistrements où l’accent tonique était mal placé : la compréhension en souffre, chez les natifs comme chez les non-natifs, plus ou moins selon le sens du déplacement et le changement de voyelle. Je le garde donc dans les priorités. Méfie-toi surtout des mots transparents, que tu connais déjà avec l’accent français.
+  </p>
+  <p>
+    Prends <em>develop</em> : beaucoup de francophones disent <em>de-ve-LOP</em>, alors que c’est <em>de-VE-lop</em>. Pareil pour <em>COMF-ter-ble</em> ou <em>VEG-ta-ble</em>, où une syllabe disparaît presque. Et l’accent bouge avec le mot : <em>PHO-to-graph</em>, mais <em>pho-TO-gra-phy</em>. Quand tu apprends un mot long, cherche la syllabe forte dans le dictionnaire et tape-la du doigt sur la table en le disant. Fais la même chose avec le mot important de ta phrase : <em>I said TUESday, not Thursday</em>. Ce mot fort de la phrase, Jenkins le garde dans son noyau.
+  </p>
+
+  <h2>5. Le R anglais</h2>
+  <p>
+    Le R français se fait <a href="https://en.wikipedia.org/wiki/French_phonology">au fond de la gorge</a>, le R anglais avec la langue en l’air, sans toucher le palais. Les deux sont si éloignés que <a href="https://en.wikipedia.org/wiki/Non-native_pronunciations_of_English">des francophones prennent parfois le R anglais pour un W</a>. Arrondis un peu les lèvres, lève la langue vers le palais sans le toucher, recule-la légèrement, puis dis <em>right</em>, <em>road</em>, <em>red</em>, sans bruit de gorge.
+  </p>
+
+  <h2>6. Le TH, en dernier</h2>
+  <p>
+    <a href="https://en.wikipedia.org/wiki/Non-native_pronunciations_of_English">Le français n’a pas ces sons</a>. Le cliché veut que tu dises <em>sink</em> pour <em>think</em> et <em>ze</em> pour <em>the</em>. La réalité est moins nette : <a href="https://assta.org/proceedings/ICPhS2019Microsite/pdf/full-paper_543.pdf">Tyler et ses collègues</a> rappellent que les données sur la production restent rares. À l’écoute, leurs 151 participants français ont même classé le TH de <em>think</em> du côté du F.
+  </p>
+  <p>
+    Dans la liste de Jenkins, le TH est une exception : on peut le remplacer sans gêner. Levis, reprenant la chercheuse Tracey Derwing, le dit encore plus simplement : ça ne change pas grand-chose à la compréhension, si un élève y tient on le lui apprend, ça prend cinq minutes, mais on n’y passe pas une semaine. Je trouve cet ordre de grandeur juste. Voilà tes cinq minutes : pointe de la langue entre les dents, tu souffles sans couper l’air pour <em>think</em>, et tu ajoutes la voix pour <em>this</em>. Ensuite, retourne au H.
+  </p>
+  <h2>Et le rythme ?</h2>
+  <p>
+    Le rythme de l’anglais, avec ses syllabes écrasées, suit la même logique que le TH. Il rend ton anglais plus naturel, et Jenkins ne le compte pas parmi les priorités. Travaille-le si tu as le temps.
+  </p>
+
+  <h2>Comment t’entraîner sans y passer ta vie</h2>
+  <p>
+    Choisis un seul son par semaine. Prends cinq mots et une phrase où il revient, enregistre-toi, réécoute. Garde tes enregistrements et réécoute le premier un mois plus tard : rien de plus honnête pour mesurer tes progrès.
+  </p>
+  <p>
+    Le <em>shadowing</em>, très cité dans les guides, consiste à répéter une courte réplique en même temps qu’un natif. Je n’ai pas de preuve à te donner sur son efficacité. Pour moi, c’est un bon moyen de travailler la mélodie, à condition de réécouter ce que tu as produit.
+  </p>
+  <p>
+    C’est aussi pour ça que dans Vocele j’accorde plus d’importance à l’historique qu’à la note : une note isolée, c’est un verdict ; une tendance sur plusieurs semaines, c’est un coach. Si tes scores montent, tu sais que ton travail paie, même si un natif entend encore d’où tu viens. Même logique pour les corrections : l’appli surlignera les mots faux dans ta phrase, parce que voir où tu t’es trompé t’apprend plus, à mon sens, que lire la bonne version. Dans le même esprit, j’avais fait ajouter des pluies de confettis et des compteurs de points. Je les ai retirés : ils ne collaient pas à l’appli que je voulais.
+  </p>
+
+  <h2>Ce que fera Vocele</h2>
+  <p>
+    Vocele est un coach de langues par IA pour iPhone, pas encore sur l’App Store. Côté accent, l’appli notera ta prononciation mot par mot, descendra jusqu’au son qui pose problème et gardera l’historique de tes scores semaine après semaine. Tu pourras travailler des phrases ciblées, ou demander une vérification de prononciation sur une phrase dite pendant une conversation avec Luna ou Lorenzo, les coachs de l’appli. C’est celle-là que je préfère : à mon avis, un H correct à l’exercice disparaît dès que tu penses à ce que tu racontes.
+  </p>
+  <p>
+    La formule Core à {core} par mois comprendra 150 minutes de conversation et 30 minutes de prononciation. Les autres formules sont sur la <a href="/fr/pricing">page des tarifs</a>, et toutes auront 3 jours d’essai gratuit.
+  </p>
+  <p>
+    Si ton blocage, c’est de parler tout court, lis plutôt <a href="/fr/blog/je-comprends-l-anglais-mais-je-n-arrive-pas-a-parler">pourquoi tu comprends l’anglais sans arriver à le parler</a>. Un accent se corrige bien plus vite quand on parle déjà.
+  </p>
+</ArticleLayout>

@@ -1,0 +1,144 @@
+---
+import ArticleLayout from '../../../layouts/ArticleLayout.astro';
+import { PRICES, TUTOR } from '../../../data/prices';
+
+const { core, fluency, meta } = PRICES.de.display;
+const { tutorRange } = TUTOR.de;
+
+const faq = [
+  {
+    q: 'Warum kann ich Englisch verstehen, aber nicht sprechen?',
+    a: 'Beim Verstehen genügt es, ein Wort wiederzuerkennen. Beim Sprechen musst du es selbst abrufen, in einen Satz bauen und aussprechen, während jemand wartet. Das Erste hast du jahrelang trainiert, das Zweite kaum. Mit Talent hat das nichts zu tun.',
+  },
+  {
+    q: 'Wie aktiviere ich mein passives Englisch?',
+    a: 'Sag Wörter, die du nur wiedererkennst, laut in eigenen Sätzen. Nimm fünf Wörter aus einem Text, den du gerade verstanden hast, und bilde zu jedem zwei Sätze über deinen Alltag. Am nächsten Tag sagst du sie noch einmal, ohne nachzusehen.',
+  },
+  {
+    q: 'Was hilft gegen Sprechangst auf Englisch?',
+    a: 'Üb zuerst dort, wo ein Fehler nichts kostet, und erhöhe die Hürde langsam: allein laut, dann mit einer App oder einem Lehrer, dann im echten Gespräch. Leg dir zwei, drei Sätze zurecht, die dir Zeit verschaffen. Schränkt dich die Angst im Alltag stark ein, hol dir psychotherapeutische Hilfe.',
+  },
+  {
+    q: 'Wie lange dauert es, bis ich flüssig Englisch spreche?',
+    a: 'Eine seriöse Zahl gibt es nicht. Es hängt von deinem Startpunkt ab und davon, wie oft du frei sprichst und korrigiert wirst. Messen kannst du trotzdem etwas: Stockst du bei derselben Aufgabe heute seltener als vor vier Wochen?',
+  },
+  {
+    q: 'Kann ich Englischsprechen ohne Partner üben?',
+    a: 'Ja. Beschreibe laut deinen Tag, nimm dich auf und hör dir die Aufnahme an, oder sprich mit einem KI-Coach, der deine Fehler markiert. Der Moment, in dem ein echter Mensch auf deine Antwort wartet, fehlt dabei. Den holst du dir später dazu.',
+  },
+];
+---
+<ArticleLayout slug="blog/englisch-verstehen-aber-nicht-sprechen" faq={faq}>
+  <p>
+    <strong>Kurze Antwort:</strong> Du kannst Englisch verstehen, aber nicht sprechen, weil beides getrennte Fähigkeiten sind. Verstehen hast du über Jahre mit Lesen, Hören und Serien trainiert, freies Sprechen kaum. Dazu kommen Lücken beim Abrufen der Wörter und oft die Angst vor Fehlern. Besser wird es durch tägliches lautes Sprechen mit Korrektur.
+  </p>
+
+  <p>
+    Die Lücke lässt sich sogar beziffern. Im EF English Proficiency Index 2025 steht Deutschland weltweit auf Platz 4, mit 623 Punkten im Lesen und 609 im Hören. Im Schreiben sind es 564, im Sprechen 521, der schwächste der vier Werte. Der Test stammt von einem Sprachanbieter, die Zahlen sind also mit Vorsicht zu genießen. Das Muster dürfte dir trotzdem bekannt vorkommen.
+  </p>
+
+  <p>
+    Ich entwickle Vocele, eine App zum Englischsprechen, und bin deshalb nicht neutral. Die Erklärung hat trotzdem wenig mit der App zu tun: Die Lücke beginnt in der Schule.
+  </p>
+
+  <h2>Woher die Lücke kommt: dein Englischunterricht</h2>
+  <p>
+    Englisch war für dich vermutlich über viele Jahre Schulfach. Schon 2005 gab es in fast allen Bundesländern Fremdsprachenunterricht ab Klasse 3 oder früher. Entscheidend ist aber, wie viel du selbst gesprochen hast.
+  </p>
+  <p>
+    Die DESI-Studie hat das in 105 neunten Klassen per Video gemessen. Der Lehrer sprach im Schnitt doppelt so viel wie alle Schüler zusammen. Frei formuliert haben die Jugendlichen in 11 Prozent der Unterrichtszeit, und ein Drittel dieser Äußerungen bestand aus einem einzigen Wort. Die Lehrer selbst schätzten ihren Anteil deutlich niedriger ein, als er war.
+  </p>
+  <p>
+    Die Daten sind rund 20 Jahre alt, und heutiger Unterricht kann anders aussehen. Wenn du schon länger aus der Schule bist, dürfte dein Unterricht aber ähnlich ausgesehen haben: Der Lehrer redete, du kamst selten zu eigenen Sätzen. Durch Serien, Arbeit und Internet hast du beim Verstehen danach weiter zugelegt. Beim Sprechen bist du ungefähr dort stehen geblieben.
+  </p>
+
+  <h2>Drei Ursachen, drei kurze Tests</h2>
+  <p>
+    Hinter „Ich kann nicht sprechen“ stecken mehrere Probleme, und jedes braucht eine andere Übung. Die drei Tests sind meine eigene Sortierhilfe, wissenschaftlich geprüft sind sie nicht. Zehn Minuten reichen.
+  </p>
+  <table>
+    <thead><tr><th>Test</th><th>Ergebnis</th><th>Was dahintersteckt</th></tr></thead>
+    <tbody>
+      <tr>
+        <td>Erzähl allein im Zimmer eine Minute lang laut auf Englisch, was du gestern gemacht hast. Erzähl es danach jemandem, den du kennst.</td>
+        <td>Allein läuft es, vor jemand anderem stockst du.</td>
+        <td>Sprechhemmung. Das Englisch ist da, die Situation blockiert es.</td>
+      </tr>
+      <tr>
+        <td>Schreib zwei Minuten lang über deinen Job. Sag danach dasselbe laut, ohne hinzuschauen.</td>
+        <td>Schriftlich geht es, mündlich stockt es.</td>
+        <td>Tempo. Du weißt, wie es geht, aber es läuft noch nicht automatisch.</td>
+      </tr>
+      <tr>
+        <td>Unterstreiche in einem englischen Text zehn Wörter, die du verstehst. Bilde mit jedem einen Satz.</td>
+        <td>Bei vielen fällt dir kein Satz ein.</td>
+        <td>Passiver Wortschatz. Du erkennst die Wörter, kannst sie aber nicht abrufen.</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>
+    Für die dritte Ursache gibt es einen klaren Befund: In einer Studie von Stuart Webb war der rezeptive Wortschatz der Lernenden größer als der produktive, und bei selteneren Wörtern wurde der Abstand noch größer. Treffen bei dir mehrere Ergebnisse zu, fang mit dem an, was dich im Alltag am meisten bremst.
+  </p>
+
+  <h2>Warum die Angst so viel ausmacht</h2>
+  <p>
+    Als ich aufgeschrieben habe, für wen Vocele sein soll, habe ich als Hauptproblem Scham notiert, nicht Grammatik: jemand verstummt im Team-Meeting, ein Elternteil lässt das eigene Kind für sich übersetzen. Im Deutschen gibt es dafür viele Wörter, von Sprechhemmung bis Sprachblockade.
+  </p>
+  <p>
+    In der bekannten Arbeit von Horwitz, Horwitz und Cope aus dem Jahr 1986 stimmten 49 Prozent von 75 US-Studierenden dem Satz zu, dass sie in Panik geraten, wenn sie im Sprachkurs unvorbereitet sprechen sollen. Ein Grund ist laut der Studie die Sorge, wie man auf andere wirkt. Für mich heißt das: Grammatikübungen ändern daran wenig. Du brauchst viele Sprechversuche, bei denen ein Fehler keine Folgen hat.
+  </p>
+
+  <h2>Warum noch mehr Serien nicht reichen</h2>
+  <p>
+    Serien auf Englisch schaden nie, aber sie trainieren das, was du schon kannst. Die Linguistin Merrill Swain hat das an Schülern im Immersionsunterricht beobachtet: Beim Verstehen erreichten sie muttersprachliches Niveau, beim Sprechen machten sie weiter Fehler. Ihre Erklärung: Sie mussten im Unterricht selten eigene Sätze bilden, und ihre Fehler wurden kaum systematisch korrigiert. In deinem Unterricht war es beim Sprechen vermutlich ähnlich: wenig eigene Sätze, wenig gezielte Korrektur.
+  </p>
+
+  <h2>Was du ab morgen anders machen kannst</h2>
+
+  <h3>1. Sprich jeden Tag ein paar Minuten laut</h3>
+  <p>
+    Fünf Minuten täglich bringen dir meiner Meinung nach mehr als anderthalb Stunden am Sonntag, denn fürs Sprechen zählt, wie oft du es tust. Beschreib deinen Tag, fass eine Serienfolge zusammen, erklär einer erfundenen Kollegin deinen Job. Hauptsache, es kommen ganze Sätze aus deinem Mund.
+  </p>
+
+  <h3>2. Leg dir Sätze für deinen Alltag zurecht</h3>
+  <p>
+    Fertige Sätze musst du nicht erst aus Einzelteilen bauen. Sammle die, die du wirklich brauchst, und sag sie laut, bis sie von allein kommen. Drei davon verschaffen dir in jedem Gespräch Zeit: <em>Let me think about that for a second.</em> <em>Could you say that again, please?</em> <em>What I'm trying to say is …</em>
+  </p>
+  <p>
+    Unter Druck fällst du außerdem ins Deutsche zurück, und dann rutschen Wörter durch, die nur nach Englisch aussehen. <em>Handy</em> und <em>Beamer</em> sind Scheinanglizismen: Im Englischen sagst du <em>phone</em> und <em>projector</em>. Und <em>become</em> heißt „werden“, nicht „bekommen“. Im Gespräch fehlt die Zeit, darüber nachzudenken. Deshalb musst du den richtigen Satz vorher oft genug gesagt haben.
+  </p>
+
+  <h3>3. Lass dich an der Stelle korrigieren, an der es schiefging</h3>
+  <p>
+    Wenn du <em>I become a coffee</em> sagst und nur den richtigen Satz zurückbekommst, weißt du nicht, welches Wort falsch war. Bei Vocele habe ich mich deshalb gegen eine eigene Korrekturkarte entschieden. Die falschen Wörter werden direkt in deinem eigenen Satz markiert, die Korrektur steht darunter. So siehst du, wo der Fehler sitzt, und ich glaube, das bleibt besser hängen als die fertige Lösung. Bei einem Lehrer oder Tandempartner kannst du genauso darum bitten: <em>Please tell me which word was wrong.</em>
+  </p>
+
+  <h3>4. Üb genau das Gespräch, vor dem du Respekt hast</h3>
+  <p>
+    Macht dir das Meeting am Montag Sorgen, dann üb das Meeting am Montag: dein Update, eine Rückfrage, den Moment, in dem du etwas nicht verstanden hast. Beim Telefonat mit der Kundin oder im Vorstellungsgespräch gilt dasselbe.
+  </p>
+
+  <h3>5. Miss deinen Fortschritt</h3>
+  <p>
+    Nimm dich einmal pro Woche mit dem Handy bei derselben Aufgabe auf: eine Minute über deinen Job. Zähl, wie oft du abbrichst. Die Blockade fällt dir nur auf, wenn sie da ist. Die Aufnahmen zeigen dir auch die guten Wochen.
+  </p>
+  <p>
+    Bleibst du beim Anhören an einzelnen Lauten hängen oder fragen andere oft nach, dann lies, <a href="/de/blog/englische-aussprache-verbessern">wie du deine englische Aussprache verbesserst und welche Fehler du zuerst angehen solltest</a>.
+  </p>
+
+  <h2>Privatlehrer oder App?</h2>
+  <p>
+    Einzelunterricht zweimal pro Woche kostet nach meiner Rechnung etwa {tutorRange} im Monat: acht Stunden zu 22,49 bis 36,99 €, so viel nimmt eine Online-Sprachschule für Einzelstunden. Dafür bekommst du einen Menschen, der wartet, nachfragt und merkt, wenn dir etwas unangenehm ist. Auch bei der Zeit liegt er vorn: Acht Stunden Unterricht sind 480 Minuten, der Vocele-Tarif Core enthält 150.
+  </p>
+  <p>
+    Vocele kostet dagegen einen Bruchteil, du brauchst keinen Termin, und niemand schaut dir zu, wenn ein Satz schiefgeht. Deshalb vergleiche ich die App bewusst mit dem Privatlehrer: Beim Preis gewinnt sie klar. Ein echtes Gespräch mit Menschen ersetzt sie nicht. Am meisten bringt oft beides: kurz und täglich mit der App üben, ab und zu mit einem Menschen sprechen.
+  </p>
+
+  <h2>Wie Vocele dabei helfen soll</h2>
+  <p>
+    Vocele ist ein KI-Sprachcoach fürs iPhone. Du sprichst per Stimme mit den Coaches Luna oder Lorenzo, und sie antworten laut. Es gibt drei Modi: mit voller Hilfestellung, nur mit Korrekturen oder immersiv. Das Thema gibst du selbst vor, also auch dein Meeting am Montag. Jedes Wort im Chat kannst du antippen, um die Bedeutung zu sehen. Nützliche Sätze speicherst du im Phrasenbuch, und die App legt sie dir in Abständen wieder vor. Grammatik wird dir auf Deutsch erklärt.
+  </p>
+  <p>
+    Die App ist noch nicht im App Store. Core kostet {core}, Fluency {fluency} und Meta {meta} im Monat, jeweils mit einer dreitägigen kostenlosen Testphase. Core enthält 150 Sprechminuten im Monat, also etwa fünf am Tag, Fluency 300, also etwa zehn. Alles Weitere steht auf der <a href="/de/pricing">Preisseite</a> und bei <a href="/de/fair-use">Nutzung und Fair Use</a>.
+  </p>
+</ArticleLayout>

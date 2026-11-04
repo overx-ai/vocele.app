@@ -53,7 +53,7 @@ Tutor ranges, read 2026-11-04. Each is about eight lessons a month, so a derived
 | Locale | Range | Basis | Sources |
 |--------|-------|-------|---------|
 | de | 180–295 € | 22.49-36.99 €/h, one online school | giga.de Lingoda prices, 2026-01-14; superprof.de adult average 22 €/h |
-| fr | 160–540 € | 20-60 €/h | acadomia.fr/tarifs; groupe-reussite.fr |
+| fr | 160–480 € | 20-60 €/h | acadomia.fr/tarifs; groupe-reussite.fr |
 | it | 120–200 € | 15-25 €/h online | cronoshare.it lezioni-inglese, 2026-01-07; superprof.it |
 | pl | 400–660 zł | 50-82.50 zł/h, middle 50% of 38,012 ads | e-korepetycje.net report 2026; wprost.pl |
 | pt | R$ 400–1.200 | R$ 50-150/h | cronoshare.com.br, 2026-01-09; getninjas.com.br |

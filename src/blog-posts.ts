@@ -155,6 +155,166 @@ export const BLOG_POSTS: BlogPost[] = [
     datePublished: '2026-11-02',
     category: { label: 'Comparison', gradient: 'learn' },
   },
+  {
+    slug: "blog/ponimayu-anglijskij-no-ne-mogu-govorit",
+    locale: 'ru',
+    title: "Понимаю английский, но не могу говорить: что делать",
+    cardTitle: "Понимаю, но не могу говорить",
+    description:
+      "Понимаю английский, но не могу говорить: трёхминутная проверка покажет, откуда берётся барьер (память, страх, скорость, произношение) и что с этим делать.",
+    datePublished: '2026-11-04',
+    category: { label: "Языковой барьер", gradient: 'talk' },
+  },
+  {
+    slug: "blog/kak-ubrat-akcent-v-anglijskom",
+    locale: 'ru',
+    title: "Как убрать акцент в английском: с чего начать",
+    cardTitle: "Как убрать акцент",
+    description:
+      "Как убрать акцент в английском: какие ошибки в произношении мешают вас понять, какие только слышны и как тренировать пары звуков от ship и sheep до th.",
+    datePublished: '2026-11-04',
+    category: { label: "Произношение", gradient: 'accent' },
+  },
+  {
+    slug: "blog/jak-przelamac-bariere-jezykowa",
+    locale: 'pl',
+    title: "Jak przełamać barierę językową, gdy rozumiesz angielski",
+    cardTitle: "Rozumiem po angielsku, ale nie mówię",
+    description:
+      "Rozumiem po angielsku, ale nie potrafię mówić: skąd ta blokada u Polaków, co pokazują dane i jak przełamać barierę językową codziennym mówieniem.",
+    datePublished: '2026-11-04',
+    category: { label: "Bariera językowa", gradient: 'talk' },
+  },
+  {
+    slug: "blog/polski-akcent-w-angielskim",
+    locale: 'pl',
+    title: "Polski akcent w angielskim: które błędy naprawdę szkodzą",
+    cardTitle: "Polski akcent: co poprawić najpierw",
+    description:
+      "Polski akcent w angielskim nie musi zniknąć. Co poprawić najpierw, żeby cię rozumiano: czytanie liter, -ing, akcent wyrazowy, samogłoski i końcówki słów.",
+    datePublished: '2026-11-04',
+    category: { label: "Wymowa", gradient: 'accent' },
+  },
+  {
+    slug: "blog/entendo-ingles-mas-nao-consigo-falar",
+    locale: 'pt',
+    title: "Entendo inglês, mas não consigo falar: por que você trava",
+    cardTitle: "Entendo inglês, mas não consigo falar",
+    description:
+      "Entende inglês, mas não consegue falar? O que acontece na hora em que você trava, o que os estudos mostram e o que ajuda de verdade.",
+    datePublished: '2026-11-04',
+    category: { label: "Confiança", gradient: 'talk' },
+  },
+  {
+    slug: "blog/pronuncia-do-ed-em-ingles",
+    locale: 'pt',
+    title: "Pronúncia do -ed em inglês: os 3 sons e o erro do brasileiro",
+    cardTitle: "Pronúncia do -ed em inglês",
+    description:
+      "Pronúncia do -ed em inglês: quando tem som de t, d ou id, por que o brasileiro acrescenta uma vogal no fim e um treino de cinco minutos para corrigir.",
+    datePublished: '2026-11-04',
+    category: { label: "Pronúncia", gradient: 'accent' },
+  },
+  {
+    slug: "blog/englisch-verstehen-aber-nicht-sprechen",
+    locale: 'de',
+    title: "Englisch verstehen, aber nicht sprechen: Woran es liegt",
+    cardTitle: "Englisch verstehen, aber nicht sprechen?",
+    description:
+      "Du verstehst Englisch, aber beim Sprechen ist alles weg? Warum das so ist, was die Schule damit zu tun hat und wie du mit drei Tests deine Ursache findest.",
+    datePublished: '2026-11-04',
+    category: { label: "Sprechen", gradient: 'talk' },
+  },
+  {
+    slug: "blog/englische-aussprache-verbessern",
+    locale: 'de',
+    title: "Englische Aussprache verbessern: Womit Deutsche anfangen",
+    cardTitle: "Englische Aussprache verbessern",
+    description:
+      "Englische Aussprache verbessern: Die typischen Fehler Deutscher, nach Wirkung sortiert. Warum du bei den Wortenden anfängst und das th warten kann, mit Übungen.",
+    datePublished: '2026-11-04',
+    category: { label: "Aussprache", gradient: 'accent' },
+  },
+  {
+    slug: "blog/je-comprends-l-anglais-mais-je-n-arrive-pas-a-parler",
+    locale: 'fr',
+    title: "Je comprends l’anglais mais je n’arrive pas à parler",
+    cardTitle: "Tu comprends l’anglais, mais tu bloques à l’oral ?",
+    description:
+      "Tu comprends l’anglais mais tu n’arrives pas à parler ? Pourquoi l’oral bloque, ce qui ne marche pas et six habitudes pour t’y mettre enfin.",
+    datePublished: '2026-11-04',
+    category: { label: "Confiance", gradient: 'talk' },
+  },
+  {
+    slug: "blog/perdre-son-accent-francais-en-anglais",
+    locale: 'fr',
+    title: "Perdre son accent français en anglais : par où commencer",
+    cardTitle: "Perdre son accent français : par où commencer",
+    description:
+      "Faut-il perdre son accent français en anglais ? Non. Voici les sons qui gênent vraiment la compréhension, ceux qui peuvent attendre et comment les travailler.",
+    datePublished: '2026-11-04',
+    category: { label: "Accent", gradient: 'accent' },
+  },
+  {
+    slug: "blog/capisco-inglese-ma-non-riesco-a-parlare",
+    locale: 'it',
+    title: "Capisco l'inglese ma non riesco a parlare: perché e che fare",
+    cardTitle: "Capisci l'inglese ma non lo parli?",
+    description:
+      "Capisci l'inglese ma non riesci a parlare? I dati italiani, la prova dei due minuti per trovare il tuo blocco e cosa fare per superarlo.",
+    datePublished: '2026-11-04',
+    category: { label: "Parlare", gradient: 'talk' },
+  },
+  {
+    slug: "blog/errori-pronuncia-inglese-italiani",
+    locale: 'it',
+    title: "Errori di pronuncia inglese degli italiani: quali correggere",
+    cardTitle: "Errori di pronuncia degli italiani",
+    description:
+      "Gli errori di pronuncia inglese degli italiani in ordine di peso: vocale finale, schwa, s sonora, th e h. Con dati misurati e coppie di parole.",
+    datePublished: '2026-11-04',
+    category: { label: "Pronuncia", gradient: 'accent' },
+  },
+  {
+    slug: "blog/eigo-kikitoreru-kedo-hanasenai",
+    locale: 'ja',
+    title: "英語が聞き取れるけど話せない理由と練習法",
+    cardTitle: "英語が聞き取れるけど話せない理由",
+    description:
+      "英語が聞き取れるけど話せないのは、聞く力と話す力が別の技能だからです。文部科学省の調査データ、日本人が文の出だしでつまずく理由、どこで止まっているかの確かめ方、毎日の練習法を紹介します。",
+    datePublished: '2026-11-04',
+    category: { label: "スピーキング", gradient: 'talk' },
+  },
+  {
+    slug: "blog/l-to-r-no-hatsuon",
+    locale: 'ja',
+    title: "LとRの発音の違い｜日本人がつまずく理由と舌の使い方",
+    cardTitle: "LとRの発音の違いと舌の使い方",
+    description:
+      "LとRの発音の違いは舌先にあります。日本語のラ行がどちらとも違う理由、Lは舌先をつけ、Rは舌先を上あごに触れさせない出し方、単語ペアでの練習、聞き分け訓練の研究結果まで、順番に説明します。",
+    datePublished: '2026-11-04',
+    category: { label: "発音", gradient: 'accent' },
+  },
+  {
+    slug: "blog/afham-alinjliziya-wala-astatie-altahadduth",
+    locale: 'ar',
+    title: "لماذا أفهم الإنجليزية ولا أستطيع التحدث بطلاقة؟",
+    cardTitle: "أفهم الإنجليزية ولا أستطيع التحدث",
+    description:
+      "تفهم الإنجليزية ويتعطل لسانك؟ جدول يحدد السبب عندك: الترجمة أو الخوف أو الكلمة أو الصوت، ولماذا لا يكفي الاستماع، وما الذي يضيّق الفارق.",
+    datePublished: '2026-11-04',
+    category: { label: "الثقة", gradient: 'talk' },
+  },
+  {
+    slug: "blog/alfarq-bayn-p-wa-b-fi-alnutq",
+    locale: 'ar',
+    title: "الفرق بين p و b في النطق: تدريب للناطقين بالعربية",
+    cardTitle: "الفرق بين p و b في النطق",
+    description:
+      "الفرق بين p و b في الأوتار الصوتية والنفخة. كيف تنطق p، ولماذا تحل الباء محله، واختبار المنديل وأين يخدعك، مع أزواج كلمات وجمل للتدريب.",
+    datePublished: '2026-11-04',
+    category: { label: "النطق", gradient: 'accent' },
+  },
 ];
 
 export const postsFor = (locale: Lang) => BLOG_POSTS.filter((p) => p.locale === locale);
