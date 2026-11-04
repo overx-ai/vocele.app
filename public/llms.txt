@@ -45,6 +45,20 @@ Español:
 - [Vocele vs Praktika](https://vocele.app/vs/praktika): honest feature and pricing comparison
 - [Vocele vs Fluently](https://vocele.app/vs/fluently): honest feature and pricing comparison
 
+## Other languages
+
+The home, pricing, FAQ and fair-use pages exist in each language below.
+
+- [Español](https://vocele.app/es)
+- [Русский](https://vocele.app/ru)
+- [Polski](https://vocele.app/pl)
+- [Português (Brasil)](https://vocele.app/pt)
+- [Deutsch](https://vocele.app/de)
+- [Français](https://vocele.app/fr)
+- [Italiano](https://vocele.app/it)
+- [日本語](https://vocele.app/ja)
+- [العربية](https://vocele.app/ar)
+
 ## Legal
 
 Vocele is operated by Yauheni Malashchytski, an individual entrepreneur (sole trader) in Belarus.

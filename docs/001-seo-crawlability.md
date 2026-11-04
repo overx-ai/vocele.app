@@ -9,15 +9,13 @@ rules that keep it that way. Read this before touching `BaseLayout.astro`,
 
 ## The one rule: `src/site-pages.ts` is the single source of truth
 
-Every route and whether it has a Spanish twin lives in **one** array:
+Every route and the locales it exists in live in **one** array:
 
 ```ts
 export const SITE_PAGES: SitePage[] = [
-  { slug: '',        translated: true  },  // '' = home
-  { slug: 'pricing', translated: true  },
-  { slug: 'faq',     translated: true  },
-  { slug: 'privacy', translated: false },  // English-only
-  { slug: 'terms',   translated: false },
+  { slug: '',        locales: LIVE_LANGS },    // '' = home, twins in all ten locales
+  { slug: 'pricing', locales: LIVE_LANGS },
+  { slug: 'privacy', locales: ['en'] },        // English-only
 ];
 ```
 
@@ -25,24 +23,20 @@ Two consumers read it, so they can never disagree:
 
 | Consumer | Uses it for |
 |---|---|
-| `src/layouts/BaseLayout.astro` | `hasTranslation(slug)` → whether to emit hreflang alternates |
+| `src/layouts/BaseLayout.astro` | `hasTwins(slug)` and `alternates(slug)` for hreflang |
 | `src/pages/sitemap.xml.ts` | generates `dist/sitemap.xml` at build (no `@astrojs/sitemap` — it crashed on astro@4.16) |
 
-**Single-locale pages** set `locale: 'en' | 'es'` (default `'en'`) on their
-`translated: false` entry so the sitemap lists them where they actually live —
-Spanish-only blog articles sit under `/es/` and would otherwise be listed at a
-404 English path.
+**Locales** are defined in `src/i18n/locales.ts`; `LIVE_LANGS` decides what is published. Core pages render from
+`src/views/`, with thin routes in `src/pages/` for en and `src/pages/[lang]/` for the rest.
 
-**Blog articles** are original per locale (never translations): each is
-self-canonical with **no** hreflang twin. They register once in
-`src/blog-posts.ts` (title/description/date/locale), which `site-pages.ts`
-appends to `SITE_PAGES` automatically — so an article can't be forgotten in the
-sitemap. `src/layouts/ArticleLayout.astro` reads the same entry and emits
-`BlogPosting` + `BreadcrumbList` (+ `FAQPage`) JSON-LD. The two blog index pages
-(`/blog`, `/es/blog`) ARE hreflang twins (slug `blog`, `translated: true`).
+**Blog articles** are original per locale (never translations): each is self-canonical with **no** hreflang twin. They
+register once in `src/blog-posts.ts`, which `site-pages.ts` appends to `SITE_PAGES`, so an article can't be forgotten in
+the sitemap. `src/layouts/ArticleLayout.astro` reads the same entry and emits `BlogPosting` + `BreadcrumbList`
+(+ `FAQPage`) JSON-LD. Blog index pages are hreflang twins only for locales with an article; a locale without one keeps
+a noindex page outside the sitemap.
 
-`enPath(slug)` / `esPath(slug)` also live here and are reused by `Header.astro`
-for the language switcher. Path logic exists in exactly one place.
+`localePath(lang, slug)` and `switchPath` also live here and drive the language menu. Path logic exists in exactly one
+place.
 
 ## What BaseLayout emits, and the gates
 
@@ -50,16 +44,16 @@ for the language switcher. Path logic exists in exactly one place.
 
 ```ts
 const indexable  = !noindex;                       // 404 sets noindex
-const translated = indexable && hasTranslation(slug);
+const translated = indexable && hasTwins(slug);
 ```
 
 | Signal | Gate | Notes |
 |---|---|---|
 | `<link rel="canonical">` (self, per-locale) | `indexable` | exactly one per page; 404 gets none |
-| `hreflang` en-US / es-MX / x-default | `translated` | English-only pages emit **zero** — never point hreflang at a nonexistent `/es/privacy` |
+| `hreflang` per locale + x-default | `translated` | English-only pages emit **zero** — never point hreflang at a nonexistent `/es/privacy` |
 | `og:locale:alternate` | `translated` | dropped on single-locale pages |
 | `robots` meta | always, if/else | `noindex,nofollow` on 404, else `index,follow,max-image-preview:large,max-snippet:-1` — never two robots tags |
-| `WebSite` JSON-LD | `slug==='' && indexable` | home pages only (Google site-name); both locales, correct `inLanguage` |
+| `WebSite` JSON-LD | `slug==='' && indexable` | home pages only (Google site-name); every locale, correct `inLanguage` |
 | `og:image` + width/height/alt | always | see coupling hazard below |
 
 Per-page JSON-LD (`Organization`, `SoftwareApplication`, `FAQPage`,

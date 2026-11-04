@@ -19,10 +19,12 @@ HTML. SEO/GEO is the entire point of this app. Full reference:
 - **Canonical URLs are non-trailing** (`/pricing`, `/es`). Never emit or link a
   trailing-slash internal URL (`/es/` etc.) — they 301.
 - **Blog articles are original per locale, never translations**: EN under
-  `/blog/<slug>`, es-MX under `/es/blog/<es-slug>`, each self-canonical with NO
-  hreflang twin. Content briefs + strategy live in [blog/](blog/INDEX.md).
-- Localization: no i18n library — `lang` prop + inline ternaries in components,
-  duplicated page trees (`src/pages/es/`). Stick to it.
+  `/blog/<slug>`, others under `/<lang>/blog/<native-slug>`, each self-canonical with NO
+  hreflang twin. A locale's blog index stays noindex until its first article. Content briefs + strategy live in [blog/](blog/INDEX.md).
+- Localization: no i18n library. Ten locales match the app's `LocalizationHelper.supportedLanguages`.
+  Copy lives in `src/i18n/<code>.ts`, typed by `en.ts`; pages render from one template in `src/views/`.
+  Add a locale with a copy file, a row in `src/i18n/locales.ts` and a code in `LIVE_LANGS`, plus its prices
+  and sourced tutor range in `src/data/prices.ts`. Never branch on `lang` in markup.
 
 ## Project-Specific Rules
 - **Design is "Bold Poster" — a deliberate divergence from the iOS app mirror.**
@@ -57,7 +59,7 @@ HTML. SEO/GEO is the entire point of this app. Full reference:
   `/privacy/<yyyy-mm>` (noindex, not in the sitemap), and it falls under every check like any other page.
 - Content guardrails (from ios-claude-hello ASO doc): never publish the 90-day
   guarantee; only 9 learnable languages (es en fr de it pt ja ru pl — never ar);
-  prices $14.99/$29.99/$49.99; sell against human tutors ($200–320/mo), never
+  prices come from `src/data/prices.ts` (real App Store monthly prices per store); sell against human tutors ($200–320/mo), never
   against Duolingo.
 
 ## Workflows
