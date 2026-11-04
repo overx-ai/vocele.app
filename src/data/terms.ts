@@ -148,16 +148,25 @@ export const TERMS: LegalDocument = {
         it shows you is an estimate for your own practice, not an academic credential, qualification or proof of
         proficiency for any employer, school or authority. It is not professional translation, and it is not legal,
         medical, financial, educational or immigration advice. We do not guarantee any learning result. Do not rely on
-        it where accuracy matters.</p>`,
+        it where accuracy matters.</p>
+        <p><strong>Everything Vocele generates belongs to us.</strong> As between you and us, the conversations,
+        corrections, translations, feedback, stories, exercises, audio, images and any other output the service
+        produces for you belong to us or our licensors, and you assign to us any rights you may have in it. We grant
+        you a personal, non-transferable, revocable licence to use that output for your own language learning,
+        including sharing it where the app offers that. Your own words stay yours, even where the output repeats
+        them.</p>`,
     },
     'your-content': {
       title: 'Your content',
       content: `
         <p>What you write and say in Vocele remains yours. You grant us a worldwide, non-exclusive, royalty-free
-        licence to host, store, transmit, transcribe, translate, analyse and display it, and to pass it to the service
-        providers described in our <a href="/privacy#recipients">Privacy Policy</a>, only to operate Vocele for you and
-        keep it secure. The licence ends when you delete the content or your account. We do not sell your content or
-        use it to advertise to you, and <strong>we do not use it to train AI models</strong>.</p>
+        licence, which we may sublicense to the service providers described in our
+        <a href="/privacy#recipients">Privacy Policy</a>, to host, store, reproduce, transmit, transcribe, translate,
+        analyse, adapt and display it, in order to operate, protect and improve Vocele. The licence ends when you
+        delete the content or your account, except for content anonymised so that it can no longer be linked to you,
+        and records the Privacy Policy says we keep. We do not sell your content or use it to advertise to you.
+        <strong>We do not use your voice recordings or anything that identifies you to train AI models.</strong> We may
+        use anonymised text to improve Vocele, including to train AI models.</p>
         <p>If you opt in to a feature that plays your takes to other learners, such as Arena duels or Week's Best, you
         also grant us a licence to show and play those takes to other learners in Vocele. It ends when you withdraw
         your consent or delete the take or your account, except for plays that have already happened.</p>
@@ -177,8 +186,8 @@ export const TERMS: LegalDocument = {
     'our-content': {
       title: 'Our content',
       content: `
-        <p>Vocele, its software, lessons, stories, word sets, audio, artwork and branding are ours or our licensors',
-        and are protected by copyright and other laws. We grant you a personal, revocable, non-transferable,
+        <p>Vocele, its software, lessons, stories, word sets, audio, artwork and branding, and the output described
+        in ${ref('ai-content')}, are ours or our licensors', and are protected by copyright and other laws. We grant you a personal, revocable, non-transferable,
         non-sublicensable licence to use the app on Apple devices you own or control, for the purposes these terms
         allow, and nothing more.</p>
         <p>If you send us feedback or ideas about Vocele, we may use them freely, without any obligation to you.</p>`,

@@ -69,7 +69,8 @@ export const PRIVACY: LegalDocument = {
       profile, your progress, and what you say and write in lessons.</li>
       <li>When you speak, the recording goes to our speech providers to be transcribed and scored. We keep the
       transcript and the score, not the recording, unless you choose to share a take with other learners.</li>
-      <li>AI providers process your content to run the coach. We do not use your content to train AI models.</li>
+      <li>AI providers process your content to run the coach. We do not use your voice recordings or anything that
+      identifies you to train AI models. We may use anonymised text to improve Vocele, including to train AI models.</li>
       <li>Only if you turn it on in ${MY_DATA}, AppsFlyer measures which ad brought you to Vocele, and it reads your
       advertising identifier only if you also allow tracking when iOS asks. We do not sell personal information for
       money.</li>
@@ -214,13 +215,19 @@ export const PRIVACY: LegalDocument = {
         ${MY_DATA} &rarr; AI processing. If you say no, the features that need these providers, such as talking with
         the coach and pronunciation scores, are switched off and show you how to turn them back on; everything else in
         the app keeps working.</p>
-        <p><strong>We do not use your content to train AI models.</strong></p>`,
+        <p><strong>We do not use your voice recordings or anything that identifies you to train AI models.</strong> We
+        may use anonymised text, which can no longer be linked to you, to improve Vocele, including to train AI
+        models.</p>`,
     },
     'automated-decisions': {
       title: 'Automated decisions and safety',
       content: `
         <p>Automated systems help us find abuse and harassment, and signs that someone may be at risk. They may limit
         what an account can do or suspend it, and they may show you crisis resources.</p>
+        <p>We also check the coach's own replies. If a reply breaks our rules, we replace it in your conversation with a
+        safe one. We keep the original reply and your message as a record of what happened and what we did, and we
+        erase that record when you delete your account. A copy of your data shows the decision and your message, not
+        the replaced reply.</p>
         <p>If an automated decision affects you, you can contest it: write to ${mailto()} and a person will review it.
         You can also give your point of view and ask us to explain the decision. This is your right under Article 22
         of the GDPR and the UK GDPR, and we give it to everyone.</p>`,
@@ -337,6 +344,7 @@ export const PRIVACY: LegalDocument = {
           ['Support and feedback', 'Contract, and our legitimate interest in fixing what you report'],
           ['Diagnostics and analytics in the app', 'Legitimate interests: keeping Vocele working and improving it'],
           ['Automated safety checks and abuse prevention', 'Legitimate interests: keeping learners safe and the service usable'],
+          ['Anonymising text to improve Vocele', 'Legitimate interests: improving the service without identifying anyone'],
           ['Country from your IP address', 'Legitimate interests: leaderboards and protecting the service'],
           ['The sign-in fingerprint after deletion', 'Legitimate interests: stopping the free allowance being claimed again and again'],
           ['Attribution and the advertising identifier', 'Consent: the switch in My Data, and Apple\'s tracking prompt'],
@@ -389,6 +397,7 @@ export const PRIVACY: LegalDocument = {
           ['Messages in conversations with the coach', `Up to ${RETENTION.conversationsDays} days after the conversation ends`],
           ['Conversation topics and the coach\'s summaries of them', 'While your account exists'],
           ['AI memories', 'Until you delete them, or your account'],
+          ['A message our safety checks flagged, the coach\'s reply to it and what we decided', 'While your account exists'],
           ['Exercise history', `Up to ${RETENTION.exerciseHistoryDays} days`],
           ['Support and feedback messages', `Up to ${RETENTION.supportMonths} months`],
           ['Crash reports, performance and usage events', `Up to ${RETENTION.diagnosticsMonths} months`],

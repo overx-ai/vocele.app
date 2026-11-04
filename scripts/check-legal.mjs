@@ -302,7 +302,10 @@ has(privacy.get('not-collected'), ['No precise location', 'GPS', 'country'], 'pr
 has(privacy.get('voice'), ['not kept after', '400 days', 'sign out', 'Arena', "Week's Best", 'generated handle', 'withdraw'], 'privacy #voice');
 has(privacy.get('conversations'), ['180 days', 'Settings → My Data', 'AI memories'], 'privacy #conversations');
 const ai = privacy.get('ai-processing');
-check(ai.includes('We do not use your content to train AI models'), 'privacy #ai-processing must say "We do not use your content to train AI models"');
+check(ai.includes('We do not use your voice recordings or anything that identifies you to train AI models') && ai.includes('anonymised text'), 'privacy #ai-processing must state the no-training promise and its anonymised-text exception');
+for (const [name, page] of [['privacy', privacy], ['terms', terms]]) {
+  check(!/(?:do not|don't) use (?:your content|it) to train/i.test(copyText(plainText(page.html))), `${name}: the old absolute no-training sentence is back`);
+}
 check(!/train (?:their|theirs)|contractually barred|providers (?:may|can) not use/i.test(copyText(plainText(privacy.html))), 'privacy: the provider no-training claim is OWNER_VERIFY and must not be published');
 has(privacy.get('automated-decisions'), [CONTACT, 'a person will review', 'Article 22', 'crisis resources'], 'privacy #automated-decisions');
 has(privacy.get('attribution'), ['AppsFlyer', 'Settings → My Data', 'Allow', 'IDFA', 'tracking as Apple defines it', 'sharing', 'Privacy & Security → Tracking'], 'privacy #attribution');
@@ -338,7 +341,9 @@ has(terms.get('refunds'), ['14 days', 'immediate', 'Apple'], 'terms #refunds');
 check(terms.raw('refunds').includes('href="https://reportaproblem.apple.com"'), "terms #refunds must link Apple's refund page");
 has(terms.get('moderation'), ['Automated', 'contest', 'a person will review'], 'terms #moderation');
 has(terms.get('ai-content'), ['inaccurate', 'not a certified exam', 'immigration', 'medical', 'legal', 'do not guarantee'], 'terms #ai-content');
-has(terms.get('your-content'), ['licence', 'withdraw', 'already happened', 'we do not use it to train AI models'], 'terms #your-content');
+has(terms.get('ai-content'), ['belongs to us', 'you assign to us', 'stay yours'], 'terms #ai-content ownership');
+has(terms.get('your-content'), ['remains yours', 'licence', 'sublicense', 'improve', 'anonymised', 'voice recordings', 'withdraw', 'already happened'], 'terms #your-content');
+has(terms.get('our-content'), ['output'], 'terms #our-content');
 has(terms.get('report'), ['infring', 'person will review', 'contest'], 'terms #report');
 has(terms.get('disclaimer'), ['"as is"', 'To the extent permitted by law'], 'terms #disclaimer');
 has(terms.get('liability'), [fact('LIABILITY_FLOOR'), '12 months', 'indirect', 'cannot be limited or excluded by law', 'death or personal injury', 'fraud', 'consumers'], 'terms #liability');
