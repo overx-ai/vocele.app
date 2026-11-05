@@ -3,15 +3,23 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import AppStoreBadge from '../components/AppStoreBadge.astro';
 import Clip from '../components/Clip.astro';
 import { useLang } from '../i18n';
+import { postsFor } from '../blog-posts';
+import { localePath } from '../site-pages';
 import { ORG, jsonLd, rowNumber, softwareApp } from '../site';
 import type { Lang } from '../data/types';
+
+const HOME_ARTICLES = 3;
 
 interface Props {
   lang: Lang;
 }
 
 const { lang } = Astro.props;
-const h = useLang(lang).t.home;
+const { t } = useLang(lang);
+const h = t.home;
+const articles = postsFor(lang)
+  .sort((a, b) => b.datePublished.localeCompare(a.datePublished))
+  .slice(0, HOME_ARTICLES);
 
 const structuredData = [
   jsonLd(ORG),
@@ -178,6 +186,17 @@ const topics = ([
     </div>
   </section>
 
+  {articles.length > 0 && (
+    <section class="articles">
+      <div class="container">
+        <h2><a href={localePath(lang, 'blog')}>{t.nav.blog}</a></h2>
+        <ul>
+          {articles.map((post) => <li><a href={localePath(lang, post.slug)}>{post.cardTitle}</a></li>)}
+        </ul>
+      </div>
+    </section>
+  )}
+
   <!-- ============ FINAL CTA — black poster ============ -->
   <section class="final-cta" id="download">
     <div class="container">
@@ -287,6 +306,14 @@ const topics = ([
   .topic-grid img { width: 100%; aspect-ratio: 1; border: var(--border-bold); transition: transform 0.2s ease, box-shadow 0.2s ease; }
   .topic-grid img:hover { transform: translate(calc(-4px * var(--flip)), -4px); box-shadow: calc(6px * var(--flip)) 6px 0 var(--sh); }
   .topic-grid span { font-family: var(--font-display); font-weight: 700; font-size: 0.8125rem; letter-spacing: 0.05em; text-transform: uppercase; }
+
+  /* ---- Articles ---- */
+  .articles { padding: 0 0 84px; }
+  .articles h2 { margin: 0 0 var(--space-lg); }
+  .articles h2 a { text-decoration: none; }
+  .articles ul { list-style: none; margin: 0; padding: 0; }
+  .articles li { border-top: var(--border-bold); }
+  .articles li a { display: flex; align-items: center; min-height: 56px; padding-block: var(--space-compact); font-weight: 600; }
 
   /* ---- Final CTA ---- */
   .final-cta { background: var(--color-ink); color: #f5f5f7; padding: 110px 0; }

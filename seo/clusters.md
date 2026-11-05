@@ -75,6 +75,11 @@ forgetting, and the competitors are WRD/Anki/Quizlet rather than tutors or conve
   cluster is a web-SEO and GEO play, not an ASO keyword play.
 - Notes from review: —
 
+## Internal linking
+
+- Layers: 3-5 inbound links at publish from the same cluster and locale; the home page links the 3 newest articles, same locale (`HOME_ARTICLES` in `src/views/Home.astro`); `/seo review` runs `links.py`.
+- `~/.claude/skills/seo/scripts/links.py` proposes phrases that pages at position 4-15 rank for, using first-party `gsc.py` only. Add a link only after the owner's OK, log it in `published.md`, and never rewrite a sentence to fit an anchor. The weekly job prints the count and edits nothing.
+
 ## Orphans (published pages with no cluster — assign or prune)
 - none
 

@@ -12,6 +12,7 @@ export const APP_STORE_URL: string | undefined = undefined;
 /** Bumped by hand when marketing-page copy changes (sitemap <lastmod>).
  *  A build-date stamp on every deploy is noise Google learns to discount. */
 export const PAGES_LASTMOD = '2026-09-02';
+export const HOME_LASTMOD = '2026-11-05';
 
 const SITE_URL = 'https://vocele.app';
 

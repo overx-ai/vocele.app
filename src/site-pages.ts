@@ -4,7 +4,7 @@
 
 import { BLOG_POSTS } from './blog-posts';
 import { VS_PAGES } from './vs-pages';
-import { PAGES_LASTMOD } from './site';
+import { HOME_LASTMOD, PAGES_LASTMOD } from './site';
 import { LEGAL_DATES } from './data/facts';
 import { DEFAULT_LANG, LIVE_LANGS, X_DEFAULT, localeOf, type Lang } from './i18n/locales';
 
@@ -21,7 +21,7 @@ export interface SitePage {
 const ENGLISH_ONLY = [DEFAULT_LANG];
 
 export const SITE_PAGES: SitePage[] = [
-  { slug: '', locales: LIVE_LANGS, lastmod: PAGES_LASTMOD },
+  { slug: '', locales: LIVE_LANGS, lastmod: HOME_LASTMOD },
   { slug: 'pricing', locales: LIVE_LANGS, lastmod: PAGES_LASTMOD },
   { slug: 'faq', locales: LIVE_LANGS, lastmod: '2026-10-08' },
   // Fair-use IS translated (unlike privacy/terms): it is a purchase-decision disclosure and each locale's pricing page
