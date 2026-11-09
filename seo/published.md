@@ -46,6 +46,7 @@ Maintained by `/seo write` (append) and `/seo review` (verdict column). Site liv
 | /ja/blog/l-to-r-no-hatsuon | ja | lとrの発音 | B | 2026-11-04 | | | | | | judge passed, no native read yet |
 | /ar/blog/afham-alinjliziya-wala-astatie-altahadduth | ar | لماذا افهم الانجليزي ولكن لا استطيع التحدث بطلاقة | A | 2026-11-04 | | | | | | judge passed, no native read yet |
 | /ar/blog/alfarq-bayn-p-wa-b-fi-alnutq | ar | الفرق بين p و b في النطق | B | 2026-11-04 | | | | | | judge passed, no native read yet |
+| /ru/blog/kak-perestat-boyatsya-govorit-na-anglijskom | ru | как перестать бояться говорить на английском | A | 2026-11-09 | | | | | | weekly run; judge 84 PASS, no native read yet. Inbound from /ru/blog/ponimayu-anglijskij-no-ne-mogu-govorit, /ru/blog/kak-ubrat-akcent-v-anglijskom, plus /ru home (3 newest) and /ru/blog index |
 
 ## Open issues found in review (2026-10-09)
 

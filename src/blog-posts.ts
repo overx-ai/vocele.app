@@ -176,6 +176,16 @@ export const BLOG_POSTS: BlogPost[] = [
     category: { label: "Произношение", gradient: 'accent' },
   },
   {
+    slug: "blog/kak-perestat-boyatsya-govorit-na-anglijskom",
+    locale: 'ru',
+    title: "Как перестать бояться говорить на английском",
+    cardTitle: "Как перестать бояться говорить",
+    description:
+      "Как перестать бояться говорить на английском: какой страх мешает вам, фразы на случай паузы и пять уровней практики с оценкой тревоги от 0 до 10.",
+    datePublished: '2026-11-09',
+    category: { label: "Языковой барьер", gradient: 'talk' },
+  },
+  {
     slug: "blog/jak-przelamac-bariere-jezykowa",
     locale: 'pl',
     title: "Jak przełamać barierę językową, gdy rozumiesz angielski",

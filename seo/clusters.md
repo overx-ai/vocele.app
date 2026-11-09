@@ -87,6 +87,7 @@ forgetting, and the competitors are WRD/Anki/Quizlet rather than tutors or conve
 
 ### ru
 - A (ru): pillar Понимаю английский, но не могу говорить: что делать, /ru/blog/ponimayu-anglijskij-no-ne-mogu-govorit (P-402, 2026-11-04)
+  - supporting: Как перестать бояться говорить на английском, /ru/blog/kak-perestat-boyatsya-govorit-na-anglijskom (2026-11-09)
 - B (ru): pillar Как убрать акцент в английском: с чего начать, /ru/blog/kak-ubrat-akcent-v-anglijskom (P-403 reframed, 2026-11-04)
 
 ### pl
