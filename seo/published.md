@@ -47,6 +47,7 @@ Maintained by `/seo write` (append) and `/seo review` (verdict column). Site liv
 | /ar/blog/afham-alinjliziya-wala-astatie-altahadduth | ar | لماذا افهم الانجليزي ولكن لا استطيع التحدث بطلاقة | A | 2026-11-04 | | | | | | judge passed, no native read yet |
 | /ar/blog/alfarq-bayn-p-wa-b-fi-alnutq | ar | الفرق بين p و b في النطق | B | 2026-11-04 | | | | | | judge passed, no native read yet |
 | /ru/blog/kak-perestat-boyatsya-govorit-na-anglijskom | ru | как перестать бояться говорить на английском | A | 2026-11-09 | | | | | | weekly run; judge 84 PASS, no native read yet. Inbound from /ru/blog/ponimayu-anglijskij-no-ne-mogu-govorit, /ru/blog/kak-ubrat-akcent-v-anglijskom, plus /ru home (3 newest) and /ru/blog index |
+| /pl/blog/rozmowa-kwalifikacyjna-po-angielsku | pl | rozmowa kwalifikacyjna po angielsku pytania i odpowiedzi | C | 2026-11-16 | | | | | | weekly run; judge 81 PASS, no native read yet. First pl C page. Inbound from /pl/blog/jak-przelamac-bariere-jezykowa, /pl/blog/polski-akcent-w-angielskim, plus /pl home (3 newest) and /pl/blog index |
 
 ## Open issues found in review (2026-10-09)
 

@@ -93,7 +93,7 @@ forgetting, and the competitors are WRD/Anki/Quizlet rather than tutors or conve
 ### pl
 - A (pl): pillar Jak przełamać barierę językową, gdy rozumiesz angielski, /pl/blog/jak-przelamac-bariere-jezykowa
 - B (pl): pillar Polski akcent w angielskim: które błędy naprawdę szkodzą, /pl/blog/polski-akcent-w-angielskim
-- C (pl): planned, ile kosztują korepetycje z angielskiego
+- C (pl): Rozmowa kwalifikacyjna po angielsku: pytania i odpowiedzi, /pl/blog/rozmowa-kwalifikacyjna-po-angielsku (2026-11-16); pillar planned: ile kosztują korepetycje z angielskiego
 - D (pl): planned, small talk i spotkania po angielsku
 
 ### pt

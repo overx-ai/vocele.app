@@ -206,6 +206,16 @@ export const BLOG_POSTS: BlogPost[] = [
     category: { label: "Wymowa", gradient: 'accent' },
   },
   {
+    slug: "blog/rozmowa-kwalifikacyjna-po-angielsku",
+    locale: 'pl',
+    title: "Rozmowa kwalifikacyjna po angielsku: pytania i odpowiedzi",
+    cardTitle: "Rozmowa kwalifikacyjna po angielsku",
+    description:
+      "Rozmowa kwalifikacyjna po angielsku: najczęstsze pytania z krótkimi odpowiedziami, zdania na chwilę, gdy brakuje słowa, i kalki, które rekruter słyszy.",
+    datePublished: '2026-11-16',
+    category: { label: "Praca", gradient: 'talk' },
+  },
+  {
     slug: "blog/entendo-ingles-mas-nao-consigo-falar",
     locale: 'pt',
     title: "Entendo inglês, mas não consigo falar: por que você trava",
