@@ -1,0 +1,175 @@
+---
+import ArticleLayout from '../../../layouts/ArticleLayout.astro';
+import { PLAN_ALLOWANCE } from '../../../data/facts';
+
+const DAYS_PER_MONTH = 30;
+const [coreTalk] = PLAN_ALLOWANCE.talkPerMonth;
+const coreTalkPerDay = Math.round(coreTalk / DAYS_PER_MONTH);
+
+const faq = [
+  {
+    q: 'Por que tenho vergonha de falar inglês?',
+    a: 'Quase sempre ela vem do medo de ser avaliado. Anos de prova ensinaram que cada erro custa ponto, e a cabeça leva essa regra para qualquer conversa. A saída é praticar a fala sem plateia, antes de estudar mais gramática.',
+  },
+  {
+    q: 'Como falar inglês sem medo de errar?',
+    a: 'Sem nenhum medo, quase ninguém fala. O objetivo realista é errar e continuar. Decore duas ou três frases de saída para quando der branco e treine primeiro onde um erro não tem consequência. Quando o erro deixa de virar silêncio, o medo perde boa parte da força.',
+  },
+  {
+    q: 'Grupo de conversação ajuda a perder o medo?',
+    a: 'Ajuda quem já fala com tranquilidade com uma pessoa só. Para quem trava, o grupo é o último degrau. Antes dele, vale passar por conversas curtas com uma pessoa só. Antes de ir, pergunte se o mediador corrige no meio da fala ou anota os erros para o final.',
+  },
+  {
+    q: 'Falar inglês sozinho ajuda?',
+    a: 'Ajuda no começo, principalmente a se acostumar com a própria voz em inglês. Grave um áudio de um minuto por dia contando o que fez. Sozinho, porém, é difícil perceber os próprios erros, e não dá para treinar a resposta a alguém, então trate o áudio como o primeiro degrau do plano.',
+  },
+  {
+    q: 'Quanto tempo leva para perder o medo de falar inglês?',
+    a: 'Ninguém consegue prometer um prazo, porque depende de quantas vezes por semana você fala e de quão forte é o medo. Dá para medir o avanço: anote de 0 a 10 o nervosismo antes de cada conversa. Se a média cai em duas ou três semanas, o plano está funcionando.',
+  },
+];
+---
+<ArticleLayout slug="blog/como-perder-o-medo-de-falar-ingles" faq={faq}>
+  <p>
+    <strong>Resposta curta:</strong> o medo de falar inglês diminui com repetição. Comece falando
+    sozinho, passe para uma pessoa que não julga, depois para um desconhecido com tema combinado
+    e para conversas curtas do dia a dia. Só no fim encare o grupo ou a call do trabalho.
+    Dê uma nota de 0 a 10 ao nervosismo antes de cada conversa e suba de degrau quando a nota cair.
+  </p>
+
+  <p>
+    Quando defini para quem seria o Vocele, a primeira palavra que anotei foi vergonha, bem antes
+    de gramática. Eu pensava em quem entende a reunião inteira, sabe o que responder e
+    fica quieto mesmo assim. Por isso este texto quase não fala de regra de inglês e vai direto para uma ordem
+    de treino.
+  </p>
+  <p>
+    As dicas que circulam por aí acertam o diagnóstico: errar faz parte, fale sozinho, tenha
+    contato diário com a língua. Só que ninguém diz o que fazer primeiro, nem
+    como saber que chegou a hora do passo seguinte.
+  </p>
+
+  <h2>De que exatamente você tem medo</h2>
+  <p>
+    Em 1986, Elaine Horwitz, Michael Horwitz e Joann Cope publicaram uma
+    <a href="https://doi.org/10.2307/327317">escala de ansiedade na aula de língua estrangeira</a>
+    com 33 afirmações. Eles separaram essa ansiedade em três partes: apreensão na hora de se
+    comunicar, ansiedade de prova e medo de avaliação negativa. Na vida de um brasileiro, as três
+    aparecem mais ou menos assim:
+  </p>
+  <ul>
+    <li><strong>O branco.</strong> Você começa a frase e a palavra some. A pausa parece durar um minuto.</li>
+    <li><strong>A prova.</strong> Qualquer pergunta em inglês lembra a chamada oral da escola, com nota no final.</li>
+    <li><strong>O mico.</strong> Você imagina o que os outros vão pensar do erro, do sotaque, do <em>"I have 30 years"</em>.</li>
+  </ul>
+  <p>
+    Vale descobrir qual das três pesa mais no seu caso. Frases prontas resolvem bem o branco. A
+    prova e o mico só cedem com prática, de preferência começando sem ninguém olhando.
+  </p>
+
+  <h2>Tenha três saídas prontas para o branco</h2>
+  <p>
+    O branco assusta porque parece não ter saída. Com uma frase decorada, a pausa vira
+    parte da conversa:
+  </p>
+  <ul>
+    <li><em>Hang on, how do I put this?</em> Avisa que está pensando e evita que alguém fale por cima.</li>
+    <li><em>I don't know the word, but it's like...</em> Dá para descrever a coisa em vez de travar no nome.</li>
+    <li><em>Let me say that again, more simply.</em> Recomeça a frase do zero, mais curta.</li>
+  </ul>
+  <p>
+    Repita cada uma em voz alta umas vinte vezes, até sair sem pensar. No meio de uma conversa
+    não dá tempo de montar frase nenhuma, então ela precisa estar pronta antes.
+  </p>
+
+  <h2>Suba a escada um degrau por vez</h2>
+  <p>
+    Cada degrau acrescenta uma dificuldade nova ao anterior:
+  </p>
+  <ol>
+    <li><strong>Sozinho.</strong> Mande para você mesmo um áudio de um minuto no WhatsApp contando o que fez ontem. Pode apagar depois.</li>
+    <li><strong>Uma pessoa que não julga.</strong> Um treinador de IA ou alguém de casa, sobre um assunto que você domina.</li>
+    <li><strong>Um desconhecido, com tema combinado.</strong> Uma aula experimental com professor ou um parceiro de troca de idiomas.</li>
+    <li><strong>Conversas curtas de verdade.</strong> Pedir um café no aeroporto, ajudar um turista perdido, ligar para um atendimento em inglês.</li>
+    <li><strong>Grupo.</strong> O clube de conversação, a daily com o time de fora, a call com cliente.</li>
+  </ol>
+  <p>
+    Antes de cada conversa, dê uma nota de 0 a 10 para o frio na barriga. Depois, anote em uma
+    linha como foi de verdade. A minha regra é simples: três notas seguidas de 3 ou menos no mesmo
+    degrau, você sobe. Passou de 7 no degrau novo, volte um e fique mais uns dias. Voltar faz
+    parte do plano.
+  </p>
+  <p>
+    A anotação tem outra função. O medo quase sempre prevê um desastre bem pior do que a realidade, e
+    depois de duas semanas a prova está no papel, com a sua letra.
+  </p>
+  <p>
+    Na minha opinião, o degrau 4 é o mais subestimado. A conversa é curta, o roteiro é previsível
+    e você nunca mais vai ver aquela pessoa. Fica no meio do caminho entre a aula e a reunião. Já o
+    conselho de entrar direto num grupo de conversação atrapalha justamente quem tem mais
+    medo, porque o primeiro encontro vira prova de que não tem jeito.
+  </p>
+
+  <h2>O brasileiro na call</h2>
+  <p>
+    Muita gente fala com o gringo numa boa e trava quando outro brasileiro entra na reunião. Faz
+    sentido. O americano está prestando atenção no que você diz. O colega brasileiro reconhece cada
+    erro, porque cometeu os mesmos, e de repente você está de novo na chamada oral.
+  </p>
+  <p>
+    Nessa situação, ajuda:
+  </p>
+  <ul>
+    <li>Combine com um colega de confiança que vocês vão falar só em inglês um com o outro na reunião, sem corrigir ninguém.</li>
+    <li>Fale nos primeiros minutos. Quanto mais você espera, maior a plateia fica na sua cabeça.</li>
+    <li>Prepare a primeira frase inteira, no formato o que fiz, o que encontrei, o que preciso: <em>I went through the report, two numbers don't match, and I need Carla to check the second one.</em></li>
+  </ul>
+  <p>
+    E o colega, muito provavelmente, está ocupado demais com a própria fala para reparar na sua.
+  </p>
+
+  <h2>O sotaque pode ficar</h2>
+  <p>
+    Parte do medo vem da ideia de que o sotaque brasileiro é feio ou difícil de entender. A pesquisa
+    sobre fala em segunda língua separa essas coisas há décadas. Em uma
+    <a href="https://doi.org/10.1075/jslp.20038.mun">revisão de 2020</a>, Murray Munro e Tracey
+    Derwing resumem o que vários estudos desde o trabalho deles de 1995 encontraram: ter sotaque,
+    ser fácil de acompanhar e ser entendido são dimensões em parte independentes. Muita gente com
+    sotaque forte é entendida sem esforço.
+  </p>
+  <p>
+    Atrapalham mesmo alguns sons específicos, aqueles que fazem o outro perguntar <em>"sorry?"</em>.
+    Para o brasileiro, um dos mais comuns é a vogal que aparece depois da consoante final. Se você
+    conta muita coisa no passado, comece pela
+    <a href="/pt/blog/pronuncia-do-ed-em-ingles">pronúncia do -ed em inglês</a>. O resto do
+    sotaque faz parte da voz de cada um e pode ficar onde está.
+  </p>
+  <p>
+    Se a sua trava é entender tudo e não conseguir montar a frase a tempo, o texto sobre
+    <a href="/pt/blog/entendo-ingles-mas-nao-consigo-falar">entender inglês e não conseguir falar</a>
+    explica de onde vem essa trava.
+  </p>
+
+  <h2>Como o Vocele vai ajudar no degrau 2</h2>
+  <p>
+    O Vocele foi pensado para o segundo degrau, o da pessoa que não julga. Você vai conversar por
+    voz com um treinador de IA, a Luna ou o Lorenzo, em um de três modos: com apoio completo, só
+    com correções ou em imersão. Se o medo estiver alto, comece pelo apoio completo.
+  </p>
+  <p>
+    O erro vai aparecer marcado na própria frase, com a correção logo abaixo. Quando desenhei
+    a gamificação do app, deixei de fora, de propósito, o ranking com desconhecidos e aquelas notificações
+    que fazem a gente se sentir culpado por não ter praticado. A competição vai ser só entre amigos. Um app que quer tirar o medo de avaliação não
+    deveria montar uma prova pública.
+  </p>
+  <p>
+    O tempo de conversa é contado em minutos. No plano Core são {coreTalk} minutos por mês, cerca
+    de {coreTalkPerDay} por dia: o suficiente para a prática curta e diária deste plano. Conversa de
+    uma hora todo dia não cabe. Os limites de cada plano estão na <a href="/pt/fair-use">página de uso justo</a>.
+  </p>
+  <p>
+    O app ainda não está na App Store e vai funcionar só no iPhone. Contas gratuitas vão poder testar
+    com acesso limitado, e o que está incluído vai aparecer no próprio app. Os planos pagos vão ter 3 dias
+    de teste grátis. Os detalhes estão na <a href="/pt/pricing">página de preços</a>.
+  </p>
+</ArticleLayout>

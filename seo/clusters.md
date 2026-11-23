@@ -98,6 +98,7 @@ forgetting, and the competitors are WRD/Anki/Quizlet rather than tutors or conve
 
 ### pt
 - A (pt): Pillar: Entendo inglês mas não consigo falar, /pt/blog/entendo-ingles-mas-nao-consigo-falar (P-302, 2026-11-04)
+  - supporting: Como perder o medo de falar inglês, /pt/blog/como-perder-o-medo-de-falar-ingles (2026-11-23)
 - B (pt): Pronúncia do -ed em inglês, /pt/blog/pronuncia-do-ed-em-ingles (2026-11-04); pillar erros de pronúncia planned (P-303)
 
 ### de

@@ -236,6 +236,16 @@ export const BLOG_POSTS: BlogPost[] = [
     category: { label: "Pronúncia", gradient: 'accent' },
   },
   {
+    slug: "blog/como-perder-o-medo-de-falar-ingles",
+    locale: 'pt',
+    title: "Como perder o medo de falar inglês: um plano em degraus",
+    cardTitle: "Como perder o medo de falar inglês",
+    description:
+      "Como perder o medo de falar inglês: frases para quando dá branco, cinco degraus com nota de 0 a 10 e o que fazer quando há um brasileiro na call.",
+    datePublished: '2026-11-23',
+    category: { label: "Confiança", gradient: 'talk' },
+  },
+  {
     slug: "blog/englisch-verstehen-aber-nicht-sprechen",
     locale: 'de',
     title: "Englisch verstehen, aber nicht sprechen: Woran es liegt",
