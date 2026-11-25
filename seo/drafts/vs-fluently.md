@@ -33,7 +33,7 @@ internal_links:
   - /vs/praktika
   - /pricing
 hero_prompt: "n/a"
-status: "published 2026-09-02; refreshed 2026-11-02"
+status: "published 2026-09-02; refreshed 2026-11-02, 2026-11-26"
 refresh_2026-11-02:
   trigger: "GSC 28d: 30 impr, pos 7.6, 0 clicks (16 impr on brand 'vocele'). Google Autocomplete demand: fluently app price / is free / free or paid / ai cost / getfluently pricing / review reddit"
   title: "Vocele vs Fluently: Which AI Speaking Coach Fits You -> Fluently App Review 2026: Price and Limits"
@@ -50,6 +50,28 @@ refresh_2026-11-02:
     - {url: "https://getfluently.app/", supports: "scoring axes; '20x cheaper'; 'no daily or monthly limits'; games, interview practice, daily AI calls, sound-by-sound feedback"}
     - {url: "https://getfluently.app/about", supports: "15 languages; 2023 desktop coach for real work calls; comprehension axis"}
     - {url: "https://www.trustpilot.com/review/getfluently.app", supports: "4.8, 2,616, 92% 5-star; 100 min/week cap reports; cancellation difficulty"}
+refresh_2026-11-26:
+  trigger: "GSC 28d to 11-23: 838 impr (273 in AI features), 4 clicks, pos 6.7, CTR 0.5%. Top queries all price: fluently pricing 43 (8.1), fluently price 40 (7.6), how much does fluently cost 21, fluently app price 20, how much is fluently 17, fluently cost 17"
+  title: "Fluently App Review 2026: Price and Limits -> Fluently Price 2026: Plans, Free Version and Weekly Limit"
+  changes:
+    - "Price answer in the first 55 words; price table first; per-month equivalents; Is it free and Weekly limit H2s; refunds"
+    - "Stale claims fixed: weekly $6.99 gone; FAQ 'no daily or monthly limits' line gone from getfluently.app; 15 -> 22 languages; homepage no longer lists sound-by-sound or games section; PracticeMe one-tutor bullet dropped"
+    - "'unlimited' avoided everywhere (tests/site.test.js bans the word on any page); Pro described as 'without the weekly cap'"
+    - "A '$12.99/month' figure on the App Store page belongs to another app's description (GrowMe, in the related-apps shelf); not used"
+  judge: "88 PASS (fixes 1-9 and 11 applied; 3 applied without the beginner-content reviewer claim)"
+  sources:
+    - url: https://apps.apple.com/us/app/fluently-ai-language-learning/id6683289805
+      supports: "IAPs Weekly $9.99/$19.99, 3-Months $44.99/$89.99, Annual $89.99/$179.99, Monthly $24.99, Course Workplace English $19.99; all named Fluently Premium; 4.8 from 6,742; version 78 (fetched 2026-11-26)"
+    - url: https://play.google.com/store/apps/details?id=app.getfluently.app
+      supports: "4.7, 46.7K reviews, 1M+; developer replies 2026-10-30, 11-08, 11-13, 11-24, 11-25: Premium includes 100 speaking minutes per week, Pro optional unlimited upgrade, weekly reset, some offers include a 7-day trial, refunds within 30 days web / 7 days Google Play under 15 min of speaking; assessment and results free. Reviews 10-08, 10-28, 11-11 (third day), 11-15 (3-star, 'basic'), results-behind-paywall review (fetched 2026-11-26)"
+    - url: https://getfluently.app/
+      supports: "FAQ: free AI speaking assessment and games, tutor conversations with Premium, 'built for non-native English speakers who already know the basics', '20x cheaper'; Hold Your Ground and Close Deals; For Teams; /pricing is 404 (fetched 2026-11-26)"
+    - url: https://getfluently.app/about
+      supports: "22 languages; interface en/ja/pt/es/fr; pronunciation down to individual sounds; scored across pronunciation, fluency, vocabulary, grammar, coherence; 2023 desktop call coach (fetched 2026-11-26)"
+    - url: https://help.getfluently.app/
+      supports: "How much does the app cost: pricing may vary by country or region (Google snippet 2026-11-26, page dated 2025-08-30)"
+    - url: https://www.trustpilot.com/review/getfluently.app
+      supports: "4.8 from 2,783 reviews; AI summary: reviewers love how natural the conversation feels (read in browser 2026-11-26)"
 ---
 
 <p>Fluently is a paid AI speaking tutor that started as an English coach for work calls. It's $24.99 a month or $89.99 a year and up on the US App Store, rated 4.8. Only the opening assessment is free, and reviewers report a weekly cap its FAQ doesn't mention. It suits professionals who already talk; Vocele suits people who freeze.</p>
